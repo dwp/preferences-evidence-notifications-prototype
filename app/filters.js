@@ -8,5 +8,3 @@ const addFilter = govukPrototypeKit.views.addFilter
 
 // Add your filters here
 
-// alt-formats filters
-require('./views/alternative-formats/_filters')();
