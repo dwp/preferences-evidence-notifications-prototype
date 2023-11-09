@@ -1,0 +1,144 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-m">November - December 2023</span>
+        Round 1 UR prototypes
+      </h1>
+
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+
+      <div class="govuk-inset-text">
+        The Round 1 user research was conducted by Daniel de la Rubia and the interaction designs built by David Doherty. The team was led by Matt Murphy. They are happy to answer any questions you may have.
+      </div>
+
+    </div>
+  </div>
+
+  <div class="govuk-!-padding-bottom-4"></div>
+
+  <div class="govuk-grid-row govuk-!-padding-3">
+    <div class="width-container govuk-!-padding-4" style="border-radius:10px; background-color:#f3f2f1">
+      <div class="govuk-!-padding-bottom-2"></div>
+
+
+<table class="govuk-table">
+  <caption class="govuk-table__caption govuk-table__caption--m">Customer view: locating how to change DWP details</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header app-custom-class">Name</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Description</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Status</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Action</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">1A</th>
+      <td class="govuk-table__cell">Control prototype based on the current design built by the Customer View team (November 2023). No additional features have been added by the PEN team. </td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag">
+        Ready
+      </strong>
+    </td>
+    <td class="govuk-table__cell"><a href="1a/homepage.html" class="govuk-link">View</a></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">1B</th>
+      <td class="govuk-table__cell">This design experiments with adding a 'Change personal details' link onto the Customer View Home screen.</td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag">
+          Ready
+        </strong>
+    </td>
+    <td class="govuk-table__cell"><a href="1b/homepage.html" class="govuk-link">View</a></td>
+    </tr>    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">1C</th>
+      <td class="govuk-table__cell">This design embeds 'change' links within the Customer View 'Personal details' screen. </td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag">
+          Ready
+        </strong>
+    </td>
+    <td class="govuk-table__cell"><a href="1c/homepage.html" class="govuk-link">View</a></td>
+    </tr>    
+  </tbody>
+</table>
+
+</div>
+</div>
+
+  <div class="govuk-!-padding-bottom-2"></div>
+
+  <div class="govuk-grid-row govuk-!-padding-3">
+    <div class="width-container govuk-!-padding-4" style="border-radius:10px; background-color:#f3f2f1">
+      <div class="govuk-!-padding-bottom-2"></div>
+
+
+<table class="govuk-table">
+  <caption class="govuk-table__caption govuk-table__caption--m">Customer view: locating communication preference (Alternative Formats)</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header app-custom-class">Name</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Description</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Status</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Action</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">1D</th>
+      <td class="govuk-table__cell">This design adds a 'View your communication preferences' link onto the onto the Customer View Home screen.</td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-tag--blue">
+        Pending
+      </strong>
+    </td>
+    <td class="govuk-table__cell"><a href="1d/homepage.html" class="govuk-link">View</a></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">1E</th>
+      <td class="govuk-table__cell">This design adds a 'View your communication preferences' section within the Customer View 'Personal details' screen.</td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-tag--blue">
+          Pending
+        </strong>
+    </td>
+    <td class="govuk-table__cell"><a href="1e/homepage.html" class="govuk-link">View</a></td>
+    </tr>
+    <!-- <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">1F</th>
+      <td class="govuk-table__cell">This design embeds 'change' links within the Customer View 'Personal details' screen. </td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-tag--grey">
+          Pending
+        </strong>
+    </td>
+    <td class="govuk-table__cell"><a href="1f/homepage.html" class="govuk-link">View</a></td>
+    </tr>     -->
+     
+  </tbody>
+</table>
+
+</div>
+</div>
+
+
+{% endblock %}
