@@ -5,24 +5,25 @@
 {% endblock %}
 
 {% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
 
-{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
-
-{{
-  hmrcLanguageSelect({
-    language: 'en',
-    en: {
-      href: '?en'
-    },
-    cy: {
-      href: '?cy'
-    }
-  })
-}}
-
+  {{
+    hmrcLanguageSelect({
+      language: 'en',
+      en: {
+        href: '?en'
+      },
+      cy: {
+        href: '?cy'
+      }
+    })
+  }}
+  
 
 {% endblock %}
-
 
 {% block content %}
 
