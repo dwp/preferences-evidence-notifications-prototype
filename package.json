@@ -5,11 +5,13 @@
     "start": "govuk-prototype-kit start"
   },
   "dependencies": {
+    "@dwp/dwp-frontend": "^2.4.0",
     "@govuk-prototype-kit/common-templates": "1.2.2",
     "@govuk-prototype-kit/step-by-step": "2.2.2",
     "@govuk-prototype-kit/task-list": "1.1.2",
     "govuk-frontend": "4.7.0",
-    "govuk-prototype-kit": "13.13.2",
-    "hmrc-frontend": "5.55.0"
+    "govuk-prototype-kit": "13.15.0",
+    "hmrc-frontend": "5.56.0",
+    "jquery": "3.7.1"
   }
 }
