@@ -1,0 +1,124 @@
+.gem-c-big-number {
+  margin-bottom: 15px;
+  color: #0b0c0c
+}
+
+@media print {
+  .gem-c-big-number {
+      color: #000
+  }
+}
+
+.gem-c-big-number__value {
+  font-family: "GDS Transport",arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 700;
+  line-height: 1;
+  font-size: 80px;
+  font-size: 5rem
+}
+
+@media print {
+  .gem-c-big-number__value {
+      font-family: sans-serif
+  }
+}
+
+.gem-c-big-number__label {
+  font-family: "GDS Transport",arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 700;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.25
+}
+
+@media print {
+  .gem-c-big-number__label {
+      font-family: sans-serif
+  }
+}
+
+@media (min-width: 40.0625em) {
+  .gem-c-big-number__label {
+      font-size:19px;
+      font-size: 1.1875rem;
+      line-height: 1.3157894737
+  }
+}
+
+@media print {
+  .gem-c-big-number__label {
+      font-size: 14pt;
+      line-height: 1.15
+  }
+}
+
+.gem-c-big-number__label:before {
+  content: "";
+  display: block
+}
+
+.gem-c-big-number__link {
+  display: inline-block;
+  text-decoration: none
+}
+
+.gem-c-big-number__link .gem-c-big-number__value--decorated {
+  text-decoration: underline;
+  text-decoration-thickness: max(1px, .0625rem);
+  text-underline-offset: .1em
+}
+
+.gem-c-big-number__link .gem-c-big-number__value--decorated:not(:hover):not(:active) {
+  text-decoration: none
+}
+
+.gem-c-big-number__link .gem-c-big-number__label {
+  text-decoration: underline;
+  text-decoration-thickness: max(1px, .0625rem);
+  text-underline-offset: .1em
+}
+
+.gem-c-big-number__link:hover .gem-c-big-number__label,.gem-c-big-number__link:hover .gem-c-big-number__value--decorated,.gem-c-big-number__link:active .gem-c-big-number__label,.gem-c-big-number__link:active .gem-c-big-number__value--decorated {
+  text-decoration-thickness: max(3px, .1875rem, .12em);
+  -webkit-text-decoration-skip-ink: none;
+  text-decoration-skip-ink: none;
+  -webkit-text-decoration-skip: none;
+  text-decoration-skip: none
+}
+
+.gem-c-big-number__link:focus .gem-c-big-number__label,.gem-c-big-number__link:focus .gem-c-big-number__value--decorated,.gem-c-big-number__link:focus:hover .gem-c-big-number__label,.gem-c-big-number__link:focus:hover .gem-c-big-number__value--decorated {
+  text-decoration: none
+}
+
+.gem-c-big-number__suffix {
+  vertical-align: middle
+}
+
+.colleague-view-upcomming-payment-benefit {
+  border: 1px solid #b1b4b6;
+  /*margin-top: 30px;*/
+  margin-bottom: 30px;
+  padding: 20px;
+  padding-bottom: 0px;
+}
+
+
+// use for grey background as container or section
+.colleague-view-container-light-grey {
+
+  padding: 30px;
+  background-color: #f3f2f1;
+
+}
+
+.colleague-view-container-light-grey div div.govuk-grid-row { margin-bottom: 10px;}
+.colleague-view-container-light-grey div.govuk-grid-row:last-child { margin-bottom: 0px;}
+.colleague-view-container-light-grey div.govuk-grid-row:last-child div h3 { margin-bottom: 0px;}
+.colleague-view-container-light-grey div:last-child div:last-child h3 {
+
+      margin-bottom: 0px;
+}
