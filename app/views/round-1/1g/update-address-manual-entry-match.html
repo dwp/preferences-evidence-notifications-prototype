@@ -1,0 +1,105 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  {% include "round-1/components/key-details.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+<div class="govuk-form-group">
+  <div class="govuk-notification-banner" role="region"
+  aria-labelledby="govuk-notification-banner-title"
+  data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Important
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <p class="govuk-notification-banner__heading">We have found an address that matches your input: <br>
+      <dd class="govuk-summary-list__value">
+      55 Windsor Street, South Gosforth, <br> Newcastle upon Tyne, NE3 1YL <br>
+    </dd>
+    <td class="govuk-table__cell">
+      <strong class="govuk-tag govuk-tag--green">
+  Residential
+</strong>
+    </td> </p>
+    
+  </div>
+</div>
+  <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        Do you want to use the address above?
+      </h1>
+    </legend>
+   <div id="changed-name-hint" class="govuk-hint">
+      If you select 'Yes', we will update your input from the previous screen with the address above instead.
+    </div>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="permanent" name="type" type="radio" value="true">
+        <label class="govuk-label govuk-radios__label" for="permanent">
+          Yes, update my input
+        </label>
+        <!-- <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+          Select Yes, if you want us to update your input.
+        </div> -->
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="temporary" name="type" type="radio" value="false">
+        <label class="govuk-label govuk-radios__label" for="temporary">
+          No, this is not the address I want to use
+        </label>
+        <!-- <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+          The customer is expecting to live at this address for less than 13 weeks.
+        </div> -->
+      </div>
+    </div>
+    </fieldset>
+  <br> 
+  <br>
+
+  <button class="govuk-button" value= "true" data-module="govuk-button" onclick="check()">Continue</button>
+</div>
+    
+<script>
+  function check3() {
+    console.log(document.getElementById("yes"))
+
+    if (document.getElementById("address-line-1").value && document.getElementById("address-town").value && document.getElementById("address-postcode").value ) {
+      window.location.href = "/agent/update-address/address-type-manual.html"
+    } else {
+      window.location.href = "/agent/update-address/manual-entry-match-error.html"
+    }
+
+  }
+</script>
+
+<!-- {{ govukButton({
+  text: "Continue",
+  href: "/agent/update-address/address-type.html"
+}) }} -->
+
+            </form>
+
+        </div>
+
+</div>
+
+{% endblock %}
