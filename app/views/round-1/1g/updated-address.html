@@ -1,0 +1,88 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  {% include "round-1/components/key-details.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <div class="govuk-notification-banner govuk-notification-banner--success" role="region"
+    aria-labelledby="govuk-notification-banner-title"
+    data-module="govuk-notification-banner">
+    <div class="govuk-notification-banner__header">
+      <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+        Success
+      </h2>
+    </div>
+    <div class="govuk-notification-banner__content">
+      <h3 class="govuk-notification-banner__heading">
+        Address update complete
+      </h3>
+      <p class="govuk-body">You have succesfully updated <strong>Chris Fox</strong>'s postal address.</p>
+    </div>
+    </div>
+
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      
+          <h1 class="govuk-fieldset__heading">
+            Customer's postal address information
+          </h1>
+        </legend>
+      </fieldset>
+
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+{%- from "govuk/components/tag/macro.njk" import govukTag -%}
+
+
+
+
+<table class="govuk-table">
+<tbody class="govuk-table__body">
+<tr class="govuk-table__row">
+  <th scope="row" class="govuk-table__header">Current postal address</th>
+  <td class="govuk-table__cell">
+    5 Wellington House,<br> 
+    Windsor Street,<br>
+    South Gosforth,<br>
+    Newcastle upon Tyne,<br>
+    NE3 1YL
+  </td>
+</tbody>
+</table>
+
+
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+<div class="govuk-button-group">
+{{ govukButton({
+text: "Continue",
+href: "personal-details.html"
+}) }}
+</div>
+
+  </div>
+
+</div>
+</main>
+</div>
+
+{% endblock %}
