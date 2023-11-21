@@ -32,16 +32,15 @@
   <div class="govuk-notification-banner__content">
     <p class="govuk-notification-banner__heading">We have found an address that matches your input: <br>
       <dd class="govuk-summary-list__value">
-      55 Windsor Street, South Gosforth, <br> Newcastle upon Tyne, NE3 1YL <br>
+        55 Windsor Street, 
+        <br>South Gosforth, 
+      <br>Newcastle upon Tyne,
+      <br>NE3 1YL
     </dd>
-    <td class="govuk-table__cell">
-      <strong class="govuk-tag govuk-tag--green">
-  Residential
-</strong>
-    </td> </p>
-    
+</p>
   </div>
 </div>
+
   <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
       <h1 class="govuk-fieldset__heading">
@@ -75,7 +74,7 @@
   <br> 
   <br>
 
-  <button class="govuk-button" value= "true" data-module="govuk-button" onclick="check()">Continue</button>
+  <button class="govuk-button" value= "true" data-module="govuk-button" onclick="check3()">Continue</button>
 </div>
     
 <script>
@@ -83,17 +82,17 @@
     console.log(document.getElementById("yes"))
 
     if (document.getElementById("address-line-1").value && document.getElementById("address-town").value && document.getElementById("address-postcode").value ) {
-      window.location.href = "/agent/update-address/address-type-manual.html"
+      window.location.href = "/round-1/1g/postal-address-information-new.html"
     } else {
-      window.location.href = "/agent/update-address/manual-entry-match-error.html"
+      window.location.href = "/round-1/1g/manual-entry-match-error.html"
     }
 
-  }
+
 </script>
 
 <!-- {{ govukButton({
   text: "Continue",
-  href: "/agent/update-address/address-type.html"
+  href: "/round-1/1g/postal-address-information-new.html"
 }) }} -->
 
             </form>
