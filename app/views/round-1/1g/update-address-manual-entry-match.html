@@ -38,67 +38,66 @@
       <br>NE3 1YL
     </dd>
 </p>
-  </div>
+</div>
 </div>
 
-  <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
-    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-      <h1 class="govuk-fieldset__heading">
-        Do you want to use the address above?
-      </h1>
-    </legend>
-   <div id="changed-name-hint" class="govuk-hint">
-      If you select 'Yes', we will update your input from the previous screen with the address above instead.
-    </div>
-    <div class="govuk-radios" data-module="govuk-radios">
-      <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="permanent" name="type" type="radio" value="true">
-        <label class="govuk-label govuk-radios__label" for="permanent">
-          Yes, update my input
-        </label>
-        <!-- <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
-          Select Yes, if you want us to update your input.
-        </div> -->
-      </div>
-      <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="temporary" name="type" type="radio" value="false">
-        <label class="govuk-label govuk-radios__label" for="temporary">
-          No, this is not the address I want to use
-        </label>
-        <!-- <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
-          The customer is expecting to live at this address for less than 13 weeks.
-        </div> -->
-      </div>
-    </div>
-    </fieldset>
-  <br> 
-  <br>
-
-  <button class="govuk-button" value= "true" data-module="govuk-button" onclick="check()">Continue</button>
-</div>
-    
-<script>
-  function check3() {
-    console.log(document.getElementById("yes"))
-
-    if (document.getElementById("address-line-1").value && document.getElementById("address-town").value && document.getElementById("address-postcode").value ) {
-      window.location.href = "/round-1/1g/postal-address-information-new.html"
-    } else {
-      window.location.href = "/round-1/1g/manual-entry-match-error.html"
-    }
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
 
 
-</script>
 
-<!-- {{ govukButton({
-  text: "Continue",
-  href: "/round-1/1g/postal-address-information-new.html"
-}) }} -->
-
-            </form>
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset" aria-describedby="Do-you-want-to-use-the-address">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <h1 class="govuk-fieldset__heading">
+          Do you want to use the address above?
+        </h1>
+      </legend>
+      <br> 
+      
+      <div class="govuk-radios" data-module="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="confirm-update-address-yes" name="confirm-update-address" type="radio" value="true">
+          <label class="govuk-label govuk-radios__label" for="confirm-update-address-yes">
+            Yes
+          </label>
 
         </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="confirm-update-address-no" name="confirm-update-address" type="radio" value="false">
+          <label class="govuk-label govuk-radios__label" for="confirm-update-address-no">
+            No, this is not the address I want to use
+          </label>
 
-</div>
-
-{% endblock %}
+        </div>
+      </div>
+      <br>
+      <br>
+      <button class="govuk-button" value= "true" data-module="govuk-button" onclick="check()">Continue</button>
+    </div>
+  
+  <script>
+    function check() {
+      console.log('in function')
+      var radios = document.getElementsByName("confirm-update-address");
+      var hasSelection = false
+      for (var i = 0, len = radios.length; i < len; i++) {
+        if (radios[i].checked) {
+          hasSelection = true;
+        }
+      }
+      if (!hasSelection) {
+        window.location.href = "/round-1/1g/uk-or-international-error.html";
+      } else {
+        if (document.getElementById("confirm-update-address-yes").checked) {
+          window.location.href = "/round-1/1g/postal-address-information-new"
+        } else {
+          window.location.href = "javascript:window.history.back()"
+        }
+      }
+    }
+  </script>
+   </div>
+  
+  </div>
+  
+  {% endblock %}
