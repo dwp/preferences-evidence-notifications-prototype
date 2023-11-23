@@ -8,6 +8,13 @@
   {% include "round-1/components/key-details.html" %}
 {% endblock %}
 
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
 {% block content %}
 
 {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
@@ -52,7 +59,7 @@
 <div class="govuk-button-group">
   {{ govukButton({
     text: "Confirm",
-    href: "homepage.html"
+    href: "personal-details-original.html"
   }) }}
 
   {{ govukButton({
