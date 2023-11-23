@@ -52,7 +52,7 @@
 
   <!-- {{ govukButton({
     text: "Find address",
-    href: "/round-1/1h/update-address-results.html"
+    href: "/round-1/2b/update-address-results.html"
   }) }} -->
 
   <button class="govuk-button" value= "true" data-module="govuk-button" style="margin-bottom:50px;" onclick="check3()" >Find address</button>
@@ -71,9 +71,9 @@
       console.log(document.getElementById("yes"))
 
       if (document.getElementById("address-line-1").value && document.getElementById("address-postcode").value ) {
-        window.location.href = "/round-1/1h/update-address-results.html"
+        window.location.href = "/round-1/2b/update-address-results.html"
       } else {
-        window.location.href = "/round-1/1h/number-and-postcode-error.html"
+        window.location.href = "/round-1/2b/number-and-postcode-error.html"
       }
 
     }
