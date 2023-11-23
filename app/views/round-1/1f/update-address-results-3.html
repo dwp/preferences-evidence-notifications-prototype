@@ -1,20 +1,45 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
-{% endblock %}
-
-{% block header %}
-  {% include "round-1/components/key-details.html" %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
-  {{ govukBackLink({
-  text: "Back",
-  href: "javascript:window.history.back()"
-}) }}
-{% endblock %}
 
+{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
+
+{{
+  hmrcLanguageSelect({
+    language: 'en',
+    en: {
+      href: '?en'
+    },
+    cy: {
+      href: '?cy'
+    }
+  })
+}}
+
+    <!--Crumble menu-->
+    {{ govukBreadcrumbs({
+      items: [
+          {
+          text: "Home",
+          href: "homepage"
+          },
+          {
+          text: "View your personal details",
+          href: "personal-details"
+          },
+          {
+            text: "Address we send letters to",
+            href: "#"
+            }
+      ]
+      }) }}
+
+
+{% endblock %}
 {% block content %}
 
 <div class="govuk-grid-row">
@@ -93,7 +118,7 @@
 
 <div class="govuk-button-group">
   <button class="govuk-button" value= "true" data-module="govuk-button" onclick="check()" >Use this address</button>
-  <a class="govuk-link" href="/round-1/1g/update-address-1.html">Search again</a>
+  <a class="govuk-link" href="/round-1/1f/update-address-1.html">Search again</a>
 </div>
   
   <script>
@@ -107,10 +132,10 @@
               }
           }
           if (hasSelection) {
-            window.location.href = "/round-1/1g/address-type.html";
+            window.location.href = "/round-1/1f/address-type.html";
   
           } else {
-              window.location.href = "//ound-1/1g/address-results-error.html";
+              window.location.href = "//ound-1/1f/address-results-error.html";
   
           }
       }
@@ -132,7 +157,7 @@
               how any flat numbers are displayed, for example Flat 2/2 could also be known as Flat 4
             </li>
           </ul>
-          If the customer's address is still not listed you can <a href="/round-1/1g/update-address-manual-entry.html">enter the customer's address details manually</a> instead, but this may make it more difficult to search for the address in future.
+          If the customer's address is still not listed you can <a href="/round-1/1f/update-address-manual-entry.html">enter the customer's address details manually</a> instead, but this may make it more difficult to search for the address in future.
         </div>
       </details>
 

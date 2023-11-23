@@ -1,0 +1,142 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  {% include "round-1/components/key-details.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        Select the new address we can send letters to
+      </h1>
+    </legend>
+    <legend class="govuk-fieldset__legend">
+      15 addresses found for <b>NE3 1YL</b> and <b>5</b>.
+    </legend>
+    <br>
+    <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="where-do-you-live" name="where-do-you-live" type="radio" value="england" >
+        <label class="govuk-label govuk-radios__label" for="where-do-you-live">
+          5 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="where-do-you-live" name="where-do-you-live" type="radio" value="england" >
+        <label class="govuk-label govuk-radios__label" for="where-do-you-live">
+          15 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="where-do-you-live-2" name="where-do-you-live" type="radio" value="england-2" >
+        <label class="govuk-label govuk-radios__label" for="where-do-you-live-2">
+          25 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="where-do-you-live" name="where-do-you-live" type="radio" value="england" >
+        <label class="govuk-label govuk-radios__label" for="where-do-you-live">
+          35 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL  
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="where-do-you-live" name="where-do-you-live" type="radio" value="england" >
+        <label class="govuk-label govuk-radios__label" for="where-do-you-live">
+          45 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL 
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+{% from "govuk/components/pagination/macro.njk" import govukPagination %}
+
+{{ govukPagination({
+  next: {
+    href: "update-address-results-2.html"
+  },
+  items: [
+    {
+      number: 1,
+      current: true,
+      href: "update-address-results.html"
+    },
+    {
+      number: 2,
+      href: "update-address-results-2.html"
+    },
+    {
+      number: 3,
+      href: "update-address-results-3.html"
+    }
+  ]
+}) }}
+
+<div class="govuk-button-group">
+  <button class="govuk-button" value= "true" data-module="govuk-button" onclick="check()" >Use this address</button>
+  <a class="govuk-link" href="/round-1/1h/update-address-1.html">Search again</a>
+</div>
+  
+  <script>
+      function check() {
+          console.log('in function')
+          var radios = document.getElementsByName("where-do-you-live");
+          var hasSelection = false
+          for (var i = 0, len = radios.length; i < len; i++) {
+              if (radios[i].checked) {
+                  hasSelection = true;
+              }
+          }
+          if (hasSelection) {
+            window.location.href = "/round-1/1h/postal-address-information-new.html";
+  
+          } else {
+              window.location.href = "/round-1/1h/address-results-error.html";
+  
+          }
+      }
+  </script>
+
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Customer's address is not listed
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          If the address you are looking for is not listed, you should check:
+          <ul>
+            <li>
+              the postcode and building number or name are correct
+            </li>
+            <li>
+              how any flat numbers are displayed, for example Flat 2/2 could also be known as Flat 4
+            </li>
+          </ul>
+          If the customer's address is still not listed you can <a href="/round-1/1h/update-address-manual-entry.html">enter the customer's address details manually</a> instead, but this may make it more difficult to search for the address in future.
+        </div>
+      </details>
+
+    </div>
+
+    </div>
+
+{% endblock %}
