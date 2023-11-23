@@ -1,18 +1,44 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
-{% endblock %}
-
-{% block header %}
-  {% include "round-1/components/key-details.html" %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
-  {{ govukBackLink({
-  text: "Back",
-  href: "javascript:window.history.back()"
-}) }}
+
+{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
+
+{{
+  hmrcLanguageSelect({
+    language: 'en',
+    en: {
+      href: '?en'
+    },
+    cy: {
+      href: '?cy'
+    }
+  })
+}}
+
+    <!--Crumble menu-->
+    {{ govukBreadcrumbs({
+      items: [
+          {
+          text: "Home",
+          href: "homepage"
+          },
+          {
+          text: "View your personal details",
+          href: "personal-details"
+          },
+          {
+            text: "Address we send letters to",
+            href: "#"
+            }
+      ]
+      }) }}
+
+
 {% endblock %}
 
 {% block content %}
@@ -55,7 +81,7 @@
   </h1>
 </legend>
 <div id="changed-name-hint" class="govuk-hint">
-  Enter as many parts of the customer's new address as you can.
+  Enter as many parts of the new address as you can.
 </div>
 
     <div class="govuk-form-group govuk-form-group--error">
@@ -108,7 +134,7 @@
 
     <!--
     <div>
-      <a href="/round-1/1g/update-address-1.html" class="govuk-body-m">Find an address
+      <a href="/round-1/1f/update-address-1.html" class="govuk-body-m">Find an address
     </a>
     </div> -->
 
@@ -121,9 +147,9 @@
       console.log(document.getElementById("yes"))
 
       if (document.getElementById("address-line-1").value && document.getElementById("address-town").value && document.getElementById("address-postcode").value ) {
-        window.location.href = "/round-1/1g/update-address-manual-entry-match.html"
+        window.location.href = "/round-1/1f/update-address-manual-entry-match.html"
       } else {
-        window.location.href = "/round-1/1g/update-address-manual-entry-error.html"
+        window.location.href = "/round-1/1f/update-address-manual-entry-error.html"
       }
 
     }

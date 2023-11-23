@@ -1,18 +1,44 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
-{% endblock %}
-
-{% block header %}
-  {% include "round-1/components/key-details.html" %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
-  {{ govukBackLink({
-  text: "Back",
-  href: "javascript:window.history.back()"
-}) }}
+
+{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
+
+{{
+  hmrcLanguageSelect({
+    language: 'en',
+    en: {
+      href: '?en'
+    },
+    cy: {
+      href: '?cy'
+    }
+  })
+}}
+
+    <!--Crumble menu-->
+    {{ govukBreadcrumbs({
+      items: [
+          {
+          text: "Home",
+          href: "homepage"
+          },
+          {
+          text: "View your personal details",
+          href: "personal-details"
+          },
+          {
+            text: "Address we send letters to",
+            href: "#"
+            }
+      ]
+      }) }}
+
+
 {% endblock %}
 
 {% block content %}
@@ -79,12 +105,12 @@
       }
     }
     if (!hasSelection) {
-      window.location.href = "/round-1/1g/uk-or-international-error.html";
+      window.location.href = "/round-1/1f/uk-or-international-error.html";
     } else {
       if (document.getElementById("UK-yes").checked) {
-        window.location.href = "/round-1/1g/update-address-1.html"
+        window.location.href = "/round-1/1f/update-address-1.html"
       } else {
-        window.location.href = "/round-1/1g//international-address-update.html"
+        window.location.href = "/round-1/1f//international-address-update.html"
       }
 
 

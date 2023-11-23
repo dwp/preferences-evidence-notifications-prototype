@@ -1,18 +1,44 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
-{% endblock %}
-
-{% block header %}
-  {% include "round-1/components/key-details.html" %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
-  {{ govukBackLink({
-  text: "Back",
-  href: "javascript:window.history.back()"
-}) }}
+
+{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
+
+{{
+  hmrcLanguageSelect({
+    language: 'en',
+    en: {
+      href: '?en'
+    },
+    cy: {
+      href: '?cy'
+    }
+  })
+}}
+
+    <!--Crumble menu-->
+    {{ govukBreadcrumbs({
+      items: [
+          {
+          text: "Home",
+          href: "homepage"
+          },
+          {
+          text: "View your personal details",
+          href: "personal-details"
+          },
+          {
+            text: "Address we send letters to",
+            href: "#"
+            }
+      ]
+      }) }}
+
+
 {% endblock %}
 
 {% block content %}
@@ -28,7 +54,7 @@
     </h1>
   </legend>
   <div id="changed-name-hint" class="govuk-hint">
-    Enter as many parts of the customer's new address as you can.
+    Enter as many parts of the new address as you can.
   </div>
 
   <div class="govuk-!-padding-bottom-4"></div>
@@ -113,9 +139,9 @@
       console.log(document.getElementById("yes"))
 
       if (document.getElementById("address-line-1").value && document.getElementById("address-line-2").value && document.getElementById("address-line-4").value && document.getElementById("country").value) {
-        window.location.href = "/round-1/1g/international-check.html"
+        window.location.href = "/round-1/1f/international-check.html"
       } else {
-        window.location.href = "/round-1/1g/international-address-error.html"
+        window.location.href = "/round-1/1f/international-address-error.html"
       }
 
     }
