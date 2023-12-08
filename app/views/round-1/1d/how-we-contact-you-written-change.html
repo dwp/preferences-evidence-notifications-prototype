@@ -60,8 +60,12 @@
           </dt>
           <dd class="govuk-summary-list__value">
     
+            <p>{{ written.format | getLabel }}</p>
     
-            <p></p>You can contact me by standard letter</p>
+            <ul class="govuk-list govuk-list--bullet">
+              {% for option in writtenOptions %}
+                <li>{{ option }}</li>
+              {% endfor %}
     
     
             </ul>
@@ -104,7 +108,7 @@
             </ul>
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">
+            <a class="govuk-link" href="/alternative-formats/spoken-format">
               Change<span class="govuk-visually-hidden"> {{ spoken.format }}</span>
             </a>
           </dd>
