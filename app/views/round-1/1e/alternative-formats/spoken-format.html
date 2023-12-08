@@ -1,0 +1,63 @@
+{% extends "layouts/main.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript: window.history.go(-1)"  
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <form class="form" action="/alternative-formats/spoken-format" method="post" novalidate>
+
+       
+        
+        {{ govukRadios({
+          id: "format",
+          name: "[altFormats].[spoken].[format]",
+          value: data["altFormats"]["spoken"]["format"],
+            fieldset: {
+            legend: {
+              text: "How should we contact you if we need to speak to you?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l
+            "
+            }
+            
+          },
+          hint: {
+            text: "We usually contact you by phone if we need to speak to you. Select the best option for your needs."  
+         },
+          items: [
+            {
+              value: "standard-phone-call",
+              text: "standard-phone-call" | getLabel
+            },
+            {
+              value: "relay-uk",
+              text: "relay-uk" | getLabel
+            },
+            {
+              value: "textphone",
+              text: "textphone" | getLabel
+            },
+            {
+              value: "signing-lipspeaking",
+              text: "signing-lipspeaking" | getLabel
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}
+
+

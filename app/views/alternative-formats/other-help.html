@@ -1,0 +1,53 @@
+{% extends "layouts/main.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript: window.history.go(-1)"    
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <form class="form" action="/alternative-formats/other-help" method="post" novalidate>
+        
+       
+        
+        {{ govukRadios({
+          id: "feedback-found-format",
+          name: "[altFormats].[otherHelp].[required]",
+          value: data["altFormats"]["otherHelp"]["required"],
+          fieldset: {
+            legend: {
+              text: "Do you need any other help when we contact you?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+            
+          },
+          hint: {
+            text: "This might include another way to write or speak to you, or help with understanding information we send you."  
+         },
+          items: [
+            {
+              value: "yes",  
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
+        
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

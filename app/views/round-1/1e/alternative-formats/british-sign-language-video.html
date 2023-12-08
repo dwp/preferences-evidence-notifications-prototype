@@ -1,0 +1,55 @@
+{% extends "layouts/main.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript: window.history.go(-1)"   
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <form class="form" action="/alternative-formats/british-sign-language-video" method="post" novalidate>
+        
+       
+        
+        {{ govukRadios({
+          id: "british-sign-language-video-format",
+          name: "[altFormats].[written].[options].[britishSignLanguageVideoFormat]",
+          value: data["altFormats"]["written"]["options"]["britishSignLanguageVideoFormat"],
+          fieldset: {
+            legend: {
+              text: "What video format do you need?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+            
+          },
+          hint: {
+            text: "This is not a live interpreting service. You will get a video of the content in British Sign Language, with subtitles."  
+         },
+          items: [
+            {
+              value: "bsl-dvd",  
+              text: "bsl-dvd" | getLabel
+            },
+            {
+              value: "mpeg",
+              text: "mpeg" | getLabel
+            }
+          ]
+        }) }}
+        
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
+
+

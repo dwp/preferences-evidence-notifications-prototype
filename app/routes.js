@@ -7,3 +7,10 @@ const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
 // Add your routes here
+
+// alt-formats routes
+require('./views/alternative-formats/_routes')(router);
+
+// router.post('/my-custom-route', (req, res) => {
+//     res.redirect('./alternative-formats/written-format')
+//   });

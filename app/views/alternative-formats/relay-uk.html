@@ -1,0 +1,42 @@
+{% extends "layouts/main.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript: window.history.go(-1)"  
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <form class="form" action="/alternative-formats/relay-uk" method="post" novalidate>
+        
+       
+   
+          {{ govukInput({
+            id: "relay-uk-number",
+            name: "[altFormats].[spoken].[options].[relayUkNumber]",
+            value: data["altFormats"]["spoken"]["options"]["relayUkNumber"],
+            label: {
+              text: "What is your Relay UK number?",
+              isPageHeading: true,
+              classes: "govuk-label--l"
+            },
+            type: "tel",
+            autocomplete: "tel",
+            classes: "govuk-input--width-20"
+          }) }}
+        
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
+
+

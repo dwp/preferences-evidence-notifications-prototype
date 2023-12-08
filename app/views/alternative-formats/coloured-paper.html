@@ -1,0 +1,59 @@
+{% extends "layouts/main.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript: window.history.go(-1)"   
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <form class="form" action="/alternative-formats/coloured-paper" method="post" novalidate>
+        
+        {{ govukRadios({
+          id: "paper-colour",
+          name: "[altFormats].[written].[options].[paperColour]",
+          value: data["altFormats"]["written"]["options"]["paperColour"],
+          fieldset: {
+            legend: {
+              text: "What colour paper do you need?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+            
+          },
+          items: [
+            {
+              value: "cream",
+              text: "cream" | getLabel
+            },
+            {
+              value: "pale-pink",
+              text: "pale-pink" | getLabel
+            },
+            {
+              value: "pastel-blue",
+              text: "pastel-blue" | getLabel
+            },
+            {
+              value: "pastel-yellow",
+              text: "pastel-yellow" | getLabel
+            }
+            
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
+
+

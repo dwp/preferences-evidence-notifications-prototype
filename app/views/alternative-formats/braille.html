@@ -1,0 +1,52 @@
+{% extends "layouts/main.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript: window.history.go(-1)"    
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <form class="form" action="/alternative-formats/braille" method="post" novalidate>
+        
+       
+        
+        {{ govukRadios({
+          id: "braille-type",
+          name: "[altFormats].[written].[options].[brailleType]",
+          value: data["altFormats"]["written"]["options"]["brailleType"],
+          fieldset: {
+            legend: {
+              text: "What type of braille do you need?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+            
+          },
+          items: [
+            {
+              value: "grade-1",  
+              text: "grade-1" | getLabel
+            },
+            {
+              value: "grade-2",
+              text: "grade-2" | getLabel
+            }
+          ]
+        }) }}
+        
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
+
+
