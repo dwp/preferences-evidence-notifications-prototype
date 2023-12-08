@@ -4,12 +4,7 @@
   Content page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
-{% set written = data["altFormats"]["written"] %}
-[{% set writtenOptions = written | getOptions %}
 
-
-{% set spoken = data["altFormats"]["spoken"] %}
-{% set spokenOptions = spoken | getOptions %}
 
 
 
@@ -68,7 +63,7 @@
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="/alternative-formats/written-format">
-              Change<span class="govuk-visually-hidden"> {{ written.format }}</span>
+              Change<span class="govuk-visually-hidden">When we write to you </span>
             </a>
           </dd>
         </div>
@@ -105,7 +100,7 @@
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="#">
-              Change<span class="govuk-visually-hidden"> {{ spoken.format }}</span>
+              Change<span class="govuk-visually-hidden">When we speak to you</span>
             </a>
           </dd>
         </div>
