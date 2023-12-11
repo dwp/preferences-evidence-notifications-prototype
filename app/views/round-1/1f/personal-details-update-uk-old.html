@@ -102,6 +102,28 @@
           ,
           {
             key: {
+              text: "Address we send letters to"
+            },
+              value: { html: "5 Wellington House<br> 
+              Windsor Street<br>
+              South Gosforth<br>
+              Newcastle upon Tyne<br>
+              NE3 1YL"
+            },
+            actions: {
+              items: [
+                {
+                  href: "postal-address-information",
+                  text: "Change",
+                  visuallyHiddenText: "change your address that we send letters to"
+                }
+              ]
+            }
+          }
+
+          ,
+          {
+            key: {
               text: "Mobile"
             },
             value: {
@@ -172,105 +194,10 @@
     </div>
   </div>
 
-  <div class="govuk-!-padding-bottom-6"></div>
-
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds-from-desktop">
-
-      <h1 class="govuk-heading-l">
-        How we contact you
-      </h1>
-
-      {{ govukSummaryList({
-        rows: [
-          {
-            key: {
-              text: "How should we write to you?"
-            },
-            value: {
-              text: "	You can contact me by standard letter"
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
-                  text: "Change",
-                  visuallyHiddenText: "change your written communication preference"
-                }
-              ]
-            }
-          }
-          ,
-          {
-            key: {
-              text: "Address we send letters to"
-            },
-            value: { html: "5 Wellington House<br> 
-            Windsor Street<br>
-            South Gosforth<br>
-            Newcastle upon Tyne<br>
-            NE3 1YL"
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
-                  text: "Change",
-                  visuallyHiddenText: "change your address that we send letters to"
-                }
-              ]
-            }
-          }
-
-          ,
-          {
-            key: {
-              text: "How should we speak to you?"
-            },
-            value: {
-              text: "You can contact me by phone"
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
-                  text: "Change",
-                  visuallyHiddenText: "change your verbal communication preference"
-                }
-              ]
-            }
-          }
-          ,
-          {
-            key: {
-              text: "Preferred phone number"
-            },
-            value: {
-              text: "07700 900 457"
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
-                  text: "Change",
-                  visuallyHiddenText: "change your preferred phone number"
-                }
-              ]
-            }
-          }
-
-
-        ]
-      }) }}
-
-    </div>
-  </div>
-
   <div class="govuk-button-group">
     {{ govukButton({
       text: "Return",
       href: "/round-1/1f/homepage.html"
     }) }}
   </div>
-
 {% endblock %}
