@@ -1,0 +1,46 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+We are updating your new bank details
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+        titleText: "We are updating your new bank details",
+        html: "Your reference number<br><strong>HDJ2123F</strong>"
+      }) }}
+
+      <div class="govuk-!-padding-bottom-4"></div>
+
+      <h2 class="govuk-heading-m">
+        What happens next
+      </h2>
+
+      <p>
+        Your next benefit payment will most likely get paid into the new account you gave us details for today.
+      </p>
+
+      <p>
+        It can take up to two working days for your changes to show on our records.
+      </p>
+      <p>
+        <a href="#">
+          Save or print this page.
+        </a>
+      </p>
+      <p>
+        <a href="#">
+          Go back to the home page.
+        </a>
+      </p>
+
+
+
+    </div>
+  </div>
+
+{% endblock %}
