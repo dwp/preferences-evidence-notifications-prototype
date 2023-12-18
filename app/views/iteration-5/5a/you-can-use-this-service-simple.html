@@ -1,10 +1,25 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+Based on your answers, you can use this service
 {% endblock %}
 
 {% block beforeContent %}
+
+{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
+
+{{
+  hmrcLanguageSelect({
+    language: 'en',
+    en: {
+      href: '?en'
+    },
+    cy: {
+      href: '?cy'
+    }
+  })
+}}
+
   {{ govukBackLink({
   text: "Back",
   href: "javascript:window.history.back()"
@@ -17,16 +32,10 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Heading or question goes here
+        Based on your answers, you can use this service
       </h1>
 
-      <form class="form" action="/path/of/next/page" method="post">
-
-        <p>
-          [Insert question content here - see the
-          <a href="https://design-system.service.gov.uk">GOV.UK Design System</a>
-          for examples]
-        </p>
+      <form class="form" action="/iteration-5/5a/customer-view" method="post">
 
         {{ govukButton({
           text: "Continue"

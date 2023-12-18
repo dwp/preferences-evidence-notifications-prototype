@@ -1,0 +1,133 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
+
+{{
+  hmrcLanguageSelect({
+    language: 'en',
+    en: {
+      href: '?en'
+    },
+    cy: {
+      href: '?cy'
+    }
+  })
+}}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">
+        Check your details before you send them
+      </h1>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Account details"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Change bank account details"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Name on account"
+            },
+            value: {
+              text: "Sarah Phillips"
+            },
+            actions: {
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Sort code"
+            },
+            value: {
+              text: "65-43-21"
+            },
+            actions: {
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Account number"
+            },
+            value: {
+              text: "87654321"
+            },
+            actions: {
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Building society roll number or credit union membership number"
+            },
+            value: {
+              text: "Not provided"
+            },
+            actions: {
+            }
+          }
+        ]
+      }) }}
+
+      <div class="govuk-!-padding-bottom-4"></div>
+
+      <h2 class="govuk-heading-m">
+        Send your new details
+      </h2>
+
+      <p>
+        When you send this information, you confirm that the details you have given us are correct, and you believe they are true.      </p>
+
+      <form action="/iteration-5/5a/payment-in-progress/we-are-updating-your-new-bank-details" method="post" novalidate>
+
+        {{ govukButton({
+          text: "Confirm and send"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
+
+
+
+{% for benefit in data['which-benefits-do-you-get'] %}
+<div class="govuk-checkboxes__item">
+  <input class="govuk-checkboxes__input" id="{{ benefit }}" name="Which-benefits-do-you-get-1" type="checkbox" value= "{{ benefit }}">
+  <label class="govuk-label govuk-checkboxes__label" for="{{ benefit }}">
+    {{ benefit }}
+  </label>
+  <div id="paid-account" class="govuk-hint govuk-checkboxes__hint">
+    Paid into account ending 1234
+</div>
+</div>
+{% endfor %}
