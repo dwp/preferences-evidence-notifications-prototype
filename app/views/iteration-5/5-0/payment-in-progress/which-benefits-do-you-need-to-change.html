@@ -1,0 +1,76 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Which benefits do you need to change?
+{% endblock %}
+
+{% block beforeContent %}
+
+{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
+
+{{
+  hmrcLanguageSelect({
+    language: 'en',
+    en: {
+      href: '?en'
+    },
+    cy: {
+      href: '?cy'
+    }
+  })
+}}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="nationality-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Which benefits do you need to change?
+            </h1>
+          </legend>
+          <div id="waste-hint" class="govuk-hint">
+            Select all that apply.
+          </div>
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                {% for benefit in data['which-benefits-do-you-get'] %}
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="{{ benefit }}" name="Which-benefits-do-you-get-1" type="checkbox" value= "{{ benefit }}">
+                  <label class="govuk-label govuk-checkboxes__label" for="{{ benefit }}">
+                    {{ benefit }}
+                  </label>
+                  <div id="paid-account" class="govuk-hint govuk-checkboxes__hint">
+                    Paid into account ending 1234
+                </div>
+                </div>
+                {% endfor %}
+            </div>
+        </fieldset>
+      </div>
+
+        {% from "govuk/components/button/macro.njk" import govukButton %}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Confirm",
+            href: "/iteration-5/5-0/payment-in-progress/benefits-you-need-to-change.html"
+          }) }}
+      
+        </div>
+
+  </div>
+</div>
+
+
+{% endblock %}
