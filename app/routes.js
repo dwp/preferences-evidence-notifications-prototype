@@ -519,7 +519,7 @@ router.post('/iteration-5/5-0/changing-the-account-we-pay-your-money-into', func
   // Check whether the variable matches a condition
   if (changingTheAccountWePayYourMoneyInto == "yes"){
     // Send user to next page
-    res.redirect('/iteration-5/5-0/you-can-use-this-service-simple')
+    res.redirect('/iteration-5/5-0/are-you-expecting-a-payment-in-the-next-six-working-days')
   } else {
     // Inactive
     res.redirect('/iteration-5/5-0/you-can-only-use-this-service-if-your-accounts-in-uk')
