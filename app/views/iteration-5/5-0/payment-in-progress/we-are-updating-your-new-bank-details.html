@@ -1,0 +1,56 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Confirmation page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+        titleText: "We are updating your new bank details",
+        html: "Your reference number<br><strong>HDJ2123F</strong>"
+      }) }}
+
+      <div class="govuk-!-padding-bottom-4"></div>
+
+      <h2 class="govuk-heading-m">
+        What happens next
+      </h2>
+
+      <p>
+        Your next benefit payment will go into your old account. This is because your payment had started being processed before you changed bank details.
+      </p>
+
+      <p>
+        It can take up to two working days for your changes to show on our records.
+      </p>
+      <p>
+        <a href="#">
+          Save or print this page.
+        </a>
+      </p>
+      <p>
+        <a href="#">
+          Go back to the home page.
+        </a>
+      </p>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+      <h2 class="govuk-heading-m">
+        Help improve this service
+      </h2>
+
+      <p>
+        <a href="#">What did you think of this service?</a> (takes 30 seconds)
+      </p>
+
+
+
+    </div>
+  </div>
+
+{% endblock %}

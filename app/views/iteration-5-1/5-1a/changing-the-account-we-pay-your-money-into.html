@@ -1,0 +1,86 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Changing the account we pay your money into
+{% endblock %}
+
+{% block beforeContent %}
+
+{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
+
+{{
+  hmrcLanguageSelect({
+    language: 'en',
+    en: {
+      href: '?en'
+    },
+    cy: {
+      href: '?cy'
+    }
+  })
+}}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Changing the account we pay your money into
+      </h1>
+
+      <form class="form" action="/iteration-5-1/5-1a/changing-the-account-we-pay-your-money-into" method="post">
+
+        <p>
+          To use this service, the account we pay your benefits into, and the one you want to change to must be in the UK.
+        </p>
+
+        <div class="govuk-!-padding-bottom-4"></div>
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          name: "are-your-accounts-in-the-uk",
+          value: data['are-your-accounts-in-the-uk'],
+          fieldset: {
+            legend: {
+              text: "Are your accounts in the UK?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "You can check the address using online banking, or on your statements and letters."
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes, my accounts are in the UK"
+            },
+            {
+              value: "no",
+              text: "No, one or more of my accounts are not in the UK "
+            },
+            {
+              value: "i-am-not-sure",
+              text: "I am not sure"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
