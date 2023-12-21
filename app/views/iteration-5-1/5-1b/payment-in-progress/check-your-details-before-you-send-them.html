@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+Check your details before you send them
 {% endblock %}
 
 {% block beforeContent %}
@@ -27,96 +27,87 @@
 {% endblock %}
 
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds-from-desktop">
 
-      <h1 class="govuk-heading-l">
-        Check your details before you send them
-      </h1>
 
-      {{ govukSummaryList({
-        rows: [
-          {
-            key: {
-              text: "Account details"
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
-                  text: "Change",
-                  visuallyHiddenText: "Change bank account details"
-                }
-              ]
-            }
-          }
-          ,
-          {
-            key: {
-              text: "Name on account"
-            },
-            value: {
-              text: "Sarah Phillips"
-            },
-            actions: {
-            }
-          }
-          ,
-          {
-            key: {
-              text: "Sort code"
-            },
-            value: {
-              text: "65-43-21"
-            },
-            actions: {
-            }
-          }
-          ,
-          {
-            key: {
-              text: "Account number"
-            },
-            value: {
-              text: "87654321"
-            },
-            actions: {
-            }
-          }
-          ,
-          {
-            key: {
-              text: "Building society roll number or credit union membership number"
-            },
-            value: {
-              text: "Not provided"
-            },
-            actions: {
-            }
-          }
-        ]
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+        <h1 class="govuk-heading-l">Check your details before you send them</h1>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Account details	
+            </dt>
+            <dd class="govuk-summary-list__value">
+              
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="/iteration-5-1/5-1b/payments-in-progress/enter-your-bank-building-society-or-credit-union-account-details"><b>Change</b><span class="govuk-visually-hidden"> name</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__value">
+              Name on account
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Sarah Phillips
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__value">
+              Sort code
+            </dt>
+            <dd class="govuk-summary-list__value">
+              65-43-21
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__value">
+              Account number	
+            </dt>
+            <dd class="govuk-summary-list__value">
+              87654321
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__value">
+              Building society roll number or credit union membership number
+            </dt>
+            <dt class="govuk-summary-list__value">
+              Not provided
+            </dt>
+          </div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds-from-desktop">
+
+
+    <h2 class="govuk-heading-m">
+      Send your new details
+    </h2>
+
+    <p>
+      When you send this information, you confirm that the details you have given us are correct, and you believe they are true.      </p>
+
+    <form action="/iteration-5-1/5-1b/payments-in-progress/we-are-updating-your-new-bank-details" method="post" novalidate>
+
+      {{ govukButton({
+        text: "Confirm and send"
       }) }}
 
-      <div class="govuk-!-padding-bottom-4"></div>
+    </form>
 
-      <h2 class="govuk-heading-m">
-        Send your new details
-      </h2>
+</div>
 
-      <p>
-        When you send this information, you confirm that the details you have given us are correct, and you believe they are true.      </p>
 
-      <form action="/iteration-5-1/5-1b/payment-in-progress/we-are-updating-your-new-bank-details" method="post" novalidate>
-
-        {{ govukButton({
-          text: "Confirm and send"
-        }) }}
-
-      </form>
 
     </div>
   </div>
+
 {% endblock %}
+
 
 
 
@@ -131,3 +122,5 @@
 </div>
 </div>
 {% endfor %}
+
+
