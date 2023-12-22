@@ -29,6 +29,17 @@ Check your details before you send them
 {% block content %}
 
 
+{% for benefit in data['sort-code'] %}
+<div>
+  </div>
+  <p>
+    {{ sort-code' }}
+  </p>
+  </label>
+</div>
+{% endfor %}
+
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds-from-desktop">
         <h1 class="govuk-heading-l">Check your details before you send them</h1>
@@ -108,21 +119,11 @@ Check your details before you send them
     </div>
   </div>
 
+  
+
 {% endblock %}
 
 
 
-
-{% for benefit in data['which-benefits-do-you-get'] %}
-<div class="govuk-checkboxes__item">
-  <input class="govuk-checkboxes__input" id="{{ benefit }}" name="Which-benefits-do-you-get-1" type="checkbox" value= "{{ benefit }}">
-  <label class="govuk-label govuk-checkboxes__label" for="{{ benefit }}">
-    {{ benefit }}
-  </label>
-  <div id="paid-account" class="govuk-hint govuk-checkboxes__hint">
-    Paid into account ending 1234
-</div>
-</div>
-{% endfor %}
 
 
