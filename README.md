@@ -1,6 +1,6 @@
 # GOV.UK Prototype Kit
 
-This is the latest version of the GOVUK Prototype Kit. An automated job runs every time a change is made to the main branch to push to Heroku. Make sure you edit the .github/workflows/deploy.yml file from any prototypes you create from this template. You need to edit line 16 in that file, replacing blank-prototype1 with the name of your Heroku app.
+
 
 
 Go to the [GOV.UK Prototype Kit site](https://prototype-kit.service.gov.uk/docs) to get the latest documentation.
