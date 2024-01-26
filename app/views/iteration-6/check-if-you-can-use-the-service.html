@@ -1,0 +1,92 @@
+{% extends "layouts/main.html" %}
+
+{% set serviceName %}
+Manage your benefits and State Pension
+{% endset%}
+
+{% block pageTitle %}
+Check if you can use this service
+{% endblock %}
+
+{% block beforeContent %}
+
+{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
+
+{{
+  hmrcLanguageSelect({
+    language: 'en',
+    en: {
+      href: '?en'
+    },
+    cy: {
+      href: '?cy'
+    }
+  })
+}}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Check if you can use this service
+      </h1>
+
+      <p>Answer questions to find out if you can change your bank details for your benefits or State Pension online.</p>
+
+      <div class="govuk-!-padding-bottom-4"></div>
+
+      <form class="form" action="/iteration-5-1/5-1a/check-if-you-can-use-the-service" method="post">
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          name: "how-did-you-find-out-about-this-service",
+          value: data['how-did-you-find-out-about-this-service'],
+          fieldset: {
+            legend: {
+              text: "How did you find out about this service",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "letter-from-the-department-for-work-and-pensions",
+              text: "Letter from the Department for Work and Pensions (DWP)",
+              visuallyHiddenText: "Did you get a letter from the Department for Work and Pensions about this service"
+            },
+            {
+              value: "family-or-friend",
+              text: "Friend or family member",
+              visuallyHiddenText: "Did a friend or family memeber tell you about this service"
+            },
+            {
+              value: "somewhere-else",
+              text: "Somewhere else",
+              visuallyHiddenText: "Did you hear about this service somewhere else"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
