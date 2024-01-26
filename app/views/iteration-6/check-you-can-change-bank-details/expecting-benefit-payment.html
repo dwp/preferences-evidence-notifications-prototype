@@ -1,0 +1,109 @@
+{% extends "layouts/main.html" %}
+
+{% set serviceName %}
+Manage your benefits and State Pension
+{% endset%}
+
+{% block pageTitle %}
+Are you expecting a payment in the next six working days?
+{% endblock %}
+
+{% block beforeContent %}
+
+{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
+
+{{
+  hmrcLanguageSelect({
+    language: 'en',
+    en: {
+      href: '?en'
+    },
+    cy: {
+      href: '?cy'
+    }
+  })
+}}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Array of day names
+        const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+        // Set the number of days in the future
+        const futureDays = 4; // Change this to your desired number of days
+
+        // Get the current date
+        const today = new Date();
+
+        // Calculate the future date
+        const futureDate = new Date(today.getTime() + futureDays * 24 * 60 * 60 * 1000);
+
+        // Get the day index (0-6) for the future date
+        const futureDayIndex = futureDate.getDay();
+
+        // Get the day name from the array
+        const futureDayName = daysOfWeek[futureDayIndex];
+
+        // Display the future day name in the HTML
+        const futureDayContainer = document.getElementById("future-day-container");
+        futureDayContainer.textContent = futureDayName;
+    });
+  </script>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Your next payment
+      </h1>
+
+      <form class="form" action="you-can-use-service-no-payment-due" method="post">
+
+        <p>We need to know if a payment is on it’s way to you, so that we can tell you what will happen next, </p>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              Are you expecting a benefit payment on or before <span id="future-day-container"></span> {{ "today" | duration(4) | govukDate }}?
+            </legend>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="are-you-expecting-a-payment-in-the-next-six-working-days" name="are-you-expecting-a-payment-in-the-next-six-working-days" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="are-you-expecting-a-payment-in-the-next-six-working-days">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="are-you-expecting-a-payment-in-the-next-six-working-days-2" name="are-you-expecting-a-payment-in-the-next-six-working-days" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="are-you-expecting-a-payment-in-the-next-six-working-days-2">
+                  No
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="are-you-expecting-a-payment-in-the-next-six-working-days-3" name="are-you-expecting-a-payment-in-the-next-six-working-days" type="radio" value="i-am-not-sure">
+                <label class="govuk-label govuk-radios__label" for="are-you-expecting-a-payment-in-the-next-six-working-days-3">
+                  I am not sure
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

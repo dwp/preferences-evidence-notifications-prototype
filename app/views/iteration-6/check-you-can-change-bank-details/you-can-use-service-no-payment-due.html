@@ -5,7 +5,7 @@ Manage your benefits and State Pension
 {% endset%}
 
 {% block pageTitle %}
-Are you expecting a payment in the next six working days?
+Based on your answers, you can use this service
 {% endblock %}
 
 {% block beforeContent %}
@@ -27,7 +27,8 @@ Are you expecting a payment in the next six working days?
   {{ govukBackLink({
   text: "Back",
   href: "javascript:window.history.back()"
-}) }}
+  }) }}
+
 {% endblock %}
 
 {% block content %}
@@ -36,45 +37,43 @@ Are you expecting a payment in the next six working days?
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Are you expecting a payment in the next 6 working days?
+        Based on your answers, you can use this service
       </h1>
 
-      <form class="form" action="/iteration-5-1/5-1a/are-you-expecting-a-payment-in-the-next-six-working-days" method="post">
+      <h2 class="govuk-heading-m">
+        Your next payment
+      </h2>
 
-        {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+      <p>You told us that you’re not expecting a payment.</p>
+      
+      <p>If your payment is not due and you change your bank details now, your next payment should go into your new bank account.</p>
+      
+      <div class="govuk-!-padding-bottom-4"></div>
 
-        {{ govukInsetText({
-          text: "We ask this to understand if your bank account changes will be complete in time for your next payment."
-        }) }}
-
-
-
+      <form class="form" action="keeping-information-secure" method="post">
 
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
         {{ govukRadios({
-          name: "are-you-expecting-a-payment-in-the-next-six-working-days",
-          value: data['are-you-expecting-a-payment-in-the-next-six-working-days'],
+          classes: "govuk-radios",
+          name: "you-can-use-this-service-detailed",
           fieldset: {
             legend: {
+              text: "Do you want to change your bank details using this service?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--m"
             }
           },
-  items: [
-    {
-      value: "yes",
-      text: "Yes"
-    },
-    {
-      value: "no",
-      text: "No"
-    },
-    {
-      value: "I-am-not-sure",
-      text: "I am not sure"
-    }
+          items: [
+            {
+              value: "yes",
+              text: "Yes, continue using this service"
+            },
+            {
+              value: "no",
+              text: "No, contact my benefit office"
+            }
           ]
         }) }}
 
