@@ -42,7 +42,7 @@ Is the payment in your name?
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
         {{ govukRadios({
-          classes: "govuk-radios--inline",
+          classes: "govuk-radios",
           name: "is-the-payment-in-your-name",
           value: data['is-the-payment-in-your-name'],
           fieldset: {
