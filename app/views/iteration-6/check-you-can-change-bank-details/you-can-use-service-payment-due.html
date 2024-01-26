@@ -5,7 +5,7 @@ Manage your benefits and State Pension
 {% endset%}
 
 {% block pageTitle %}
-Check if you can use this service
+Based on your answers, you can use this service
 {% endblock %}
 
 {% block beforeContent %}
@@ -27,55 +27,58 @@ Check if you can use this service
   {{ govukBackLink({
   text: "Back",
   href: "javascript:window.history.back()"
-}) }}
+  }) }}
 
 {% endblock %}
 
-
 {% block content %}
-
-
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Check if you can use this service
+        Based on your answers, you can use this service
       </h1>
 
-      <p>Answer questions to find out if you can change your bank details for your benefits or State Pension online.</p>
+      <h2 class="govuk-heading-m">
+        Your next payment
+      </h2>
+
+      <p>You told us that you are expecting a payment. This means your next payment could be on its way to your old account.</p>
+      
+      <p>If you can still access your old bank account, you may wish to continue to change your bank details using this service.</p>
+
+      <h3 class="govuk-heading-s">
+        If you cannot access your old account
+      </h3>
+
+      <p>If you do not have access to your old bank account, contact your benefit office to change your bank details.</p>
 
       <div class="govuk-!-padding-bottom-4"></div>
 
-      <form class="form" action="/iteration-5-1/5-1a/check-if-you-can-use-the-service" method="post">
+      <form class="form" action="/iteration-5-1/5-1a/payment-in-progress/you-can-use-this-service-detailed" method="post">
+
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
         {{ govukRadios({
-          name: "how-did-you-find-out-about-this-service",
-          value: data['how-did-you-find-out-about-this-service'],
+          classes: "govuk-radios",
+          name: "you-can-use-this-service-detailed",
           fieldset: {
             legend: {
-              text: "How did you find out about this service",
+              text: "Do you want to change your bank details using this service?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--m"
             }
           },
           items: [
             {
-              value: "letter-from-the-department-for-work-and-pensions",
-              text: "Letter from the Department for Work and Pensions (DWP)",
-              visuallyHiddenText: "Did you get a letter from the Department for Work and Pensions about this service"
+              value: "yes",
+              text: "Yes, continue using this service"
             },
             {
-              value: "family-or-friend",
-              text: "Friend or family member",
-              visuallyHiddenText: "Did a friend or family memeber tell you about this service"
-            },
-            {
-              value: "somewhere-else",
-              text: "Somewhere else",
-              visuallyHiddenText: "Did you hear about this service somewhere else"
+              value: "no",
+              text: "No, contact my benefit office"
             }
           ]
         }) }}

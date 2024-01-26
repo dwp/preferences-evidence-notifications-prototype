@@ -5,7 +5,7 @@ Manage your benefits and State Pension
 {% endset%}
 
 {% block pageTitle %}
-Based on your answers, you can use this service
+Is the payment in your name?
 {% endblock %}
 
 {% block beforeContent %}
@@ -35,39 +35,21 @@ Based on your answers, you can use this service
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">
-        Based on your answers, you can use this service
-      </h1>
+      <form class="form" action="which-benefits-do-you-get" method="post">
 
-      {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
-
-{{ govukWarningText({
-  text: "You next payment may already be in progress",
-  iconFallbackText: "Warning"
-}) }}
-
-<p>You may continue to change your account details using this service, but this change may not happen in time for your next payment. </p>
-
-<p>This is because told us that you are expecting a payment.</p>
-
-<p>If you continue, your next payment could go into your account on our records now.</p>
-
-<div class="govuk-!-padding-bottom-4"></div>
-
-
-      <form class="form" action="/iteration-5-1/5-1a/payment-in-progress/you-can-use-this-service-detailed" method="post">
-
+        <!--  TODO Change Is the benefit payment in your name value/name to match text -->
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
         {{ govukRadios({
           classes: "govuk-radios--inline",
-          name: "you-can-use-this-service-detailed",
+          name: "is-the-payment-in-your-name",
+          value: data['is-the-payment-in-your-name'],
           fieldset: {
             legend: {
-              text: "Do you want to change your account details using this service?",
+              text: "Is the benefit payment in your name?",
               isPageHeading: true,
-              classes: "govuk-fieldset__legend--m"
+              classes: "govuk-fieldset__legend--l"
             }
           },
           items: [

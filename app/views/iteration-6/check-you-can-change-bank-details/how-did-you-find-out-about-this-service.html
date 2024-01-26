@@ -5,7 +5,7 @@ Manage your benefits and State Pension
 {% endset%}
 
 {% block pageTitle %}
-Is the payment in your name?
+Check if you can use this service
 {% endblock %}
 
 {% block beforeContent %}
@@ -28,36 +28,47 @@ Is the payment in your name?
   text: "Back",
   href: "javascript:window.history.back()"
 }) }}
+
 {% endblock %}
 
+
 {% block content %}
+
+
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="/iteration-5-1/5-1a/is-the-payment-in-your-name" method="post">
+      <form class="form" action="what-do-you-need" method="post">
 
+        <!--  TODO Change Invite from department value/name to match text -->
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
         {{ govukRadios({
-          classes: "govuk-radios--inline",
-          name: "is-the-payment-in-your-name",
-          value: data['is-the-payment-in-your-name'],
+          name: "how-did-you-find-out-about-this-service",
+          value: data['how-did-you-find-out-about-this-service'],
           fieldset: {
             legend: {
-              text: "Is the payment in your name?",
+              text: "How did you find out about this service",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
           },
           items: [
             {
-              value: "yes",
-              text: "Yes"
+              value: "letter-from-the-department-for-work-and-pensions",
+              text: "Invite from the Department for Work and Pensions (DWP)",
+              visuallyHiddenText: "Did you get invited by the Department for Work and Pensions to use this service?"
             },
             {
-              value: "no",
-              text: "No"
+              value: "family-or-friend",
+              text: "Friend or family member",
+              visuallyHiddenText: "Did a friend or family member tell you about this service"
+            },
+            {
+              value: "somewhere-else",
+              text: "Somewhere else",
+              visuallyHiddenText: "Did you hear about this service somewhere else"
             }
           ]
         }) }}
