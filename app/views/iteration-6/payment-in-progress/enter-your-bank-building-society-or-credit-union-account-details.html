@@ -1,0 +1,127 @@
+{% extends "layouts/main.html" %}
+
+{% set serviceName %}
+Manage your benefits and State Pension
+{% endset%}
+
+{% block pageTitle %}
+Enter your bank, building society or credit union account details
+{% endblock %}
+
+{% block beforeContent %}
+
+{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
+
+{{
+  hmrcLanguageSelect({
+    language: 'en',
+    en: {
+      href: '?en'
+    },
+    cy: {
+      href: '?cy'
+    }
+  })
+}}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+      {% from "govuk/components/input/macro.njk" import govukInput %}
+      
+      <h1 class="govuk-heading-l">Enter your bank, building society or credit union account details</h1>
+      
+      {{ govukInput({
+        label: {
+          text: "Name on the account"
+        },
+        id: "name-on-the-account",
+        name: "name-on-the-account",
+        autocomplete: "name",
+        spellcheck: false
+      }) }}
+
+      
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Help with accents or special characters
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p class="govuk-body">If the name has an accent or special character, choose the same letter without the accent. For example:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>instead of Zöe, type Zoe</li>
+            <li>instead of José, type Jose</li>
+          </ul>  
+        </div>
+      </details>
+
+      
+      {{ govukInput({
+        label: {
+          text: "Sort code"
+        },
+        classes: "govuk-input--width-5 govuk-input--extra-letter-spacing",
+        hint: {
+          text: "Must be 6 digits long"
+        },
+        id: "sort-code",
+        name: "sortCode",
+        inputmode: "numeric",
+        spellcheck: false
+      }) }}
+      
+      {{ govukInput({
+        label: {
+          text: "Account number"
+        },
+        classes: "govuk-input--width-10 govuk-input--extra-letter-spacing",
+        hint: {
+          text: "Must be between 6 and 8 digits long"
+        },
+        id: "account-number",
+        name: "accountNumber",
+        inputmode: "numeric",
+        spellcheck: false
+      }) }}
+      
+      {{ govukInput({
+        label: {
+          text: "Building society roll number (if you have one)"
+        },
+        classes: "govuk-input--width-10 govuk-input--extra-letter-spacing",
+        hint: {
+          text: "You can find it on your card, statement or passbook"
+        },
+        id: "roll-number",
+        name: "rollNumber",
+        spellcheck: false
+      }) }}
+      
+
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Confirm",
+          href: "/iteration-5-1/5-1a/payment-in-progress/check-your-details-before-you-send-them"
+        }) }}
+    
+      </div>
+
+
+    </div>
+  </div>
+
+{% endblock %}

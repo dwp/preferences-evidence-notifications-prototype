@@ -1,0 +1,82 @@
+{% extends "layouts/main.html" %}
+
+{% set serviceName %}
+Manage your benefits and State Pension
+{% endset%}
+
+{% block pageTitle %}
+What do you need?
+{% endblock %}
+
+{% block beforeContent %}
+
+{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
+
+{{
+  hmrcLanguageSelect({
+    language: 'en',
+    en: {
+      href: '?en'
+    },
+    cy: {
+      href: '?cy'
+    }
+  })
+}}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/iteration-5-1/5-1a/what-do-you-need-to-do" method="post">
+
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+      {{ govukRadios({
+        name: "what-do-you-need",
+        value: data['what-do-you-need'],
+        fieldset: {
+          legend: {
+            text: "What do you need to do?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "change-my-bank-details",
+            text: "Change my bank details",
+            visuallyHiddenText: "Change my bank details"
+          },
+          {
+            value: "check-if-my-bank-details-have-changed",
+            text: "Check if my bank details have changed",
+            visuallyHiddenText: "Check if your bank details have changed"
+          },
+          {
+            value: "change-my-payment-card-or-voucher-code",
+            text: "Change my payment card or voucher code payments to bank account payments",
+            visuallyHiddenText: "Change your payment card or voucher code payments to bank account payments",
+            hint: {
+              text: "Select this if you get paid using the Payment Exception Service (PES)"
+            }
+          }
+        ]
+      }) }}
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends "layouts/main.html" %}
+
+{% set serviceName %}
+Manage your benefits and State Pension
+{% endset%}
+
+{% block pageTitle %}
+Which payments do you need to change bank details for?
+{% endblock %}
+
+{% block beforeContent %}
+
+{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
+
+{{
+  hmrcLanguageSelect({
+    language: 'en',
+    en: {
+      href: '?en'
+    },
+    cy: {
+      href: '?cy'
+    }
+  })
+}}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/iteration-5-1/5-1a/which-payments-do-you-need-to-change-bank-details-for" method="post">
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          name: "which-payments-do-you-need-to-change-bank-details-for",
+          value: data['which-payments-do-you-need-to-change-bank-details-for'],
+          fieldset: {
+            legend: {
+              text: "Which payments do you need to change bank details for?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "You can change bank details for benefits, State Pension or both."
+          },
+          items: [
+            {
+              value: "benefits-only",
+              text: "Benefits",
+              visuallyHiddenText: "Benefits"
+            },
+            {
+              value: "state-pension",
+              text: "State Pension",
+              visuallyHiddenText: "State Pension"
+            },
+            {
+              value: "benefits-and-state-pension",
+              text: "Benefits and State Pension",
+              visuallyHiddenText: "Benefits and State Pension"
+            }
+          ]
+        }) }}
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

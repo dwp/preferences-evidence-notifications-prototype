@@ -5,7 +5,7 @@ Manage your benefits and State Pension
 {% endset%}
 
 {% block pageTitle %}
-Are you expecting a payment in the next six working days?
+Before you change account details
 {% endblock %}
 
 {% block beforeContent %}
@@ -36,32 +36,36 @@ Are you expecting a payment in the next six working days?
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Are you expecting a payment in the next 6 working days?
+        Before you change account details
       </h1>
 
-      <form class="form" action="/iteration-5-1/5-1a/are-you-expecting-a-payment-in-the-next-six-working-days" method="post">
+      {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 
-        {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+{{ govukInsetText({
+  text: "Your next payment will most likely go into the account on our records now. This is because your payment has already started being processed into your bank account."
+}) }}
 
-        {{ govukInsetText({
-          text: "We ask this to understand if your bank account changes will be complete in time for your next payment."
-        }) }}
+<p>
+  It can take up to two working days for your changes to show on our records.
+</p>
 
+<div class="govuk-!-padding-bottom-4"></div>
 
-
-
+      <form class="form" action="/iteration-5-1/5-1a/payment-in-progress/before-you-change-account-details" method="post">
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-        {{ govukRadios({
-          name: "are-you-expecting-a-payment-in-the-next-six-working-days",
-          value: data['are-you-expecting-a-payment-in-the-next-six-working-days'],
-          fieldset: {
-            legend: {
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
+{{ govukRadios({
+  classes: "govuk-radios--inline",
+  name: "before-you-change-account-details",
+  value: data['before-you-change-account-details'],
+  fieldset: {
+    legend: {
+      text: "Do you want to continue?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
   items: [
     {
       value: "yes",
@@ -70,13 +74,9 @@ Are you expecting a payment in the next six working days?
     {
       value: "no",
       text: "No"
-    },
-    {
-      value: "I-am-not-sure",
-      text: "I am not sure"
     }
-          ]
-        }) }}
+  ]
+}) }}
 
         {{ govukButton({
           text: "Continue"
