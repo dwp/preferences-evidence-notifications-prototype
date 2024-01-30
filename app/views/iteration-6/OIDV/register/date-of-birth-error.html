@@ -1,0 +1,87 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Error: What is your date of birth? - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
+
+{{
+  hmrcLanguageSelect({
+    language: 'en',
+    en: {
+      href: '?en'
+    },
+    cy: {
+      href: '?cy'
+    }
+  })
+}}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+    
+    
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <form action="postcode" method="post">
+                {{ govukErrorSummary({
+                  "titleText": "There is a problem",
+                  "errorList": [
+                    {
+                      "text": "Enter your date of birth",
+                      "href": "#date-of-birth"
+                    }
+                  ]
+                }) }}
+
+               {{ govukDateInput({
+                id: "date-of-birth",
+                namePrefix: "date-of-birth",
+                fieldset: {
+                    legend: {
+                    text: "What is your date of birth?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                    }
+                },
+                hint: {
+                    text: "For example, 27 3 1979"
+                },
+                errorMessage: {
+                    text: "Enter your date of birth"
+                },
+                items: [
+                  {
+                    classes: "govuk-input--width-2 govuk-input--error",
+                    name: "day"
+                    
+                  },
+                  {
+                    classes: "govuk-input--width-2 govuk-input--error",
+                    name: "month"
+                   
+                  },
+                  {
+                    classes: "govuk-input--width-4 govuk-input--error",
+                    name: "year"
+                    
+                  }
+                ]
+                
+                }) }}
+
+                 {{ govukButton({
+                    text: "Continue"
+                 }) }}
+            </form>
+        </div>
+    </div>
+{% endblock %}

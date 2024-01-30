@@ -1,0 +1,89 @@
+{% extends "layouts/main.html" %}
+
+{% set pageHeading = 'Check your phone' %}
+
+{% block pageTitle %}
+  {{pageHeading}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
+
+{{
+  hmrcLanguageSelect({
+    language: 'en',
+    en: {
+      href: '?en'
+    },
+    cy: {
+      href: '?cy'
+    }
+  })
+}}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+    
+    
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+            {
+            text: "Enter your security code",
+            href: "#signin-code"
+            }
+        ]
+        }) }}
+        <h1 class="govuk-heading-l">{{pageHeading}}</h1>
+
+        <p class="govuk-body">
+            We have sent you a text message with your security code.
+        </p>
+
+        <p class="govuk-body">
+            It might take up to a minute to arrive.
+        </p>
+
+        <p class="govuk-body">
+            The code will expire in 15 minutes.
+        </p>
+
+        <form action="sign-in-2fa-check" method="post">
+
+            <div class="govuk-form-group govuk-form-group--error govuk-!-margin-top-6">
+                <label class="govuk-label" for="2fa-code">
+                    Enter your security code
+                </label>
+                <span id="security-code-error" class="govuk-error-message">
+                    <span class="govuk-visually-hidden">Error:</span> Enter your security code
+                </span>
+                <input class="govuk-input govuk-input--width-10" id="signin-code" name="signin-code" type="text" value="{{ data['signin-code'] }}">
+            </div>
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+
+        </form>
+
+        <p><a href="sign-in-resend-2fa" class="govuk-link">
+            I did not get a text message
+        </a></p>
+
+        <p><a href="account-recovery/start-new-phone" class="govuk-link">
+            I cannot access the mobile phone number I use to sign in
+        </a></p>
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,46 @@
+a{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Error: Cannot sign in - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
+
+{{
+  hmrcLanguageSelect({
+    language: 'en',
+    en: {
+      href: '?en'
+    },
+    cy: {
+      href: '?cy'
+    }
+  })
+}}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+    
+    
+{% endblock %}
+
+
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">Sorry, we could not sign you in</h1>
+               
+<br>
+               <p>[INSERT SUPPORT INSTRUCTIONS]</p>
+                <p>[INSERT ACTION]</p>
+               
+
+                
+        </div>
+    </div>
+{% endblock %}
