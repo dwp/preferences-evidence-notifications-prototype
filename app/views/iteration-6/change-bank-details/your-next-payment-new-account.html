@@ -36,47 +36,38 @@ Before you change account details
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Before you change account details
+        Your next payment
       </h1>
 
-      {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
-
-{{ govukInsetText({
-  text: "If you change your account details now, your next benefit payment will most likely get paid into the new account details you provide us today."
-}) }}
-
-<p>
-  It can take up to two working days for your changes to show on our records.
-</p>
-
-<div class="govuk-!-padding-bottom-4"></div>
+      <p>If you change your bank details now, your next benefit payment should go into your new bank account.</p>
 
       <form class="form" action="/iteration-5-1/5-1a/before-you-change-account-details" method="post">
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-{{ govukRadios({
-  classes: "govuk-radios--inline",
-  name: "before-you-change-account-details",
-  value: data['before-you-change-account-details'],
-  fieldset: {
-    legend: {
-      text: "Do you want to continue?",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--m"
-    }
-  },
-  items: [
-    {
-      value: "yes",
-      text: "Yes"
-    },
-    {
-      value: "no",
-      text: "No"
-    }
-  ]
-}) }}
+        {{ govukRadios({
+          classes: "govuk-radios",
+          name: "before-you-change-account-details",
+          value: data['before-you-change-account-details'],
+          fieldset: {
+            legend: {
+              text: "Do you want to continue?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes, continue using this service
+              Hint text"
+            },
+            {
+              value: "no",
+              text: "No, contact my benefit office"
+            }
+          ]
+        }) }}
 
         {{ govukButton({
           text: "Continue"
