@@ -5,7 +5,7 @@ Manage your benefits and State Pension
 {% endset%}
 
 {% block pageTitle %}
-Benefits you need to change
+Before you change account details
 {% endblock %}
 
 {% block beforeContent %}
@@ -36,42 +36,37 @@ Benefits you need to change
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Benefits you need to change
+        Your next payment
       </h1>
 
-      <p class="govuk-body">You selected:</p>
-      <ul class="govuk-list govuk-list--bullet">
-        {% for benefit in data['which-benefits-do-you-get'] %}
-        <li>{{ benefit }}</li>
-        {% endfor %}
-      </ul>
+      <p>Your next benefit payment could be on its way to your old bank account.</p>
+      
+      <p>If you do not have access to your old bank account, contact your benefit office to change your bank details.</p>
 
-      <p>You can choose whether your benefit payments go into one account or into separate accounts.</p>
-
-      <div class="govuk-!-padding-bottom-4"></div>
-
-      <form class="form" action="/iteration-5-1/5-1a/payment-in-progress/benefits-you-need-to-change" method="post">
+      <form class="form" action="/iteration-5-1/5-1a/before-you-change-account-details" method="post">
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
         {{ govukRadios({
-          name: "how-do-you-need-your-benefits-to-be-paid",
-          value: data['how-do-you-need-your-benefits-to-be-paid'],
+          classes: "govuk-radios",
+          name: "before-you-change-account-details",
+          value: data['before-you-change-account-details'],
           fieldset: {
             legend: {
-              text: "How do you need your benefits to be paid?",
-              isPageHeading: true,
+              text: "Do you want to continue?",
+              isPageHeading: false,
               classes: "govuk-fieldset__legend--m"
             }
           },
           items: [
             {
-              value: "Pay my benefits into one bank account",
-              text: "Pay my benefits into one bank account"
+              value: "yes",
+              text: "Yes, continue using this service
+              Hint text"
             },
             {
-              value: "Pay my benefits into separate accounts",
-              text: "Pay my benefits into separate accounts"
+              value: "no",
+              text: "No, contact my benefit office"
             }
           ]
         }) }}

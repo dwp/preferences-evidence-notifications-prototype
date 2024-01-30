@@ -1,0 +1,170 @@
+{% extends "layouts/main.html" %}
+
+{% set serviceName %}
+Manage your benefits and State Pension
+{% endset%}
+
+{% block pageTitle %}
+Customer view
+{% endblock %}
+
+{% block beforeContent %}
+
+{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
+
+{{
+  hmrcLanguageSelect({
+    language: 'en',
+    en: {
+      href: '?en'
+    },
+    cy: {
+      href: '?cy'
+    }
+  })
+}}
+
+{% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-xl">
+        <span class="govuk-caption-xl">Account home</span>
+        Sarah Phillips
+      </h1>
+    
+      <h2 class="govuk-heading-m">Your details</h2>
+      
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                  Name
+              </dt>
+              <dd class="govuk-summary-list__value">
+                  Sarah Philips
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                  Date of birth
+              </dt>
+              <dd class="govuk-summary-list__value">
+                  5 January 1978
+              </dd>
+            </div>
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                  National Insurance number
+              </dt>
+              <dd class="govuk-summary-list__value">
+                  AB 12 34 56 C
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                  Home address
+              </dt>
+              <dd class="govuk-summary-list__value">
+                  72 Guild Street<br>London<br>SE23 6FH
+              </dd>
+            </div>
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                  Postal address
+              </dt>
+              <dd class="govuk-summary-list__value">
+                  12 Gregg Lane<br>London<br>SE12 6FH
+              </dd>
+            </div>
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                  Mobile
+              </dt>
+              <dd class="govuk-summary-list__value">
+                  <p class="govuk-body">07700 900 457</p>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                  Home phone
+              </dt>
+              <dd class="govuk-summary-list__value">
+                  <p class="govuk-body">01234 567 890</p>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                  Email
+              </dt>
+              <dd class="govuk-summary-list__value">
+                  <p class="govuk-body">sarah.phillips@example.com</p>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                  Benefits
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% for benefit in data['which-benefits-do-you-get'] %}
+                <p class="govuk-body">{{ benefit }}<br>
+                <span id="sign-in-hint" class="govuk-hint">
+                    Paid into account ending 1234
+                </span></p>
+                {% else %}
+                  <p>No benefit selected</p>
+                {% endfor %}
+              </dd>
+            </div>
+          </dl>
+      
+        </div>
+      </div>
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-5">Your services</h2>
+
+      <section class="govuk-grid-column-one-half govuk-!-margin-bottom-6 govuk-!-padding-left-0">
+        <h3 class="govuk-heading-m govuk-!-margin-bottom-1">
+          <a href="/find-teacher-training/">Change your bank details</a>
+        </h3>
+        <p class="govuk-body">Some details about the service can go here. Filler text to see how wrapping works.</p>
+      </section>
+    
+      <section class="govuk-grid-column-one-half govuk-!-margin-bottom-6 govuk-!-padding-left-0">
+        <h3 class="govuk-heading-m govuk-!-margin-bottom-1">
+          <a href="/find-teacher-training/">View your personal details</a>
+        </h3>
+        <p class="govuk-body">Some details about the service can go here. Filler text to see how wrapping works.</p>
+      </section>
+
+      <section class="govuk-grid-column-one-half govuk-!-margin-bottom-6 govuk-!-padding-left-0">
+        <h3 class="govuk-heading-m govuk-!-margin-bottom-1">
+          <a href="/find-teacher-training/">Service 3</a>
+        </h3>
+        <p class="govuk-body">Some details about the service can go here. Filler text to see how wrapping works.</p>
+      </section>
+
+      <section class="govuk-grid-column-one-half govuk-!-margin-bottom-6 govuk-!-padding-left-0">
+        <h3 class="govuk-heading-m govuk-!-margin-bottom-1">
+          <a href="/find-teacher-training/">Service 4</a>
+        </h3>
+        <p class="govuk-body">Some details about the service can go here. Filler text to see how wrapping works.</p>
+      </section>
+
+    </div>
+  </div>
+
+{% endblock %}
