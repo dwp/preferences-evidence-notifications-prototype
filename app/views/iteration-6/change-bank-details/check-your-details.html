@@ -10,19 +10,19 @@ Check your details before you send them
 
 {% block beforeContent %}
 
-{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
+  {%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
 
-{{
-  hmrcLanguageSelect({
-    language: 'en',
-    en: {
-      href: '?en'
-    },
-    cy: {
-      href: '?cy'
-    }
-  })
-}}
+  {{
+    hmrcLanguageSelect({
+      language: 'en',
+      en: {
+        href: '?en'
+      },
+      cy: {
+        href: '?cy'
+      }
+    })
+  }}
 
   {{ govukBackLink({
     text: "Back",
@@ -38,7 +38,7 @@ Check your details before you send them
    
     <h1 class="govuk-heading-l">Check your details before you send them</h1>
 
-    <form action="" method="post" novalidate>
+    <form class="form" action="check-your-details-answer" method="post" novalidate>
 
       <div style="display: flex; justify-content: space-between; align-items: center;" >
         <h2 class="govuk-heading-m">Bank details</h2>
@@ -51,7 +51,7 @@ Check your details before you send them
             Name on account
           </dt>
           <dd class="govuk-summary-list__value">
-            Sarah Phillips
+            {{ data['nameOnTheAccount'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
           </dd>
@@ -61,7 +61,7 @@ Check your details before you send them
             Sort code
           </dt>
           <dd class="govuk-summary-list__value">
-            65-43-21
+            {{ data['sortCode'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
           </dd>
@@ -71,7 +71,7 @@ Check your details before you send them
             Account number
           </dt>
           <dd class="govuk-summary-list__value">
-            87654321
+            {{ data['accountNumber'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
           </dd>
@@ -81,7 +81,7 @@ Check your details before you send them
             Building society roll number or credit union membership number
           </dt>
           <dd class="govuk-summary-list__value">
-            Not provided
+            {{ data['rollNumber'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
           </dd>

@@ -122,7 +122,7 @@ router.post('/iteration-5-1/5-1a/check-if-you-can-use-the-service', function (re
 
 
 
-  router.post('/iteration-5-1/5-1a/are-you-expecting-a-payment-in-the-next-six-working-days', function (req, res) {
+  router.post('/iteration-6/check-you-can-change-bank-details/are-you-expecting-a-payment-in-the-next-six-working-days-answer', function (req, res) {
 
     // Make a variable and give it the value from 'are-you-expecting-a-payment-in-the-next-six-working-days'
     var areYouExpectingaPaymentInTheNextSixWorkingDays = req.session.data['are-you-expecting-a-payment-in-the-next-six-working-days']
@@ -130,13 +130,13 @@ router.post('/iteration-5-1/5-1a/check-if-you-can-use-the-service', function (re
     // Check whether the variable matches a condition
     if (areYouExpectingaPaymentInTheNextSixWorkingDays == "yes"){
         // Send user to next page
-        res.redirect('/iteration-5-1/5-1a/payment-in-progress/you-can-use-this-service-detailed')
+        res.redirect('/iteration-6/check-you-can-change-bank-details/you-can-use-service-payment-due')
       } else if (areYouExpectingaPaymentInTheNextSixWorkingDays == "no"){
       // Send user to next page
-      res.redirect('/iteration-5-1/5-1a/you-can-use-this-service-simple')
+      res.redirect('/iteration-6/check-you-can-change-bank-details/you-can-use-service-no-payment-due')
     } else {
       // Inactive
-      res.redirect('/iteration-5-1/5-1a/contact-us')
+      res.redirect('/iteration-6/check-you-can-change-bank-details/you-can-use-service-unsure-payment-due')
     }
   
   })
@@ -160,22 +160,43 @@ router.post('/iteration-5-1/5-1a/check-if-you-can-use-the-service', function (re
 
 
 
-    router.post('/iteration-5-1/5-1a/benefits-you-need-to-change', function (req, res) {
+    router.post('/iteration-6/change-bank-details/benefits-you-need-to-change-answer', function (req, res) {
 
-        // Make a variable and give it the value from 'how-do-you-need-your-benefits-to-be-paid'
-        var howDoYouNeedYourBenefitsToBePaid = req.session.data['how-do-you-need-your-benefits-to-be-paid']
-      
-        // Check whether the variable matches a condition
-        if (howDoYouNeedYourBenefitsToBePaid == "Pay my benefits into one bank account"){
-            // Send user to next page
-            res.redirect('/iteration-5-1/5-1a/before-you-change-account-details')
-          } else {
-            // Inactive
-            res.redirect('#')
-          }
-        
-        })
+    // Make a variable and give it the value from 'are-you-expecting-a-payment-in-the-next-six-working-days'
+    var areYouExpectingaPaymentInTheNextSixWorkingDays = req.session.data['are-you-expecting-a-payment-in-the-next-six-working-days']
+  
+    // Check whether the variable matches a condition
+    if (areYouExpectingaPaymentInTheNextSixWorkingDays == "yes"){
+        // Send user to next page
+        res.redirect('/iteration-6/change-bank-details/your-next-payment-old-account')
+      } else if (areYouExpectingaPaymentInTheNextSixWorkingDays == "no"){
+      // Send user to next page
+      res.redirect('/iteration-6/change-bank-details/your-next-payment-new-account')
+    } else {
+      // Inactive
+      res.redirect('/iteration-6/change-bank-details/your-next-payment-old-account')
+    }
+  
+  })
 
+  router.post('/iteration-6/change-bank-details/check-your-details-answer', function (req, res) {
+
+    // Make a variable and give it the value from 'are-you-expecting-a-payment-in-the-next-six-working-days'
+    var areYouExpectingaPaymentInTheNextSixWorkingDays = req.session.data['are-you-expecting-a-payment-in-the-next-six-working-days']
+  
+    // Check whether the variable matches a condition
+    if (areYouExpectingaPaymentInTheNextSixWorkingDays == "yes"){
+        // Send user to next page
+        res.redirect('/iteration-6/we-are-updating-your-bank-details/next-payment-in-old-account')
+      } else if (areYouExpectingaPaymentInTheNextSixWorkingDays == "no"){
+      // Send user to next page
+      res.redirect('/iteration-6/we-are-updating-your-bank-details/next-payment-in-new-account')
+    } else {
+      // Inactive
+      res.redirect('/iteration-6/we-are-updating-your-bank-details/next-payment-in-old-account')
+    }
+  
+  })
         
 
 
