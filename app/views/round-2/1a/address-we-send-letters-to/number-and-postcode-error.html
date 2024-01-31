@@ -1,0 +1,138 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
+
+{{
+  hmrcLanguageSelect({
+    language: 'en',
+    en: {
+      href: '?en'
+    },
+    cy: {
+      href: '?cy'
+    }
+  })
+}}
+
+    <!--Crumble menu-->
+    {{ govukBreadcrumbs({
+      items: [
+          {
+          text: "Home",
+          href: "homepage"
+          },
+          {
+          text: "View your personal details",
+          href: "personal-details"
+          },
+          {
+            text: "Address we send letters to",
+            href: "#"
+            }
+      ]
+      }) }}
+
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
+    <h2 class="govuk-error-summary__title" id="error-summary-title">
+      There is a problem
+    </h2>
+    <div class="govuk-error-summary__body">
+      <ul class="govuk-list govuk-error-summary__list">
+        <li>
+          <a href="#address-postcode">Enter a valid UK postcode</a>
+        </li>
+        <li>
+          <a href="#address-number">Enter a UK building number or name</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+<fieldset class="govuk-fieldset">
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+
+    <div>
+    <h1 class="govuk-fieldset__heading">
+      Find the new UK address we can send letters to
+    </h1>
+  </div>
+  </legend>
+<br>  
+
+<div class="govuk-form-group govuk-form-group--error">
+
+  <label class="govuk-label" for="address-postcode">
+    Postcode
+  </label>
+  <div id="postcode-hint" class="govuk-hint">
+    For example, AA3 1AB.
+</div>
+  <p id="address-postcode-error" class="govuk-error-message">
+    <span class="govuk-visually-hidden">Error:</span> Enter a valid UK postcode
+  </p>
+  <input class="govuk-input govuk-input--width-5 govuk-input--error" id="address-postcode" name="address-postcode" type="text" aria-describedby="address-postcode-error" autocomplete="address-postcode">
+
+  <label class="govuk-label" for="address-number">
+    <br> Building number or name
+  </label>
+  <div id="searchString-hint" class="govuk-hint">
+    For example, 15 or Prospect Cottage.
+</div>
+  <p id="address-number-error" class="govuk-error-message">
+    <span class="govuk-visually-hidden">Error:</span> Enter a UK building number or name
+  </p>
+  <input class="govuk-input govuk-input--width-10 govuk-input--error" id="address-number" name="address-number" type="text" aria-describedby="address-number-error" autocomplete="address-number">
+
+  </div>
+
+  <!-- {{ govukButton({
+    text: "Find address",
+    href: "/agent/update-address/update-address-results.html"
+  }) }}
+
+  {{ govukButton ({
+    html: 'Continue',
+    href: '/agent/update-address/update-address-results.html'
+}) }} -->
+
+<button class="govuk-button" value= "true" data-module="govuk-button" style="margin-bottom:50px;" onclick="check3()" >Find address</button>
+
+<!-- <div>
+  <a href="/agent/update-address/update-address-manual-entry.html" class="govuk-body-m">Enter address manually
+</a>
+</div> -->
+
+</fieldset>
+
+  </div>
+
+  <script>
+    function check3() {
+      console.log(document.getElementById("yes"))
+
+      if (document.getElementById("address-number").value && document.getElementById("address-postcode").value ) {
+        window.location.href = "/round-1/1f/update-address-results.html"
+      } else {
+        window.location.href = "/round-1/1f/number-and-postcode-error.html"
+      }
+
+    }
+  </script>
+
+</div>
+
+{% endblock %}
