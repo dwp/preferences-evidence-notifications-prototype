@@ -28,7 +28,7 @@
           href: "homepage"
           },
           {
-          text: "View or change your personal details",
+          text: "View your personal details",
           href: "#"
           }
       ]
@@ -42,12 +42,8 @@
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
       <h1 class="govuk-heading-xl">
-        View or change your personal details
+        Personal details
       </h1>
-
-      <div class="govuk-!-padding-bottom-4"></div>
-
-      <h2 class="govuk-heading-m">Personal details</h2>
 
       {{ govukSummaryList({
         rows: [
@@ -89,33 +85,6 @@
           ,
           {
             key: {
-              text: "Email"
-            },
-            value: {
-              text: "sarah.phillips@example.com"
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
-                  text: "Change",
-                  visuallyHiddenText: "change your email"
-                }
-              ]
-            }
-          }
-        ]
-      }) }}
-
-      <div class="govuk-!-padding-bottom-4"></div>
-
-      <h2 class="govuk-heading-m">Address details</h2>
-
-
-      {{ govukSummaryList({
-        rows: [
-          {
-            key: {
               text: "Home address"
             },
             value: { html: "72 Guild Street<br>London<br>SE23 6FH"
@@ -135,30 +104,46 @@
             key: {
               text: "Address we send letters to"
             },
-            value: { html: "Same as home address"
+              value: { html: "5 Wellington House<br> 
+              Windsor Street<br>
+              South Gosforth<br>
+              Newcastle upon Tyne<br>
+              NE3 1YL"
+            },
+            actions: {
+              items: [
+                {
+                  href: "postal-address-information",
+                  text: "Change",
+                  visuallyHiddenText: "change your address that we send letters to"
+                }
+              ]
+            }
+          }
+
+          ,
+          {
+            key: {
+              text: "Mobile"
+            },
+            value: {
+              text: "07700 900 457"
             },
             actions: {
               items: [
                 {
                   href: "#",
                   text: "Change",
-                  visuallyHiddenText: "change your home address"
+                  visuallyHiddenText: "change your mobile number"
                 }
               ]
             }
           }
-        ]
-      }) }}
 
-      <div class="govuk-!-padding-bottom-4"></div>
-
-      <h2 class="govuk-heading-m">Phone details</h2>
-
-      {{ govukSummaryList({
-        rows: [
+          ,
           {
             key: {
-              text: "Primary phone number"
+              text: "Home phone"
             },
             value: {
               text: "01234 567 890"
@@ -173,34 +158,27 @@
               ]
             }
           }
+
           ,
           {
             key: {
-              text: "Secondary phone numbers"
+              text: "Email"
             },
             value: {
-              html: "07700 900 457<br>07700 900 000<br>+1 123 1231234<br>020 1234 1234"
+              text: "sarah.phillips@example.com"
             },
             actions: {
               items: [
                 {
                   href: "#",
                   text: "Change",
-                  visuallyHiddenText: "change your mobile number"
+                  visuallyHiddenText: "change your email"
                 }
               ]
             }
           }
 
-        ]
-      }) }}
-
-      <div class="govuk-!-padding-bottom-4"></div>
-
-      <h2 class="govuk-heading-m">Benefit details</h2>
-
-      {{ govukSummaryList({
-        rows: [
+          ,
           {
             key: {
               text: "Benefits"
@@ -219,7 +197,7 @@
   <div class="govuk-button-group">
     {{ govukButton({
       text: "Return",
-      href: "/round-1/1d/homepage.html"
+      href: "/round-1/1f/homepage.html"
     }) }}
   </div>
 {% endblock %}
