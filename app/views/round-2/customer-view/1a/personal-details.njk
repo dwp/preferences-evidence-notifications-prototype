@@ -44,160 +44,125 @@
 {% endblock %}
 
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds-from-desktop">
-
-      <h1 class="govuk-heading-xl">
-        View or change your personal details
-      </h1>
-
-      {{ govukSummaryList({
-        rows: [
-          {
-            key: {
-              text: "Name"
-            },
-            value: {
-              text: "	Sarah Philips"
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
-                  text: "Change",
-                  visuallyHiddenText: "change your name"
-                }
-              ]
-            }
-          }
-          ,
-          {
-            key: {
-              text: "Date of birth"
-            },
-            value: {
-              text: "	5 January 1978"
-            }
-          }
-          ,
-          {
-            key: {
-              text: "National Insurance number"
-            },
-            value: {
-              text: "	AB 12 34 56 C"
-            }
-          }
-          ,
-          {
-            key: {
-              text: "Email"
-            },
-            value: {
-              text: "sarah.phillips@example.com"
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
-                  text: "Change",
-                  visuallyHiddenText: "change your email"
-                }
-              ]
-            }
-          }
-          ,
-          {
-            key: {
-              text: "Home address"
-            },
-            value: { html: "72 Guild Street<br>London<br>SE23 6FH"
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
-                  text: "Change",
-                  visuallyHiddenText: "change your home address"
-                }
-              ]
-            }
-          }
-          ,
-          {
-            key: {
-              text: "Address we send letters to"
-            },
-            value: {
-              html: data['where-do-you-live'] | default("Same as home address")
-            },
-            actions: {
-              items: [
-                {
-                  href: "/round-2/customer-view/1a/address-we-send-letters-to/which-address-should-we-send-letters-to",
-                  text: "Change",
-                  visuallyHiddenText: "change your home address"
-                }
-              ]
-            }
-          }
-          ,
-          {
-            key: {
-              text: "Main phone number"
-            },
-            value: {
-              text: "01234 567 890"
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
-                  text: "Change",
-                  visuallyHiddenText: "change your home phone"
-                }
-              ]
-            }
-          }
-
-          ,
-          {
-            key: {
-              text: "Other phone numbers"
-            },
-            value: {
-              html: "07700 900 457<br>07700 900 000<br>+1 123 1231234<br>020 1234 1234"
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
-                  text: "Change",
-                  visuallyHiddenText: "change your mobile number"
-                }
-              ]
-            }
-          }
-          ,
-          {
-            key: {
-              text: "Benefits"
-            },
-            value: { html: "Employment and Support Allowance (ESA)<br><br>Personal Independence Payment (PIP)"
-            }
-          }
 
 
-        ]
-      }) }}
-
+<div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds-from-desktop">
+        <h1 class="govuk-heading-l">View or change your personal details</h1>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Sarah Philips
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date of birth
+            </dt>
+            <dd class="govuk-summary-list__value">
+              5 January 1978
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              National Insurance number	
+            </dt>
+            <dd class="govuk-summary-list__value">
+              AB 12 34 56 C
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> customer reference</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Email
+            </dt>
+            <dd class="govuk-summary-list__value">
+              sarah.phillips@example.com
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> customer reference</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Home address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              72 Guild Street<br>London<br>SE23 6FH
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Address we send letters to
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Same as home address
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Main phone number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              01234 567 890
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Other phone numbers
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body">07700 900 457</p>
+              <p class="govuk-body">07700 900 000</p>
+              <p class="govuk-body">+1 123 1231234</p>
+              <p class="govuk-body">020 1234 1234</p>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Benefits
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body">Employment and Support Allowance (ESA)</p>
+              <p class="govuk-body">Personal Independence Payment (PIP)</p>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+            </dd>
+          </div>
+        </dl>
+      </div>
     </div>
-  </div>
+    <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Return",
+        href: "/round-2/customer-view/1a/homepage.html"
+      }) }}
+    </div>
+</div>
 
-  <div class="govuk-button-group">
-    {{ govukButton({
-      text: "Return",
-      href: "/round-2/customer-view/1a/homepage.html"
-    }) }}
-  </div>
 {% endblock %}
