@@ -38,7 +38,7 @@ Are you expecting a payment in the next six working days?
         const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
         // Set the number of days in the future
-        const futureDays = 4; // Change this to your desired number of days
+        const futureDays = 6; // Change this to your desired number of days
 
         // Get the current date
         const today = new Date();
@@ -65,14 +65,14 @@ Are you expecting a payment in the next six working days?
         Your next payment
       </h1>
 
-      <form class="form" action="you-can-use-service-no-payment-due" method="post">
+      <form class="form" action="are-you-expecting-a-payment-in-the-next-six-working-days-answer" method="post">
 
         <p>We need to know if a payment is on it’s way to you, so that we can tell you what will happen next, </p>
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-              Are you expecting a benefit payment on or before <span id="future-day-container"></span> {{ "today" | duration(4) | govukDate }}?
+              Are you expecting a benefit payment on or before <span id="future-day-container"></span> {{ "today" | duration(6) | govukDate }}?
             </legend>
             <div class="govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">

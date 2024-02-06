@@ -8,6 +8,78 @@ const router = govukPrototypeKit.requests.setupRouter()
 
 // Add your routes here
 
+// OIDV routes
+
+const utils = require('../lib/utils')
+const config = require('./config.json')
+
+var useViewVersioning = (config.useViewVersioning === true)
+
+// Import version-specific routes
+const cxpRoutes = require('./routes/cxp')
+const authRoutes = require('./routes/auth')
+const idvRoutes = require('./routes/idv')
+const kbvRoutes = require('./routes/kbv-uplift')
+
+router.use('/', cxpRoutes)
+router.use('/', authRoutes)
+router.use('/', idvRoutes)
+router.use('/', kbvRoutes)
+
+if (useViewVersioning) {
+  router.get('/*/default/*', utils.redirectToVersion, function (req, res, next) {
+    next()
+  })
+}
+
+if (useViewVersioning) {
+  router.get('/*/v*/*', utils.checkVersion, function (req, res, next) {
+    next()
+  })
+}
+
+// Prototype-wide routing
+router.post('/prototype-submit', (req, res, next) => {
+  const currentUrl = req.protocol + '://' + req.get('host')
+  // Get journey start and service name from journey-start value
+  const journeyDetails = req.session.data['journey-start']
+  const journeyDetailsArr = journeyDetails.split(',')
+  const journeyStart = journeyDetailsArr[0]
+  const serviceName = req.session.data[
+    journeyDetailsArr[1] === 'carers' ? 'carers-service-name': 'dss-service-name'
+  ]
+  req.session.data['service-name'] = serviceName
+
+  // Other variables
+  const citizenName = req.session.data['citizen-name']
+  const citizenBenefits = req.session.data['citizen-benefits']
+  const cxp = req.session.data['cxp']
+  const esaStatus = req.session.data['esa-status']
+  const pipStatus = req.session.data['pip-status']
+  const auth = req.session.data['auth']
+  const idv = req.session.data['idv']
+  const idvHappy = req.session.data['idvHappy']
+  req.session.data['generated-link'] = currentUrl + journeyStart + '?' + 
+    'citizen-name=' + citizenName + '&' + 
+    'service-name=' + serviceName + '&' + 
+    'citizen-benefits=' + citizenBenefits + '&' + 
+    'cxp=' + cxp  + '&' + 
+    'esa-status=' + esaStatus  + '&' + 
+    'pip-status=' + pipStatus  + '&' + 
+    'auth=' + auth  + '&' + 
+    'idv=' + idv  + '&' + 
+    'idvHappy=' + idvHappy 
+  const action = req.session.data['action']
+  if (action === 'generateLink') {
+    res.redirect('/generate-link')
+  } else {
+    res.redirect(journeyStart)
+  }
+})
+
+
+// PEN routes
+
 // alt-formats routes
 require('./views/alternative-formats/_routes')(router);
 
@@ -126,7 +198,7 @@ router.post('/iteration-5-1/5-1a/check-if-you-can-use-the-service', function (re
 
 
 
-  router.post('/iteration-5-1/5-1a/are-you-expecting-a-payment-in-the-next-six-working-days', function (req, res) {
+  router.post('/iteration-6/check-you-can-change-bank-details/are-you-expecting-a-payment-in-the-next-six-working-days-answer', function (req, res) {
 
     // Make a variable and give it the value from 'are-you-expecting-a-payment-in-the-next-six-working-days'
     var areYouExpectingaPaymentInTheNextSixWorkingDays = req.session.data['are-you-expecting-a-payment-in-the-next-six-working-days']
@@ -134,13 +206,13 @@ router.post('/iteration-5-1/5-1a/check-if-you-can-use-the-service', function (re
     // Check whether the variable matches a condition
     if (areYouExpectingaPaymentInTheNextSixWorkingDays == "yes"){
         // Send user to next page
-        res.redirect('/iteration-5-1/5-1a/payment-in-progress/you-can-use-this-service-detailed')
+        res.redirect('/iteration-6/check-you-can-change-bank-details/you-can-use-service-payment-due')
       } else if (areYouExpectingaPaymentInTheNextSixWorkingDays == "no"){
       // Send user to next page
-      res.redirect('/iteration-5-1/5-1a/you-can-use-this-service-simple')
+      res.redirect('/iteration-6/check-you-can-change-bank-details/you-can-use-service-no-payment-due')
     } else {
       // Inactive
-      res.redirect('/iteration-5-1/5-1a/contact-us')
+      res.redirect('/iteration-6/check-you-can-change-bank-details/you-can-use-service-unsure-payment-due')
     }
   
   })
@@ -164,22 +236,43 @@ router.post('/iteration-5-1/5-1a/check-if-you-can-use-the-service', function (re
 
 
 
-    router.post('/iteration-5-1/5-1a/benefits-you-need-to-change', function (req, res) {
+    router.post('/iteration-6/change-bank-details/benefits-you-need-to-change-answer', function (req, res) {
 
-        // Make a variable and give it the value from 'how-do-you-need-your-benefits-to-be-paid'
-        var howDoYouNeedYourBenefitsToBePaid = req.session.data['how-do-you-need-your-benefits-to-be-paid']
-      
-        // Check whether the variable matches a condition
-        if (howDoYouNeedYourBenefitsToBePaid == "Pay my benefits into one bank account"){
-            // Send user to next page
-            res.redirect('/iteration-5-1/5-1a/before-you-change-account-details')
-          } else {
-            // Inactive
-            res.redirect('#')
-          }
-        
-        })
+    // Make a variable and give it the value from 'are-you-expecting-a-payment-in-the-next-six-working-days'
+    var areYouExpectingaPaymentInTheNextSixWorkingDays = req.session.data['are-you-expecting-a-payment-in-the-next-six-working-days']
+  
+    // Check whether the variable matches a condition
+    if (areYouExpectingaPaymentInTheNextSixWorkingDays == "yes"){
+        // Send user to next page
+        res.redirect('/iteration-6/change-bank-details/your-next-payment-old-account')
+      } else if (areYouExpectingaPaymentInTheNextSixWorkingDays == "no"){
+      // Send user to next page
+      res.redirect('/iteration-6/change-bank-details/your-next-payment-new-account')
+    } else {
+      // Inactive
+      res.redirect('/iteration-6/change-bank-details/your-next-payment-old-account')
+    }
+  
+  })
 
+  router.post('/iteration-6/change-bank-details/check-your-details-answer', function (req, res) {
+
+    // Make a variable and give it the value from 'are-you-expecting-a-payment-in-the-next-six-working-days'
+    var areYouExpectingaPaymentInTheNextSixWorkingDays = req.session.data['are-you-expecting-a-payment-in-the-next-six-working-days']
+  
+    // Check whether the variable matches a condition
+    if (areYouExpectingaPaymentInTheNextSixWorkingDays == "yes"){
+        // Send user to next page
+        res.redirect('/iteration-6/we-are-updating-your-bank-details/next-payment-in-old-account')
+      } else if (areYouExpectingaPaymentInTheNextSixWorkingDays == "no"){
+      // Send user to next page
+      res.redirect('/iteration-6/we-are-updating-your-bank-details/next-payment-in-new-account')
+    } else {
+      // Inactive
+      res.redirect('/iteration-6/we-are-updating-your-bank-details/next-payment-in-old-account')
+    }
+  
+  })
         
 
 

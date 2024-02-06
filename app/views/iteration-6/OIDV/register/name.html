@@ -1,0 +1,77 @@
+{% extends "layouts/main.html" %}
+
+{% set pageHeading = 'What is your name?' %}
+
+{% block pageTitle %}
+    {{pageHeading}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
+
+{{
+  hmrcLanguageSelect({
+    language: 'en',
+    en: {
+      href: '?en'
+    },
+    cy: {
+      href: '?cy'
+    }
+  })
+}}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+    
+    
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            <form action="date-of-birth" method="post">
+
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <h1 class="govuk-fieldset__heading">
+                            {{pageHeading}}
+                        </h1>
+                    </legend>
+                    <div id="changed-name-hint" class="govuk-hint">
+                        Enter your name as it appears on official documents, like your passport or driving licence. If you have no middle names, you can leave it blank.
+                    </div>
+                    <div class="govuk-form-group">
+                        <label class="govuk-label" for="first-name">
+                            First name
+                        </label>
+                        <input class="govuk-input govuk-!-width-two-thirds" id="first-name" name="first-name" type="text" spellcheck="false" autocomplete="name">
+                    </div>
+                    <div class="govuk-form-group">
+                        <label class="govuk-label" for="middle-name">
+                            Middle name (s)
+                        </label>
+                        <input class="govuk-input govuk-!-width-two-thirds" id="middle-name" name="middle-name" type="text" spellcheck="false" autocomplete="name">
+                    </div>
+                    <div class="govuk-form-group">
+                        <label class="govuk-label" for="last-name">
+                            Last name
+                        </label>
+                        <input class="govuk-input govuk-!-width-two-thirds" id="last-name" name="last-name" type="text" spellcheck="false" autocomplete="name">
+                    </div>
+                </fieldset>
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+
+            </form>
+
+
+        </div>
+    </div>
+{% endblock %}

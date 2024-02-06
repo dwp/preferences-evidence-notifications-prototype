@@ -1,0 +1,58 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  We have sent you a text message with your security code - GOV.UK 
+{% endblock %}
+
+{% block beforeContent %}
+
+{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
+
+{{
+  hmrcLanguageSelect({
+    language: 'en',
+    en: {
+      href: '?en'
+    },
+    cy: {
+      href: '?cy'
+    }
+  })
+}}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+    
+    
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <form action="sign-in-2fa-check-recovered-account" method="post">
+
+                <h1 class="govuk-heading-l">We have sent you a text message with your security code</h1>
+
+                <p>It should take one minute to arrive.</p>
+
+                <div class="govuk-form-group govuk-!-margin-top-6">
+                    <label class="govuk-label" for="2fa-code">
+                        Security code
+                    </label>
+                    <input class="govuk-input govuk-input--width-10" id="signin-code" name="signin-code" type="text">
+                </div>
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+
+                <p><a href="sign-in-resend-2fa" class="govuk-link">I did not get a text message</a></p>
+
+                <p><a href="account-recovery/start-new-phone" class="govuk-link">I cannot access the mobile phone number I use to sign in</a></p>
+
+            </form>
+        </div>
+    </div>
+{% endblock %}

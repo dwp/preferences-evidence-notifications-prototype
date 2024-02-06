@@ -1,0 +1,67 @@
+{% set isHMRCPage = false %}
+{% set serviceName = "Confirm who you are" %}
+{% extends "layouts/main.html" %}
+
+{% set pageHeading = 'We cannot confirm who you are' %}
+
+{% block pageTitle %}
+  {{pageHeading}} - GOV.UK 
+{% endblock %}
+
+{% block serviceName %}
+{% endblock %}
+
+{% block beforeContent %}
+
+{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
+
+{{
+  hmrcLanguageSelect({
+    language: 'en',
+    en: {
+      href: '?en'
+    },
+    cy: {
+      href: '?cy'
+    }
+  })
+}}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      {{pageHeading}}
+    </h1>
+
+    <form method="post" action="choose-2-items" name="" novalidate="">
+
+      <p class="govuk-body">
+        This means that some or all of the details you gave were incorrect.
+      </p>
+
+      <p class="govuk-body">
+        You have <strong>4 more attempts</strong> to prove your identity.
+      </p>
+      
+      <button class="govuk-button" data-module="govuk-button">
+        Try again
+      </button>
+
+    </form>
+
+  </div>
+
+</div>
+{% endblock %}
