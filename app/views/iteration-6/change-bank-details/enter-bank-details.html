@@ -96,20 +96,16 @@ Enter your bank, building society or credit union account details
           spellcheck: false
         }) }}
         
-        <!-- TODO line break on (if you have a building society or credit union account) -->
-        
-        {{ govukInput({
-          label: {
-            text: "Roll number or membership number (if you have a building society or credit union account)"
-          },
-          classes: "govuk-input--width-10 govuk-input--extra-letter-spacing",
-          hint: {
-            text: "Find this on your card, statement or passbook"
-          },
-          id: "roll-number",
-          name: "rollNumber",
-          spellcheck: false
-        }) }}
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="event-name">
+            Roll number or membership number<br>(if you have a building society or credit union account)
+          </label>
+          <div id="roll-number-hint" class="govuk-hint">
+            Find this on your card, statement or passbook
+          </div>
+          <input class="govuk-input govuk-input--width-10 govuk-input--extra-letter-spacing" id="roll-number" name="rollNumber" type="text" spellcheck="false">
+        </div>
         
         {{ govukButton({
           text: "Continue"
