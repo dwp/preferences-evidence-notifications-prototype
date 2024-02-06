@@ -1,0 +1,94 @@
+{% extends "layouts/main.html" %}
+
+{% set pageHeading = 'Check your phone' %}
+
+{% block pageTitle %}
+    Error: {{pageHeading}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
+
+{{
+  hmrcLanguageSelect({
+    language: 'en',
+    en: {
+      href: '?en'
+    },
+    cy: {
+      href: '?cy'
+    }
+  })
+}}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+    
+    
+{% endblock %}
+
+{% block content %}
+
+{% if data['2fa-code'] == '969862' %}
+<script>
+    window.location.href = 'name'
+</script>
+{% endif %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            {{ govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: [
+                {
+                text: "This security code has expired. We have sent you a new code.",
+                href: "#2fa-code"
+                }
+            ]
+            }) }}
+            <h1 class="govuk-heading-l">{{pageHeading}}</h1>
+
+            <div class="govuk-inset-text">
+                <p class="govuk-body">
+                    We have sent a code to:<br>
+                    <strong class="govuk-!-font-weight-bold">
+                        {% if data['telephone-number'] %}
+                            {{ data['telephone-number'] }}
+                        {% else %} 
+                            07123456789
+                        {% endif %}
+                    </strong>
+                </p>
+            </div>
+
+            <p class="govuk-body">
+                It might take up to a minute to arrive.
+            </p>
+
+            <p class="govuk-body">
+                The code will expire in 15 minutes.
+            </p>
+
+            <form action="code-check" method="post" class="form">
+                <div class="govuk-form-group govuk-form-group--error govuk-!-margin-top-6">
+                    <label class="govuk-label" for="2fa-code">
+                        Enter your security code
+                    </label>
+                    <span id="security-code-error" class="govuk-error-message">
+                        <span class="govuk-visually-hidden">Error:</span> This security code has expired. We have sent you a new code.
+                    </span>
+                    <input class="govuk-input govuk-input--width-10 govuk-input--error" id="2fa-code" name="2fa-code" type="text" value="{{ data['2fa-code'] }}">
+                </div>
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+            </form>
+
+            <p><a href="resend-code">I did not get a security code</a></p>
+        </div>
+    </div>
+{% endblock %}

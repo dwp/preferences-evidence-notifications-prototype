@@ -1,0 +1,71 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  What do you still have access to? - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
+
+{{
+  hmrcLanguageSelect({
+    language: 'en',
+    en: {
+      href: '?en'
+    },
+    cy: {
+      href: '?cy'
+    }
+  })
+}}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+    
+    
+{% endblock %}
+
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <form action="/auth/dev-ready/account-recovery/access" method="post">
+
+              {{ govukRadios({
+                idPrefix: "what-access",
+                name: "what-access",
+                fieldset: {
+                  legend: {
+                    text: "What do you still have access to?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                  }
+                },
+                items: [
+                  {
+                    value: "mobile-phone",
+                    text: "I can access the mobile phone number I use to sign in"
+                  },
+                  {
+                    value: "email",
+                    text: "I can access the email address I use to sign in"
+                  },
+                  {
+                    value: "neither",
+                    text: "I cannot access either of these"
+                  }
+                ]
+              }) }}
+
+              {{ govukButton({
+                text: "Continue"
+              }) }}
+
+             </form>
+  </div>
+</div>
+
+{% endblock %}

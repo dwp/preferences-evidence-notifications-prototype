@@ -1,0 +1,54 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Send me a new text message - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
+
+{{
+  hmrcLanguageSelect({
+    language: 'en',
+    en: {
+      href: '?en'
+    },
+    cy: {
+      href: '?cy'
+    }
+  })
+}}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+    
+    
+{% endblock %}
+
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <form action="sign-in-2fa" method="post">
+                {{ govukFieldset({
+                    legend: {
+                        html: 'Send me a new text message',
+                        classes: "govuk-fieldset__legend--l",
+                        isPageHeading: true
+                    }
+                })}}
+
+                <p>We will send you a text message with a new security code. </p>
+                <p>If you have not received a text message after several attempts, try again later.</p>
+
+                <p><a href="sign-in-2fa" class="govuk-button">Continue</a></p>
+
+                <p><a href="account-recovery/start-new-phone" class="govuk-link">I cannot access the mobile phone number I use to sign in</a></p>
+
+            </form>
+        </div>
+    </div>
+{% endblock %}

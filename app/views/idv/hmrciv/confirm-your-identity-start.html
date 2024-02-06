@@ -1,0 +1,79 @@
+{% set isHMRCPage = false %}
+{% set serviceName = "Confirm who you are" %}
+
+{% extends "layouts/main.html" %}
+
+{% set pageHeading = 'We need you to confirm your identity ' %}
+
+{% block pageTitle %}
+  {{pageHeading}} - GOV.UK 
+{% endblock %}
+
+{% block beforeContent %}
+
+{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
+
+{{
+  hmrcLanguageSelect({
+    language: 'en',
+    en: {
+      href: '?en'
+    },
+    cy: {
+      href: '?cy'
+    }
+  })
+}}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+  
+  
+{% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl ">
+        {{pageHeading}}
+      </h1>
+
+      <form method="post" action="choose-2-items" name="">
+
+        <p class="govuk-body">
+          We will ask you about items you may have, like your:
+        </p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li>UK passport</li>
+          <li>Payslips or P60</li>
+          <li>Self Assessment</li>
+          <li>Tax credits (optional Voice ID)</li>
+          <li>Credit record</li>
+        </ul>
+
+        <p class="govuk-body">
+          You will be able to choose how to confirm your identity.
+        </p>
+
+        <p class="govuk-body">
+          We do this to protect you against fraud.
+        </p>
+
+        <input class="govuk-button " type="submit" value="Continue">
+
+      </form>
+
+      <p class="body-text"><a href="more-information-from-cyi-start">
+        I do not have any of these items</a>
+      </p>
+
+    </div>
+  </div>
+
+{% endblock %}

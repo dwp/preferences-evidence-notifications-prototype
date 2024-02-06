@@ -1,0 +1,95 @@
+
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+        {{ data['dss-service-name']  }}
+    - GOV.UK
+{% endblock %}
+
+
+
+{% block beforeContent %}
+
+{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
+
+{{
+  hmrcLanguageSelect({
+    language: 'en',
+    en: {
+      href: '?en'
+    },
+    cy: {
+      href: '?cy'
+    }
+  })
+}}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+  
+  
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">{{ data['dss-service-name']  }}</h1>
+
+      <p class="govuk-body">Use this service to check:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Your next benefit payment dates</li>
+        <li>Your past benefit payment dates</li>
+      </ul>
+
+      <p class="govuk-body">It will take around 3 minutes to {{ data['dss-service-name']  }}.</p>
+
+      {{ govukButton({
+        text: "Start now",
+        href: "sign-in-branch",
+        classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-8",
+        isStartButton: true
+      }) }}
+
+      <!--<h2 class="govuk-heading-m">Before you start</h2>
+
+      <p class="govuk-body">You will need access to an email account.</p>
+
+      <p class="govuk-body">You will need access to a mobile phone.</p>-->
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <!-- The Related items component is not part of GOV.UK Frontend but will be styled if used in the Prototype Kit -->
+
+     <!-- <aside class="app-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Subsection
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a class="govuk-link" href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link" href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#" class="govuk-link govuk-!-font-weight-bold">
+                More <span class="govuk-visually-hidden">in Subsection</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>-->
+
+    </div>
+  </div>
+{% endblock %}
+

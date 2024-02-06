@@ -37,7 +37,7 @@ Enter your bank, building society or credit union account details
 
       <h1 class="govuk-heading-l">Enter your new bank, building society or credit union account details</h1>
 
-      <form class="form" action="" method="post">
+      <form class="form" action="/iteration-6/change-bank-details/check-your-details" method="post">
       
         {% from "govuk/components/input/macro.njk" import govukInput %}
 
@@ -46,7 +46,7 @@ Enter your bank, building society or credit union account details
             text: "Name on the account or card"
           },
           id: "name-on-the-account",
-          name: "name-on-the-account",
+          name: "nameOnTheAccount",
           autocomplete: "name",
           spellcheck: false
         }) }}
@@ -95,6 +95,8 @@ Enter your bank, building society or credit union account details
           inputmode: "numeric",
           spellcheck: false
         }) }}
+        
+        <!-- TODO line break on (if you have a building society or credit union account) -->
         
         {{ govukInput({
           label: {

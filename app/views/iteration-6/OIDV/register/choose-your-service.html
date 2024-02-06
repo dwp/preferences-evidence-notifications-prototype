@@ -1,0 +1,52 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Choose your service - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
+
+{{
+  hmrcLanguageSelect({
+    language: 'en',
+    en: {
+      href: '?en'
+    },
+    cy: {
+      href: '?cy'
+    }
+  })
+}}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+    
+    
+{% endblock %}
+
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+          <h1 class="govuk-heading-l">Choose the service you wish to access</h1>
+           
+            <ul class="govuk-list govuk-list--bullet">
+              <li><a href="#" class="govuk-link">Access to work</a></li>
+              <li><a href="#" class="govuk-link">Personal independence payment (PIP)</a></li>
+              <li><a href="#" class="govuk-link">Repay and manage my debt</a></li>
+            </ul>
+
+            <div class="govuk-inset-text">
+              <p>
+                <a href="https://www.gov.uk/search/services?organisations%5B%5D=department-for-work-pensions&parent=department-for-work-pensions">I can't see my service on the list</a>
+              </p>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
