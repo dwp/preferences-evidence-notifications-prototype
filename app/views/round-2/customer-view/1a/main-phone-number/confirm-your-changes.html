@@ -20,19 +20,24 @@
   })
 }}
 
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
     <!--Crumble menu-->
     {{ govukBreadcrumbs({
       items: [
           {
           text: "Home",
-          href: "homepage"
+          href: "../homepage"
           },
           {
-          text: "View your personal details",
-          href: "personal-details"
+          text: "View or change your personal details",
+          href: "../personal-details"
           },
           {
-            text: "Preferred phone number",
+            text: "Main phone number",
             href: "#"
             }
       ]
@@ -56,7 +61,7 @@
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
           
               <h1 class="govuk-fieldset__heading">
-                Preferred phone number
+                Confirm your changes
               </h1>
             </legend>
           </fieldset>
@@ -66,7 +71,7 @@
           <table class="govuk-table">
             <tbody class="govuk-table__body">
               <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header">New preferred number we can call</th>
+                <th scope="row" class="govuk-table__header">New main number we can call</th>
                 <td class="govuk-table__cell">
                   07815 701 922
                 </td>
@@ -74,7 +79,7 @@
             </tbody>
             <tbody class="govuk-table__body">
               <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header">Previous preferred number we could call</th>
+                <th scope="row" class="govuk-table__header">Previous main number we could call</th>
                 <td class="govuk-table__cell">
                   07700 900 457
               </tr>
@@ -86,7 +91,7 @@
           <div class="govuk-button-group">
               {{ govukButton({
                   text: "Confirm",
-                  href: "/round-2/customer-view/1a/main-phone-number/updated-phone-number-message.html",
+                  href: "/round-2/customer-view/1a/main-phone-number/updated-phone-number.html",
                   preventDoubleClick: true
                   }) }}
         
