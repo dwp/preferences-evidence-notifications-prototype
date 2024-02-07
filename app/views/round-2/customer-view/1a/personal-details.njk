@@ -45,7 +45,6 @@
 
 {% block content %}
 
-
 <div class="govuk-width-container">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds-from-desktop">
@@ -75,7 +74,7 @@
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              National Insurance number	
+              National Insurance number 
             </dt>
             <dd class="govuk-summary-list__value">
               AB 12 34 56 C
@@ -110,8 +109,7 @@
             <dt class="govuk-summary-list__key">
               Address we send letters to
             </dt>
-            <dd class="govuk-summary-list__value">
-              Same as home address
+            <dd class="govuk-summary-list__value" id="newAddressDiv" name="newAddressDiv">
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="address-we-send-letters-to/which-address-should-we-send-letters-to">Change<span class="govuk-visually-hidden"> address we send letters to</span></a>
@@ -121,11 +119,10 @@
             <dt class="govuk-summary-list__key">
               Main phone number
             </dt>
-            <dd class="govuk-summary-list__value">
-              01234 567 890
+            <dd class="govuk-summary-list__value" id="mainPhoneDiv" name="mainPhoneDiv">
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> main phone number</span></a>
+              <a class="govuk-link" href="main-phone-number/main-phone-number-that-we-can-call">Change<span class="govuk-visually-hidden"> main phone number</span></a>
             </dd>
           </div>
           <div class="govuk-summary-list__row">
@@ -164,5 +161,29 @@
       }) }}
     </div>
 </div>
+
+<script>
+  var address = sessionStorage.getItem('address');
+  var newAddressDiv = document.getElementById('newAddressDiv');
+  if (newAddressDiv) {
+    if(address) {
+      newAddressDiv.innerHTML = address.replace(/,/g, '<br>');
+    } else {
+      newAddressDiv.innerHTML = "Same as home address";
+    }
+  }
+</script>
+
+<script>
+  var phone = sessionStorage.getItem('phone');
+  var newPhoneDiv = document.getElementById('newPhoneDiv');
+  if (newPhoneDiv) {
+    if(address) {
+      newPhoneDiv.innerHTML = phone.replace(/,/g, '<br>');
+    } else {
+      newPhoneDiv.innerHTML = "07700 900 457";
+    }
+  }
+</script>
 
 {% endblock %}

@@ -20,19 +20,24 @@
   })
 }}
 
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
     <!--Crumble menu-->
     {{ govukBreadcrumbs({
       items: [
           {
           text: "Home",
-          href: "homepage"
+          href: "../homepage"
           },
           {
-          text: "View your personal details",
-          href: "personal-details"
+          text: "View or change your personal details",
+          href: "../personal-details"
           },
           {
-            text: "Preferred phone number",
+            text: "Main phone number",
             href: "#"
             }
       ]
@@ -56,7 +61,7 @@
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             
                 <h1 class="govuk-fieldset__heading">
-                  Preferred phone number that we can call
+                  Main phone number that we can call
                 </h1>
               </legend>
             </fieldset>
@@ -81,7 +86,7 @@
 
 
 
-<button class="govuk-button" value= "true" data-module="govuk-button" style="margin-bottom:50px;" onclick="check3()" >Confirm</button>
+<button class="govuk-button" value= "true" data-module="govuk-button" style="margin-bottom:50px;" onclick="check3()" >Continue</button>
 
 </fieldset>
 
@@ -92,9 +97,9 @@
       console.log(document.getElementById("yes"))
 
       if (document.getElementById("telephone-number").value && document.getElementById("telephone-number").value ) {
-        window.location.href = "/round-2/customer-view/1a/main-phone-number/update-phone-number-new.html"
+        window.location.href = "/round-2/customer-view/1a/main-phone-number/confirm-your-changes.html"
       } else {
-        window.location.href = "/round-2/customer-view/1a/main-phone-number/update-phone-number-error.html"
+        window.location.href = "/round-2/customer-view/1a/main-phone-number/error/main-phone-number-that-we-can-call.html"
       }
 
     }
