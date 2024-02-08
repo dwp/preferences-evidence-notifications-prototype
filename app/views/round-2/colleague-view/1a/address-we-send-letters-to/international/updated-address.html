@@ -34,7 +34,7 @@ href: "../../homepage"
 },
 {
 text: "View or change your personal details",
-href: "../../personal-details.njk"
+href: "../../change-how-we-contact-you.njk"
 },
 {
 text: "Address we send letters to",
@@ -105,7 +105,7 @@ href: "#"
 
     {% from "govuk/components/button/macro.njk" import govukButton %}
 
-    <form id="addressForm" action="../../personal-details.njk" method="POST">
+    <form id="addressForm" action="../../change-how-we-contact-you.njk" method="POST">
       <input type="hidden" name="address" id="addressInput" value="Bajo E, Calle de Sevilla 2, 28014, Madrid, Spain">
       <div class="govuk-button-group">
         <button type="submit" class="govuk-button">Continue</button>
@@ -117,7 +117,7 @@ href: "#"
         event.preventDefault();
         var address = document.getElementById('addressInput').value;
         sessionStorage.setItem('address', address);
-        window.location.href = '../../personal-details.njk';
+        window.location.href = '../../change-how-we-contact-you.njk';
       });
     </script>
 
