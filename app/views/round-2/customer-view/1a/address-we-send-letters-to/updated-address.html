@@ -34,7 +34,7 @@ href: "homepage"
 },
 {
 text: "View or change your personal details",
-href: "personal-details"
+href: "change-how-we-contact-you"
 },
 {
 text: "Address we send letters to",
@@ -105,7 +105,7 @@ href: "#"
 
     {% from "govuk/components/button/macro.njk" import govukButton %}
 
-    <form id="addressForm" action="../personal-details.njk" method="POST">
+    <form id="addressForm" action="../change-how-we-contact-you.njk" method="POST">
       <input type="hidden" name="address" id="addressInput"
         value="5 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL">
       <div class="govuk-button-group">
@@ -117,7 +117,7 @@ href: "#"
         event.preventDefault();
         var address = document.getElementById('addressInput').value;
         sessionStorage.setItem('address', address);
-        window.location.href = '../personal-details.njk';
+        window.location.href = '../change-how-we-contact-you.njk';
       });
     </script>
   </div>

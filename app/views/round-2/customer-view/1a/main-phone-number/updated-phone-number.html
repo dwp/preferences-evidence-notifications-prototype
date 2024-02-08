@@ -34,7 +34,7 @@
           },
           {
           text: "View or change your personal details",
-          href: "../personal-details"
+          href: "../change-how-we-contact-you"
           },
           {
             text: "Main phone number",
@@ -101,7 +101,7 @@
 
 {% from "govuk/components/button/macro.njk" import govukButton %}
 
-<form id="phoneForm" action="../personal-details.njk" method="POST">
+<form id="phoneForm" action="../change-how-we-contact-you.njk" method="POST">
   <input type="hidden" name="phone" id="phoneInput"
     value="07815 701 922">
   <div class="govuk-button-group">
@@ -113,7 +113,7 @@
     event.preventDefault();
     var phone = document.getElementById('phoneInput').value;
     sessionStorage.setItem('phone', phone);
-    window.location.href = '../personal-details.njk';
+    window.location.href = '../change-how-we-contact-you.njk';
   });
 </script>
 
