@@ -30,11 +30,11 @@ href: "javascript:window.history.back()"
 items: [
 {
 text: "Home",
-href: "../../homepage"
+href: "homepage"
 },
 {
 text: "View or change your personal details",
-href: "../../personal-details.njk"
+href: "personal-details"
 },
 {
 text: "Address we send letters to",
@@ -64,7 +64,7 @@ href: "#"
         <h3 class="govuk-notification-banner__heading">
           Address update complete
         </h3>
-        <p class="govuk-body">You have succesfully updated the address that we send letters to.</p>
+        <p class="govuk-body">You have succesfully changed the address that we send letters to.</p>
       </div>
     </div>
 
@@ -72,7 +72,7 @@ href: "#"
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
 
         <h1 class="govuk-fieldset__heading">
-          New address we sent letters to
+          New address we send letters to
         </h1>
       </legend>
     </fieldset>
@@ -86,42 +86,42 @@ href: "#"
     <table class="govuk-table">
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">New address we can send letters to</th>
+          <th scope="row" class="govuk-table__header">Address we send letters to</th>
           <td class="govuk-table__cell">
-            Bajo E<br>
-            Calle de Sevilla 2<br>
-            28014<br>
-            Madrid<br>
-            Spain
+            5 Wellington House<br>
+            Windsor Street<br>
+            South Gosforth<br>
+            Newcastle upon Tyne<br>
+            NE3 1YL
           </td>
-        </tr>
-        <th scope="row" class="govuk-table__header">Start date</th>
-        <td class="govuk-table__cell">
-          31 January 2024
-        </td>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Start date</th>
+          <td class="govuk-table__cell">
+            31 January 2024
+          </td>
         </tr>
       </tbody>
     </table>
 
     {% from "govuk/components/button/macro.njk" import govukButton %}
 
-    <form id="addressForm" action="../../personal-details.njk" method="POST">
-      <input type="hidden" name="address" id="addressInput" value="Bajo E, Calle de Sevilla 2, 28014, Madrid, Spain">
+    <form id="addressForm" action="../personal-details.njk" method="POST">
+      <input type="hidden" name="address" id="addressInput"
+        value="5 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL">
       <div class="govuk-button-group">
         <button type="submit" class="govuk-button">Continue</button>
       </div>
     </form>
-
     <script>
       document.getElementById('addressForm').addEventListener('submit', function (event) {
         event.preventDefault();
         var address = document.getElementById('addressInput').value;
         sessionStorage.setItem('address', address);
-        window.location.href = '../../personal-details.njk';
+        window.location.href = '../personal-details.njk';
       });
     </script>
-
   </div>
+
 </div>
 </main>
 </div>

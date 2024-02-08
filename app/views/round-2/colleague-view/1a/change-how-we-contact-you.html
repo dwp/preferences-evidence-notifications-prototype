@@ -1,0 +1,129 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+
+
+{% block beforeContent %}
+
+{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
+
+{{
+  hmrcLanguageSelect({
+    language: 'en',
+    en: {
+      href: '?en'
+    },
+    cy: {
+      href: '?cy'
+    }
+  })
+}}
+
+    <!--Crumble menu-->
+    {{ govukBreadcrumbs({
+      items: [
+          {
+          text: "Home",
+          href: "homepage"
+          },
+          {
+          text: "Change how we contact you",
+          href: "#"
+          }
+      ]
+      }) }}
+
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      <h1 class="govuk-heading-xl">
+        Change how we contact you
+      </h1>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            When we write to you 
+          </dt>
+          <dd class="govuk-summary-list__value">
+    
+    
+            <p></p>You can contact me by standard letter</p>
+    
+    
+            </ul>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/alternative-formats/written-format">
+              Change<span class="govuk-visually-hidden">How we write to you </span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            When we speak to you
+          </dt>
+          <dd class="govuk-summary-list__value">
+    
+    
+            <p>You can contact me by phone</p>
+    
+    
+            </ul>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden">When we speak to you</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            When is the best time to contact you
+          </dt>
+          <dd class="govuk-summary-list__value">
+    
+    
+            <p>Monday to Friday, 9am to 5pm (except bank holidays)</p>
+    
+    
+            </ul>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden">When we speak to you</span>
+            </a>
+          </dd>
+        </div>
+    
+      </dl>
+    
+
+
+    </div>
+  </div>
+
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Return",
+      href: "/round-2/colleague-view/1a/homepage.html"
+    }) }}
+  </div>
+      
+    </div>
+  </div>
+
+
+
+{% endblock %}

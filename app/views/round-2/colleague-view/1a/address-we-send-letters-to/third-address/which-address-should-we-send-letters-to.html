@@ -65,6 +65,12 @@
 
     <div class="govuk-radios govuk-radios">
       <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="current-address" name="address" type="radio" value="false">
+        <label class="govuk-label govuk-radios__label" for="different-address">
+          The address I currently get sent letters to
+        </label>
+      </div>
+      <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="home-address" name="address" type="radio" value="true">
         <label class="govuk-label govuk-radios__label" for="home-address">
           My home address
@@ -95,12 +101,12 @@
       }
     }
     if (!hasSelection) {
-      window.location.href = "/round-2/customer-view/1a/address-we-send-letters-to/error/which-address-should-we-send-letters-to.html";
+      window.location.href = "/round-2/colleague-view/1a/address-we-send-letters-to/error/which-address-should-we-send-letters-to.html";
     } else {
       if (document.getElementById("different-address").checked) {
-        window.location.href = "/round-2/customer-view/1a/address-we-send-letters-to/uk-or-international.html"
+        window.location.href = "/round-2/colleague-view/1a/address-we-send-letters-to/uk-or-international.html"
       } else {
-        window.location.href = "/round-2/customer-view/1a/personal-details.html"
+        window.location.href = "/round-2/colleague-view/1a/personal-details.html"
       }
     }
   }
