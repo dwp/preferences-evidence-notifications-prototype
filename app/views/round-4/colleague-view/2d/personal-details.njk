@@ -1,0 +1,102 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Personal details
+{% endblock %}
+
+{% block header %}
+  {% include "round-3/components/key-details.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is a prototype of a new service. None of your data will be stored from this test'
+}) }}
+
+
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "homepage.html"
+    },
+    {
+      text: "Personal details",
+      href: "#"
+    }
+  ]
+}) }}
+{% endblock %}
+
+
+{% block content %}
+
+<main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
+          
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Personal details</h1>
+      
+      
+      </div>
+      <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+        <form action="#" method="post">
+          <button class="govuk-button" data-module="govuk-button" onclick="global_var['a']['b']=1;">
+            Add or view call details
+          </button>
+        </form>
+      </div>
+      </div>
+      
+      <ul class="govuk-grid-row customer-view-card-group">
+            <li class="govuk-grid-column-one-third customer-view-card-group__item">
+              <div class="customer-view-card customer-view-card--clickable">
+                <div class="customer-view-card__content">
+                  <h2 class="customer-view-card__heading govuk-heading-m">
+                    <a class="govuk-link govuk-link--no-visited-state customer-view-card__link" href="personal-details-information.njk">Personal details</a>
+                  </h2>
+                  <p class="govuk-body customer-view-card__description">View the customer's personal details.</p>
+                </div>
+              </div>
+            </li>
+            <li class="govuk-grid-column-one-third customer-view-card-group__item">
+              <div class="customer-view-card customer-view-card--clickable">
+                <div class="customer-view-card__content">
+                  <h2 class="customer-view-card__heading govuk-heading-m">
+                    <a class="govuk-link govuk-link--no-visited-state customer-view-card__link" href="how-we-contact.njk">How we contact Christopher</a>
+                  </h2>
+                  <p class="govuk-body customer-view-card__description">Content needed.</p>
+                </div>
+              </div>
+            </li>
+            <li class="govuk-grid-column-one-third customer-view-card-group__item">
+              <div class="customer-view-card customer-view-card--clickable">
+                <div class="customer-view-card__content">
+                  <h2 class="customer-view-card__heading govuk-heading-m">
+                    <a class="govuk-link govuk-link--no-visited-state customer-view-card__link" href="accessible-formats.njk">Accessibile formats preferences</a>
+                  </h2>
+                  <p class="govuk-body customer-view-card__description">Content needed.</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+    </div>
+  </div>
+
+
+        </main>
+
+{% endblock %}
