@@ -1,0 +1,134 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Personal details
+{% endblock %}
+
+{% block header %}
+  {% include "round-3/components/key-details.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is a prototype of a new service. None of your data will be stored from this test'
+}) }}
+
+
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "homepage.html"
+    },
+    {
+      text: "Personal details",
+      href: "#"
+    }
+  ]
+}) }}
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      <h1 class="govuk-heading-l">How we contact Christopher</h1>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Email
+          </dt>
+          <dd class="govuk-summary-list__value">
+            christopher.fox@example.com
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> email</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Address we send letters to	
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Same as home address	
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="address-we-send-letters-to/which-address-should-we-send-letters-to">Change<span class="govuk-visually-hidden"> email</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Main phone number
+          </dt>
+          <dd class="govuk-summary-list__value" id="mainPhoneDiv" name="mainPhoneDiv">
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="main-phone-number/main-phone-number-that-we-can-call">Change<span class="govuk-visually-hidden"> main phone number</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Other phone numbers
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">07700 900 457</p>
+            <p class="govuk-body">07700 900 000</p>
+            <p class="govuk-body">+1 123 1231234</p>
+            <p class="govuk-body">020 1234 1234</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> other phone numbers</span></a>
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</div>
+
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Return to home",
+      href: "/round-4/colleague-view/2d/personal-details.html"
+    }) }}
+  </div>
+</div>
+
+<script>
+var address = sessionStorage.getItem('address');
+
+var newAddressDiv = document.getElementById('newAddressDiv');
+
+if (newAddressDiv) {
+  if(address) {
+    newAddressDiv.innerHTML = address.replace(/,/g, '<br>');
+  } else {
+    newAddressDiv.innerHTML = "Same as home address";
+  }
+}
+
+var phone = sessionStorage.getItem('phone');
+var mainPhoneDiv = document.getElementById('mainPhoneDiv');
+if (mainPhoneDiv) {
+  if(phone) {
+    mainPhoneDiv.innerHTML = phone;
+  } else {
+    mainPhoneDiv.innerHTML = "07700 900 457";
+  }
+}
+</script>
+
+
+{% endblock %}
