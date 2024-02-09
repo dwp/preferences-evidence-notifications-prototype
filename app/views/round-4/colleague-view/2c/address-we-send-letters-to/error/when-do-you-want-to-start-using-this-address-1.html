@@ -110,6 +110,12 @@
       
     </div>
 
+    <div class="govuk-inset-text">
+      Some letters could already be on there way to your old address. If you do not receive a letter you were expecting, contact your benefit office. 
+      They will be able to send a copy of the letter to your new address.
+    </div>
+    
+
     <div class="govuk-button-group">
       <button class="govuk-button" value= "true" data-module="govuk-button" style="margin-bottom:50px;" onclick="check3()" >Continue</button>
     </div>
@@ -117,15 +123,15 @@
 </fieldset>
 
   </div>
-  
+
     <script>
     function check3() {
       console.log(document.getElementById("address-date-issued"))
 
       if (document.getElementById("address-date-issued-day").value && document.getElementById("address-date-issued-month").value && document.getElementById("address-date-issued-year").value ) {
-        window.location.href = "/round-2/colleague-view/2c/address-we-send-letters-to/confirm-your-changes.html"
+        window.location.href = "/round-4/colleague-view/2c/address-we-send-letters-to/confirm-your-changes.html"
       } else {
-        window.location.href = "/round-2/colleague-view/2c/address-we-send-letters-to/error/when-do-you-want-to-start-using-this-address.html"
+        window.location.href = "/round-4/colleague-view/2c/address-we-send-letters-to/error/when-do-you-want-to-start-using-this-address.html"
       }
 
     }
