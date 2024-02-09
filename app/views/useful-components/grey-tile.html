@@ -1,0 +1,73 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Home" %}
+
+{% block beforeContent %}
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content" style="text-align: centre;">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Discovery
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is not a service. These are example conceptual screens.
+    </span>
+  </p>
+</div>
+
+{% endblock %}
+
+
+
+{% block content %}
+
+
+
+
+
+
+
+
+
+
+
+
+      <div class="govuk-grid-row govuk-!-padding-3">
+      <div class="govuk-grid-column-two-thirds govuk-!-padding-4" style="border-radius:10px; background-color:#f3f2f1">
+        <div class="govuk-!-padding-bottom-2"></div>
+
+        <div style="text-align: right;">
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag">
+              COMPLETE
+            </strong>
+          </td>
+          </div>
+        <h1 class="govuk-heading-l">
+          <span class="govuk-caption-m">November - December 2023</span>
+          PEN - Round 3 UR prototypes
+        </h1>
+
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+          <p>The aims of this round are:  </p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>Validate existing user needs related to preference setting, evidence upload and notifications for both customers and agents. </li>
+            <li>Understand the as-is process for customers and agents related to preference setting, evidence upload and notifications, including current pain points. </li>
+          </ul>
+          <p></p>
+
+
+          <div style="text-align: right;">
+            <a href="../index">
+          {% from "govuk/components/button/macro.njk" import govukButton %}
+
+          {{ govukButton({
+            text: "Continue and view"
+          }) }}
+          </a>
+          </div>
+
+      </div>
+
+
+{% endblock %}

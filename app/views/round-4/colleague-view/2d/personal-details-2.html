@@ -1,0 +1,196 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
+
+{{
+  hmrcLanguageSelect({
+    language: 'en',
+    en: {
+      href: '?en'
+    },
+    cy: {
+      href: '?cy'
+    }
+  })
+}}
+
+    <!--Crumble menu-->
+    {{ govukBreadcrumbs({
+      items: [
+          {
+          text: "Home",
+          href: "homepage"
+          },
+          {
+          text: "View or change your personal details",
+          href: "#"
+          }
+      ]
+      }) }}
+
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">
+        View or change your personal details
+      </h1>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Name"
+            },
+            value: {
+              text: "	Sarah Philips"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "change your name"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Date of birth"
+            },
+            value: {
+              text: "	5 January 1978"
+            }
+          }
+          ,
+          {
+            key: {
+              text: "National Insurance number"
+            },
+            value: {
+              text: "	AB 12 34 56 C"
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Email"
+            },
+            value: {
+              text: "sarah.phillips@example.com"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "change your email"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Home address"
+            },
+            value: { html: "72 Guild Street<br>London<br>SE23 6FH"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "change your home address"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Address we send letters to"
+            },
+            value: { html: "186 Fleet Street<br>London<br>EC4Y 1DE"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "change your home address"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Primary phone number"
+            },
+            value: {
+              text: "01234 567 890"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "change your home phone"
+                }
+              ]
+            }
+          }
+
+          ,
+          {
+            key: {
+              text: "Secondary phone numbers"
+            },
+            value: {
+              html: "07700 900 457<br>07700 900 000<br>+1 123 1231234<br>020 1234 1234"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "change your mobile number"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Benefits"
+            },
+            value: { html: "Employment and Support Allowance (ESA)<br><br>Personal Independence Payment (PIP)"
+            }
+          }
+
+
+        ]
+      }) }}
+
+    </div>
+  </div>
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Return",
+      href: "/round-2/colleague-view/2c/homepage.html"
+    }) }}
+  </div>
+{% endblock %}
