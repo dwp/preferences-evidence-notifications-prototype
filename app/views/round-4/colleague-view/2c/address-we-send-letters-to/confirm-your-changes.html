@@ -1,0 +1,126 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
+
+{{
+  hmrcLanguageSelect({
+    language: 'en',
+    en: {
+      href: '?en'
+    },
+    cy: {
+      href: '?cy'
+    }
+  })
+}}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+    <!--Crumble menu-->
+    {{ govukBreadcrumbs({
+      items: [
+          {
+          text: "Home",
+          href: "../homepage"
+          },
+          {
+          text: "View or change your personal details",
+          href: "../change-how-we-contact-you"
+          },
+          {
+            text: "Address we send letters to",
+            href: "#"
+            }
+      ]
+      }) }}
+
+
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            
+                <h1 class="govuk-fieldset__heading">
+                  Confirm your changes
+                </h1>
+              </legend>
+            </fieldset>
+
+
+{%- from "govuk/components/tag/macro.njk" import govukTag -%}
+
+  <table class="govuk-table">
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">New address we send letters to</th>
+        <td class="govuk-table__cell">
+          5 Wellington House<br> 
+          Windsor Street<br>
+          South Gosforth<br>
+          Newcastle upon Tyne<br>
+          NE3 1YL
+        </td>
+      </tr>
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">Start date</th>
+        <td class="govuk-table__cell">
+          31 January 2024
+        </td>
+      </tr>
+    </tbody>
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">Previous address we sent letters to</th>
+        <td class="govuk-table__cell">
+          72 Guild Street<br>London<br>SE23 6FH
+      </tr>
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">End date</th>
+        <td class="govuk-table__cell">
+          30 January 2024
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+  {% from "govuk/components/button/macro.njk" import govukButton %}
+
+  <div class="govuk-button-group">
+      {{ govukButton({
+          text: "Confirm",
+          href: "/round-2/colleague-view/2c/address-we-send-letters-to/updated-address.html",
+          preventDoubleClick: true
+          }) }}
+
+          {{ govukButton({
+            text: "Cancel",
+            classes: "govuk-button--warning",
+            href: "/round-2/colleague-view/2c/address-we-send-letters-to/abandon-journey.html"
+          }) }}
+
+      <!-- <a class="govuk-link" href="/round-2/colleague-view/2c/address-we-send-letters-to/abandon-journey.html">Cancel</a> -->
+    </div>
+
+        </div>
+
+</div>
+
+{% endblock %}
