@@ -84,9 +84,6 @@
                   <label class="govuk-label govuk-radios__label" for="home-address">
                     My home address
                   </label>
-                  <div id="home-address-item-hint" class="govuk-hint govuk-radios__hint">
-                    72 Guild Street<br>London<br>SE23 6FH
-                  </div>
                 </div>
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="different-address" name="address" type="radio" value="false">
@@ -112,7 +109,7 @@
       }
     }
     if (!hasSelection) {
-      window.location.href = "/round-4/customer-view/2c/address-we-send-letters-to/error/which-address-should-we-send-letters-to.html";
+      window.location.href = "/round-4/customer-view/1h/address-we-send-letters-to/error/which-address-should-we-send-letters-to.html";
     } else {
       if (document.getElementById("different-address").checked) {
         window.location.href = "../uk-or-international.njk"
@@ -123,6 +120,15 @@
   }
 </script>
  
+</div>
+
+<div class="govuk-grid-column-one-third">
+  <div class="govuk-inset-text">
+  <h2 class="govuk-heading-m">Home address</h2>
+    72 Guild Street<br>
+    London<br>
+    SE23 6FH</p>
+</div>
 </div>
 </div>
 

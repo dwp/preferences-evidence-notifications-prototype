@@ -56,7 +56,7 @@
     <div class="govuk-error-summary__body">
       <ul class="govuk-list govuk-error-summary__list">
         <li>
-          <a href="#">Content eneded</a>
+          <a href="#">Enter the date you want to start using this address</a>
         </li>
       </ul>
     </div>
@@ -78,7 +78,7 @@
           For example, 27 3 2007
         </div>
         <p id="address-date-issued-error" class="govuk-error-message">
-          <span class="govuk-visually-hidden">Error:</span> Content needed
+          <span class="govuk-visually-hidden">Error:</span> Enter the date you want to start using this address
         </p>
         <div class="govuk-date-input" id="address-date-issued">
           <div class="govuk-date-input__item">
@@ -107,7 +107,14 @@
           </div>
         </div>
       </fieldset>
+
       
+      
+    </div>
+
+    <div class="govuk-inset-text">
+      Some letters could already be on there way to your old address. If you do not receive a letter you were expecting, contact your benefit office. 
+      They will be able to send a copy of the letter to your new address.
     </div>
 
     <div class="govuk-button-group">
@@ -125,7 +132,7 @@
       if (document.getElementById("address-date-issued-day").value && document.getElementById("address-date-issued-month").value && document.getElementById("address-date-issued-year").value ) {
         window.location.href = "../confirm-your-changes.html"
       } else {
-        window.location.href = "/round-4/customer-view/2c/address-we-send-letters-to/international/error/when-do-you-want-to-start-using-this-address.html"
+        window.location.href = "/round-4/customer-view/1h/address-we-send-letters-to/international/error/when-do-you-want-to-start-using-this-address.html"
       }
 
     }
