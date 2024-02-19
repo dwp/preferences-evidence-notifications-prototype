@@ -88,6 +88,11 @@
           </div>
         </div>
       </fieldset>
+
+      <div class="govuk-inset-text">
+        Some letters could already be on there way to your old address. If you do not receive a letter you were expecting, contact your benefit office. 
+        They will be able to send a copy of the letter to your new address.
+      </div>
       
     </div>
 
@@ -104,9 +109,9 @@
       console.log(document.getElementById("address-date-issued"))
 
       if (document.getElementById("address-date-issued-day").value && document.getElementById("address-date-issued-month").value && document.getElementById("address-date-issued-year").value ) {
-        window.location.href = "/round-4/customer-view/2c/address-we-send-letters-to/international/confirm-your-changes.html"
+        window.location.href = "/round-4/customer-view/1h/address-we-send-letters-to/international/confirm-your-changes.html"
       } else {
-        window.location.href = "/round-4/customer-view/2c/address-we-send-letters-to/international/error/when-do-you-want-to-start-using-this-address.html"
+        window.location.href = "/round-4/customer-view/1h/address-we-send-letters-to/international/error/when-do-you-want-to-start-using-this-address.html"
       }
 
     }
