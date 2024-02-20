@@ -20,19 +20,24 @@
   })
 }}
 
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
     <!--Crumble menu-->
     {{ govukBreadcrumbs({
       items: [
           {
           text: "Home",
-          href: "../../homepage"
+          href: "../homepage"
           },
           {
           text: "Change how we contact you",
-          href: "../../change-how-we-contact-you.njk"
+          href: "../change-how-we-contact-you"
           },
           {
-            text: "Address we send letters to",
+            text: "Email",
             href: "#"
             }
       ]
@@ -43,24 +48,9 @@
 
 {% block content %}
 
-<div class="govuk-error-summary" data-module="govuk-error-summary">
-  <div role="alert">
-    <h2 class="govuk-error-summary__title">
-      There is a problem
-    </h2>
-    <div class="govuk-error-summary__body">
-      <ul class="govuk-list govuk-error-summary__list">
-        <li>
-          <a href="#UK-yes">Select Yes if you want to cancel the address update</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
-
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <div class="govuk-form-group govuk-form-group--error">
+
       <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
           <h1 class="govuk-fieldset__heading">
@@ -71,9 +61,35 @@
           Any changes you have made will not be saved if you select Yes.
         </div>
         </fieldset>
-        <p id="where-do-you-live-error" class="govuk-error-message">
-          <span class="govuk-visually-hidden">Error:</span> Select Yes or No
-        </p>
+
+            <!-- <h2 class="govuk-heading-l" style="margin-bottom:50;">Do you want to cancel the update?</h2>
+            <div id="contact-hint" class="govuk-hint">
+              Select one option.
+            </div> -->
+            
+          <!-- <div class="govuk-warning-text">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+              <span class="govuk-warning-text__assistive">Warning</span>
+              Cancelling the update will delete all data you have input and none of the information will be saved after you click on 'Yes'.
+            </strong>
+          </div> -->
+
+            <!-- <div class="govuk-button-group">
+                {{ govukButton({
+                    text: "Yes",
+                    href: "/agent/current-address.html"
+                    }) }}
+              
+                    {% from "govuk/components/button/macro.njk" import govukButton %}
+                    {{ govukButton({
+                      text: "No",
+                      classes: "govuk-button--warning",
+                      href: "javascript:history.back()"
+                    }) }}
+                
+              </div> -->
+
               <div class="govuk-radios govuk-radios--inline">
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="yes" name="abandon" type="radio" value="true">
@@ -88,8 +104,7 @@
                   </label>
                 </div>
               </div>
-              </div>
-              
+              <br>
               <button class="govuk-button" value= "true" data-module="govuk-button" onclick="check()">Continue</button>
   
               <script>
@@ -106,9 +121,9 @@
                     window.location.href = "/round-4/customer-view/1h/address-we-send-letters-to/error/abandon-journey.html";
                   } else {
                     if (document.getElementById("yes").checked) {
-                      window.location.href = "../../change-how-we-contact-you.njk"
+                      window.location.href = "../change-how-we-contact-you.html"
                     } else {
-                      window.location.href = "javascript:history.go(-2)"
+                      window.location.href = "javascript:history.back()"
                     }
                   }
                 }

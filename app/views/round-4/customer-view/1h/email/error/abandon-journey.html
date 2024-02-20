@@ -20,19 +20,24 @@
   })
 }}
 
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
     <!--Crumble menu-->
     {{ govukBreadcrumbs({
       items: [
           {
           text: "Home",
-          href: "../../homepage"
+          href: "../homepage"
           },
           {
           text: "Change how we contact you",
-          href: "../../change-how-we-contact-you.njk"
+          href: "../change-how-we-contact-you"
           },
           {
-            text: "Address we send letters to",
+            text: "Email",
             href: "#"
             }
       ]
