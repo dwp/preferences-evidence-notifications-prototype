@@ -37,7 +37,7 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
           href: "../change-how-we-contact-you"
           },
           {
-            text: "Address we send letters to",
+            text: "Email",
             href: "#"
             }
       ]
@@ -62,9 +62,9 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
       </div>
       <div class="govuk-notification-banner__content">
         <h3 class="govuk-notification-banner__heading">
-          Address update complete
+          Email update complete
         </h3>
-        <p class="govuk-body">You have succesfully changed the address that we send letters to.</p>
+        <p class="govuk-body">You have succesfully changed your email.</p>
       </div>
     </div>
 
@@ -72,7 +72,7 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
 
         <h1 class="govuk-fieldset__heading">
-          New address we send letters to
+          New email
         </h1>
       </legend>
     </fieldset>
@@ -86,44 +86,32 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
     <table class="govuk-table">
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">Address we send letters to</th>
+          <th scope="row" class="govuk-table__header">New email</th>
           <td class="govuk-table__cell">
-            58 Wellington House<br>
-            Windsor Street<br>
-            South Gosforth<br>
-            Newcastle upon Tyne<br>
-            NE3 1YL
+            emailaddress@email.com
           </td>
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">Start date</th>
-          <td class="govuk-table__cell">
-            31 January 2024
-          </td>
-        </tr>
       </tbody>
     </table>
 
     {% from "govuk/components/button/macro.njk" import govukButton %}
 
-    <form id="addressForm" action="../change-how-we-contact-you.njk" method="POST">
-      <input type="hidden" name="address" id="addressInput"
-        value="58 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL">
+    <form id="emailForm" action="../change-how-we-contact-you.njk" method="POST">
+      <input type="hidden" name="email" id="emailInput"
+        value="emailaddress@email.com">
       <div class="govuk-button-group">
         <button type="submit" class="govuk-button">Continue</button>
       </div>
     </form>
     <script>
-      document.getElementById('addressForm').addEventListener('submit', function (event) {
+      document.getElementById('emailForm').addEventListener('submit', function (event) {
         event.preventDefault();
-        var address = document.getElementById('addressInput').value;
-        sessionStorage.setItem('address', address);
+        var email = document.getElementById('emailInput').value;
+        sessionStorage.setItem('email', email);
         window.location.href = '../change-how-we-contact-you.njk';
       });
     </script>
   </div>
 
-</div>
-</main>
 </div>
 
 {% endblock %}

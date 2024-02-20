@@ -54,11 +54,10 @@
             <dt class="govuk-summary-list__key">
               Email
             </dt>
-            <dd class="govuk-summary-list__value">
-              sarah.phillips@example.com
+            <dd class="govuk-summary-list__value" id="newEmailDiv" name="newEmailDiv">
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> email</span></a>
+              <a class="govuk-link" href="email/enter-your-new-email-address">Change<span class="govuk-visually-hidden"> email</span></a>
             </dd>
           </div>
           <div class="govuk-summary-list__row">
@@ -116,6 +115,18 @@
       newAddressDiv.innerHTML = address.replace(/,/g, '<br>');
     } else {
       newAddressDiv.innerHTML = "Same as home address";
+    }
+  }
+
+  var email = sessionStorage.getItem('email');
+
+  var newEmailDiv = document.getElementById('newEmailDiv');
+
+  if (newEmailDiv) {
+    if(email) {
+      newEmailDiv.innerHTML = email;
+    } else {
+      newEmailDiv.innerHTML = "sarah.phillips@example.com";
     }
   }
 
