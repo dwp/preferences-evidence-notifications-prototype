@@ -37,7 +37,7 @@
           href: "../change-how-we-contact-you"
           },
           {
-            text: "Email",
+            text: "Main phone number",
             href: "#"
             }
       ]
@@ -48,40 +48,32 @@
 
 {% block content %}
 
-{% if data['email-security-code'] == '283194' %}
-<script>
-    window.location.href = 'confirm-your-changes'
-</script>
-{% elseif data['email-security-code'] == '' %}
-<script>
-  window.location.href = '/round-4/customer-view/1h/email/email-code'
-</script>
-{% endif %}
-
 {{ govukErrorSummary({
     titleText: "There is a problem",
     errorList: [
         {
-        text: "The security code does not match the one we sent you",
-        href: "#email-security-code"
+        text: "Enter your security code",
+        href: "#2fa-code"
         }
     ]
     }) }}
-
     <div class="govuk-grid-row">
+
+
+
         <div class="govuk-grid-column-two-thirds">
 
-            <h1 class="govuk-heading-l">Check your email</h1>
+            <h1 class="govuk-heading-l">Check your phone</h1>
 
             <div class="govuk-inset-text">
                 <p class="govuk-body">
-                    We have sent an email to:<br>
+                    We have sent a code to:<br>
                     <strong class="govuk-!-font-weight-bold">
-                    {% if data['register-email-address']%}
-                        {{data['register-email-address'] | lower }}
-                    {% else %} 
-                        emailaddress@email.com
-                    {% endif %}
+                        {% if data['telephone-number'] %}
+                            {{ data['telephone-number'] }}
+                        {% else %} 
+                            07771 900 900
+                        {% endif %}
                     </strong>
                 </p>
             </div>
@@ -91,30 +83,33 @@
             </p>
 
             <p class="govuk-body">
-                The email will come from DWP login and includes a security code. If you do not get an email, check your spam folder.
-            </p>
-
-            <p class="govuk-body">
                 The code will expire in 15 minutes.
+
+                <div class="govuk-form-group govuk-form-group--error">
             </p>
 
-            <form action="email-code-check" method="post" class="form">
-                <div class="govuk-form-group  govuk-form-group--error govuk-!-margin-top-6">
-                    <label class="govuk-label" for="email-security-code">
+            <p id="security-code-error" class="govuk-error-message">
+                <span class="govuk-visually-hidden">Error:</span> Enter your security code
+              </p>
+
+            <form action="code-check" method="post" class="form">
+                    <label class="govuk-label" for="2fa-code">
                         Enter your security code
                     </label>
-                    <span id="security-code-error" class="govuk-error-message">
-                        <span class="govuk-visually-hidden">Error:</span> The security code does not match the one we sent you
-                    </span>
-                    <input class="govuk-input govuk-input--width-10 govuk-input--error" id="email-security-code" name="email-security-code" type="text" value="{{ data['email-security-code'] }}">
+
+                    <input class="govuk-input govuk-input--width-10" id="2fa-code" name="2fa-code" type="text">
                 </div>
+            </div>
+            </div>
 
                 {{ govukButton({
                     text: "Continue"
                 }) }}
             </form>
 
-            <p><a href="resend-email">I did not get the email</a></p>
+            <p><a href="resend-code">I did not get a text message</a></p>
+
+           
         </div>
     </div>
 {% endblock %}
