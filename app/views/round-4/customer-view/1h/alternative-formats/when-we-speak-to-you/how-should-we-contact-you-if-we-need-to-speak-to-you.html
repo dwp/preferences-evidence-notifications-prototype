@@ -7,44 +7,14 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
 
 {% block beforeContent %}
 
-{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
-
-{{
-hmrcLanguageSelect({
-language: 'en',
-en: {
-href: '?en'
-},
-cy: {
-href: '?cy'
-}
-})
-}}
-
-<!--Crumble menu-->
-{{ govukBreadcrumbs({
-items: [
-{
-text: "Home",
-href: "homepage"
-},
-{
-text: "Request accessible formats",
-href: "../../request-accessible-formats"
-},
-{
-text: "When we speak to you",
-href: "#"
-}
-]
-}) }}
+{% include "round-4/breadcrumbs/customer-view/1h/when-we-write-to-you.html" %}
 
 
 {% endblock %}
 
 {% block content %}
 
-<form class="form">
+<form class="form" id="radioForm">
   <div class="govuk-form-group">
     <fieldset class="govuk-fieldset" aria-describedby="spoken-options-hint">
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
@@ -56,26 +26,26 @@ href: "#"
         We usually contact you by phone if we need to speak to you. Select the best option for your needs.
       </div>
       <div class="govuk-radios" data-module="govuk-radios">
-        <div class="govuk-radios__item" onclick="handleRadioClick('standard-phone-call')">
+        <div class="govuk-radios__item" onclick="set('standard-phone-call')">
           <input class="govuk-radios__input" id="spoken-options" name="spoken-options" type="radio"
             value="Standard phone call">
           <label class="govuk-label govuk-radios__label" for="spoken-options">
             Standard phone call
           </label>
         </div>
-        <div class="govuk-radios__item" onclick="handleRadioClick('relay-uk')">
+        <div class="govuk-radios__item" onclick="set('relay-uk')">
           <input class="govuk-radios__input" id="spoken-options-2" name="spoken-options" type="radio" value="Relay UK">
           <label class="govuk-label govuk-radios__label" for="spoken-options-2">
             Relay UK
           </label>
         </div>
-        <div class="govuk-radios__item" onclick="handleRadioClick('textphone')">
+        <div class="govuk-radios__item" onclick="set('textphone')">
           <input class="govuk-radios__input" id="spoken-options-3" name="spoken-options" type="radio" value="Textphone">
           <label class="govuk-label govuk-radios__label" for="spoken-options-3">
             Textphone
           </label>
         </div>
-        <div class="govuk-radios__item" onclick="handleRadioClick('lipspeaking')">
+        <div class="govuk-radios__item" onclick="set('lipspeaking')">
           <input class="govuk-radios__input" id="spoken-options-4" name="spoken-options" type="radio"
             value="Signing or lipspeaking">
           <label class="govuk-label govuk-radios__label" for="spoken-options-4">
@@ -85,19 +55,32 @@ href: "#"
       </div>
     </fieldset>
     <script>
-      function handleRadioClick(inputValue) {
+      var redirectUrl = "";
+      function set(inputValue) {
+
         if (inputValue === "standard-phone-call") {
-          window.location.href = "https://github.com/dwp-ucd/preferences-evidence-notifications/blob/main/app/views/round-4/customer-view/1h/alternative-formats/when-we-speak-to-you/check-your-answers.html";
+          redirectUrl = "../../how-we-contact-you";
         } else if (inputValue === "relay-uk") {
-          window.location.href = "https://github.com/dwp-ucd/preferences-evidence-notifications/blob/main/app/views/round-4/customer-view/1h/alternative-formats/when-we-speak-to-you/relay-uk.html";
+          redirectUrl = "relay-uk";
         } else if (inputValue === "textphone") {
-          window.location.href = "https://github.com/dwp-ucd/preferences-evidence-notifications/blob/main/app/views/round-4/customer-view/1h/alternative-formats/when-we-speak-to-you/textphone.html";
+          redirectUrl = "textphone";
         } else {
-          window.location.href = "https://github.com/dwp-ucd/preferences-evidence-notifications/blob/main/app/views/round-4/customer-view/1h/alternative-formats/when-we-speak-to-you/signing-or-lipspeaking.html";
+          redirectUrl = "signing-or-lipspeaking";
         }
       }
+
+      document.getElementById('radioForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+       
+        if (redirectUrl !== "") {
+          window.location.href = redirectUrl;
+        }
+      });
+
     </script>
-  </div><button type="submit" class="govuk-button" data-module="govuk-button">
+  </div>
+  
+  <button type="submit" class="govuk-button" data-module="govuk-button">
     Continue
   </button>
 </form>

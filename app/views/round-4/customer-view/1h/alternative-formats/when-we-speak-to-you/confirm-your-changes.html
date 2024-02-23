@@ -1,0 +1,87 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block beforeContent %}
+
+{% include "round-4/breadcrumbs/customer-view/1h/when-we-write-to-you.html" %}
+
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+
+   
+    <h1 class="govuk-heading-l">
+      Confirm your changes
+    </h1>
+
+    <dl class="govuk-summary-list">
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          When we speak to you now
+        </dt>
+        <dd class="govuk-summary-list__value">
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="how-should-we-contact-you-if-we-need-to-speak-to-you">
+            Change
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          How we spoke to you
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <p>You could contact me by phone</p>
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="how-should-we-contact-you-if-we-need-to-speak-to-you">
+            Change
+          </a>
+        </dd>
+      </div>
+    </dl>
+
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-visually-hidden">Warning</span>
+        This change isn't always guarenteed, sometimes legally we need to make a phone call.
+      </strong>
+    </div>
+
+    {% from "govuk/components/button/macro.njk" import govukButton %}
+
+    <div class="govuk-button-group">
+        {{ govukButton({
+            text: "Confirm",
+            href: "/round-4/customer-view/1h/alternative-formats/when-we-speak-to-you/updated-spoken.html",
+            preventDoubleClick: true
+            }) }}
+  
+            {{ govukButton({
+              text: "Cancel",
+              classes: "govuk-button--warning",
+              href: "/round-4/customer-view/1h/alternative-formats/when-we-speak-to-you/abandon-journey.html"
+            }) }}
+  
+        <!-- <a class="govuk-link" href="/round-4/customer-view/1h/address-we-send-letters-to/abandon-journey.html">Cancel</a> -->
+      </div>
+  
+          </div>
+  
+    
+  </div>
+</div>
+{% endblock %}
+
