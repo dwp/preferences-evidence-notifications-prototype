@@ -1,9 +1,8 @@
-{% extends "layouts/main.html" %}
+
 
 {% block pageTitle %}
-  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
-{% endblock %}
 
+{% endblock %}
 
 {% block beforeContent %}
 
@@ -21,6 +20,11 @@
   })
 }}
 
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
     <!--Crumble menu-->
     {{ govukBreadcrumbs({
       items: [
@@ -29,20 +33,21 @@
           href: "homepage"
           },
           {
-          text: "Request accessible formats",
-          href: "../../request-accessible-formats"
+          text: "How we contact you",
+          href: "../../how-we-contact-you"
         },
-        {
-        text: "When we speak to you",
-        href: "#"
+          {
+          text: "When we write to you",
+          href: "#"
         }
       ]
       }) }}
 
-
 {% endblock %}
 
+
 {% block content %}
+
 
 
 {% endblock %}

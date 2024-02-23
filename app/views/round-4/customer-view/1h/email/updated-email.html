@@ -34,7 +34,7 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
           },
           {
           text: "Change how we contact you",
-          href: "../change-how-we-contact-you"
+          href: "../how-we-contact-you"
           },
           {
             text: "Email",
@@ -95,7 +95,7 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
 
     {% from "govuk/components/button/macro.njk" import govukButton %}
 
-    <form id="emailForm" action="../change-how-we-contact-you.njk" method="POST">
+    <form id="emailForm" action="../how-we-contact-you.njk" method="POST">
       <input type="hidden" name="email" id="emailInput"
         value="emailaddress@email.com">
       <div class="govuk-button-group">
@@ -107,7 +107,7 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
         event.preventDefault();
         var email = document.getElementById('emailInput').value;
         sessionStorage.setItem('email', email);
-        window.location.href = '../change-how-we-contact-you.njk';
+        window.location.href = '../how-we-contact-you.njk';
       });
     </script>
   </div>

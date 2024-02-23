@@ -6,60 +6,34 @@
 
 {% block beforeContent %}
 
-
-{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
-
-{{
-  hmrcLanguageSelect({
-    language: 'en',
-    en: {
-      href: '?en'
-    },
-    cy: {
-      href: '?cy'
-    }
-  })
-}}
-
-{{ govukBackLink({
-  text: "Back",
-  href: "javascript:window.history.back()"
-}) }}
-
-    <!--Crumble menu-->
-    {{ govukBreadcrumbs({
-      items: [
-          {
-          text: "Home",
-          href: "homepage"
-          },
-          {
-          text: "Change how we contact you",
-          href: "#"
-          }
-      ]
-      }) }}
+{% include "round-4/breadcrumbs/customer-view/1h/how-we-contact-you.html" %}
 
 
 {% endblock %}
+
 
 {% block content %}
 
 <div class="govuk-width-container">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds-from-desktop">
-        <h1 class="govuk-heading-l">Change how we contact you</h1>
+        <h1 class="govuk-heading-l">How we contact you</h1>
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Email
+              When we write to you 
             </dt>
-            <dd class="govuk-summary-list__value" id="newEmailDiv" name="newEmailDiv">
+            <dd class="govuk-summary-list__value">
+              <p>	You can contact me by standard letter</p>
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="email/enter-your-new-email-address">Change<span class="govuk-visually-hidden"> email</span></a>
+              <a class="govuk-link" href="/round-4/customer-view/1h/alternative-formats/when-we-write-to-you/how-should-we-write-to-you">
+                Change<span class="govuk-visually-hidden">How we write to you </span>
+              </a>
             </dd>
           </div>
+
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Address we send letters to
@@ -70,9 +44,36 @@
               <a class="govuk-link" href="address-we-send-letters-to/which-address-should-we-send-letters-to">Change<span class="govuk-visually-hidden"> address we send letters to</span></a>
             </dd>
           </div>
+
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Main phone number
+              Email
+            </dt>
+            <dd class="govuk-summary-list__value" id="newEmailDiv" name="newEmailDiv">
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="email/enter-your-new-email-address">Change<span class="govuk-visually-hidden"> email</span></a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              When we speak to you
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p>You can contact me by phone</p>
+              </ul>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="/round-4/customer-view/1h/alternative-formats/when-we-speak-to-you/how-should-we-contact-you-if-we-need-to-speak-to-you">
+                Change<span class="govuk-visually-hidden">When we speak to you</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Phone number
             </dt>
             <dd class="govuk-summary-list__value" id="mainPhoneDiv" name="mainPhoneDiv">
             </dd>
@@ -80,20 +81,19 @@
               <a class="govuk-link" href="main-phone-number/main-phone-number-that-we-can-call">Change<span class="govuk-visually-hidden"> main phone number</span></a>
             </dd>
           </div>
+
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Other phone numbers
+              Landline number
             </dt>
             <dd class="govuk-summary-list__value">
-              <p class="govuk-body">07700 900 457</p>
-              <p class="govuk-body">07700 900 000</p>
-              <p class="govuk-body">+1 123 1231234</p>
-              <p class="govuk-body">020 1234 1234</p>
+              <p class="govuk-body">01632 960 001</p>
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> other phone numbers</span></a>
             </dd>
           </div>
+
         </dl>
       </div>
     </div>

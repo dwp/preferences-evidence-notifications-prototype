@@ -34,7 +34,7 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
           },
           {
           text: "Change how we contact you",
-          href: "../change-how-we-contact-you"
+          href: "../how-we-contact-you"
           },
           {
             text: "Address we send letters to",
@@ -105,7 +105,7 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
 
     {% from "govuk/components/button/macro.njk" import govukButton %}
 
-    <form id="addressForm" action="../change-how-we-contact-you.njk" method="POST">
+    <form id="addressForm" action="../how-we-contact-you.njk" method="POST">
       <input type="hidden" name="address" id="addressInput"
         value="58 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL">
       <div class="govuk-button-group">
@@ -117,7 +117,7 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
         event.preventDefault();
         var address = document.getElementById('addressInput').value;
         sessionStorage.setItem('address', address);
-        window.location.href = '../change-how-we-contact-you.njk';
+        window.location.href = '../how-we-contact-you.njk';
       });
     </script>
   </div>
