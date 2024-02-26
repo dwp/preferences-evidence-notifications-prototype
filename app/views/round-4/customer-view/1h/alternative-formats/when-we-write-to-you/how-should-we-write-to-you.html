@@ -7,44 +7,13 @@
 
 {% block beforeContent %}
 
-{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
-
-{{
-  hmrcLanguageSelect({
-    language: 'en',
-    en: {
-      href: '?en'
-    },
-    cy: {
-      href: '?cy'
-    }
-  })
-}}
-
-    <!--Crumble menu-->
-    {{ govukBreadcrumbs({
-      items: [
-          {
-          text: "Home",
-          href: "homepage"
-          },
-          {
-          text: "Request accessible formats",
-          href: "../../request-accessible-formats"
-        },
-        {
-        text: "When we write to you",
-        href: "#"
-        }
-      ]
-      }) }}
-
+{% include "round-4/breadcrumbs/customer-view/1h/when-we-write-to-you.html" %}
 
 {% endblock %}
 
 {% block content %}
 
-<form class="form">
+<form class="form" id="radioForm">
   <div class="govuk-form-group">
   <fieldset class="govuk-fieldset" aria-describedby="written-format-hint">
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
@@ -57,49 +26,52 @@
         <p>
     </div>
     <div class="govuk-radios" data-module="govuk-radios">
-        <div class="govuk-radios__item">
+        <div class="govuk-radios__item" onclick="set('standard-letter')">
             <input class="govuk-radios__input" id="written-format" name="written-format" type="radio" value="Standard letter (12-point Arial text on white paper)">
             <label class="govuk-label govuk-radios__label" for="written-format">
                 Standard letter (12-point Arial text on white paper)
             </label>
         </div>
-        <div class="govuk-radios__item">
+
+        <div class="govuk-radios__divider">or</div>
+
+        <div class="govuk-radios__item" onclick="set('large-print')">
             <input class="govuk-radios__input" id="written-format-2" name="written-format" type="radio" value="Large print">
             <label class="govuk-label govuk-radios__label" for="written-format-2">
                 Large print
             </label>
         </div>
-        <div class="govuk-radios__item">
+        <div class="govuk-radios__item" onclick="set('font-colour-spacing-size')">
             <input class="govuk-radios__input" id="written-format-3" name="written-format" type="radio" value="Letter with changes to font, paper colour, spacing or print size">
             <label class="govuk-label govuk-radios__label" for="written-format-3">
-                Letter with changes to font, paper colour, spacing or print size
+                Letter with changes to font, paper colour or print size
             </label>
         </div>
-        <div class="govuk-radios__item">
+        <div class="govuk-radios__item" onclick="set('audio')">
             <input class="govuk-radios__input" id="written-format-4" name="written-format" type="radio" value="Audio">
             <label class="govuk-label govuk-radios__label" for="written-format-4">
                 Audio
             </label>
         </div>
-        <div class="govuk-radios__item">
+        <div class="govuk-radios__item" onclick="set('braille')">
             <input class="govuk-radios__input" id="written-format-5" name="written-format" type="radio" value="Braille">
             <label class="govuk-label govuk-radios__label" for="written-format-5">
                 Braille
             </label>
         </div>
-        <div class="govuk-radios__item">
+        <div class="govuk-radios__item" onclick="set('british-sign-language-video')">
             <input class="govuk-radios__input" id="written-format-6" name="written-format" type="radio" value="British Sign Language video">
             <label class="govuk-label govuk-radios__label" for="written-format-6">
                 British Sign Language video
             </label>
         </div>
-        <div class="govuk-radios__item">
+        <div class="govuk-radios__item" onclick="set('microsoft-word-document')">
             <input class="govuk-radios__input" id="written-format-7" name="written-format" type="radio" value="Microsoft Word document">
             <label class="govuk-label govuk-radios__label" for="written-format-7">
                 Microsoft Word document
             </label>
         </div>
-        <div class="govuk-radios__item">
+        <div class="govuk-radios__item" onclick="set('accessible-pdf')">
             <input class="govuk-radios__input" id="written-format-8" name="written-format" type="radio" value="PDF with accessible text">
             <label class="govuk-label govuk-radios__label" for="written-format-8">
                 PDF with accessible text
@@ -107,7 +79,40 @@
         </div>
     </div>
   </fieldset>
-  </div><button type="submit" class="govuk-button" data-module="govuk-button">
+  <script>
+    var redirectUrl = "";
+    function set(inputValue) {
+
+      if (inputValue === "standard-letter") {
+        redirectUrl = "../../how-we-contact-you";
+      } else if (inputValue === "large-print") {
+        redirectUrl = "large-print";
+      } else if (inputValue === "font-colour-spacing-size") {
+        redirectUrl = "font-colour-spacing-size";
+    } else if (inputValue === "audio") {
+        redirectUrl = "audio";
+    } else if (inputValue === "braille") {
+        redirectUrl = "braille";
+    } else if (inputValue === "british-sign-language-video") {
+        redirectUrl = "british-sign-language";
+    } else if (inputValue === "microsoft-word-document") {
+        redirectUrl = "what-is-your-email/microsoft-word-document";
+      } else {
+        redirectUrl = "what-is-your-email/pdf-with-accessible-text";
+      }
+    }
+
+    document.getElementById('radioForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+     
+      if (redirectUrl !== "") {
+        window.location.href = redirectUrl;
+      }
+    });
+
+  </script>
+  </div>
+  <button type="submit" class="govuk-button" data-module="govuk-button">
   Continue
   </button>
   </form> 
