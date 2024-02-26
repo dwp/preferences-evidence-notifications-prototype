@@ -7,7 +7,7 @@
 
 {% block beforeContent %}
 
-{% include "round-4/breadcrumbs/customer-view/1h/when-we-speak-to-you.html" %}
+{% include "round-4/breadcrumbs/customer-view/1h/when-we-write-to-you.html" %}
 
 {% endblock %}
 
@@ -26,25 +26,25 @@
 
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
-          When we speak to you now
+          When we write to you now
         </dt>
         <dd class="govuk-summary-list__value">
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="how-should-we-contact-you-if-we-need-to-speak-to-you">
+          <a class="govuk-link" href="how-should-we-write-to-you">
             Change
           </a>
         </dd>
       </div>
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
-          How we spoke to you
+          How we wrote to you
         </dt>
         <dd class="govuk-summary-list__value">
-          <p>You could contact me by phone</p>
+          <p>You could contact me by standard letter</p>
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="how-should-we-contact-you-if-we-need-to-speak-to-you">
+          <a class="govuk-link" href="how-should-we-write-to-you">
             Change
           </a>
         </dd>
@@ -55,7 +55,7 @@
       <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
       <strong class="govuk-warning-text__text">
         <span class="govuk-visually-hidden">Warning</span>
-        This change isn't always guarenteed, sometimes legally we need to make a phone call.
+        This change isn't always guarenteed, sometimes legally we need to contact you by a standard letter.
       </strong>
     </div>
 
@@ -64,14 +64,14 @@
     <div class="govuk-button-group">
         {{ govukButton({
             text: "Confirm",
-            href: "/round-4/customer-view/1h/alternative-formats/when-we-speak-to-you/updated-spoken.html",
+            href: "/round-4/customer-view/1h/alternative-formats/when-we-write-to-you/updated-written.html",
             preventDoubleClick: true
             }) }}
   
             {{ govukButton({
               text: "Cancel",
               classes: "govuk-button--warning",
-              href: "/round-4/customer-view/1h/alternative-formats/when-we-speak-to-you/abandon-journey.html"
+              href: "/round-4/customer-view/1h/alternative-formats/when-we-write-to-you/abandon-journey.html"
             }) }}
   
         <!-- <a class="govuk-link" href="/round-4/customer-view/1h/address-we-send-letters-to/abandon-journey.html">Cancel</a> -->

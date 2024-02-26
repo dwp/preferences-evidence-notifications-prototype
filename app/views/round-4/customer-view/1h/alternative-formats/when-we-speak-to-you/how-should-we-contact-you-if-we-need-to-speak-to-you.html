@@ -7,8 +7,7 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
 
 {% block beforeContent %}
 
-{% include "round-4/breadcrumbs/customer-view/1h/when-we-write-to-you.html" %}
-
+{% include "round-4/breadcrumbs/customer-view/1h/when-we-speak-to-you.html" %}
 
 {% endblock %}
 
@@ -33,6 +32,9 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
             Standard phone call
           </label>
         </div>
+
+        <div class="govuk-radios__divider">or</div>
+
         <div class="govuk-radios__item" onclick="set('relay-uk')">
           <input class="govuk-radios__input" id="spoken-options-2" name="spoken-options" type="radio" value="Relay UK">
           <label class="govuk-label govuk-radios__label" for="spoken-options-2">
