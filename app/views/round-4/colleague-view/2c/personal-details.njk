@@ -11,30 +11,8 @@
 
 {% block beforeContent %}
 
-{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{% include "round-4/breadcrumbs/colleague-view/2c/personal-details.html" %}
 
-{{ govukPhaseBanner({
-  tag: {
-    text: "Prototype"
-  },
-  html: 'This is a prototype of a new service. None of your data will be stored from this test'
-}) }}
-
-
-{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
-
-{{ govukBreadcrumbs({
-  items: [
-    {
-      text: "Home",
-      href: "homepage.html"
-    },
-    {
-      text: "Personal details",
-      href: "#"
-    }
-  ]
-}) }}
 {% endblock %}
 
 
@@ -96,93 +74,6 @@
             <p class="govuk-body">Maternity Allowance (MA)</p>
             <p class="govuk-body">Employment and Support Allowance (ESA)</p>
             <p class="govuk-body">Personal Independence Payment (PIP)</p>
-          </dd>
-        </div>
-      </dl>
-    </div>
-  </div>
-</div>
-
-<div class="govuk-width-container">
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds-from-desktop">
-      <h1 class="govuk-heading-l">View or change how we contact them</h1>
-      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            How we write to customer
-          </dt>
-          <dd class="govuk-summary-list__value">
-            <p>You can contact them by standard letter</p>
-            </ul>
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="/alternative-formats/written-format">
-              Change<span class="govuk-visually-hidden">How we write to them </span>
-            </a>
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Address we send letters to	
-          </dt>
-          <dd class="govuk-summary-list__value">
-            5 Highfield Av<br>
-            Meltham<br>
-            Holmfirth<br>
-            HD9 5RF
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="address-we-send-letters-to/which-address-should-we-send-letters-to">Change<span class="govuk-visually-hidden"> email</span></a>
-          </dd>
-        </div>
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Email
-          </dt>
-          <dd class="govuk-summary-list__value">
-            chris.fox@example.com
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> email</span></a>
-          </dd>
-        </div>
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            How we speak to customer
-          </dt>
-          <dd class="govuk-summary-list__value">
-            <p>You can contact them by phone</p>
-            </ul>
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">
-              Change<span class="govuk-visually-hidden">When we speak to them</span>
-            </a>
-          </dd>
-        </div>
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Phone number
-          </dt>
-          <dd class="govuk-summary-list__value" id="mainPhoneDiv" name="mainPhoneDiv">
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="main-phone-number/main-phone-number-that-we-can-call">Change<span class="govuk-visually-hidden"> main phone number</span></a>
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Landline number
-          </dt>
-          <dd class="govuk-summary-list__value">
-            <p class="govuk-body">01632 960 001</p>
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> other phone numbers</span></a>
           </dd>
         </div>
       </dl>
