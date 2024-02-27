@@ -6,20 +6,6 @@
 
 {% block beforeContent %}
 
-{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
-
-{{
-  hmrcLanguageSelect({
-    language: 'en',
-    en: {
-      href: '?en'
-    },
-    cy: {
-      href: '?cy'
-    }
-  })
-}}
-
 {{ govukBackLink({
   text: "Back",
   href: "javascript:window.history.back()"
@@ -33,8 +19,8 @@
           href: "../../../homepage"
           },
           {
-          text: "How we contact you",
-          href: "../../../how-we-contact-you"
+          text: "How we contact them",
+          href: "../../../how-we-contact-them"
         },
           {
           text: "Address we send letters to",

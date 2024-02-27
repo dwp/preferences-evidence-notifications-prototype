@@ -11,36 +11,9 @@
 
 {% block beforeContent %}
 
-{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{% include "round-4/breadcrumbs/colleague-view/2c/address-we-send-letters-to-error.html" %}
 
-{{ govukPhaseBanner({
-  tag: {
-    text: "Prototype"
-  },
-  html: 'This is a prototype of a new service. None of your data will be stored from this test'
-}) }}
-
-
-{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
-
-{{ govukBreadcrumbs({
-  items: [
-    {
-      text: "Home",
-      href: "homepage.html"
-    },
-    {
-      text: "View customer details",
-      href: "personal-details"
-    },
-    {
-      text: "Address we send letters to",
-      href: "#"
-    }
-  ]
-}) }}
 {% endblock %}
-
 
 {% block content %}
 
@@ -52,7 +25,7 @@
     <div class="govuk-error-summary__body">
       <ul class="govuk-list govuk-error-summary__list">
         <li>
-          <a href="#">Enter the date the customer wants to start using this address</a>
+          <a href="#">Enter the date you want to start using this address</a>
           <li>
       </ul>
     </div>
@@ -67,14 +40,14 @@
       <fieldset class="govuk-fieldset" role="group" aria-describedby="address-date-hint">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
           <h1 class="govuk-fieldset__heading">
-            When does the customer want to start using this address?
+            When do you want to start using this address?
           </h1>
         </legend>
         <div id="address-date-hint" class="govuk-hint">
           For example, 27 3 2007
         </div>
         <p id="address-date-issued-error" class="govuk-error-message">
-          <span class="govuk-visually-hidden">Error:</span> Enter the date the customer wants to start using this address
+          <span class="govuk-visually-hidden">Error:</span> Enter the date you want to start using this address
         </p>
         <div class="govuk-date-input" id="address-date-issued">
           <div class="govuk-date-input__item">
@@ -107,8 +80,8 @@
     </div>
 
     <div class="govuk-inset-text">
-      Inform customer if they don't receive any expected letters, they may have already been sent to their previous address.
-      Inform them to contact the benefit office if they don't receive the expected letters so they can be resent.
+      Some letters could already be on there way to your old address. If you do not receive a letter you were expecting, contact your benefit office. 
+      They will be able to send a copy of the letter to your new address.
     </div>
 
     <div class="govuk-button-group">

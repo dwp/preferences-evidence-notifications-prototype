@@ -11,36 +11,10 @@
 
 {% block beforeContent %}
 
-{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
-
-{{ govukPhaseBanner({
-  tag: {
-    text: "Prototype"
-  },
-  html: 'This is a prototype of a new service. None of your data will be stored from this test'
-}) }}
+{% include "round-4/breadcrumbs/colleague-view/2c/address-we-send-letters-to-error.html" %}
 
 
-{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
-
-{{ govukBreadcrumbs({
-  items: [
-    {
-      text: "Home",
-      href: "homepage.html"
-    },
-    {
-      text: "View customer details",
-      href: "personal-details"
-    },
-    {
-      text: "Address we send letters to",
-      href: "#"
-    }
-  ]
-}) }}
 {% endblock %}
-
 
 {% block content %}
 
@@ -107,7 +81,7 @@
                     window.location.href = "/round-4/colleague-view/2c/address-we-send-letters-to/error/abandon-journey.html";
                   } else {
                     if (document.getElementById("yes").checked) {
-                      window.location.href = "../../change-how-we-contact-you.njk"
+                      window.location.href = "../../how-we-contact-you.njk"
                     } else {
                       window.location.href = "javascript:history.go(-2)"
                     }
