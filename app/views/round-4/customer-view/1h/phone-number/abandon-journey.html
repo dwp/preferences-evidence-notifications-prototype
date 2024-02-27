@@ -6,74 +6,54 @@
 
 {% block beforeContent %}
 
-{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
-
-{{
-  hmrcLanguageSelect({
-    language: 'en',
-    en: {
-      href: '?en'
-    },
-    cy: {
-      href: '?cy'
-    }
-  })
-}}
-
-    <!--Crumble menu-->
-    {{ govukBreadcrumbs({
-      items: [
-          {
-          text: "Home",
-          href: "homepage"
-          },
-          {
-          text: "View your personal details",
-          href: "how-we-contact-you"
-          },
-          {
-            text: "Preferred phone number",
-            href: "#"
-            }
-      ]
-      }) }}
-
+{% include "round-4/breadcrumbs/customer-view/1h/phone-number.html" %}
 
 {% endblock %}
 
 {% block content %}
 
-<div class="govuk-error-summary" data-module="govuk-error-summary">
-  <div role="alert">
-    <h2 class="govuk-error-summary__title">
-      There is a problem
-    </h2>
-    <div class="govuk-error-summary__body">
-      <ul class="govuk-list govuk-error-summary__list">
-        <li>
-          <a href="#change-phone-number">Select Yes if you want to cancel the phone number update</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
-
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <div class="govuk-form-group govuk-form-group--error">
+
       <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
           <h1 class="govuk-fieldset__heading">
-            Do you want to cancel the phone number update?
+            Do you want to cancel updating your phone number?
           </h1>
         </legend>
         <div id="contact-hint" class="govuk-hint">
           Any changes you have made will not be saved if you select Yes.
         </div>
         </fieldset>
-        <p id="change-phone-number" class="govuk-error-message">
-          <span class="govuk-visually-hidden">Error:</span> Select Yes or No
-        </p>
+
+            <!-- <h2 class="govuk-heading-l" style="margin-bottom:50;">Do you want to cancel the update?</h2>
+            <div id="contact-hint" class="govuk-hint">
+              Select one option.
+            </div> -->
+            
+          <!-- <div class="govuk-warning-text">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+              <span class="govuk-warning-text__assistive">Warning</span>
+              Cancelling the update will delete all data you have input and none of the information will be saved after you click on 'Yes'.
+            </strong>
+          </div> -->
+
+            <!-- <div class="govuk-button-group">
+                {{ govukButton({
+                    text: "Yes",
+                    href: "/agent/current-address.html"
+                    }) }}
+              
+                    {% from "govuk/components/button/macro.njk" import govukButton %}
+                    {{ govukButton({
+                      text: "No",
+                      classes: "govuk-button--warning",
+                      href: "javascript:history.back()"
+                    }) }}
+                
+              </div> -->
+
               <div class="govuk-radios govuk-radios--inline">
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="yes" name="abandon" type="radio" value="true">
@@ -88,8 +68,7 @@
                   </label>
                 </div>
               </div>
-              </div>
-              
+              <br>
               <button class="govuk-button" value= "true" data-module="govuk-button" onclick="check()">Continue</button>
   
               <script>
@@ -103,10 +82,10 @@
                     }
                   }
                   if (!hasSelection) {
-                    window.location.href = "/round-4/customer-view/1h/main-phone-number/error/abandon-journey.html";
+                    window.location.href = "/round-4/customer-view/1h/phone-number/error/abandon-journey.html";
                   } else {
                     if (document.getElementById("yes").checked) {
-                      window.location.href = "/round-4/customer-view/1h/main-phone-number/confirm-your-changes.html"
+                      window.location.href = "../how-we-contact-you.html"
                     } else {
                       window.location.href = "javascript:history.back()"
                     }

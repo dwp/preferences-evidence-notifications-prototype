@@ -6,43 +6,7 @@
 
 {% block beforeContent %}
 
-{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
-
-{{
-  hmrcLanguageSelect({
-    language: 'en',
-    en: {
-      href: '?en'
-    },
-    cy: {
-      href: '?cy'
-    }
-  })
-}}
-
-{{ govukBackLink({
-  text: "Back",
-  href: "javascript:window.history.back()"
-}) }}
-
-    <!--Crumble menu-->
-    {{ govukBreadcrumbs({
-      items: [
-          {
-          text: "Home",
-          href: "../homepage"
-          },
-          {
-          text: "Change how we contact you",
-          href: "../how-we-contact-you"
-          },
-          {
-            text: "Main phone number",
-            href: "#"
-            }
-      ]
-      }) }}
-
+{% include "round-4/breadcrumbs/customer-view/1h/phone-number.html" %}
 
 {% endblock %}
 
@@ -71,17 +35,10 @@
           <table class="govuk-table">
             <tbody class="govuk-table__body">
               <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header">New main number we can call</th>
+                <th scope="row" class="govuk-table__header">New phone number we can call</th>
                 <td class="govuk-table__cell">
                   07815 701 922
                 </td>
-              </tr>
-            </tbody>
-            <tbody class="govuk-table__body">
-              <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header">Previous main number we could call</th>
-                <td class="govuk-table__cell">
-                  07700 900 457
               </tr>
             </tbody>
           </table>
@@ -91,14 +48,14 @@
           <div class="govuk-button-group">
               {{ govukButton({
                   text: "Confirm",
-                  href: "/round-4/customer-view/1h/main-phone-number/updated-phone-number.html",
+                  href: "/round-4/customer-view/1h/phone-number/updated-phone-number.html",
                   preventDoubleClick: true
                   }) }}
         
                   {{ govukButton({
                     text: "Cancel",
                     classes: "govuk-button--warning",
-                    href: "/round-4/customer-view/1h/main-phone-number/abandon-journey.html"
+                    href: "/round-4/customer-view/1h/phone-number/abandon-journey.html"
                   }) }}
         
               <!-- <a class="govuk-link" href="/round-1/1f/abandon-journey.html">Cancel</a> -->

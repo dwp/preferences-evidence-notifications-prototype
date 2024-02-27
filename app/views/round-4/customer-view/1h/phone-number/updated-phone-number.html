@@ -6,43 +6,7 @@
 
 {% block beforeContent %}
 
-{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
-
-{{
-  hmrcLanguageSelect({
-    language: 'en',
-    en: {
-      href: '?en'
-    },
-    cy: {
-      href: '?cy'
-    }
-  })
-}}
-
-{{ govukBackLink({
-  text: "Back",
-  href: "javascript:window.history.back()"
-}) }}
-
-    <!--Crumble menu-->
-    {{ govukBreadcrumbs({
-      items: [
-          {
-          text: "Home",
-          href: "../homepage"
-          },
-          {
-          text: "Change how we contact you",
-          href: "../how-we-contact-you"
-          },
-          {
-            text: "Main phone number",
-            href: "#"
-            }
-      ]
-      }) }}
-
+{% include "round-4/breadcrumbs/customer-view/1h/phone-number.html" %}
 
 {% endblock %}
 
@@ -69,7 +33,7 @@
             <h3 class="govuk-notification-banner__heading">
               Phone number update complete
             </h3>
-            <p class="govuk-body">You have succesfully changed the main phone number that we call you on.</p>
+            <p class="govuk-body">You have succesfully changed the phone number that we call you on.</p>
           </div>
           </div>
       
@@ -78,7 +42,7 @@
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             
                 <h1 class="govuk-fieldset__heading">
-                  New main number we can call
+                  New phone number we can call
                 </h1>
               </legend>
             </fieldset>
@@ -90,7 +54,7 @@
   <table class="govuk-table">
     <tbody class="govuk-table__body">
       <tr class="govuk-table__row">
-        <th scope="row" class="govuk-table__header">Main phone number</th>
+        <th scope="row" class="govuk-table__header">Phone number</th>
         <td class="govuk-table__cell">
           07815 701 922
       </tr>
