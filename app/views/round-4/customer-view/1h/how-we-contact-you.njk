@@ -60,9 +60,7 @@
             <dt class="govuk-summary-list__key">
               When we speak to you
             </dt>
-            <dd class="govuk-summary-list__value">
-              <p>You can contact me by phone</p>
-              </ul>
+            <dd class="govuk-summary-list__value" id="mainHowWeConnectDiv" name="mainHowWeConnectDiv">
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="/round-4/customer-view/1h/alternative-formats/when-we-speak-to-you/how-should-we-contact-you-if-we-need-to-speak-to-you">
@@ -139,6 +137,16 @@
       mainPhoneDiv.innerHTML = phone;
     } else {
       mainPhoneDiv.innerHTML = "07700 900 457";
+    }
+  }
+
+  var howWeConnect = sessionStorage.getItem('howWeConnect');
+  var mainHowWeConnectDiv = document.getElementById('mainHowWeConnectDiv');
+  if (mainHowWeConnectDiv) {
+    if(howWeConnect) {
+      mainHowWeConnectDiv.innerHTML = howWeConnect;
+    } else {
+      mainHowWeConnectDiv.innerHTML = "<p>You can contact me by phone</p>";
     }
   }
 </script>

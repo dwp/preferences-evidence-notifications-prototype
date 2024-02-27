@@ -61,6 +61,7 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
       function set(inputValue) {
 
         if (inputValue === "standard-phone-call") {
+          sessionStorage.setItem('howWeConnect', 'Standard phone call');
           redirectUrl = "../../how-we-contact-you";
         } else if (inputValue === "relay-uk") {
           redirectUrl = "relay-uk";
