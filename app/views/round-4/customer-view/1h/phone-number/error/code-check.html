@@ -6,43 +6,7 @@
 
 {% block beforeContent %}
 
-{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
-
-{{
-  hmrcLanguageSelect({
-    language: 'en',
-    en: {
-      href: '?en'
-    },
-    cy: {
-      href: '?cy'
-    }
-  })
-}}
-
-{{ govukBackLink({
-  text: "Back",
-  href: "javascript:window.history.back()"
-}) }}
-
-    <!--Crumble menu-->
-    {{ govukBreadcrumbs({
-      items: [
-          {
-          text: "Home",
-          href: "../homepage"
-          },
-          {
-          text: "Change how we contact you",
-          href: "../how-we-contact-you"
-          },
-          {
-            text: "Main phone number",
-            href: "#"
-            }
-      ]
-      }) }}
-
+{% include "round-4/breadcrumbs/customer-view/1h/phone-number-error.html" %}
 
 {% endblock %}
 
@@ -50,11 +14,11 @@
 
 {% if data['2fa-code'] == '969862' %}
 <script>
-    window.location.href = 'confirm-your-changes'
+    window.location.href = '../confirm-your-changes'
 </script>
 {% elseif data['2fa-code'] == '' %}
 <script>
-  window.location.href = 'error/phone-code'
+  window.location.href = 'phone-code'
 </script>
 {% endif %}
 
