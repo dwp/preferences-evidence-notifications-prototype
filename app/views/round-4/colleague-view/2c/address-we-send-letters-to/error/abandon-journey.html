@@ -47,7 +47,7 @@
         </div>
         </fieldset>
         <p id="where-do-you-live-error" class="govuk-error-message">
-          <span class="govuk-visually-hidden">Error:</span> Select Yes or No
+          <span class="govuk-visually-hidden">Error:</span> Select Yes if you want to cancel the address update
         </p>
               <div class="govuk-radios govuk-radios--inline">
                 <div class="govuk-radios__item">
@@ -81,7 +81,7 @@
                     window.location.href = "/round-4/colleague-view/2c/address-we-send-letters-to/error/abandon-journey.html";
                   } else {
                     if (document.getElementById("yes").checked) {
-                      window.location.href = "../../how-we-contact-you.njk"
+                      window.location.href = "../../how-we-contact-customer.njk"
                     } else {
                       window.location.href = "javascript:history.go(-2)"
                     }

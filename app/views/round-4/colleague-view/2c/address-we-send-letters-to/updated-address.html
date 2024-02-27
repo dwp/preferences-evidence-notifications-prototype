@@ -33,7 +33,7 @@
         <h3 class="govuk-notification-banner__heading">
           Address update complete
         </h3>
-        <p class="govuk-body">You have succesfully changed the address that we send letters to.</p>
+        <p class="govuk-body">You have successfully changed the address that we send letters to.</p>
       </div>
     </div>
 
@@ -74,7 +74,7 @@
 
     {% from "govuk/components/button/macro.njk" import govukButton %}
 
-    <form id="addressForm" action="../how-we-contact-you.njk" method="POST">
+    <form id="addressForm" action="../how-we-contact-customer.njk" method="POST">
       <input type="hidden" name="address" id="addressInput"
         value="58 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL">
       <div class="govuk-button-group">
@@ -86,7 +86,7 @@
         event.preventDefault();
         var address = document.getElementById('addressInput').value;
         sessionStorage.setItem('address', address);
-        window.location.href = '../how-we-contact-you.njk';
+        window.location.href = '../how-we-contact-customer.njk';
       });
     </script>
   </div>

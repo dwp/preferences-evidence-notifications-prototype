@@ -1,0 +1,78 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Personal details
+{% endblock %}
+
+{% block header %}
+  {% include "round-3/components/key-details.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+
+{% include "round-4/breadcrumbs/colleague-view/2c/email.html" %}
+
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      
+          <h1 class="govuk-fieldset__heading">
+            Confirm changes
+          </h1>
+        </legend>
+      </fieldset>
+
+
+{%- from "govuk/components/tag/macro.njk" import govukTag -%}
+
+<table class="govuk-table">
+<tbody class="govuk-table__body">
+<tr class="govuk-table__row">
+  <th scope="row" class="govuk-table__header">New email</th>
+  <td class="govuk-table__cell">
+    emailaddress@email.com
+  </td>
+</tr>
+</tbody>
+<tbody class="govuk-table__body">
+<tr class="govuk-table__row">
+  <th scope="row" class="govuk-table__header">Previous email</th>
+  <td class="govuk-table__cell">
+    sarah.phillips@example.com
+</tr>
+</tbody>
+</table>
+
+
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+<div class="govuk-button-group">
+{{ govukButton({
+    text: "Confirm",
+    href: "/round-4/colleague-view/2c/email/updated-email.html",
+    preventDoubleClick: true
+    }) }}
+
+    {{ govukButton({
+      text: "Cancel",
+      classes: "govuk-button--warning",
+      href: "/round-4/colleague-view/2c/email/abandon-journey.html"
+    }) }}
+
+<!-- <a class="govuk-link" href="/round-4/colleague-view/2c/address-we-send-letters-to/abandon-journey.html">Cancel</a> -->
+</div>
+
+  </div>
+
+</div>
+
+{% endblock %}
