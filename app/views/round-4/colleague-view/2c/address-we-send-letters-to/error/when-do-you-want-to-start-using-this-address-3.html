@@ -11,36 +11,9 @@
 
 {% block beforeContent %}
 
-{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{% include "round-4/breadcrumbs/colleague-view/2c/address-we-send-letters-to-error.html" %}
 
-{{ govukPhaseBanner({
-  tag: {
-    text: "Prototype"
-  },
-  html: 'This is a prototype of a new service. None of your data will be stored from this test'
-}) }}
-
-
-{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
-
-{{ govukBreadcrumbs({
-  items: [
-    {
-      text: "Home",
-      href: "homepage.html"
-    },
-    {
-      text: "View customer details",
-      href: "personal-details"
-    },
-    {
-      text: "Address we send letters to",
-      href: "#"
-    }
-  ]
-}) }}
 {% endblock %}
-
 
 {% block content %}
 
@@ -67,7 +40,7 @@
       <fieldset class="govuk-fieldset" role="group" aria-describedby="address-date-hint">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
           <h1 class="govuk-fieldset__heading">
-            When does the customer want to start using this address?
+            When do you want to start using this address?
           </h1>
         </legend>
         <div id="address-date-hint" class="govuk-hint">

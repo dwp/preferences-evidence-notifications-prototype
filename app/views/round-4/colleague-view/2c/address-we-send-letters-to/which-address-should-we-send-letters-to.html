@@ -11,36 +11,9 @@
 
 {% block beforeContent %}
 
-{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{% include "round-4/breadcrumbs/colleague-view/2c/address-we-send-letters-to.html" %}
 
-{{ govukPhaseBanner({
-  tag: {
-    text: "Prototype"
-  },
-  html: 'This is a prototype of a new service. None of your data will be stored from this test'
-}) }}
-
-
-{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
-
-{{ govukBreadcrumbs({
-  items: [
-    {
-      text: "Home",
-      href: "homepage.html"
-    },
-    {
-      text: "View customer details",
-      href: "personal-details"
-    },
-    {
-      text: "Address we send letters to",
-      href: "#"
-    }
-  ]
-}) }}
 {% endblock %}
-
 
 {% block content %}
 
@@ -57,11 +30,13 @@
         </h1>
       </legend>
 
+      <p>We may need to send you letters about your benefit. Choose an address we can send letters to. This will not affect your benefit claim.</p>
+
     <div class="govuk-radios govuk-radios">
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="home-address" name="address" type="radio" value="true">
         <label class="govuk-label govuk-radios__label" for="home-address">
-          Customer's home address
+          My home address
         </label>
       </div>
       <div class="govuk-radios__item">
@@ -94,7 +69,7 @@
       if (document.getElementById("different-address").checked) {
         window.location.href = "/round-4/colleague-view/2c/address-we-send-letters-to/uk-or-international.html"
       } else {
-        window.location.href = "/round-4/colleague-view/2c/personal-details.html"
+        window.location.href = "/round-4/colleague-view/2c/how-we-contact-you.html"
       }
     }
   }
@@ -103,11 +78,10 @@
 
  <div class="govuk-grid-column-one-third">
   <div class="govuk-inset-text">
-  <h2 class="govuk-heading-m">Customer's home address</h2>
-    5 Highfield Av<br>
-    Meltham<br>
-    Holmfirth<br>
-    HD9 5RF</p>
+  <h2 class="govuk-heading-m">Home address</h2>
+    72 Guild Street<br>
+    London<br>
+    SE23 6FH</p>
 </div>
 </div>
 
