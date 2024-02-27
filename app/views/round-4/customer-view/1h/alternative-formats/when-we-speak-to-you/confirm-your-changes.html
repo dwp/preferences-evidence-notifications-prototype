@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+Content page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 
@@ -17,7 +17,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds-from-desktop">
 
-   
+
     <h1 class="govuk-heading-l">
       Confirm your changes
     </h1>
@@ -28,7 +28,7 @@
         <dt class="govuk-summary-list__key">
           When we speak to you now
         </dt>
-        <dd class="govuk-summary-list__value">
+        <dd class="govuk-summary-list__value" id="updatedValue">
         </dd>
         <dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="how-should-we-contact-you-if-we-need-to-speak-to-you">
@@ -62,25 +62,50 @@
     {% from "govuk/components/button/macro.njk" import govukButton %}
 
     <div class="govuk-button-group">
-        {{ govukButton({
-            text: "Confirm",
-            href: "/round-4/customer-view/1h/alternative-formats/when-we-speak-to-you/updated-spoken.html",
-            preventDoubleClick: true
-            }) }}
-  
-            {{ govukButton({
-              text: "Cancel",
-              classes: "govuk-button--warning",
-              href: "/round-4/customer-view/1h/alternative-formats/when-we-speak-to-you/abandon-journey.html"
-            }) }}
-  
-        <!-- <a class="govuk-link" href="/round-4/customer-view/1h/address-we-send-letters-to/abandon-journey.html">Cancel</a> -->
-      </div>
-  
-          </div>
-  
-    
+      {{ govukButton({
+      text: "Confirm",
+      href: "/round-4/customer-view/1h/alternative-formats/when-we-speak-to-you/updated-spoken.html",
+      preventDoubleClick: true
+      }) }}
+
+      {{ govukButton({
+      text: "Cancel",
+      classes: "govuk-button--warning",
+      href: "/round-4/customer-view/1h/alternative-formats/when-we-speak-to-you/abandon-journey.html"
+      }) }}
+
+      <!-- <a class="govuk-link" href="/round-4/customer-view/1h/address-we-send-letters-to/abandon-journey.html">Cancel</a> -->
+    </div>
+
   </div>
+  <script>
+    var divSection = document.getElementById('updatedValue');
+    var howWeConnect = sessionStorage.getItem('howWeConnect');
+    var howWeConnectArrary;
+    if (howWeConnect) {
+      howWeConnectArrary = howWeConnect.split("<br>");
+    }
+
+    if (divSection) {
+      if (howWeConnect && howWeConnectArrary.length > 0) {
+        var list = "";
+
+        if (howWeConnectArrary.length > 1) {
+          list += "<ul class='govuk-list govuk-list--bullet'>";
+          for (let i = 1; i < howWeConnectArrary.length; i++) {
+            list += `<li>${howWeConnectArrary[i]}</li>`
+          }
+          list += "</ul>"
+        }
+
+        divSection.innerHTML = `<p class='govuk-body'>${howWeConnectArrary[0]}</p>${list}`;
+      } else {
+        divSection.innerHTML = "";
+      }
+    }
+
+  </script>
+
+</div>
 </div>
 {% endblock %}
-

@@ -140,14 +140,29 @@
     }
   }
 
-  var howWeConnect = sessionStorage.getItem('howWeConnect');
   var mainHowWeConnectDiv = document.getElementById('mainHowWeConnectDiv');
+  var howWeConnect = sessionStorage.getItem('howWeConnect');
+  var howWeConnectArrary;
+  if (howWeConnect) {
+    howWeConnectArrary = howWeConnect.split("<br>");
+  }
+ 
   if (mainHowWeConnectDiv) {
-    if(howWeConnect) {
-      mainHowWeConnectDiv.innerHTML = howWeConnect;
-    } else {
-      mainHowWeConnectDiv.innerHTML = "<p>You can contact me by phone</p>";
-    }
+    if (howWeConnect && howWeConnectArrary.length > 0) {
+        var list = "";
+
+        if (howWeConnectArrary.length > 1) {
+          list += "<ul class='govuk-list govuk-list--bullet'>";
+          for (let i = 1; i < howWeConnectArrary.length; i++) {
+            list += `<li>${howWeConnectArrary[i]}</li>`
+          }
+          list += "</ul>"
+        }
+
+        mainHowWeConnectDiv.innerHTML = `<p class='govuk-body'>${howWeConnectArrary[0]}</p>${list}`;
+      } else {
+        mainHowWeConnectDiv.innerHTML =  "<p>You can contact me by phone</p>";
+      }
   }
 </script>
 

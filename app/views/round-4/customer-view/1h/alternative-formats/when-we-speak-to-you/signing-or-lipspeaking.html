@@ -60,16 +60,20 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
     <script>
       var redirectUrl = "";
       function set(inputValue) {
-
         if (inputValue === "british-sign-language-interpreter") {
+          sessionStorage.setItem('howWeConnect', 'Signing or lipspeaking<br>British Sign Language (BSL) interpreter');
           redirectUrl = "confirm-your-changes";
         } else if (inputValue === "deafblind-manual-alphabet") {
+          sessionStorage.setItem('howWeConnect', 'Signing or lipspeaking<br>Deafblind Manual alphabet');
           redirectUrl = "confirm-your-changes";
         } else if (inputValue === "hands-on-signing") {
+          sessionStorage.setItem('howWeConnect', 'Signing or lipspeaking<br>Hands-on signing');
           redirectUrl = "confirm-your-changes";
         } else if (inputValue === "lipspeaking") {
+          sessionStorage.setItem('howWeConnect', 'Signing or lipspeaking<br>Lipspeaking');
           redirectUrl = "confirm-your-changes";
         } else if (inputValue === "sign-supported-english") {
+          sessionStorage.setItem('howWeConnect', 'Signing or lipspeaking<br>Sign Supported English');
           redirectUrl = "confirm-your-changes";
         } else {
           redirectUrl = "error/signing-or-lipspeaking";

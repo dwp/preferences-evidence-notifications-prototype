@@ -64,10 +64,13 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
           sessionStorage.setItem('howWeConnect', 'Standard phone call');
           redirectUrl = "../../how-we-contact-you";
         } else if (inputValue === "relay-uk") {
+          sessionStorage.setItem('howWeConnect', 'Relay UK');
           redirectUrl = "relay-uk";
         } else if (inputValue === "textphone") {
+          sessionStorage.setItem('howWeConnect', 'Textphone');
           redirectUrl = "textphone";
         } else {
+          sessionStorage.setItem('howWeConnect', 'Signing or lipspeaking');
           redirectUrl = "signing-or-lipspeaking";
         }
       }
