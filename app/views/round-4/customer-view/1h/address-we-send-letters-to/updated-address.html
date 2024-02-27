@@ -6,43 +6,7 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
 
 {% block beforeContent %}
 
-{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
-
-{{
-  hmrcLanguageSelect({
-    language: 'en',
-    en: {
-      href: '?en'
-    },
-    cy: {
-      href: '?cy'
-    }
-  })
-}}
-
-{{ govukBackLink({
-  text: "Back",
-  href: "javascript:window.history.back()"
-}) }}
-
-    <!--Crumble menu-->
-    {{ govukBreadcrumbs({
-      items: [
-          {
-          text: "Home",
-          href: "../homepage"
-          },
-          {
-          text: "Change how we contact you",
-          href: "../how-we-contact-you"
-          },
-          {
-            text: "Address we send letters to",
-            href: "#"
-            }
-      ]
-      }) }}
-
+{% include "round-4/breadcrumbs/customer-view/1h/address-we-send-letters-to.html" %}
 
 {% endblock %}
 
