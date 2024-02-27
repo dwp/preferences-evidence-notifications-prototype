@@ -24,7 +24,7 @@
       <fieldset class="govuk-fieldset" role="group" aria-describedby="address-date-hint">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
           <h1 class="govuk-fieldset__heading">
-            When do you want to start using this address?
+            When does the customer want to start using this address?
           </h1>
         </legend>
         <div id="address-date-hint" class="govuk-hint">
@@ -60,8 +60,9 @@
     </div>
 
     <div class="govuk-inset-text">
-      Some letters could already be on there way to your old address. If you do not receive a letter you were expecting, contact your benefit office. 
-      They will be able to send a copy of the letter to your new address.
+      Inform customer if they don't receive any expected letters, they may have already been sent to their previous address.
+
+      Inform them to contact the benefit office if they don't receive the expected letters so they can be resent.
     </div>
 
     <div class="govuk-button-group">
@@ -79,7 +80,7 @@
       if (document.getElementById("address-date-issued-day").value && document.getElementById("address-date-issued-month").value && document.getElementById("address-date-issued-year").value ) {
         window.location.href = "/round-4/colleague-view/2c/address-we-send-letters-to/confirm-your-changes.html"
       } else {
-        window.location.href = "/round-4/customer-view/2h/address-we-send-letters-to/error/when-do-you-want-to-start-using-this-address.html"
+        window.location.href = "/round-4/colleague-view/2c/address-we-send-letters-to/error/when-do-you-want-to-start-using-this-address.html"
       }
 
     }

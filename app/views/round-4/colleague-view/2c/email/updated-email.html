@@ -1,12 +1,17 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+  Personal details
 {% endblock %}
+
+{% block header %}
+  {% include "round-3/components/key-details.html" %}
+{% endblock %}
+
 
 {% block beforeContent %}
 
-{% include "round-4/breadcrumbs/customer-view/1h/email.html" %}
+{% include "round-4/breadcrumbs/colleague-view/2c/email.html" %}
 
 {% endblock %}
 
@@ -28,7 +33,7 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
         <h3 class="govuk-notification-banner__heading">
           Email update complete
         </h3>
-        <p class="govuk-body">You have successfully changed your email.</p>
+        <p class="govuk-body">You have successfully changed the email.</p>
       </div>
     </div>
 
@@ -59,7 +64,7 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
 
     {% from "govuk/components/button/macro.njk" import govukButton %}
 
-    <form id="emailForm" action="../how-we-contact-you.njk" method="POST">
+    <form id="emailForm" action="../how-we-contact-customer.njk" method="POST">
       <input type="hidden" name="email" id="emailInput"
         value="emailaddress@email.com">
       <div class="govuk-button-group">
@@ -71,7 +76,7 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
         event.preventDefault();
         var email = document.getElementById('emailInput').value;
         sessionStorage.setItem('email', email);
-        window.location.href = '../how-we-contact-you.njk';
+        window.location.href = '../how-we-contact-customer.njk';
       });
     </script>
   </div>
