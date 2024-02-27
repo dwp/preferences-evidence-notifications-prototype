@@ -1,12 +1,17 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+  Personal details
 {% endblock %}
+
+{% block header %}
+  {% include "round-3/components/key-details.html" %}
+{% endblock %}
+
 
 {% block beforeContent %}
 
-{% include "round-4/breadcrumbs/customer-view/1h/phone-number.html" %}
+{% include "round-4/breadcrumbs/colleague-view/2c/phone-number.html" %}
 
 {% endblock %}
 
@@ -65,7 +70,7 @@
 
 {% from "govuk/components/button/macro.njk" import govukButton %}
 
-<form id="phoneForm" action="../how-we-contact-you.njk" method="POST">
+<form id="phoneForm" action="../how-we-contact-customer.njk" method="POST">
   <input type="hidden" name="phone" id="phoneInput"
     value="07815 701 922">
   <div class="govuk-button-group">
@@ -77,7 +82,7 @@
     event.preventDefault();
     var phone = document.getElementById('phoneInput').value;
     sessionStorage.setItem('phone', phone);
-    window.location.href = '../how-we-contact-you.njk';
+    window.location.href = '../how-we-contact-customer.njk';
   });
 </script>
 
