@@ -23,13 +23,13 @@
 
          {{ govukDetails({
             summaryText: "After several attempts, they have not received a text message",
-            html: '<p>The phone number you entered may be wrong. <a href="phone-number">Enter the phone number again</a> and we will send a new code.</p> <p>If they still do not receive a code, try again later.</p>'
+            html: '<p>The phone number you entered may be wrong. <a href="phone-number">Enter the phone number again</a> and we will send a new code.</p>'
         }) }}
 
   
 
         {{ govukButton({
-            text: "Continue",
+            text: "Send a new message",
             href: "phone-code"
         }) }}
 
