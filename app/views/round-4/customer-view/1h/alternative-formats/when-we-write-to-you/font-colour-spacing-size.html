@@ -60,12 +60,14 @@
   <script>
     var redirectUrl = "";
     function set(inputValue) {
-  
       if (inputValue === "different-font") {
+        sessionStorage.setItem('howWeWrite', 'Another print size, font or paper colour');
         redirectUrl = "different-font";
       } else if (inputValue === "colour-paper") {
+        sessionStorage.setItem('howWeWrite', 'Another print size, font or paper colour');
         redirectUrl = "colour-paper";
       } else if (inputValue === "large-print") {
+        sessionStorage.setItem('howWeWrite', 'Another print size, font or paper colour');
         redirectUrl = "large-print-1";
       } else {
         redirectUrl = "how-should-we-write-to-you";

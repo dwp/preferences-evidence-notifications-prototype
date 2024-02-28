@@ -52,10 +52,13 @@
   function set(inputValue) {
 
     if (inputValue === "arial") {
+      sessionStorage.setItem('howWeWrite', 'Another print size, font or paper colour<br>Arial');
       redirectUrl = "confirm-your-changes";
     } else if (inputValue === "calibri") {
+      sessionStorage.setItem('howWeWrite', 'Another print size, font or paper colour<br>Calibri');
       redirectUrl = "confirm-your-changes";
     } else {
+      sessionStorage.setItem('howWeWrite', 'Another print size, font or paper colour<br>Times New Roman');
       redirectUrl = "confirm-your-changes";
     }
   }
