@@ -12,7 +12,7 @@
 {% block beforeContent %}
 
 
-{% include "round-4/breadcrumbs/colleague-view/2c/when-we-speak-to-customer.html" %}
+{% include "round-4/breadcrumbs/colleague-view/2c/when-we-write-to-customer.html" %}
 
 {% endblock %}
 
@@ -31,9 +31,9 @@
       </div>
       <div class="govuk-notification-banner__content">
         <h3 class="govuk-notification-banner__heading">
-          How we speak to customer update complete
+          How we write to customer update complete
         </h3>
-        <p class="govuk-body">You have successfully changed how we speak to customer.</p>
+        <p class="govuk-body">You have successfully changed how we write to customer.</p>
       </div>
     </div>
 
@@ -46,7 +46,7 @@
 
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
-          When we speak to customer
+          When we write to customer
         </dt>
         <dd class="govuk-summary-list__value" id="updatedValue">
         </dd>
@@ -66,34 +66,34 @@
     </div>
 
   </div>
+
   <script>
     var divSection = document.getElementById('updatedValue');
-    var howWeConnect = sessionStorage.getItem('howWeConnect');
-    var howWeConnectArrary;
-    if (howWeConnect) {
-      howWeConnectArrary = howWeConnect.split("<br>");
+    var howWeWrite = sessionStorage.getItem('howWeWrite');
+    var howWeWriteArrary;
+    if (howWeWrite) {
+      howWeWriteArrary = howWeWrite.split("<br>");
     }
 
     if (divSection) {
-      if (howWeConnect && howWeConnectArrary.length > 0) {
+      if (howWeWrite && howWeWriteArrary.length > 0) {
         var list = "";
 
-        if (howWeConnectArrary.length > 1) {
+        if (howWeWriteArrary.length > 1) {
           list += "<ul class='govuk-list govuk-list--bullet'>";
-          for (let i = 1; i < howWeConnectArrary.length; i++) {
-            list += `<li>${howWeConnectArrary[i]}</li>`
+          for (let i = 1; i < howWeWriteArrary.length; i++) {
+            list += `<li>${howWeWriteArrary[i]}</li>`
           }
           list += "</ul>"
         }
 
-        divSection.innerHTML = `<p class='govuk-body'>${howWeConnectArrary[0]}</p>${list}`;
+        divSection.innerHTML = `<p class='govuk-body'>${howWeWriteArrary[0]}</p>${list}`;
       } else {
         divSection.innerHTML = "";
       }
     }
 
   </script>
-
 </div>
 </div>
 {% endblock %}
