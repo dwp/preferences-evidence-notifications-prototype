@@ -60,9 +60,7 @@
             <dt class="govuk-summary-list__key">
               When we speak to you
             </dt>
-            <dd class="govuk-summary-list__value">
-              <p>You can contact me by phone</p>
-              </ul>
+            <dd class="govuk-summary-list__value" id="mainHowWeConnectDiv" name="mainHowWeConnectDiv">
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="/round-4/customer-view/1h/alternative-formats/when-we-speak-to-you/how-should-we-contact-you-if-we-need-to-speak-to-you">
@@ -140,6 +138,31 @@
     } else {
       mainPhoneDiv.innerHTML = "07700 900 457";
     }
+  }
+
+  var mainHowWeConnectDiv = document.getElementById('mainHowWeConnectDiv');
+  var howWeConnect = sessionStorage.getItem('howWeConnect');
+  var howWeConnectArrary;
+  if (howWeConnect) {
+    howWeConnectArrary = howWeConnect.split("<br>");
+  }
+ 
+  if (mainHowWeConnectDiv) {
+    if (howWeConnect && howWeConnectArrary.length > 0) {
+        var list = "";
+
+        if (howWeConnectArrary.length > 1) {
+          list += "<ul class='govuk-list govuk-list--bullet'>";
+          for (let i = 1; i < howWeConnectArrary.length; i++) {
+            list += `<li>${howWeConnectArrary[i]}</li>`
+          }
+          list += "</ul>"
+        }
+
+        mainHowWeConnectDiv.innerHTML = `<p class='govuk-body'>${howWeConnectArrary[0]}</p>${list}`;
+      } else {
+        mainHowWeConnectDiv.innerHTML =  "<p>You can contact me by phone</p>";
+      }
   }
 </script>
 

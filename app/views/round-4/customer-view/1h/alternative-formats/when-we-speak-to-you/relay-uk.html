@@ -32,8 +32,8 @@
 
   <script>
     function check3() {
-      console.log(document.getElementById("yes"))
-
+      var relayNumber = document.getElementById('relay-uk-number');
+      sessionStorage.setItem('howWeConnect', `Relay UK<br>${relayNumber.value}`);
       if (document.getElementById("relay-uk-number").value && document.getElementById("relay-uk-number").value ) {
         window.location.href = "/round-4/customer-view/1h/alternative-formats/when-we-speak-to-you/confirm-your-changes.html"
       } else {
