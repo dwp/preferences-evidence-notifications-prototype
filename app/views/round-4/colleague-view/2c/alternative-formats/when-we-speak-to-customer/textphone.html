@@ -1,13 +1,18 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+  Personal details
+{% endblock %}
+
+{% block header %}
+  {% include "round-3/components/key-details.html" %}
 {% endblock %}
 
 
 {% block beforeContent %}
 
-{% include "round-4/breadcrumbs/customer-view/1h/textphone.html" %}
+
+{% include "round-4/breadcrumbs/colleague-view/2c/textphone.html" %}
 
 {% endblock %}
 
@@ -37,9 +42,9 @@
       sessionStorage.setItem('howWeConnect', `Textphone for the hard of hearing<br>${element.value}`);
 
       if (document.getElementById("textphone-number").value && document.getElementById("textphone-number").value ) {
-        window.location.href = "/round-4/customer-view/1h/alternative-formats/when-we-speak-to-you/textphone-code.html"
+        window.location.href = "/round-4/colleague-view/2c/alternative-formats/when-we-speak-to-customer/textphone-code.html"
       } else {
-        window.location.href = "/round-4/customer-view/1h/alternative-formats/when-we-speak-to-you/error/textphone.html"
+        window.location.href = "/round-4/colleague-view/2c/alternative-formats/when-we-speak-to-customer/error/textphone.html"
       }
 
     }
