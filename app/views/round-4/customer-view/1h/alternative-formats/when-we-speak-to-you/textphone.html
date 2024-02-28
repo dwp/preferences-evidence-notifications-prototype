@@ -33,7 +33,8 @@
 
   <script>
     function check3() {
-      console.log(document.getElementById("yes"))
+      var element = document.getElementById('textphone-number');
+      sessionStorage.setItem('howWeConnect', `Textphone<br>${element.value}`);
 
       if (document.getElementById("textphone-number").value && document.getElementById("textphone-number").value ) {
         window.location.href = "/round-4/customer-view/1h/alternative-formats/when-we-speak-to-you/textphone-code.html"
