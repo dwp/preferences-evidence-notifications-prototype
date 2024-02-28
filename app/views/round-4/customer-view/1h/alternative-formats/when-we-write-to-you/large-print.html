@@ -55,10 +55,13 @@
   function set(inputValue) {
 
     if (inputValue === "16-point") {
+      sessionStorage.setItem('howWeWrite', 'Large print<br>16 point');
       redirectUrl = "confirm-your-changes";
     } else if (inputValue === "18-point") {
+      sessionStorage.setItem('howWeWrite', 'Large print<br>18 point');
       redirectUrl = "confirm-your-changes";
     } else {
+      sessionStorage.setItem('howWeWrite', 'Large print<br>24 point');
       redirectUrl = "confirm-your-changes";
     }
   }

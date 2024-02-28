@@ -58,12 +58,16 @@
   function set(inputValue) {
 
     if (inputValue === "CD") {
+      sessionStorage.setItem('howWeWrite', 'Audio<br>CD');
       redirectUrl = "confirm-your-changes";
     } else if (inputValue === "cassette-tape") {
+      sessionStorage.setItem('howWeWrite', 'Audio<br>Cassette tape');
       redirectUrl = "confirm-your-changes";
     } else if (inputValue === "dvd") {
+      sessionStorage.setItem('howWeWrite', 'Audio<br>DVD');
       redirectUrl = "confirm-your-changes";
     } else {
+      sessionStorage.setItem('howWeWrite', 'Audio<br>MP3 file by email');
       redirectUrl = "what-is-your-email/mp3-file-by-email";
     }
   }

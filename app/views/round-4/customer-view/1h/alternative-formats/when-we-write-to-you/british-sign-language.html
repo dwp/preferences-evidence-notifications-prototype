@@ -51,8 +51,10 @@
   function set(inputValue) {
 
     if (inputValue === "dvd") {
+      sessionStorage.setItem('howWeWrite', 'British Sign Language video<br>DVD');
       redirectUrl = "confirm-your-changes";
     } else {
+      sessionStorage.setItem('howWeWrite', 'British Sign Language video<br>MPEG file by email');
       redirectUrl = "what-is-your-email/mpeg-file-by-email";
     }
   }
