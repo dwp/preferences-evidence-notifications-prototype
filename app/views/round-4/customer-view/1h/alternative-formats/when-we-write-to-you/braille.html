@@ -46,8 +46,10 @@
   function set(inputValue) {
 
     if (inputValue === "uncontracted-braille") {
+      sessionStorage.setItem('howWeWrite', 'Braille<br>Uncontracted braille (grade 1)');
       redirectUrl = "confirm-your-changes";
     } else {
+      sessionStorage.setItem('howWeWrite', 'Braille<br>Contracted braille (grade 2)');
       redirectUrl = "confirm-your-changes";
     }
   }
