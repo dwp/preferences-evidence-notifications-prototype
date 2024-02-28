@@ -18,19 +18,19 @@
 
 {% block content %}    <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-l">Send me a new textphone message</h1>
+        <h1 class="govuk-heading-l">Send a new textphone message</h1>
 
-       <p>We will send you a textphone message with a new security code.</p>
+       <p>We will send them a textphone message with a new security code.</p>
 
          {{ govukDetails({
-            summaryText: "After several attempts, I have not received a textphone message",
-            html: '<p>The textphone number you entered may be wrong. <a href="textphone">Enter your textphone number again</a> and we will send a new code.</p> <p>If you still do not receive a code, try again later.</p>'
+            summaryText: "After several attempts, they have not received a textphone message",
+            html: '<p>The textphone number you entered may be wrong. <a href="textphone">Enter the textphone number again</a> and we will send a new code.</p>'
         }) }}
 
   
 
         {{ govukButton({
-            text: "Continue",
+            text: "Send a new message",
             href: "textphone-code"
         }) }}
 
