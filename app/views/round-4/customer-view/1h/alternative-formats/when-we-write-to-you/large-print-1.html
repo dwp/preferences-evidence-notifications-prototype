@@ -55,10 +55,13 @@
   function set(inputValue) {
 
     if (inputValue === "16-point") {
+      sessionStorage.setItem('howWeWrite', 'Another print size, font or paper colour<br>Font size 16 point');
       redirectUrl = "confirm-your-changes";
     } else if (inputValue === "18-point") {
+      sessionStorage.setItem('howWeWrite', 'Another print size, font or paper colour<br>Font size 18 point');
       redirectUrl = "confirm-your-changes";
     } else {
+      sessionStorage.setItem('howWeWrite', 'Another print size, font or paper colour<br>Font size 24 point');
       redirectUrl = "confirm-your-changes";
     }
   }

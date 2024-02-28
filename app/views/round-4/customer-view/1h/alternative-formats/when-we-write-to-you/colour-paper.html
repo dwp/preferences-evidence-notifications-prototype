@@ -58,12 +58,16 @@
   function set(inputValue) {
 
     if (inputValue === "cream") {
+      sessionStorage.setItem('howWeWrite', 'Another print size, font or paper colour<br>Cream');
       redirectUrl = "confirm-your-changes";
     } else if (inputValue === "pastel-blue") {
+      sessionStorage.setItem('howWeWrite', 'Another print size, font or paper colour<br>Pastel blue');
       redirectUrl = "confirm-your-changes";
     } else if (inputValue === "pastel-yellow") {
+      sessionStorage.setItem('howWeWrite', 'Another print size, font or paper colour<br>Pastel yellow');
       redirectUrl = "confirm-your-changes";
     } else {
+      sessionStorage.setItem('howWeWrite', 'Another print size, font or paper colour<br>Pastel pink');
       redirectUrl = "confirm-your-changes";
     }
   }
