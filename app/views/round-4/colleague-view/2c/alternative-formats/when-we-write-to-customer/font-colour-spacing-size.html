@@ -1,0 +1,92 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Personal details
+{% endblock %}
+
+{% block header %}
+  {% include "round-3/components/key-details.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+
+{% include "round-4/breadcrumbs/colleague-view/2c/font-colour-spacing-size.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+<form class="form" id="checkboxForm">
+  <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="non-standard-letter-options-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <h1 class="govuk-fieldset__heading">
+            What changes do you need?
+        </h1>
+    </legend>
+    <div id="non-standard-letter-options-hint" class="govuk-hint">
+        You can choose more than one option. We will ask for more detail if necessary.
+    </div>
+    <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+        <div class="govuk-checkboxes__item" onclick="set('different-font')">
+            <input class="govuk-checkboxes__input" id="non-standard-letter-options" name="non-standard-letter-options" type="checkbox" value="A different font">
+            <label class="govuk-label govuk-checkboxes__label" for="non-standard-letter-options">
+                A different font
+            </label>
+        </div>
+        <div class="govuk-checkboxes__item" onclick="set('colour-paper')">
+            <input class="govuk-checkboxes__input" id="non-standard-letter-options-2" name="non-standard-letter-options" type="checkbox" value="Coloured paper">
+            <label class="govuk-label govuk-checkboxes__label" for="non-standard-letter-options-2">
+                Coloured paper
+            </label>
+        </div>
+        <div class="govuk-checkboxes__item" onclick="set('large-print')">
+            <input class="govuk-checkboxes__input" id="non-standard-letter-options-3" name="non-standard-letter-options" type="checkbox" value="Large print">
+            <label class="govuk-label govuk-checkboxes__label" for="non-standard-letter-options-3">
+                Large print
+            </label>
+        </div>
+        <div class="govuk-checkboxes__divider">or</div>
+        <div class="govuk-checkboxes__item" onclick="set('standard-letter')">
+            <input class="govuk-checkboxes__input" id="non-standard-letter-options-4" name="non-standard-letter-options" type="checkbox" value="Standard letter (12-point Arial text on white paper)" data-behaviour="exclusive">
+            <label class="govuk-label govuk-checkboxes__label" for="non-standard-letter-options-4">
+                Standard letter (12-point Arial text on white paper)
+            </label>
+        </div>
+    </div>
+  </fieldset>
+  </div><button type="submit" class="govuk-button" data-module="govuk-button">
+  Continue
+  </button>
+  </form>
+
+  <script>
+    var redirectUrl = "";
+    function set(inputValue) {
+      if (inputValue === "different-font") {
+        sessionStorage.setItem('howWeWrite', 'Another print size, font or paper colour');
+        redirectUrl = "different-font";
+      } else if (inputValue === "colour-paper") {
+        sessionStorage.setItem('howWeWrite', 'Another print size, font or paper colour');
+        redirectUrl = "colour-paper";
+      } else if (inputValue === "large-print") {
+        sessionStorage.setItem('howWeWrite', 'Another print size, font or paper colour');
+        redirectUrl = "large-print-1";
+      } else {
+        redirectUrl = "how-should-we-write-to-you";
+      }
+    }
+  
+    document.getElementById('checkboxForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+     
+      if (redirectUrl !== "") {
+        window.location.href = redirectUrl;
+      }
+    });
+  
+  </script>
+
+
+{% endblock %}
