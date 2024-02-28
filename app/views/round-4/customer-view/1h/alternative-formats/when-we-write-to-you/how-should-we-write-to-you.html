@@ -28,9 +28,9 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
             <div class="govuk-radios" data-module="govuk-radios">
                 <div class="govuk-radios__item" onclick="set('standard-letter')">
                     <input class="govuk-radios__input" id="written-format" name="written-format" type="radio"
-                        value="Standard letter (12-point Arial text on white paper)">
+                        value="You can contact me by standard letter">
                     <label class="govuk-label govuk-radios__label" for="written-format">
-                        Standard letter (12-point Arial text on white paper)
+                        	You can contact me by standard letter
                     </label>
                 </div>
 
@@ -92,7 +92,7 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
             function set(inputValue) {
 
                 if (inputValue === "standard-letter") {
-                    sessionStorage.setItem('howWeWrite', 'Standard letter (12-point Arial text on white paper)');
+                    sessionStorage.setItem('howWeWrite', 'You can contact me by standard letter');
                     redirectUrl = "../../how-we-contact-you";
                 } else if (inputValue === "large-print") {
                     sessionStorage.setItem('howWeWrite', 'Large print');
