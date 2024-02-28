@@ -1,13 +1,19 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+  Personal details
+{% endblock %}
+
+{% block header %}
+  {% include "round-3/components/key-details.html" %}
 {% endblock %}
 
 
 {% block beforeContent %}
 
-{% include "round-4/breadcrumbs/customer-view/1h/when-we-speak-to-you.html" %}
+
+
+{% include "round-4/breadcrumbs/colleague-view/2c/when-we-speak-to-customer.html" %}
 
 {% endblock %}
 
@@ -27,9 +33,9 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
       <div class="govuk-radios" data-module="govuk-radios">
         <div class="govuk-radios__item" onclick="set('standard-phone-call')">
           <input class="govuk-radios__input" id="spoken-options" name="spoken-options" type="radio"
-            value="You can contact me by phone">
+            value="You can contact customer by phone">
           <label class="govuk-label govuk-radios__label" for="spoken-options">
-            You can contact me by phone
+            You can contact customer by phone
           </label>
         </div>
 
@@ -61,13 +67,13 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
       function set(inputValue) {
 
         if (inputValue === "standard-phone-call") {
-          sessionStorage.setItem('howWeConnect', 'You can contact me by phone');
-          redirectUrl = "../../how-we-contact-you";
+          sessionStorage.setItem('howWeConnect', 'You can contact customer by phone');
+          redirectUrl = "../../how-we-contact-customer";
         } else if (inputValue === "relay-uk") {
           sessionStorage.setItem('howWeConnect', 'Relay UK');
           redirectUrl = "relay-uk";
         } else if (inputValue === "textphone") {
-          sessionStorage.setItem('howWeConnect', 'Textphone');
+          sessionStorage.setItem('howWeConnect', 'Textphone for the hard of hearing');
           redirectUrl = "textphone";
         } else {
           sessionStorage.setItem('howWeConnect', 'Signing or lipspeaking');
