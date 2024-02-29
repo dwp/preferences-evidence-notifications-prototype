@@ -22,70 +22,78 @@
   <fieldset class="govuk-fieldset">
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
       <h1 class="govuk-fieldset__heading">
-        What colour paper do you need?
+        What colour paper do they need?
       </h1>
     </legend>
     <div class="govuk-radios" data-module="govuk-radios">
-    <div class="govuk-radios__item" onclick="set('cream')">
-      <input class="govuk-radios__input" id="colour-paper" name="colour-paper" type="radio" value="cream">
-      <label class="govuk-label govuk-radios__label" for="colour-paper">
+      <div class="govuk-radios__item" onclick="set('cream')">
+        <input class="govuk-radios__input" id="colour-paper" name="colour-paper" type="radio" value="cream">
+        <label class="govuk-label govuk-radios__label" for="colour-paper">
           Cream
-      </label>
-    </div>
-    <div class="govuk-radios__item" onclick="set('pastel-blue')">
-      <input class="govuk-radios__input" id="colour-paper-2" name="colour-paper" type="radio" value="pastel blue">
-      <label class="govuk-label govuk-radios__label" for="colour-paper-2">
-        Pastel blue
-      </label>
-    </div>
-    <div class="govuk-radios__item" onclick="set('pastel-yellow')">
-      <input class="govuk-radios__input" id="colour-paper-3" name="colour-paper" type="radio" value="pastel yellow">
-      <label class="govuk-label govuk-radios__label" for="colour-paper-3">
-        Pastel yellow
-      </label>
-    </div>    
-    <div class="govuk-radios__item" onclick="set('pastel-pink')">
-      <input class="govuk-radios__input" id="colour-paper-4" name="colour-paper" type="radio" value="pastel pink">
-      <label class="govuk-label govuk-radios__label" for="colour-paper-4">
-        Pastel pink
-      </label>
-    </div>          
+        </label>
+      </div>
+      <div class="govuk-radios__item" onclick="set('pastel-blue')">
+        <input class="govuk-radios__input" id="colour-paper-2" name="colour-paper" type="radio" value="pastel blue">
+        <label class="govuk-label govuk-radios__label" for="colour-paper-2">
+          Pastel blue
+        </label>
+      </div>
+      <div class="govuk-radios__item" onclick="set('pastel-yellow')">
+        <input class="govuk-radios__input" id="colour-paper-3" name="colour-paper" type="radio" value="pastel yellow">
+        <label class="govuk-label govuk-radios__label" for="colour-paper-3">
+          Pastel yellow
+        </label>
+      </div>
+      <div class="govuk-radios__item" onclick="set('pastel-pink')">
+        <input class="govuk-radios__input" id="colour-paper-4" name="colour-paper" type="radio" value="pastel pink">
+        <label class="govuk-label govuk-radios__label" for="colour-paper-4">
+          Pastel pink
+        </label>
+      </div>
   </fieldset>
   <div class="govuk-!-padding-bottom-6"></div>
   <button type="submit" class="govuk-button" data-module="govuk-button">
     Continue
-    </button>
-</div>
-</div>
+  </button>
+  </div>
+  </div>
 
-<script>
-  var redirectUrl = "";
-  function set(inputValue) {
+  <script>
+    var howWeWriteArrary=[];
+    function set(inputValue) {
+      var howWeWrite = sessionStorage.getItem('howWeWrite');
+      if (howWeWrite) {
+        howWeWriteArrary = howWeWrite.split("<br>");
+      }
 
-    if (inputValue === "cream") {
-      sessionStorage.setItem('howWeWrite', 'Another print size, font or paper colour<br>Cream');
-      redirectUrl = "confirm-your-changes";
-    } else if (inputValue === "pastel-blue") {
-      sessionStorage.setItem('howWeWrite', 'Another print size, font or paper colour<br>Pastel blue');
-      redirectUrl = "confirm-your-changes";
-    } else if (inputValue === "pastel-yellow") {
-      sessionStorage.setItem('howWeWrite', 'Another print size, font or paper colour<br>Pastel yellow');
-      redirectUrl = "confirm-your-changes";
-    } else {
-      sessionStorage.setItem('howWeWrite', 'Another print size, font or paper colour<br>Pastel pink');
-      redirectUrl = "confirm-your-changes";
+      howWeWriteArrary.shift();
+
+      if (inputValue === "cream") {
+        howWeWriteArrary.push('Cream')
+      } else if (inputValue === "pastel-blue") {
+        howWeWriteArrary.push('Pastel blue')
+      } else if (inputValue === "pastel-yellow") {
+        howWeWriteArrary.push('Pastel yellow')
+      } else {
+        howWeWriteArrary.push('Pastel pink')
+      }
     }
-  }
 
-  document.getElementById('radioForm').addEventListener('submit', function (event) {
-    event.preventDefault();
-   
-    if (redirectUrl !== "") {
-      window.location.href = redirectUrl;
-    }
-  });
+    document.getElementById('radioForm').addEventListener('submit', function (event) {
+      event.preventDefault();
 
-</script>
+      sessionStorage.setItem('howWeWrite', `Another print size, font or paper colour<br>${howWeWriteArrary.join('<br>')}`);
+
+      const redirectUrls = JSON.parse(sessionStorage.getItem('redirectUrls'));
+      if (redirectUrls.length > 0) {
+        sessionStorage.setItem('redirectUrls', JSON.stringify(redirectUrls.slice(1)))
+        window.location.href = redirectUrls[0];
+      } else {
+        window.location.href = "confirm-your-changes";
+      }
+    });
+
+  </script>
 
 
-{% endblock %}
+  {% endblock %}
