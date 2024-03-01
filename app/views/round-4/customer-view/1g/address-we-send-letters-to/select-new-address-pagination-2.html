@@ -1,0 +1,152 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "round-4/breadcrumbs/customer-view/1g/address-we-send-letters-to.html" %}
+
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        Select the new address we can send letters to
+      </h1>
+    </legend>
+    <legend class="govuk-fieldset__legend">
+      30 addresses found for <b>NE3 1YL</b> and <b>5</b>.
+    </legend>
+    <br>
+    <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="where-do-you-live" name="where-do-you-live" type="radio" value="england" >
+          <label class="govuk-label govuk-radios__label" for="where-do-you-live">
+            115 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL <br> 
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="where-do-you-live" name="where-do-you-live" type="radio" value="england" >
+          <label class="govuk-label govuk-radios__label" for="where-do-you-live">
+            125 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL <br>  
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="where-do-you-live-2" name="where-do-you-live" type="radio" value="england-2" >
+          <label class="govuk-label govuk-radios__label" for="where-do-you-live-2">
+            135 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL <br>
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="where-do-you-live" name="where-do-you-live" type="radio" value="england" >
+          <label class="govuk-label govuk-radios__label" for="where-do-you-live">
+            145 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL <br>
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="where-do-you-live" name="where-do-you-live" type="radio" value="england" >
+          <label class="govuk-label govuk-radios__label" for="where-do-you-live">
+            155 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL <br>    
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="where-do-you-live" name="where-do-you-live" type="radio" value="england" >
+          <label class="govuk-label govuk-radios__label" for="where-do-you-live">
+            165 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL <br> 
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="where-do-you-live" name="where-do-you-live" type="radio" value="england" >
+          <label class="govuk-label govuk-radios__label" for="where-do-you-live">
+            175 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL <br>  
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="where-do-you-live-2" name="where-do-you-live" type="radio" value="england-2" >
+          <label class="govuk-label govuk-radios__label" for="where-do-you-live-2">
+            185 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL <br>
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="where-do-you-live" name="where-do-you-live" type="radio" value="england" >
+          <label class="govuk-label govuk-radios__label" for="where-do-you-live">
+            195 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL <br>
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="where-do-you-live" name="where-do-you-live" type="radio" value="england" >
+          <label class="govuk-label govuk-radios__label" for="where-do-you-live">
+            205 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL <br>    
+          </label>
+        </div>
+    </div>
+  </fieldset>
+</div>
+
+{% from "govuk/components/pagination/macro.njk" import govukPagination %}
+
+{{ govukPagination({
+  previous: {
+    href: "select-new-address-pagination-1.html"
+  },
+
+  items: [
+  {
+    number: 1,
+    href: "select-new-address.html"
+  },
+  {
+    number: 2,
+    href: "select-new-address-pagination-1.html"
+  },
+  {
+    number: 3,
+    current: true,
+    href: "select-new-address-pagination-2.html"
+  }
+  ]
+}) }}
+
+<div class="govuk-button-group">
+  <button class="govuk-button" value= "true" data-module="govuk-button" onclick="check()" >Use this address</button>
+  <a class="govuk-link" href="/round-4/customer-view/1g/address-we-send-letters-to/find-address.html">Search again</a>
+</div>
+  
+<script>
+  function check() {
+      console.log('in function')
+      var radios = document.getElementsByName("where-do-you-live");
+      var hasSelection = false
+      for (var i = 0, len = radios.length; i < len; i++) {
+          if (radios[i].checked) {
+              hasSelection = true;
+          }
+      }
+      if (hasSelection) {
+        window.location.href = "/round-4/customer-view/1g/address-we-send-letters-to/when-do-you-want-to-start-using-this-address.html";
+
+      } else {
+          window.location.href = "/round-4/customer-view/1g/address-we-send-letters-to/error/select-new-address-pagination-2.html";
+
+      }
+  }
+</script>
+
+<p class="govuk-body">
+  <a href="/round-4/customer-view/1g/address-we-send-letters-to/manual-entry.html" class="govuk-link">My address is not listed</a>
+</p>
+
+    </div>
+
+    </div>
+
+{% endblock %}
