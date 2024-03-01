@@ -1,0 +1,77 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Personal details
+{% endblock %}
+
+{% block header %}
+  {% include "round-3/components/key-details.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+
+{% include "round-4/breadcrumbs/colleague-view/2d/email.html" %}
+
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half">
+        <h1 class="govuk-heading-l">Email addresses</h1>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dd class="govuk-summary-list__value">
+            <p class="govuk-body" id="newEmailDiv" name="newEmailDiv"></p>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="enter-your-new-email-address">Change<span class="govuk-visually-hidden"> email</span></a>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> email</span></a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body">juliette.fox@email.com</p>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> main phone number</span></a>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> main phone number</span></a>
+            </dd>
+          </div>
+
+        </dl>
+      </div>
+    </div>
+    <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Return",
+        href: "/round-4/colleague-view/2d/how-we-contact-customer.html"
+      }) }}
+    </div>
+</div>
+
+<script>
+  var email = sessionStorage.getItem('email');
+
+var newEmailDiv = document.getElementById('newEmailDiv');
+
+if (newEmailDiv) {
+  if(email) {
+    newEmailDiv.innerHTML = email;
+  } else {
+    newEmailDiv.innerHTML = "chris.fox@example.com";
+  }
+}
+</script>
+
+{% endblock %}
