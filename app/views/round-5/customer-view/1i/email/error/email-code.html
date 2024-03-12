@@ -1,0 +1,83 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "round-5/breadcrumbs/customer-view/1i/email-error.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-error-summary" data-module="govuk-error-summary">
+  <div role="alert">
+    <h2 class="govuk-error-summary__title">
+      There is a problem
+    </h2>
+    <div class="govuk-error-summary__body">
+      <ul class="govuk-list govuk-error-summary__list">
+        <li>
+          <a href="#email-security-code">Enter your security code</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-form-group govuk-form-group--error">
+      <h1 class="govuk-heading-l">Check your email</h1>
+
+      <div class="govuk-inset-text">
+          <p class="govuk-body">
+              We have sent an email to:<br>
+              <strong class="govuk-!-font-weight-bold">
+              {% if data['register-email-address']%}
+                  {{data['register-email-address'] | lower }}
+              {% else %} 
+                  emailaddress@email.com
+              {% endif %}
+              </strong>
+          </p>
+      </div>
+
+      <p class="govuk-body">
+          It might take up to a minute to arrive.
+      </p>
+
+      <p class="govuk-body">
+          The email will include a security code. If you do not get an email, check your spam folder.
+      </p>
+
+      <p class="govuk-body">
+          The code will expire in 15 minutes.
+      </p>
+
+      <p id="security-code-error" class="govuk-error-message">
+        <span class="govuk-visually-hidden">Error:</span> Enter your security code
+      </p>
+
+      <form action="email-code-check" method="post" class="form">
+          <div class="govuk-form-group">
+              <label class="govuk-label" for="email-security-code">
+                  Enter your security code
+              </label>
+              <input class="govuk-input govuk-input--width-10" id="email-security-code" name="email-security-code" type="text">
+          </div>
+
+        </div>
+
+          {{ govukButton({
+              text: "Continue"
+          }) }}
+      </form>
+
+      <p><a href="resend-email">I did not get an email</a></p>
+  </div>
+  
+</div>
+{% endblock %}

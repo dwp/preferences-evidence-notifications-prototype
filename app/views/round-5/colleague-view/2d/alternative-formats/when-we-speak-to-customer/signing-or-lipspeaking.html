@@ -1,0 +1,110 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Personal details
+{% endblock %}
+
+{% block header %}
+  {% include "round-3/components/key-details.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+
+
+{% include "round-5/breadcrumbs/colleague-view/2d/signing-or-lipspeaking.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+<form class="form" id="radioForm">
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset" aria-describedby="signing-lipspeaking-options-hint">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <h1 class="govuk-fieldset__heading">
+          What signing or lipspeaking service do they need?
+        </h1>
+      </legend>
+      <div class="govuk-radios" data-module="govuk-radios">
+        <div class="govuk-radios__item" onclick="set('british-sign-language-interpreter')">
+          <input class="govuk-radios__input" id="signing-lipspeaking" name="signing-lipspeaking" type="radio"
+            value="British Sign Language (BSL) interpreter">
+          <label class="govuk-label govuk-radios__label" for="signing-lipspeaking">
+            British Sign Language (BSL) interpreter
+          </label>
+        </div>
+        <div class="govuk-radios__item" onclick="set('deafblind-manual-alphabet')">
+          <input class="govuk-radios__input" id="signing-lipspeaking-2" name="signing-lipspeaking" type="radio" value="Deafblind Manual alphabet">
+          <label class="govuk-label govuk-radios__label" for="signing-lipspeaking-2">
+            Deafblind Manual alphabet
+          </label>
+        </div>
+        <div class="govuk-radios__item" onclick="set('hands-on-signing')">
+          <input class="govuk-radios__input" id="signing-lipspeaking-3" name="signing-lipspeaking" type="radio" value="Hands-on signing">
+          <label class="govuk-label govuk-radios__label" for="signing-lipspeaking-3">
+            Hands-on signing
+          </label>
+        </div>
+        <div class="govuk-radios__item" onclick="set('lipspeaking')">
+          <input class="govuk-radios__input" id="signing-lipspeaking-4" name="signing-lipspeaking" type="radio"
+            value="Lipspeaking">
+          <label class="govuk-label govuk-radios__label" for="signing-lipspeaking-4">
+            Lipspeaking
+          </label>
+        </div>
+        <div class="govuk-radios__item" onclick="set('sign-supported-english')">
+          <input class="govuk-radios__input" id="signing-lipspeaking-5" name="signing-lipspeaking" type="radio"
+            value="Sign Supported English">
+          <label class="govuk-label govuk-radios__label" for="signing-lipspeaking-5">
+            Sign Supported English
+          </label>
+        </div>
+      </div>
+    </fieldset>
+    <script>
+      var redirectUrl = "";
+      function set(inputValue) {
+        if (inputValue === "british-sign-language-interpreter") {
+          sessionStorage.setItem('howWeConnect', 'Signing or lipspeaking<br>British Sign Language (BSL) interpreter');
+          redirectUrl = "confirm-your-changes";
+        } else if (inputValue === "deafblind-manual-alphabet") {
+          sessionStorage.setItem('howWeConnect', 'Signing or lipspeaking<br>Deafblind Manual alphabet');
+          redirectUrl = "confirm-your-changes";
+        } else if (inputValue === "hands-on-signing") {
+          sessionStorage.setItem('howWeConnect', 'Signing or lipspeaking<br>Hands-on signing');
+          redirectUrl = "confirm-your-changes";
+        } else if (inputValue === "lipspeaking") {
+          sessionStorage.setItem('howWeConnect', 'Signing or lipspeaking<br>Lipspeaking');
+          redirectUrl = "confirm-your-changes";
+        } else if (inputValue === "sign-supported-english") {
+          sessionStorage.setItem('howWeConnect', 'Signing or lipspeaking<br>Sign Supported English');
+          redirectUrl = "confirm-your-changes";
+        } else {
+          redirectUrl = "error/signing-or-lipspeaking";
+        }
+      }
+
+      document.getElementById('radioForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+       
+        if (redirectUrl !== "") {
+          window.location.href = redirectUrl;
+        }
+      });
+
+    </script>
+    
+  </div>
+  
+
+  <div class="govuk-inset-text">
+    We will try to use this option when we can. There may be times where we need to make a phone call instead for legal reasons.
+      </div>
+  
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Continue
+  </button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,98 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Personal details
+{% endblock %}
+
+{% block header %}
+  {% include "round-3/components/key-details.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+
+
+
+{% include "round-5/breadcrumbs/colleague-view/2d/when-we-speak-to-customer.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+<form class="form" id="radioForm">
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset" aria-describedby="spoken-options-hint">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <h1 class="govuk-fieldset__heading">
+          How should we contact the customer if we need to speak to them?
+        </h1>
+      </legend>
+
+      <div class="govuk-radios" data-module="govuk-radios">
+        <div class="govuk-radios__item" onclick="set('standard-phone-call')">
+          <input class="govuk-radios__input" id="spoken-options" name="spoken-options" type="radio"
+            value="You can contact customer by phone">
+          <label class="govuk-label govuk-radios__label" for="spoken-options">
+            You can contact customer by phone
+          </label>
+        </div>
+
+        <div class="govuk-radios__divider">or</div>
+
+        <div class="govuk-radios__item" onclick="set('relay-uk')">
+          <input class="govuk-radios__input" id="spoken-options-2" name="spoken-options" type="radio" value="Relay UK">
+          <label class="govuk-label govuk-radios__label" for="spoken-options-2">
+            Relay UK
+          </label>
+        </div>
+        <div class="govuk-radios__item" onclick="set('textphone')">
+          <input class="govuk-radios__input" id="spoken-options-3" name="spoken-options" type="radio" value="Textphone for the hard of hearing">
+          <label class="govuk-label govuk-radios__label" for="spoken-options-3">
+            Textphone for the hard of hearing
+          </label>
+        </div>
+        <div class="govuk-radios__item" onclick="set('lipspeaking')">
+          <input class="govuk-radios__input" id="spoken-options-4" name="spoken-options" type="radio"
+            value="Signing or lipspeaking">
+          <label class="govuk-label govuk-radios__label" for="spoken-options-4">
+            Signing or lipspeaking
+          </label>
+        </div>
+      </div>
+    </fieldset>
+    <script>
+      var redirectUrl = "";
+      function set(inputValue) {
+
+        if (inputValue === "standard-phone-call") {
+          sessionStorage.setItem('howWeConnect', 'You can contact customer by phone');
+          redirectUrl = "../../how-we-contact-customer";
+        } else if (inputValue === "relay-uk") {
+          sessionStorage.setItem('howWeConnect', 'Relay UK');
+          redirectUrl = "relay-uk";
+        } else if (inputValue === "textphone") {
+          sessionStorage.setItem('howWeConnect', 'Textphone for the hard of hearing');
+          redirectUrl = "textphone";
+        } else {
+          sessionStorage.setItem('howWeConnect', 'Signing or lipspeaking');
+          redirectUrl = "signing-or-lipspeaking";
+        }
+      }
+
+      document.getElementById('radioForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+       
+        if (redirectUrl !== "") {
+          window.location.href = redirectUrl;
+        }
+      });
+
+    </script>
+  </div>
+  
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Continue
+  </button>
+</form>
+
+{% endblock %}
