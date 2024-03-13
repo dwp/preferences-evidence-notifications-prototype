@@ -25,15 +25,21 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
         We usually contact you by phone if we need to speak to you. Select the best option for your needs.
       </div>
       <div class="govuk-radios" data-module="govuk-radios">
-        <div class="govuk-radios__item" onclick="set('standard-phone-call')">
+        <div class="govuk-radios__item" onclick="set('mobile-phone')">
           <input class="govuk-radios__input" id="spoken-options" name="spoken-options" type="radio"
-            value="You can contact me by phone">
+            value="Mobile phone">
           <label class="govuk-label govuk-radios__label" for="spoken-options">
-            You can contact me by phone
+            Mobile phone
+          </label>
+        </div>
+        <div class="govuk-radios__item" onclick="set('landline-phone')">
+          <input class="govuk-radios__input" id="spoken-options" name="spoken-options" type="radio"
+            value="Landline phone">
+          <label class="govuk-label govuk-radios__label" for="spoken-options">
+            Landline phone
           </label>
         </div>
 
-        <div class="govuk-radios__divider">or</div>
 
         <div class="govuk-radios__item" onclick="set('relay-uk')">
           <input class="govuk-radios__input" id="spoken-options-2" name="spoken-options" type="radio" value="Relay UK">
@@ -60,9 +66,12 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
       var redirectUrl = "";
       function set(inputValue) {
 
-        if (inputValue === "standard-phone-call") {
-          sessionStorage.setItem('howWeConnect', 'You can contact me by phone');
-          redirectUrl = "../../how-we-contact-you";
+        if (inputValue === "mobile-phone") {
+          sessionStorage.setItem('howWeConnect', 'Mobile phone');
+          redirectUrl = "confirm-your-changes";
+        } else if (inputValue === "landline-phone") {
+          sessionStorage.setItem('howWeConnect', 'Landline phone');
+          redirectUrl = "confirm-your-changes";
         } else if (inputValue === "relay-uk") {
           sessionStorage.setItem('howWeConnect', 'Relay UK');
           redirectUrl = "relay-uk";

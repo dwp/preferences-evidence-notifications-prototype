@@ -20,10 +20,6 @@
   </h1>
   <p>We will send a security code to this textphone number.</p>
 
-  <div class="govuk-inset-text">
-    We will try to use this option when we can. There may be times where we need to make a phone call instead for legal reasons.
-      </div>
-
   <label class="govuk-label" for="textphone-number">
    Textphone number
   </label>
@@ -42,7 +38,7 @@
       sessionStorage.setItem('howWeConnect', `Textphone for the hard of hearing<br>${element.value}`);
 
       if (document.getElementById("textphone-number").value && document.getElementById("textphone-number").value ) {
-        window.location.href = "/round-5/customer-view/1i/alternative-formats/when-we-speak-to-you/textphone-code.html"
+        window.location.href = "/round-5/customer-view/1i/alternative-formats/when-we-speak-to-you/confirm-your-changes.html"
       } else {
         window.location.href = "/round-5/customer-view/1i/alternative-formats/when-we-speak-to-you/error/textphone.html"
       }

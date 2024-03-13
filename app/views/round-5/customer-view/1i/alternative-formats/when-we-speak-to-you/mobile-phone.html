@@ -1,18 +1,12 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Personal details
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
-
-{% block header %}
-  {% include "round-3/components/key-details.html" %}
-{% endblock %}
-
 
 {% block beforeContent %}
 
-
-{% include "round-5/breadcrumbs/colleague-view/2d/pdf-with-accessible-text.html" %}
+{% include "round-5/breadcrumbs/customer-view/1i/when-we-speak-to-you.html" %}
 
 {% endblock %}
 
@@ -35,7 +29,7 @@
                 </h1>
               </legend>
             </fieldset>
-            <p class="govuk-body">We will send the PDF with accessible text to this email address.</p>
+            <p class="govuk-body">We will send the MPEG file to this email address.</p>
 
             {% from "govuk/components/input/macro.njk" import govukInput %}
 
