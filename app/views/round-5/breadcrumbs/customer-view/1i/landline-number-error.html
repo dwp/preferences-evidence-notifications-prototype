@@ -6,6 +6,20 @@
 
 {% block beforeContent %}
 
+{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
+
+{{
+  hmrcLanguageSelect({
+    language: 'en',
+    en: {
+      href: '?en'
+    },
+    cy: {
+      href: '?cy'
+    }
+  })
+}}
+
 {{ govukBackLink({
   text: "Back",
   href: "javascript:window.history.back()"
@@ -16,23 +30,15 @@
       items: [
           {
           text: "Home",
-          href: "homepage"
+          href: "../homepage"
           },
           {
-          text: "How we contact customer",
-          href: "../../../how-we-contact-customer"
+          text: "How we contact you",
+          href: "../how-we-contact-you"
         },
           {
-          text: "When we write to them",
-          href: "../how-should-we-write-to-them"
-        },
-        {
-        text: "British Sign Language video",
-        href: "../british-sign-language"
-      }
-      ,
-      {
-      text: "Enter your email"
+          text: "Landline phone numbers"
+          }
       ]
       }) }}
 

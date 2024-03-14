@@ -20,7 +20,7 @@
       
       <div class="govuk-grid-column-two-thirds-from-desktop">
 
-        <h2 class="govuk-heading-l">Contact details</h2>
+        <h2 class="govuk-heading-l">How we contact you</h2>
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
 
@@ -37,15 +37,14 @@
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Emails
+              Email addresses
             </dt>
             <dd class="govuk-summary-list__value">
             <p class="govuk-body" id="newEmailDiv" name="newEmailDiv"></p>
             <p class="govuk-body">sarah.lee@email.com</p>
+            <p class="govuk-body">s.lee@university.ac.uk</p>
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">Add<span class="govuk-visually-hidden"> add email</span></a>
-              &nbsp;&nbsp;&nbsp;&nbsp;
               <a class="govuk-link" href="email/email-list">Change<span class="govuk-visually-hidden"> email</span></a>
             </dd>
           </div>
@@ -68,15 +67,15 @@
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Landline number
+              Landline numbers
             </dt>
             <dd class="govuk-summary-list__value">
-              <p class="govuk-body">01632 960 001</p>
+              <p class="govuk-body" id="mainLandlineDiv" name="mainLandlineDiv"></p>
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">Add<span class="govuk-visually-hidden"> add landline phone number</span></a>
               &nbsp;&nbsp;&nbsp;&nbsp;
-              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> change landline phone number</span></a>
+              <a class="govuk-link" href="landline-number/landline-number">Change<span class="govuk-visually-hidden"> change landline phone number</span></a>
             </dd>
           </div>
 
@@ -180,7 +179,7 @@
   var landline = sessionStorage.getItem('landline');
   var mainLandlineDiv = document.getElementById('mainLandlineDiv');
   if (mainLandlineDiv) {
-    if(plandlinehone) {
+    if(landline) {
       mainLandlineDiv.innerHTML = landline;
     } else {
       mainLandlineDiv.innerHTML = "01632 960 001";
