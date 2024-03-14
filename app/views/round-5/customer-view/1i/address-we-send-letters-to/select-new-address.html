@@ -18,57 +18,19 @@
 
     <div class="govuk-form-group">
 
+      <div class="govuk-width-container">
+        <h1 class="govuk-heading-l">Confirm address</h1>
+        <p>1 address found for <b>NE3 1YL</b> and <b>58</b>. <a href="find-address">Search again</a></p>
+        <div class="govuk-inset-text">
+          58 Wellington House<br>
+          Windsor Street<br>
+          South Gosforth<br>
+          Newcastle upon Tyne<br>
+          NE3 1YL
+        </div>
+        </div>
+
     
-
-<div class="govuk-form-group">
-  <fieldset class="govuk-fieldset">
-    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-      <h1 class="govuk-fieldset__heading">
-        Select the new address we can send letters to
-      </h1>
-    </legend>
-
-    <label class="govuk-label" for="sort">
-      Select an address
-    </label>
-    <select class="govuk-select govuk-select--width-10" id="new-payee-address-select" name="new-payee-address-select">
-      <option value="selected" selected>30 addresses found</option>
-      <option value="line">----</option>
-      <option value="5" >5 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL</option>
-      <option value="15">15 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL</option>
-      <option value="25">25 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL</option>
-      <option value="35">35 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL</option>
-      <option value="45">45 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL</option>
-      <option value="50">50 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL</option>
-      <option value="51">51 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL</option>
-      <option value="52">52 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL</option>
-      <option value="53">53 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL</option>
-      <option value="54">54 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL</option>
-      <option value="55">55 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL</option>
-      <option value="56">56 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL</option>
-      <option value="57">57 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL</option>
-      <option value="58">58 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL</option>
-      <option value="59">59 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL</option>
-      <option value="65">65 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL</option>
-      <option value="75">75 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL</option>
-      <option value="85">85 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL</option>
-      <option value="95">95 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL</option>
-      <option value="105">105 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL</option>
-      <option value="115">115 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL</option>
-      <option value="125">125 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL</option>
-      <option value="135">135 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL</option>
-      <option value="145">145 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL</option>
-      <option value="155">155 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL</option>
-      <option value="165">165 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL</option>
-      <option value="175">175 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL</option>
-      <option value="185">185 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL</option>
-      <option value="195">195 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL</option>
-      <option value="205">205 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL</option>
-    </select>
-  </div>
-  
-  </fieldset>
-</div>
 
   {% from "govuk/components/button/macro.njk" import govukButton %}
 
@@ -79,18 +41,10 @@
           preventDoubleClick: true
           }) }}
 
-          {{ govukButton({
-            text: "Search again",
-            classes: "govuk-button--secondary",
-            href: "/round-5/customer-view/1i/address-we-send-letters-to/find-address.html"
-          }) }}
-
-      <!-- <a class="govuk-link" href="/round-5/customer-view/1i/address-we-send-letters-to/abandon-journey.html">Cancel</a> -->
     </div>
 
-<p class="govuk-body">
-  <a href="/round-5/customer-view/1i/address-we-send-letters-to/manual-entry.html" class="govuk-link">My address is not listed</a>
-</p>
+    <p class="govuk-body"><a href="find-address" class="govuk-link">Use a different address</a></p>
+    <p class="govuk-body govuk-!-margin-bottom-0"><a href="manual-entry" class="govuk-link">Enter address manually</a></p>
 
     </div>
 

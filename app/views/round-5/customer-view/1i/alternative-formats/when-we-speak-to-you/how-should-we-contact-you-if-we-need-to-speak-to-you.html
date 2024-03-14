@@ -25,21 +25,15 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
         We usually contact you by phone if we need to speak to you. Select the best option for your needs.
       </div>
       <div class="govuk-radios" data-module="govuk-radios">
-        <div class="govuk-radios__item" onclick="set('mobile-phone')">
+        <div class="govuk-radios__item" onclick="set('not-needed')">
           <input class="govuk-radios__input" id="spoken-options" name="spoken-options" type="radio"
-            value="Mobile phone">
+            value="I do not need an alternative format">
           <label class="govuk-label govuk-radios__label" for="spoken-options">
-            Mobile phone
-          </label>
-        </div>
-        <div class="govuk-radios__item" onclick="set('landline-phone')">
-          <input class="govuk-radios__input" id="spoken-options" name="spoken-options" type="radio"
-            value="Landline phone">
-          <label class="govuk-label govuk-radios__label" for="spoken-options">
-            Landline phone
+            I do not need an alternative format
           </label>
         </div>
 
+        <div class="govuk-radios__divider">or</div>
 
         <div class="govuk-radios__item" onclick="set('relay-uk')">
           <input class="govuk-radios__input" id="spoken-options-2" name="spoken-options" type="radio" value="Relay UK">
@@ -66,8 +60,8 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
       var redirectUrl = "";
       function set(inputValue) {
 
-        if (inputValue === "mobile-phone") {
-          sessionStorage.setItem('howWeConnect', 'Mobile phone');
+        if (inputValue === "not-needed") {
+          sessionStorage.setItem('howWeConnect', 'I do not need an alternative format');
           redirectUrl = "confirm-your-changes";
         } else if (inputValue === "landline-phone") {
           sessionStorage.setItem('howWeConnect', 'Landline phone');
