@@ -6,7 +6,7 @@
 
 {% block beforeContent %}
 
-{% include "round-5/breadcrumbs/customer-view/1i/phone-number-error.html" %}
+{% include "round-5/breadcrumbs/customer-view/1i/phone-number.html" %}
 
 {% endblock %}
 
@@ -18,33 +18,14 @@
   This is a page filled with address and residency information on the citizen.
 </div> -->
 
-{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
-
-<div class="govuk-error-summary" data-module="govuk-error-summary">
-  <div role="alert">
-    <h2 class="govuk-error-summary__title">
-      There is a problem
-    </h2>
-    <div class="govuk-error-summary__body">
-      <ul class="govuk-list govuk-error-summary__list">
-        <li>
-          <a href="#telephone-number">Enter a mobile phone number</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
-
 <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-
-          <div class="govuk-form-group govuk-form-group--error">
 
             <fieldset class="govuk-fieldset">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             
                 <h1 class="govuk-fieldset__heading">
-                  Change mobile phone number
+                  Mobile phone number
                 </h1>
               </legend>
             </fieldset>
@@ -58,10 +39,6 @@
 
             {% from "govuk/components/input/macro.njk" import govukInput %}
 
-            <p id="address-postcode-error" class="govuk-error-message">
-              <span class="govuk-visually-hidden">Error:</span>Enter a mobile phone number
-            </p>
-
             {{ govukInput({
               label: {
                 text: "Telephone number"
@@ -73,7 +50,6 @@
               classes: "govuk-input--width-20"
             }) }}
 
-          </div>
 
 
 <button class="govuk-button" value= "true" data-module="govuk-button" style="margin-bottom:50px;" onclick="check3()" >Continue</button>
@@ -87,9 +63,9 @@
       console.log(document.getElementById("yes"))
 
       if (document.getElementById("telephone-number").value && document.getElementById("telephone-number").value ) {
-        window.location.href = "/round-5/customer-view/1i/phone-number/phone-code.html"
+        window.location.href = "/round-5/customer-view/1i/phone-number/add/phone-code.html"
       } else {
-        window.location.href = "/round-5/customer-view/1i/phone-number/error/phone-number.html"
+        window.location.href = "/round-5/customer-view/1i/phone-number/add/error/phone-number.html"
       }
 
     }
