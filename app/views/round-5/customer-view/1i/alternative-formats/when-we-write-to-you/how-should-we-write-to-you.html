@@ -30,7 +30,7 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
                     <input class="govuk-radios__input" id="written-format" name="written-format" type="radio"
                         value="You can contact me by standard letter">
                     <label class="govuk-label govuk-radios__label" for="written-format">
-                        	You can contact me by standard letter
+                        I do not need an alternative format
                     </label>
                 </div>
 
@@ -40,7 +40,7 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
                     <input class="govuk-radios__input" id="written-format-2" name="written-format" type="radio"
                         value="Large print">
                     <label class="govuk-label govuk-radios__label" for="written-format-2">
-                        Large print
+                        Large print letter
                     </label>
                 </div>
                 <div class="govuk-radios__item" onclick="set('font-colour-spacing-size')">
@@ -71,17 +71,24 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
                         British Sign Language video
                     </label>
                 </div>
-                <div class="govuk-radios__item" onclick="set('microsoft-word-document')">
+                <div class="govuk-radios__item" onclick="set('easy-read')">
                     <input class="govuk-radios__input" id="written-format-7" name="written-format" type="radio"
-                        value="Microsoft Word document">
+                        value="Easy read">
                     <label class="govuk-label govuk-radios__label" for="written-format-7">
+                        Easy read
+                    </label>
+                </div>
+                <div class="govuk-radios__item" onclick="set('microsoft-word-document')">
+                    <input class="govuk-radios__input" id="written-format-8" name="written-format" type="radio"
+                        value="Microsoft Word document">
+                    <label class="govuk-label govuk-radios__label" for="written-format-8">
                         Microsoft Word document
                     </label>
                 </div>
                 <div class="govuk-radios__item" onclick="set('accessible-pdf')">
-                    <input class="govuk-radios__input" id="written-format-8" name="written-format" type="radio"
+                    <input class="govuk-radios__input" id="written-format-9" name="written-format" type="radio"
                         value="PDF with accessible text">
-                    <label class="govuk-label govuk-radios__label" for="written-format-8">
+                    <label class="govuk-label govuk-radios__label" for="written-format-9">
                         PDF with accessible text
                     </label>
                 </div>
@@ -92,10 +99,10 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
             function set(inputValue) {
 
                 if (inputValue === "standard-letter") {
-                    sessionStorage.setItem('howWeWrite', 'You can contact me by standard letter');
-                    redirectUrl = "../../how-we-contact-you";
+                    sessionStorage.setItem('howWeWrite', 'I do not need an alternative format');
+                    redirectUrl = "confirm-your-changes";
                 } else if (inputValue === "large-print") {
-                    sessionStorage.setItem('howWeWrite', 'Large print');
+                    sessionStorage.setItem('howWeWrite', 'Large print letter');
                     redirectUrl = "large-print";
                 } else if (inputValue === "font-colour-spacing-size") {
                     sessionStorage.setItem('howWeWrite', 'Letter with changes to font, paper colour or print size');
@@ -109,6 +116,9 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
                 } else if (inputValue === "british-sign-language-video") {
                     sessionStorage.setItem('howWeWrite', 'British Sign Language video');
                     redirectUrl = "british-sign-language";
+                } else if (inputValue === "easy-read") {
+                    sessionStorage.setItem('howWeWrite', 'Easy read');
+                    redirectUrl = "easy-read";
                 } else if (inputValue === "microsoft-word-document") {
                     sessionStorage.setItem('howWeWrite', 'Microsoft Word document');
                     redirectUrl = "what-is-your-email/microsoft-word-document";

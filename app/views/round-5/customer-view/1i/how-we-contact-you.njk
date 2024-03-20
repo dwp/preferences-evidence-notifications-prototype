@@ -58,10 +58,16 @@
               <p class="govuk-body" id="mainPhoneDiv" name="mainPhoneDiv"></p>
               <p class="govuk-body">07700 900 982</p>
             </dd>
+
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">Add<span class="govuk-visually-hidden"> add mobile phone number</span></a>
-              &nbsp;&nbsp;&nbsp;&nbsp;
-              <a class="govuk-link" href="phone-number/phone-number-list">Change<span class="govuk-visually-hidden"> change mobile phone numbers</span></a>
+              <ul class="govuk-summary-list__actions-list">
+                <li class="govuk-summary-list__actions-list-item">
+                  <a class="govuk-link" href="phone-number/add/phone-number">Add<span class="govuk-visually-hidden"> add mobile phone number</span></a>
+                </li>
+                <li class="govuk-summary-list__actions-list-item">
+                  <a class="govuk-link" href="phone-number/phone-number-list">Change<span class="govuk-visually-hidden"> change mobile phone numbers</span></a>
+                </li>
+              </ul>
             </dd>
           </div>
 
@@ -73,9 +79,14 @@
               <p class="govuk-body" id="mainLandlineDiv" name="mainLandlineDiv"></p>
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">Add<span class="govuk-visually-hidden"> add landline phone number</span></a>
-              &nbsp;&nbsp;&nbsp;&nbsp;
-              <a class="govuk-link" href="landline-number/landline-number">Change<span class="govuk-visually-hidden"> change landline phone number</span></a>
+              <ul class="govuk-summary-list__actions-list">
+                <li class="govuk-summary-list__actions-list-item">
+                  <a class="govuk-link" href="#">Add<span class="govuk-visually-hidden"> add landline phone number</span></a>
+                </li>
+                <li class="govuk-summary-list__actions-list-item">
+                  <a class="govuk-link" href="landline-number/landline-number">Change<span class="govuk-visually-hidden"> change landline phone number</span></a>
+                </li>
+              </ul>
             </dd>
           </div>
 
@@ -232,7 +243,7 @@
 
         mainHowWeWriteDiv.innerHTML = `<p class='govuk-body'>${howWeWriteArrary[0]}</p>${list}`;
       } else {
-        mainHowWeWriteDiv.innerHTML =  "<p>Standard letter</p>";
+        mainHowWeWriteDiv.innerHTML =  "<p>I do not need an alternative format</p>";
       }
   }
 </script>

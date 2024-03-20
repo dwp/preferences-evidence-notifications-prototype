@@ -36,7 +36,7 @@
                         {% if data['telephone-number'] %}
                             {{ data['telephone-number'] }}
                         {% else %} 
-                            07771 900 900
+                        07123 456 789
                         {% endif %}
                     </strong>
                 </p>
@@ -65,14 +65,13 @@
                 </div>
             </div>
             </div>
-            
-
-            <p><a href="../resend-code">I did not get a text message</a></p>
 
                 {{ govukButton({
                     text: "Continue"
                 }) }}
             </form>
+
+            <p><a href="../resend-code">I did not get a text message</a></p>
 
            
         </div>
