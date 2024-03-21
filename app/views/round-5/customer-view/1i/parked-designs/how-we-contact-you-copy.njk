@@ -15,118 +15,126 @@
 {% block content %}
 
 <div class="govuk-width-container">
-    <div class="govuk-grid-row">
 
+    <div class="govuk-grid-row">
+      
       <div class="govuk-grid-column-two-thirds-from-desktop">
 
-        <h2 class="govuk-heading-l">How we write to you</h2>
-        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Accessibility preference
-            </dt>
-            <dd class="govuk-summary-list__value" id="mainHowWeWriteDiv" name="mainHowWeWriteDiv">
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-5/customer-view/1i/alternative-formats/when-we-write-to-you/how-should-we-write-to-you">
-                Change<span class="govuk-visually-hidden">How we write to you </span>
-              </a>
-            </dd>
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              How we contact you
+            </h2>
           </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Address we send letters to
+                </dt>
+                <dd class="govuk-summary-list__value" id="newAddressDiv" name="newAddressDiv">
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="address-we-send-letters-to/which-address-should-we-send-letters-to">Change<span class="govuk-visually-hidden"> address we send letters to</span></a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Email addresses
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <p class="govuk-body" id="newEmailDiv" name="newEmailDiv"></p>
+                  <p class="govuk-body">sarah.lee@email.com</p>
+                  <p class="govuk-body">s.lee@university.ac.uk</p>
+                  </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="email/email-list">Change<span class="govuk-visually-hidden"> email</span></a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Mobile phone numbers
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <p class="govuk-body" id="mainPhoneDiv" name="mainPhoneDiv"></p>
+                  <p class="govuk-body">07700 900 982</p>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <ul class="govuk-summary-list__actions-list">
+                    <li class="govuk-summary-list__actions-list-item">
+                      <a class="govuk-link" href="phone-number/add/phone-number">Add<span class="govuk-visually-hidden"> add mobile phone number</span></a>
+                    </li>
+                    <li class="govuk-summary-list__actions-list-item">
+                      <a class="govuk-link" href="phone-number/phone-number-list">Change<span class="govuk-visually-hidden"> change mobile phone numbers</span></a>
+                    </li>
+                  </ul>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Landline numbers
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <p class="govuk-body" id="mainLandlineDiv" name="mainLandlineDiv"></p>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <ul class="govuk-summary-list__actions-list">
+                    <li class="govuk-summary-list__actions-list-item">
+                      <a class="govuk-link" href="#">Add<span class="govuk-visually-hidden"> add landline phone number</span></a>
+                    </li>
+                    <li class="govuk-summary-list__actions-list-item">
+                      <a class="govuk-link" href="landline-number/landline-number">Change<span class="govuk-visually-hidden"> change landline phone number</span></a>
+                    </li>
+                  </ul>
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
 
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Address we send letters to
-            </dt>
-            <dd class="govuk-summary-list__value" id="newAddressDiv" name="newAddressDiv">
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="address-we-send-letters-to/which-address-should-we-send-letters-to">Change<span class="govuk-visually-hidden"> address we send letters to</span></a>
-            </dd>
-          </div>
 
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Email
-            </dt>
-            <dd class="govuk-summary-list__value">
-            <p class="govuk-body" id="newEmailDiv" name="newEmailDiv"></p>
-            <p class="govuk-body">sarah.lee@email.com</p>
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="email/email-list">Change<span class="govuk-visually-hidden"> email</span></a>
-            </dd>
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Alternative formats
+            </h2>
           </div>
-        </dl>
-      </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  How we speak to you
+                </dt>
+                <dd class="govuk-summary-list__value" id="mainHowWeConnectDiv" name="mainHowWeConnectDiv">
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="/round-5/customer-view/1i/alternative-formats/when-we-speak-to-you/how-should-we-contact-you-if-we-need-to-speak-to-you">
+                    Change<span class="govuk-visually-hidden">When we speak to you</span>
+                  </a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  How we write to you
+                </dt>
+                <dd class="govuk-summary-list__value" id="mainHowWeWriteDiv" name="mainHowWeWriteDiv">
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="/round-5/customer-view/1i/alternative-formats/when-we-write-to-you/how-should-we-write-to-you">
+                    Change<span class="govuk-visually-hidden">How we write to you </span>
+                  </a>
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+
+    <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Return to home",
+        href: "/round-5/customer-view/1i/homepage.html"
+      }) }}
     </div>
-
 </div>
-
-
-
-
-<div class="govuk-width-container">
-  <div class="govuk-grid-row">
-    
-    <div class="govuk-grid-column-two-thirds-from-desktop">
-
-      <h2 class="govuk-heading-l">How we speak to you</h2>
-      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Accessibility preference
-          </dt>
-          <dd class="govuk-summary-list__value" id="mainHowWeConnectDiv" name="mainHowWeConnectDiv">
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="/round-5/customer-view/1i/alternative-formats/when-we-speak-to-you/how-should-we-contact-you-if-we-need-to-speak-to-you">
-              Change<span class="govuk-visually-hidden">When we speak to you</span>
-            </a>
-          </dd>
-        </div>
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Phone numbers
-          </dt>
-          <dd class="govuk-summary-list__value">
-            <p class="govuk-body" id="mainPhoneDiv" name="mainPhoneDiv"></p>
-            <p class="govuk-body">07700 900 982</p>
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="phone-number/phone-number-list">Change<span class="govuk-visually-hidden"> main phone number</span></a>
-          </dd>
-        </div>
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Landline number
-          </dt>
-          <dd class="govuk-summary-list__value">
-            <p class="govuk-body">01632 960 001</p>
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> other phone numbers</span></a>
-          </dd>
-        </div>
-      </dl>
-    </div>
-  </div>
-
-
-
-
-  <div class="govuk-button-group">
-    {{ govukButton({
-      text: "Return to home",
-      href: "/round-5/customer-view/1i/homepage.html"
-    }) }}
-  </div>
-</div>
-
 
 
 
@@ -166,6 +174,16 @@
     }
   }
 
+  var landline = sessionStorage.getItem('landline');
+  var mainLandlineDiv = document.getElementById('mainLandlineDiv');
+  if (mainLandlineDiv) {
+    if(landline) {
+      mainLandlineDiv.innerHTML = landline;
+    } else {
+      mainLandlineDiv.innerHTML = "01632 960 001";
+    }
+  }
+
   var mainHowWeConnectDiv = document.getElementById('mainHowWeConnectDiv');
   var howWeConnect = sessionStorage.getItem('howWeConnect');
   var howWeConnectArrary;
@@ -187,7 +205,7 @@
 
         mainHowWeConnectDiv.innerHTML = `<p class='govuk-body'>${howWeConnectArrary[0]}</p>${list}`;
       } else {
-        mainHowWeConnectDiv.innerHTML =  "<p>You can contact me by phone</p>";
+        mainHowWeConnectDiv.innerHTML =  "<p>I do not need an alternative format</p>";
       }
   }
 
@@ -212,7 +230,7 @@
 
         mainHowWeWriteDiv.innerHTML = `<p class='govuk-body'>${howWeWriteArrary[0]}</p>${list}`;
       } else {
-        mainHowWeWriteDiv.innerHTML =  "<p>You can contact me by standard letter</p>";
+        mainHowWeWriteDiv.innerHTML =  "<p>I do not need an alternative format</p>";
       }
   }
 </script>
