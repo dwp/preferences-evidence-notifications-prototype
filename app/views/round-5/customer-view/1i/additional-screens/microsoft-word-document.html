@@ -29,17 +29,11 @@
       </label>
     </div>
     <div class="govuk-radios__item" onclick="set('microsoft-word-document-2')">
-      <input class="govuk-radios__input" id="microsoft-word-document-2" name="microsoft-word-document" type="radio" value="sarah.lee@email.com">
+      <input class="govuk-radios__input" id="microsoft-word-document-2" name="microsoft-word-document" type="radio" value="A different email address">
       <label class="govuk-label govuk-radios__label" for="microsoft-word-document-2">
-        sarah.lee@email.com
+        A different email address
       </label>
-    </div>      
-    <div class="govuk-radios__item" onclick="set('microsoft-word-document-3')">
-      <input class="govuk-radios__input" id="microsoft-word-document-2" name="microsoft-word-document" type="radio" value="s.lee@university.ac.uk">
-      <label class="govuk-label govuk-radios__label" for="microsoft-word-document-2">
-        s.lee@university.ac.uk
-      </label>
-    </div>       
+    </div>        
   </fieldset>
   <div class="govuk-!-padding-bottom-6"></div>
   <button type="submit" class="govuk-button" data-module="govuk-button">
@@ -56,7 +50,7 @@
       sessionStorage.setItem('howWeWrite', 'Microsoft Word document<br>sarah.phillips@example.com');
       redirectUrl = "../confirm-your-changes";
     } else if (inputValue === "microsoft-word-document-2") {
-      sessionStorage.setItem('howWeWrite', 'Microsoft Word document<br>sarah.lee@email.com');
+      sessionStorage.setItem('howWeWrite', 'Microsoft Word document<br>A different email address');
       redirectUrl = "../confirm-your-changes";
     } else {
       sessionStorage.setItem('howWeWrite', 'Microsoft Word document<br>s.lee@university.ac.uk');
