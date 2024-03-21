@@ -14,24 +14,52 @@
 {% block content %}
 
 <div class="govuk-width-container">
-  <h1 class="govuk-heading-l">Easy read</h1>
+  <h1 class="govuk-heading-l">This is a post office address</h1>
   <p class="govuk-body">
-  By sending the application you agree that the information you have given is complete and correct.
-  If you deliberately give the wrong or incomplete information, or you do not report any changes, you may:
-  </p>
-  <ul class="govuk-list govuk-list--bullet">
-  <li>be prosecuted</li>
-  <li>need to pay a financial penalty</li>
-  <li>need to pay back any money you are overpaid if you are asked to</li>
-  </ul>
+    You have asked us to send letters to this post office address:</p>
 
+    <div class="govuk-inset-text">
+      721 Great Western Road<br>
+      Glasgow<br>
+      G12 8QX
+    </div> 
+
+    <p>Job centre staff can open your letters on your behalf.</p>
+
+    <p>If you do not want Post Office staff to open your letters, you will need to choose a different address.</p>
+
+    <div class="govuk-!-padding-bottom-4"></div>
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <h2 class="govuk-fieldset__heading">
+            Do you want us to send letters to this job centre address?
+          </h2>
+        </legend>
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="england">
+            <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+              Yes, use this address
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="scotland">
+            <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+              No, I will choose a different address
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
   </div>
 
-  <div class="govuk-!-padding-bottom-6"></div>
+  <div class="govuk-!-padding-bottom-2"></div>
   <div class="govuk-button-group">
     {{ govukButton({
-      text: "I agree",
-      href: "/round-5/customer-view/1i/alternative-formats/when-we-write-to-you/confirm-your-changes.html"
+      text: "Continue",
+      href: "#"
     }) }}
   </div>
 </div>
