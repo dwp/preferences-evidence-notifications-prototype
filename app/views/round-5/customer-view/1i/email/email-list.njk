@@ -14,9 +14,12 @@
 
 {% block content %}
 
+
 <div class="govuk-width-container">
+  <a href="#" class="govuk-back-link">Back</a>
+  <main class="govuk-main-wrapper">
     <div class="govuk-grid-row">
-      <div class="govuk-grid-column-one-half">
+      <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-l">Email addresses</h1>
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
@@ -25,7 +28,14 @@
             <p class="govuk-body" id="newEmailDiv" name="newEmailDiv"></p>
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="enter-your-new-email-address">Change<span class="govuk-visually-hidden"> first email</span></a>
+              <ul class="govuk-summary-list__actions-list">
+                <li class="govuk-summary-list__actions-list-item">
+                  <a class="govuk-link" href="enter-your-new-email-address">Change<span class="govuk-visually-hidden"> change email</span></a>
+                </li>
+                <li class="govuk-summary-list__actions-list-item">
+                  <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> remove email</span></a>
+                </li>
+              </ul>
             </dd>
           </div>
 
@@ -34,7 +44,14 @@
               <p class="govuk-body">sarah.lee@email.com</p>
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> second email</span></a>
+              <ul class="govuk-summary-list__actions-list">
+                <li class="govuk-summary-list__actions-list-item">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> change email</span></a>
+                </li>
+                <li class="govuk-summary-list__actions-list-item">
+                  <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> remove email</span></a>
+                </li>
+              </ul>
             </dd>
           </div>
 
@@ -43,19 +60,32 @@
               <p class="govuk-body">s.lee@university.ac.uk</p>
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> second email</span></a>
+              <ul class="govuk-summary-list__actions-list">
+                <li class="govuk-summary-list__actions-list-item">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> change email</span></a>
+                </li>
+                <li class="govuk-summary-list__actions-list-item">
+                  <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> remove email</span></a>
+                </li>
+              </ul>
             </dd>
           </div>
 
         </dl>
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Return",
+            href: "/round-5/customer-view/1i/how-we-contact-you.html"
+          }) }}
+        </div>
+
       </div>
     </div>
-    <div class="govuk-button-group">
-      {{ govukButton({
-        text: "Return",
-        href: "/round-5/customer-view/1i/how-we-contact-you.html"
-      }) }}
-    </div>
+  </main>
+</div>
+
+
 </div>
 
 <script>
