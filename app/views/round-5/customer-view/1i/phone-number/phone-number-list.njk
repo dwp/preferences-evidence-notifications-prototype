@@ -15,8 +15,10 @@
 {% block content %}
 
 <div class="govuk-width-container">
+  <a href="#" class="govuk-back-link">Back</a>
+  <main class="govuk-main-wrapper">
     <div class="govuk-grid-row">
-      <div class="govuk-grid-column-one-half">
+      <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-l">Mobile phone numbers</h1>
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
@@ -25,7 +27,14 @@
               <p class="govuk-body" id="mainPhoneDiv" name="mainPhoneDiv"></p>
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="phone-number">Change<span class="govuk-visually-hidden"> first phone number</span></a>
+              <ul class="govuk-summary-list__actions-list">
+                <li class="govuk-summary-list__actions-list-item">
+                  <a class="govuk-link" href="phone-number">Change<span class="govuk-visually-hidden"> change mobile phone number</span></a>
+                </li>
+                <li class="govuk-summary-list__actions-list-item">
+                  <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> remove mobile phone number</span></a>
+                </li>
+              </ul>
             </dd>
           </div>
 
@@ -34,20 +43,31 @@
               <p class="govuk-body">07700 900 982</p>
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> second phone number</span></a>
+              <ul class="govuk-summary-list__actions-list">
+                <li class="govuk-summary-list__actions-list-item">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> change mobile phone number</span></a>
+                </li>
+                <li class="govuk-summary-list__actions-list-item">
+                  <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> remove mobile phone number</span></a>
+                </li>
+              </ul>
             </dd>
           </div>
           
         </dl>
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Return",
+            href: "/round-5/customer-view/1i/how-we-contact-you.html"
+          }) }}
+        </div>
+
       </div>
     </div>
-    <div class="govuk-button-group">
-      {{ govukButton({
-        text: "Return",
-        href: "/round-5/customer-view/1i/how-we-contact-you.html"
-      }) }}
-    </div>
+  </main>
 </div>
+
 
 <script>
   var phone = sessionStorage.getItem('phone');
