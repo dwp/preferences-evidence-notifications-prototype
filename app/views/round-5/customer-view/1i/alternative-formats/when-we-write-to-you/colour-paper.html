@@ -77,7 +77,7 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
     document.getElementById('radioForm').addEventListener('submit', function (event) {
       event.preventDefault();
 
-      sessionStorage.setItem('howWeWrite', `Another print size, font or paper colour<br>${howWeWriteArrary.join('<br>')}`);
+      sessionStorage.setItem('howWeWrite', `Letter with changes to font, paper colour or print size<br>${howWeWriteArrary.join('<br>')}`);
 
       const redirectUrls = JSON.parse(sessionStorage.getItem('redirectUrls'));
       if (redirectUrls.length > 0) {

@@ -22,7 +22,7 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
         </h1>
       </legend>
       <div id="non-standard-letter-options-hint" class="govuk-hint">
-        You can choose more than one option. We will ask for more detail if necessary.
+        You can choose more than one option.
       </div>
       <div class="govuk-checkboxes" data-module="govuk-checkboxes">
         <div class="govuk-checkboxes__item" onclick="set('different-font')">
@@ -46,14 +46,6 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
             Large print
           </label>
         </div>
-        <div class="govuk-checkboxes__divider">or</div>
-        <div class="govuk-checkboxes__item" onclick="set('standard-letter')">
-          <input class="govuk-checkboxes__input" id="non-standard-letter-options-4" name="non-standard-letter-options"
-            type="checkbox" value="Standard letter (12-point Arial text on white paper)" data-behaviour="exclusive">
-          <label class="govuk-label govuk-checkboxes__label" for="non-standard-letter-options-4">
-            Standard letter (12-point Arial text on white paper)
-          </label>
-        </div>
       </div>
     </fieldset>
   </div><button type="submit" class="govuk-button" data-module="govuk-button">
@@ -73,11 +65,11 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
 
   function set(inputValue) {
     if (inputValue === "different-font") {
-      sessionStorage.setItem('howWeWrite', 'Another print size, font or paper colour');
+      sessionStorage.setItem('howWeWrite', 'Letter with changes to font, paper colour or print size');
     } else if (inputValue === "colour-paper") {
-      sessionStorage.setItem('howWeWrite', 'Another print size, font or paper colour');
+      sessionStorage.setItem('howWeWrite', 'Letter with changes to font, paper colour or print size');
     } else if (inputValue === "large-print") {
-      sessionStorage.setItem('howWeWrite', 'Another print size, font or paper colour');
+      sessionStorage.setItem('howWeWrite', 'Letter with changes to font, paper colour or print size');
     }
   }
 
