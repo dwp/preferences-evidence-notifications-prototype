@@ -6,7 +6,7 @@
 
 {% block beforeContent %}
 
-{% include "round-5/breadcrumbs/customer-view/1i/phone-number.html" %}
+{% include "round-5/breadcrumbs/customer-view/1i/landline-number-singular.html" %}
 
 {% endblock %}
 
@@ -31,9 +31,9 @@
           </div>
           <div class="govuk-notification-banner__content">
             <h3 class="govuk-notification-banner__heading">
-              Mobile phone number update complete
+              Landline phone number update complete
             </h3>
-            <p class="govuk-body">You have successfully changed your mobile phone number.</p>
+            <p class="govuk-body">You have successfully added the landline phone number.</p>
           </div>
           </div>
       
@@ -54,9 +54,9 @@
   <table class="govuk-table">
     <tbody class="govuk-table__body">
       <tr class="govuk-table__row">
-        <th scope="row" class="govuk-table__header">Mobile phone number</th>
+        <th scope="row" class="govuk-table__header">Landline phone number</th>
         <td class="govuk-table__cell">
-          07815 701 922
+          01632 960 123
       </tr>
     </tbody>
   </table>
@@ -65,18 +65,18 @@
 
 {% from "govuk/components/button/macro.njk" import govukButton %}
 
-<form id="phoneForm" action="../how-we-contact-you.njk" method="POST">
-  <input type="hidden" name="phone" id="phoneInput"
-    value="07815 701 922">
+<form id="landlineForm" action="../how-we-contact-you.njk" method="POST">
+  <input type="hidden" name="landline" id="landlineInput"
+    value="01632 960 123">
   <div class="govuk-button-group">
     <button type="submit" class="govuk-button">Continue</button>
   </div>
 </form>
 <script>
-  document.getElementById('phoneForm').addEventListener('submit', function (event) {
+  document.getElementById('landlineForm').addEventListener('submit', function (event) {
     event.preventDefault();
-    var phone = document.getElementById('phoneInput').value;
-    sessionStorage.setItem('phone', phone);
+    var landline = document.getElementById('landlineInput').value;
+    sessionStorage.setItem('landline', landline);
     window.location.href = '../how-we-contact-you.njk';
   });
 </script>

@@ -6,7 +6,7 @@
 
 {% block beforeContent %}
 
-{% include "round-5/breadcrumbs/customer-view/1i/landline-number-singular.html" %}
+{% include "round-5/breadcrumbs/customer-view/1i/phone-number-singular.html" %}
 
 
 {% endblock %}
@@ -19,20 +19,17 @@
   <main class="govuk-main-wrapper">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-l">Landline phone number</h1>
+        <h1 class="govuk-heading-l">Mobile phone number</h1>
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
           <div class="govuk-summary-list__row">
             <dd class="govuk-summary-list__value">
-              <p class="govuk-body" id="mainLandlineDiv" name="mainLandlineDiv"></p>
+              <p class="govuk-body" id="mainPhoneDiv" name="mainPhoneDiv"></p>
             </dd>
             <dd class="govuk-summary-list__actions">
               <ul class="govuk-summary-list__actions-list">
                 <li class="govuk-summary-list__actions-list-item">
-                  <a class="govuk-link" href="landline-number">Change<span class="govuk-visually-hidden"> change landline phone number</span></a>
-                </li>
-                <li class="govuk-summary-list__actions-list-item">
-                  <a class="govuk-link" href="remove-number">Remove<span class="govuk-visually-hidden"> remove landline phone number</span></a>
+                  <a class="govuk-link" href="phone-number">Change<span class="govuk-visually-hidden"> change mobile phone number</span></a>
                 </li>
               </ul>
             </dd>
@@ -54,13 +51,13 @@
 
 
 <script>
-  var landline = sessionStorage.getItem('landline');
-  var mainLandlineDiv = document.getElementById('mainLandlineDiv');
-  if (mainLandlineDiv) {
-    if(landline) {
-      mainLandlineDiv.innerHTML = landline;
+  var phone = sessionStorage.getItem('phone');
+  var mainPhoneDiv = document.getElementById('mainPhoneDiv');
+  if (mainPhoneDiv) {
+    if(phone) {
+      mainPhoneDiv.innerHTML = phone;
     } else {
-      mainLandlineDiv.innerHTML = "01632 960 001";
+      mainPhoneDiv.innerHTML = "07700 900 457";
     }
   }
 </script>

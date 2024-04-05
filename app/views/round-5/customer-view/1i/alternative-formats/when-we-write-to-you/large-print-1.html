@@ -27,19 +27,19 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
       <div class="govuk-radios__item" onclick="set('16-point')">
         <input class="govuk-radios__input" id="large-print" name="large-print" type="radio" value="16 point">
         <label class="govuk-label govuk-radios__label" for="large-print">
-          16 point
+          Large (16 point)
         </label>
       </div>
       <div class="govuk-radios__item" onclick="set('18-point')">
         <input class="govuk-radios__input" id="large-print-2" name="large-print" type="radio" value="18 point">
         <label class="govuk-label govuk-radios__label" for="large-print-2">
-          18 point
+          Extra large (18 point)
         </label>
       </div>
       <div class="govuk-radios__item" onclick="set('24-point')">
         <input class="govuk-radios__input" id="large-print-3" name="large-print" type="radio" value="24 point">
         <label class="govuk-label govuk-radios__label" for="large-print-3">
-          24 point
+          Giant (24 point)
         </label>
       </div>
   </fieldset>
@@ -62,18 +62,18 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
       howWeWriteArrary.shift();
 
       if (inputValue === "16-point") {
-        howWeWriteArrary.push('Font size 16 point');
+        howWeWriteArrary.push('Large (16 point)');
       } else if (inputValue === "18-point") {
-        howWeWriteArrary.push('Font size 18 point');
+        howWeWriteArrary.push('Extra large (18 point)');
       } else {
-        howWeWriteArrary.push('Font size 24 point');
+        howWeWriteArrary.push('Giant (24 point)');
       }
     }
 
     document.getElementById('radioForm').addEventListener('submit', function (event) {
       event.preventDefault();
 
-      sessionStorage.setItem('howWeWrite', `Another print size, font or paper colour<br>${howWeWriteArrary.join('<br>')}`);
+      sessionStorage.setItem('howWeWrite', `Letter with changes to font, paper colour or print size<br>${howWeWriteArrary.join('<br>')}`);
 
       const redirectUrls = JSON.parse(sessionStorage.getItem('redirectUrls'));
       if (redirectUrls.length > 0) {
