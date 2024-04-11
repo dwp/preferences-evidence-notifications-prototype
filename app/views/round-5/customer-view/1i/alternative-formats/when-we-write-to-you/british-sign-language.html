@@ -29,7 +29,7 @@
     <div class="govuk-radios__item" onclick="set('dvd')">
       <input class="govuk-radios__input" id="british-sign-language" name="british-sign-language" type="radio" value="dvd">
       <label class="govuk-label govuk-radios__label" for="british-sign-language">
-        DVD
+        DVD by post
       </label>
     </div>
     <div class="govuk-radios__item" onclick="set('mpeg-file-by-email')">
@@ -51,7 +51,7 @@
   function set(inputValue) {
 
     if (inputValue === "dvd") {
-      sessionStorage.setItem('howWeWrite', 'British Sign Language video<br>DVD');
+      sessionStorage.setItem('howWeWrite', 'British Sign Language video<br>DVD by post');
       redirectUrl = "confirm-your-changes";
     } else {
       sessionStorage.setItem('howWeWrite', 'British Sign Language video<br>MPEG file by email');
