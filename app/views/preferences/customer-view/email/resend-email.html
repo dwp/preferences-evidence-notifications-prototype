@@ -16,14 +16,20 @@
   <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-l">Send me a new email</h1>
 
-      <p>We will send you an email with a new security code.</p>
+      <p>If you haven’t received an email with a security code, select the button below and we will send you a new code.</p>
 
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            After several attempts, I have not received an email
+          </span>
+        </summary>
+        <div class="govuk-!-padding-bottom-4"></div>
+        <p>Check your junk folders. If you cannot find your security code the email address you entered may be wrong.</p>
+        <p><a href="enter-your-new-email-address">Enter your email address again</a> and check the right email address is entered. We will send a new code.</p>
+        <p>If you still do not receive a code, try again later.</p>
 
-      <h2 class="govuk-heading-m">After several attempts, I have not received an email</h2>
-
-      <p>Check your junk folders. If you cannot find your security code the email address you entered may be wrong.</p>
-      <p><a href="enter-your-new-email-address">Enter your email address again</a> and check the right email address is entered. We will send a new code.</p>
-      <p>If you still do not receive a code, try again later.</p>
+      </details>
 
       <p><a class="govuk-link" href="/preferences/customer-view/how-we-contact-you">
         Return to home<span class="govuk-visually-hidden">Return to home</span>
@@ -33,6 +39,8 @@
         text: "Send a new email",
         href: "email-code.html"
     }) }}
+
+
       
   </div>
 </div>
