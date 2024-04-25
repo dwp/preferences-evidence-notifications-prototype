@@ -1,0 +1,91 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block beforeContent %}
+
+{% include "round-5-parked/breadcrumbs/customer-view/1i/when-we-speak-to-you.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+<form class="form" id="radioForm">
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset" aria-describedby="spoken-options-hint">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <h1 class="govuk-fieldset__heading">
+          How should we contact you if we need to speak to you?
+        </h1>
+      </legend>
+      <div id="spoken-options-hint" class="govuk-hint">
+        We usually contact you by phone if we need to speak to you. Select the best option for your needs.
+      </div>
+      <div class="govuk-radios" data-module="govuk-radios">
+        <div class="govuk-radios__item" onclick="set('not-needed')">
+          <input class="govuk-radios__input" id="spoken-options" name="spoken-options" type="radio"
+            value="I do not need an alternative format">
+          <label class="govuk-label govuk-radios__label" for="spoken-options">
+            I do not need an alternative format
+          </label>
+        </div>
+
+        <div class="govuk-radios__divider">or</div>
+
+        <div class="govuk-radios__item" onclick="set('relay-uk')">
+          <input class="govuk-radios__input" id="spoken-options-2" name="spoken-options" type="radio" value="Relay UK">
+          <label class="govuk-label govuk-radios__label" for="spoken-options-2">
+            Relay UK
+          </label>
+        </div>
+        <div class="govuk-radios__item" onclick="set('textphone')">
+          <input class="govuk-radios__input" id="spoken-options-3" name="spoken-options" type="radio" value="Textphone for the hard of hearing">
+          <label class="govuk-label govuk-radios__label" for="spoken-options-3">
+            Textphone for the hard of hearing
+          </label>
+        </div>
+
+      </div>
+    </fieldset>
+    <script>
+      var redirectUrl = "";
+      function set(inputValue) {
+
+        if (inputValue === "not-needed") {
+          sessionStorage.setItem('howWeConnect', 'I do not need an alternative format');
+          redirectUrl = "confirm-your-changes";
+        } else if (inputValue === "landline-phone") {
+          sessionStorage.setItem('howWeConnect', 'Landline phone');
+          redirectUrl = "confirm-your-changes";
+        } else if (inputValue === "relay-uk") {
+          sessionStorage.setItem('howWeConnect', 'Relay UK');
+          redirectUrl = "relay-uk";
+        } else if (inputValue === "textphone") {
+          sessionStorage.setItem('howWeConnect', 'Textphone for the hard of hearing');
+          redirectUrl = "textphone";
+        } else {
+          sessionStorage.setItem('howWeConnect', 'Signing or lipspeaking');
+          redirectUrl = "signing-or-lipspeaking";
+        }
+      }
+
+      document.getElementById('radioForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+       
+        if (redirectUrl !== "") {
+          window.location.href = redirectUrl;
+        }
+      });
+
+    </script>
+  </div>
+  
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Continue
+  </button>
+</form>
+
+{% endblock %}

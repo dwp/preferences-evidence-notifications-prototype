@@ -1,0 +1,58 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "round-5-parked/breadcrumbs/customer-view/1i/textphone.html" %}
+
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">Check your textphone</h1>
+
+            <div class="govuk-inset-text">
+                <p class="govuk-body">
+                    We have sent a code to:<br>
+                    <strong class="govuk-!-font-weight-bold">
+                        {% if data['telephone-number'] %}
+                            {{ data['telephone-number'] }}
+                        {% else %} 
+                            07771 900 900
+                        {% endif %}
+                    </strong>
+                </p>
+            </div>
+
+            <p class="govuk-body">
+                It might take up to a minute to arrive.
+            </p>
+
+            <p class="govuk-body">
+                The code will expire in 15 minutes.
+            </p>
+
+            <form action="textphone-code-check" method="post" class="form">
+                <div class="govuk-form-group govuk-!-margin-top-6">
+                    <label class="govuk-label" for="2fa-code">
+                        Enter your security code
+                    </label>
+
+                    <input class="govuk-input govuk-input--width-10" id="2fa-code" name="2fa-code" type="text">
+                </div>
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+            </form>
+
+            <p><a href="textphone-resend-code">I did not get a security code</a></p>
+
+           
+        </div>
+    </div>
+{% endblock %}

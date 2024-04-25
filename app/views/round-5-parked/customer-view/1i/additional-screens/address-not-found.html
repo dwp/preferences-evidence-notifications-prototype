@@ -1,0 +1,33 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "round-5-parked/breadcrumbs/customer-view/1i/address-we-send-letters-to.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <div class="govuk-form-group">
+
+      <div class="govuk-width-container">
+        <h1 class="govuk-heading-l">Address not found</h1>
+        <p>We could not find an address that matches <b>wr11nl</b> and <b>1</b>. You can search again or enter the address manually.</p>
+            
+        <p class="govuk-body"><a href="/round-5-parked/customer-view/1i/address-we-send-letters-to/find-address.html" class="govuk-link">Search again</a></p>
+        <p class="govuk-body govuk-!-margin-bottom-0"><a href="/round-5-parked/customer-view/1i/address-we-send-letters-to/manual-entry.html" class="govuk-link">Enter address manually</a></p>
+        </div>
+
+    </div>
+
+    </div>
+
+{% endblock %}

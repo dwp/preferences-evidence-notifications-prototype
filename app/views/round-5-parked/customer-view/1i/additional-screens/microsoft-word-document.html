@@ -1,0 +1,72 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block beforeContent %}
+
+{% include "round-5-parked/breadcrumbs/customer-view/1i/microsoft-word-document.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+<form class="form" id="radioForm">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        Which email can we send these files to?
+      </h1>
+    </legend>
+    <p class="govuk-body">We will send the Microsoft Word document to this email address.</p>
+    <div class="govuk-radios" data-module="govuk-radios">
+    <div class="govuk-radios__item" onclick="set('microsoft-word-document')">
+      <input class="govuk-radios__input" id="microsoft-word-document" name="microsoft-word-document" type="radio" value="sarah.phillips@example.com">
+      <label class="govuk-label govuk-radios__label" for="microsoft-word-document">
+        sarah.phillips@example.com
+      </label>
+    </div>
+    <div class="govuk-radios__item" onclick="set('microsoft-word-document-2')">
+      <input class="govuk-radios__input" id="microsoft-word-document-2" name="microsoft-word-document" type="radio" value="A different email address">
+      <label class="govuk-label govuk-radios__label" for="microsoft-word-document-2">
+        A different email address
+      </label>
+    </div>        
+  </fieldset>
+  <div class="govuk-!-padding-bottom-6"></div>
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Continue
+    </button>
+</div>
+</div>
+
+<script>
+  var redirectUrl = "";
+  function set(inputValue) {
+
+    if (inputValue === "microsoft-word-document") {
+      sessionStorage.setItem('howWeWrite', 'Microsoft Word document<br>sarah.phillips@example.com');
+      redirectUrl = "../confirm-your-changes";
+    } else if (inputValue === "microsoft-word-document-2") {
+      sessionStorage.setItem('howWeWrite', 'Microsoft Word document<br>A different email address');
+      redirectUrl = "../confirm-your-changes";
+    } else {
+      sessionStorage.setItem('howWeWrite', 'Microsoft Word document<br>s.lee@university.ac.uk');
+      redirectUrl = "../confirm-your-changes";
+    }
+  }
+
+  document.getElementById('radioForm').addEventListener('submit', function (event) {
+    event.preventDefault();
+   
+    if (redirectUrl !== "") {
+      window.location.href = redirectUrl;
+    }
+  });
+
+</script>
+
+
+{% endblock %}
