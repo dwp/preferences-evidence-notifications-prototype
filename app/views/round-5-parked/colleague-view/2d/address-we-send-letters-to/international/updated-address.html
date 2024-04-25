@@ -1,0 +1,98 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Personal details
+{% endblock %}
+
+{% block header %}
+  {% include "round-3/components/key-details.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+
+{% include "round-5-parked/breadcrumbs/colleague-view/2d/address-we-send-letters-to-error.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <div class="govuk-notification-banner govuk-notification-banner--success" role="region"
+      aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Success
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <h3 class="govuk-notification-banner__heading">
+          Address update complete
+        </h3>
+        <p class="govuk-body">You have succesfully updated the address that we send letters to.</p>
+      </div>
+    </div>
+
+    <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+
+        <h1 class="govuk-fieldset__heading">
+          New address we send letters to
+        </h1>
+      </legend>
+    </fieldset>
+
+
+    {%- from "govuk/components/tag/macro.njk" import govukTag -%}
+
+
+
+
+    <table class="govuk-table">
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">New address we can send letters to</th>
+          <td class="govuk-table__cell">
+            Bajo E<br>
+            Calle de Sevilla 2<br>
+            28014<br>
+            Madrid<br>
+            Spain
+          </td>
+        </tr>
+        <th scope="row" class="govuk-table__header">Start date</th>
+        <td class="govuk-table__cell">
+          31 January 2024
+        </td>
+        </tr>
+      </tbody>
+    </table>
+
+    {% from "govuk/components/button/macro.njk" import govukButton %}
+
+    <form id="addressForm" action="../../how-we-contact-you.njk" method="POST">
+      <input type="hidden" name="address" id="addressInput" value="Bajo E, Calle de Sevilla 2, 28014, Madrid, Spain">
+      <div class="govuk-button-group">
+        <button type="submit" class="govuk-button">Continue</button>
+      </div>
+    </form>
+
+    <script>
+      document.getElementById('addressForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+        var address = document.getElementById('addressInput').value;
+        sessionStorage.setItem('address', address);
+        window.location.href = '../../how-we-contact-you.njk';
+      });
+    </script>
+
+  </div>
+</div>
+</main>
+</div>
+
+{% endblock %}

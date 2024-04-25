@@ -1,0 +1,78 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block beforeContent %}
+
+{% include "round-5-parked/breadcrumbs/customer-view/1i/british-sign-language-email.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+<form class="form" id="radioForm">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        Which email can we send these files to?
+      </h1>
+    </legend>
+    <p class="govuk-body">We will send the MPEG file to this email address.</p>
+    <div class="govuk-radios" data-module="govuk-radios">
+    <div class="govuk-radios__item" onclick="set('mpeg-file-email-address')">
+      <input class="govuk-radios__input" id="mpeg-file-email-address" name="mpeg-file-email-address" type="radio" value="sarah.phillips@example.com">
+      <label class="govuk-label govuk-radios__label" for="mpeg-file-email-address">
+        sarah.phillips@example.com
+      </label>
+    </div>
+    <div class="govuk-radios__item" onclick="set('mpeg-file-email-address-2')">
+      <input class="govuk-radios__input" id="mpeg-file-email-address-2" name="mpeg-file-email-address" type="radio" value="sarah.lee@email.com">
+      <label class="govuk-label govuk-radios__label" for="mpeg-file-email-address-2">
+        sarah.lee@email.com
+      </label>
+    </div>      
+    <div class="govuk-radios__item" onclick="set('mpeg-file-email-address-3')">
+      <input class="govuk-radios__input" id="mpeg-file-email-address-2" name="mpeg-file-email-address" type="radio" value="s.lee@university.ac.uk">
+      <label class="govuk-label govuk-radios__label" for="mpeg-file-email-address-2">
+        s.lee@university.ac.uk
+      </label>
+    </div>       
+  </fieldset>
+  <div class="govuk-!-padding-bottom-6"></div>
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Continue
+    </button>
+</div>
+</div>
+
+<script>
+  var redirectUrl = "";
+  function set(inputValue) {
+
+    if (inputValue === "mpeg-file-email-address") {
+      sessionStorage.setItem('howWeWrite', 'British Sign Language video<br>MPEG file by email<br>sarah.phillips@example.com');
+      redirectUrl = "../confirm-your-changes";
+    } else if (inputValue === "mpeg-file-email-address-2") {
+      sessionStorage.setItem('howWeWrite', 'British Sign Language video<br>MPEG file by email<br>sarah.lee@email.com');
+      redirectUrl = "../confirm-your-changes";
+    } else {
+      sessionStorage.setItem('howWeWrite', 'British Sign Language video<br>MPEG file by email<br>s.lee@university.ac.uk');
+      redirectUrl = "../confirm-your-changes";
+    }
+  }
+
+  document.getElementById('radioForm').addEventListener('submit', function (event) {
+    event.preventDefault();
+   
+    if (redirectUrl !== "") {
+      window.location.href = redirectUrl;
+    }
+  });
+
+</script>
+
+
+{% endblock %}

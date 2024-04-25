@@ -1,0 +1,105 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Personal details
+{% endblock %}
+
+{% block header %}
+  {% include "round-3/components/key-details.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+
+{% include "round-5-parked/breadcrumbs/colleague-view/2d/address-we-send-letters-to-error.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-error-summary" data-module="govuk-error-summary">
+  <div role="alert">
+    <h2 class="govuk-error-summary__title">
+      There is a problem
+    </h2>
+    <div class="govuk-error-summary__body">
+      <ul class="govuk-list govuk-error-summary__list">
+        <li>
+          <a href="#UK-yes">Choose customer's home address or a different address</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-form-group govuk-form-group--error">
+      <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading">
+            Which address should we send letters to
+          </h1>
+        </legend>
+        </fieldset>
+        <p id="where-do-you-live-error" class="govuk-error-message">
+          <span class="govuk-visually-hidden">Error:</span> Choose customer's home address or a different address
+        </p>
+              <div class="govuk-radios govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="home-address" name="address" type="radio" value="true">
+                  <label class="govuk-label govuk-radios__label" for="home-address">
+                    Customer's home address
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="different-address" name="address" type="radio" value="false">
+                  <label class="govuk-label govuk-radios__label" for="different-address">
+                    A different address
+                  </label>
+                </div>
+              </div>
+              </div>
+              
+              <div class="govuk-!-padding-bottom-4"></div>
+              <button class="govuk-button" value= "true" data-module="govuk-button" onclick="check()">Continue</button>
+
+
+<script>
+  function check() {
+    console.log('in function')
+    var radios = document.getElementsByName("address");
+    var hasSelection = false
+    for (var i = 0, len = radios.length; i < len; i++) {
+      if (radios[i].checked) {
+        hasSelection = true;
+      }
+    }
+    if (!hasSelection) {
+      window.location.href = "/round-5-parked/colleague-view/2d/address-we-send-letters-to/error/which-address-should-we-send-letters-to.html";
+    } else {
+      if (document.getElementById("different-address").checked) {
+        window.location.href = "../uk-or-international.njk"
+      } else {
+        window.location.href = "../../how-we-contact-you.html"
+      }
+    }
+  }
+</script>
+ 
+</div>
+
+<div class="govuk-grid-column-one-third">
+  <div class="govuk-inset-text">
+  <h2 class="govuk-heading-m">Home address</h2>
+  5 Highfield Av<br>
+  Meltham<br>
+  Holmfirth<br>
+  HD9 5RF<br>
+</div>
+</div>
+
+</div>
+
+{% endblock %}
