@@ -22,37 +22,55 @@
 
         <div class="govuk-form-group">
             {% if data['uploads'].length === 1 %}
-            <h1 class="govuk-heading-l">You've uploaded {{data['uploads'] | length}} evidence </h1>
+            <h1 class="govuk-heading-l">You've uploaded {{data['uploads'] | length}} piece of evidence </h1>
             {% else %}
-            <h1 class="govuk-heading-l">You've uploaded {{data['uploads'] | length}} evidence </h1>
+            <h1 class="govuk-heading-l">You've uploaded {{data['uploads'] | length}} pieces of evidence </h1>
             {% endif %}
 
 
 
-            <ul class="hmrc-add-to-a-list hmrc-add-to-a-list--short">
-
-                {% for file in data['uploads'] %}
-                <li class="hmrc-add-to-a-list__contents">
-      <span class="hmrc-add-to-a-list__identifier hmrc-add-to-a-list__identifier--light">
-        {{ file['file'] }}
-      </span>
-                    <span class="hmrc-add-to-a-list__remove">
-        <a class="govuk-link" href="remove-evidence-upload?removeId={{loop.index0}}" >
-          <span aria-hidden="true">Remove</span>
-          <span class="govuk-visually-hidden">Remove {{file['file']}}</span>
-        </a>
-      </span>
-                </li>
-
-                {% endfor %}
-                {% if data['uploads'].length === 0 %}
-                <div class="govuk-inset-text">
-                  You will need to upload evidence.
+            <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                  <h2 class="govuk-summary-card__title">
+                    Benefit 1
+                  </h2>
+                  <ul class="govuk-summary-card__actions">
+                    <li class="govuk-summary-card__action">
+                      <a class="govuk-link" href="#">Remove evidence<span class="govuk-visually-hidden"> from University of Gloucestershire (University of Gloucestershire)</span></a>
+                    </li>
+                  </ul>
                 </div>
-                {% endif %}
+                <div class="govuk-summary-card__content">
+                  <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Benefit
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        [Benefit name]
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Evidence type
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        [Evidence name]
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                          File
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          [File name]
+                        </dd>
+                      </div>
+                  </dl>
+                </div>
+              </div>
 
 
-            </ul>
         </div>
 
         <form method="post" action="evidence-upload-more">
@@ -60,7 +78,7 @@
             <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset" aria-describedby="add-another-evidence-hint">
                     <legend class="govuk-fieldset__legend govuk-fieldset__legend govuk-fieldset__legend--m">
-                        Do you need to upload another receipt or invoice?
+                        Do you need to upload more evidence?
                     </legend>
                     <div class="govuk-radios govuk-radios--inline">
                         <div class="govuk-radios__item">
