@@ -6,74 +6,463 @@
 
 {% block beforeContent %}
 
-<div class="govuk-!-padding-bottom-4"></div>
-
-{{ govukBackLink({
-  text: "Back",
-  href: "javascript:window.history.back()"
-}) }}
-
 {% endblock %}
 
 {% block content %}
 
+
+{{ data | dump }}
+{{ request | dump }}
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
         <div class="govuk-form-group">
-            {% if data['uploads'].length === 1 %}
-            <h1 class="govuk-heading-l">You've uploaded {{data['uploads'] | length}} piece of evidence </h1>
-            {% else %}
-            <h1 class="govuk-heading-l">You've uploaded {{data['uploads'] | length}} pieces of evidence </h1>
-            {% endif %}
-
-
+            {% if data['benefitsArray'].length === 1 %}
+            <h1 class="govuk-heading-l">You've uploaded {{data['benefitsArray'] | length}} piece of evidence </h1>
 
             <div class="govuk-summary-card">
-                <div class="govuk-summary-card__title-wrapper">
-                  <h2 class="govuk-summary-card__title">
-                    Benefit 1
-                  </h2>
-                  <ul class="govuk-summary-card__actions">
-                    <li class="govuk-summary-card__action">
-                      <a class="govuk-link" href="#">Remove evidence<span class="govuk-visually-hidden"> from University of Gloucestershire (University of Gloucestershire)</span></a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="govuk-summary-card__content">
-                  <dl class="govuk-summary-list">
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Benefit
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        [Benefit name]
-                      </dd>
-                    </div>
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Evidence type
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        [Evidence name]
-                      </dd>
-                    </div>
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                          File
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                          [File name]
-                        </dd>
-                      </div>
-                  </dl>
-                </div>
+              <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">
+                  Benefit 1
+                </h2>
+                <ul class="govuk-summary-card__actions">
+                  <li class="govuk-summary-card__action">
+                    <a type="submit" data-module="govuk-button" href=remove-evidence-answer?query={{data.benefitsArray[0]}}>Remove evidence</a>
+                  </li>
+                </ul>
               </div>
+              <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Benefit
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data['yourBenefits'] }}
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Evidence type
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data['yourEvidence'] }}
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        File
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        {{ data['file-upload'] }}
 
+                      </dd>
+                    </div>
+                </dl>
+              </div>
+            </div>
+
+
+            {% elif data['benefitsArray'].length === 2 %}
+
+            <h1 class="govuk-heading-l">You've uploaded {{data['benefitsArray'] | length}} pieces of evidence </h1>
+
+            <div class="govuk-summary-card">
+              <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">
+                  Benefit 1
+                </h2>
+                <ul class="govuk-summary-card__actions">
+                  <li class="govuk-summary-card__action">
+                    <a type="submit" data-module="govuk-button" href=remove-evidence-answer?query={{data.benefitsArray[0]}}>Remove evidence</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Benefit
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data['yourBenefits'] }}
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Evidence type
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data['yourEvidence'] }}
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        File
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        {{ data['file-upload'] }}
+
+                      </dd>
+                    </div>
+                </dl>
+              </div>
+            </div>
+
+            <div class="govuk-summary-card">
+              <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">
+                  Benefit 2
+                </h2>
+                <ul class="govuk-summary-card__actions">
+                  <li class="govuk-summary-card__action">
+                    <a type="submit" data-module="govuk-button" href=remove-evidence-answer?query={{data.benefitsArray[1]}}>Remove evidence</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Benefit
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data['yourBenefits-2'] }}
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Evidence type
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data['yourEvidence-2'] }}
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        File
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        {{ data['file-upload-2'] }}
+
+                      </dd>
+                    </div>
+                </dl>
+              </div>
+            </div>
+
+            {% elif data['benefitsArray'].length === 3 %}
+
+            <h1 class="govuk-heading-l">You've uploaded {{data['benefitsArray'] | length}} pieces of evidence </h1>
+
+            <div class="govuk-summary-card">
+              <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">
+                  Benefit 1
+                </h2>
+                <ul class="govuk-summary-card__actions">
+                  <li class="govuk-summary-card__action">
+                    <a type="submit" data-module="govuk-button" href=remove-evidence-answer?query={{data.benefitsArray[0]}}>Remove evidence</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Benefit
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data['yourBenefits'] }}
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Evidence type
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data['yourEvidence'] }}
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        File
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        {{ data['file-upload'] }}
+
+                      </dd>
+                    </div>
+                </dl>
+              </div>
+            </div>
+
+            <div class="govuk-summary-card">
+              <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">
+                  Benefit 2
+                </h2>
+                <ul class="govuk-summary-card__actions">
+                  <li class="govuk-summary-card__action">
+                    <a type="submit" data-module="govuk-button" href=remove-evidence-answer?query={{data.benefitsArray[1]}}>Remove evidence</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Benefit
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data['yourBenefits-2'] }}
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Evidence type
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data['yourEvidence-2'] }}
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        File
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        {{ data['file-upload-2'] }}
+
+                      </dd>
+                    </div>
+                </dl>
+              </div>
+            </div>
+
+            <div class="govuk-summary-card">
+              <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">
+                  Benefit 3
+                </h2>
+                <ul class="govuk-summary-card__actions">
+                  <li class="govuk-summary-card__action">
+                    <a type="submit" data-module="govuk-button" href=remove-evidence-answer?query={{data.benefitsArray[2]}}>Remove evidence</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Benefit
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data['yourBenefits-3'] }}
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Evidence type
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data['yourEvidence-3'] }}
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        File
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        {{ data['file-upload-3'] }}
+
+                      </dd>
+                    </div>
+                </dl>
+              </div>
+            </div>
+
+            {% elif data['benefitsArray'].length === 4 %}
+
+            <h1 class="govuk-heading-l">You've uploaded {{data['benefitsArray'] | length}} pieces of evidence </h1>
+
+            <div class="govuk-summary-card">
+              <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">
+                  Benefit 1
+                </h2>
+                <ul class="govuk-summary-card__actions">
+                  <li class="govuk-summary-card__action">
+                    <a type="submit" data-module="govuk-button" href=remove-evidence-answer?query={{data.benefitsArray[0]}}>Remove evidence</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Benefit
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data['yourBenefits'] }}
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Evidence type
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data['yourEvidence'] }}
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        File
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        {{ data['file-upload'] }}
+
+                      </dd>
+                    </div>
+                </dl>
+              </div>
+            </div>
+
+            <div class="govuk-summary-card">
+              <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">
+                  Benefit 2
+                </h2>
+                <ul class="govuk-summary-card__actions">
+                  <li class="govuk-summary-card__action">
+                    <a type="submit" data-module="govuk-button" href=remove-evidence-answer?query={{data.benefitsArray[1]}}>Remove evidence</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Benefit
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data['yourBenefits-2'] }}
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Evidence type
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data['yourEvidence-2'] }}
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        File
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        {{ data['file-upload-2'] }}
+
+                      </dd>
+                    </div>
+                </dl>
+              </div>
+            </div>
+
+            <div class="govuk-summary-card">
+              <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">
+                  Benefit 3
+                </h2>
+                <ul class="govuk-summary-card__actions">
+                  <li class="govuk-summary-card__action">
+                    <a type="submit" data-module="govuk-button" href=remove-evidence-answer?query={{data.benefitsArray[2]}}>Remove evidence</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Benefit
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data['yourBenefits-3'] }}
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Evidence type
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data['yourEvidence-3'] }}
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        File
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        {{ data['file-upload-3'] }}
+
+                      </dd>
+                    </div>
+                </dl>
+              </div>
+            </div>
+
+            <div class="govuk-summary-card">
+              <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">
+                  Benefit 4
+                </h2>
+                <ul class="govuk-summary-card__actions">
+                  <li class="govuk-summary-card__action">
+                    <a type="submit" data-module="govuk-button" href=remove-evidence-answer?query={{data.benefitsArray[3]}}>Remove evidence</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Benefit
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data['yourBenefits-4'] }}
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Evidence type
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data['yourEvidence-4'] }}
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        File
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        {{ data['file-upload-4'] }}
+
+                      </dd>
+                    </div>
+                </dl>
+              </div>
+            </div>
+
+            {% else %}
+            <h1 class="govuk-heading-l">You've uploaded {{data['benefitsArray'] | length}} piece of evidence </h1>
+
+            <p>Change copy.</p>
+
+            {% endif %}
 
         </div>
 
-        <form method="post" action="evidence-upload-more">
+        <form method="post" action="evidence-summary-answer">
 
             <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset" aria-describedby="add-another-evidence-hint">
@@ -82,16 +471,16 @@
                     </legend>
                     <div class="govuk-radios govuk-radios--inline">
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="add-another-evidence-yes" name="add-another-evidence" type="radio"
-                                   value="Yes">
-                            <label class="govuk-label govuk-radios__label" for="add-another-evidence-yes">
+                            <input class="govuk-radios__input" id="add-another-evidence" name="add-another-evidence" type="radio"
+                                   value="yes">
+                            <label class="govuk-label govuk-radios__label" for="add-another-evidence">
                                 Yes
                             </label>
                         </div>
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="add-another-evidence-no" name="add-another-evidence" type="radio"
-                                   value="No">
-                            <label class="govuk-label govuk-radios__label" for="add-another-evidence-no">
+                            <input class="govuk-radios__input" id="add-another-evidence" name="add-another-evidence" type="radio"
+                                   value="no">
+                            <label class="govuk-label govuk-radios__label" for="add-another-evidence">
                                 No
                             </label>
                         </div>
