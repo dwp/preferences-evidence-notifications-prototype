@@ -736,7 +736,7 @@ router.post(
     
     } else {
       // Inactive
-      res.redirect("/round-5/e1/benefits");
+      res.redirect("/round-5/e1/declaration");
     }
   }
 );
