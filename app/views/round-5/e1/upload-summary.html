@@ -6,6 +6,13 @@
 
 {% block beforeContent %}
 
+<div class="govuk-!-padding-bottom-4"></div>
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
 {% endblock %}
 
 {% block content %}
@@ -458,14 +465,14 @@
                     </legend>
                     <div class="govuk-radios govuk-radios--inline">
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="add-another-evidence" name="add-another-evidence" type="radio"
+                            <input class="govuk-radios__input" id="add-another-evidence-yes" name="add-another-evidence" type="radio"
                                    value="yes">
                             <label class="govuk-label govuk-radios__label" for="add-another-evidence">
                                 Yes
                             </label>
                         </div>
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="add-another-evidence" name="add-another-evidence" type="radio"
+                            <input class="govuk-radios__input" id="add-another-evidence-no" name="add-another-evidence" type="radio"
                                    value="no">
                             <label class="govuk-label govuk-radios__label" for="add-another-evidence">
                                 No
@@ -482,5 +489,9 @@
         </form>
     </div>
 </div>
+
+
+
+
 
 {% endblock %}
