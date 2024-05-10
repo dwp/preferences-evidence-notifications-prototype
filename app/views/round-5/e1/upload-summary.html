@@ -10,9 +10,6 @@
 
 {% block content %}
 
-
-{{ data | dump }}
-{{ request | dump }}
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
@@ -38,7 +35,7 @@
                       Benefit
                     </dt>
                     <dd class="govuk-summary-list__value">
-                      {{ data['yourBenefits'] }}
+                      {{ data.benefitsChosen[0] }}
                     </dd>
                   </div>
                   <div class="govuk-summary-list__row">
@@ -46,7 +43,7 @@
                       Evidence type
                     </dt>
                     <dd class="govuk-summary-list__value">
-                      {{ data['yourEvidence'] }}
+                      {{ data.evidenceType[0] }}
                     </dd>
                   </div>
                   <div class="govuk-summary-list__row">
@@ -54,8 +51,7 @@
                         File
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        {{ data['file-upload'] }}
-
+                        {{ data.benefitsArray[0] }}
                       </dd>
                     </div>
                 </dl>
@@ -85,7 +81,7 @@
                       Benefit
                     </dt>
                     <dd class="govuk-summary-list__value">
-                      {{ data['yourBenefits'] }}
+                      {{ data.benefitsChosen[0] }}
                     </dd>
                   </div>
                   <div class="govuk-summary-list__row">
@@ -93,7 +89,7 @@
                       Evidence type
                     </dt>
                     <dd class="govuk-summary-list__value">
-                      {{ data['yourEvidence'] }}
+                      {{ data.evidenceType[0] }}
                     </dd>
                   </div>
                   <div class="govuk-summary-list__row">
@@ -101,8 +97,7 @@
                         File
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        {{ data['file-upload'] }}
-
+                        {{ data.benefitsArray[0] }}
                       </dd>
                     </div>
                 </dl>
@@ -127,7 +122,7 @@
                       Benefit
                     </dt>
                     <dd class="govuk-summary-list__value">
-                      {{ data['yourBenefits-2'] }}
+                      {{ data.benefitsChosen[1] }}
                     </dd>
                   </div>
                   <div class="govuk-summary-list__row">
@@ -135,7 +130,7 @@
                       Evidence type
                     </dt>
                     <dd class="govuk-summary-list__value">
-                      {{ data['yourEvidence-2'] }}
+                      {{ data.evidenceType[1] }}
                     </dd>
                   </div>
                   <div class="govuk-summary-list__row">
@@ -143,8 +138,7 @@
                         File
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        {{ data['file-upload-2'] }}
-
+                        {{ data.benefitsArray[1] }}
                       </dd>
                     </div>
                 </dl>
@@ -173,7 +167,7 @@
                       Benefit
                     </dt>
                     <dd class="govuk-summary-list__value">
-                      {{ data['yourBenefits'] }}
+                      {{ data.benefitsChosen[0] }}
                     </dd>
                   </div>
                   <div class="govuk-summary-list__row">
@@ -181,7 +175,7 @@
                       Evidence type
                     </dt>
                     <dd class="govuk-summary-list__value">
-                      {{ data['yourEvidence'] }}
+                      {{ data.evidenceType[0] }}
                     </dd>
                   </div>
                   <div class="govuk-summary-list__row">
@@ -189,8 +183,7 @@
                         File
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        {{ data['file-upload'] }}
-
+                        {{ data.benefitsArray[0] }}
                       </dd>
                     </div>
                 </dl>
@@ -215,7 +208,7 @@
                       Benefit
                     </dt>
                     <dd class="govuk-summary-list__value">
-                      {{ data['yourBenefits-2'] }}
+                      {{ data.benefitsChosen[1] }}
                     </dd>
                   </div>
                   <div class="govuk-summary-list__row">
@@ -223,7 +216,7 @@
                       Evidence type
                     </dt>
                     <dd class="govuk-summary-list__value">
-                      {{ data['yourEvidence-2'] }}
+                      {{ data.evidenceType[1] }}
                     </dd>
                   </div>
                   <div class="govuk-summary-list__row">
@@ -231,8 +224,7 @@
                         File
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        {{ data['file-upload-2'] }}
-
+                        {{ data.benefitsArray[1] }}
                       </dd>
                     </div>
                 </dl>
@@ -257,7 +249,7 @@
                       Benefit
                     </dt>
                     <dd class="govuk-summary-list__value">
-                      {{ data['yourBenefits-3'] }}
+                      {{ data.benefitsChosen[2] }}
                     </dd>
                   </div>
                   <div class="govuk-summary-list__row">
@@ -265,7 +257,7 @@
                       Evidence type
                     </dt>
                     <dd class="govuk-summary-list__value">
-                      {{ data['yourEvidence-3'] }}
+                      {{ data.evidenceType[2] }}
                     </dd>
                   </div>
                   <div class="govuk-summary-list__row">
@@ -273,8 +265,7 @@
                         File
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        {{ data['file-upload-3'] }}
-
+                        {{ data.benefitsArray[2] }}
                       </dd>
                     </div>
                 </dl>
@@ -303,7 +294,7 @@
                       Benefit
                     </dt>
                     <dd class="govuk-summary-list__value">
-                      {{ data['yourBenefits'] }}
+                      {{ data.benefitsChosen[0] }}
                     </dd>
                   </div>
                   <div class="govuk-summary-list__row">
@@ -311,7 +302,7 @@
                       Evidence type
                     </dt>
                     <dd class="govuk-summary-list__value">
-                      {{ data['yourEvidence'] }}
+                      {{ data.evidenceType[0] }}
                     </dd>
                   </div>
                   <div class="govuk-summary-list__row">
@@ -319,8 +310,7 @@
                         File
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        {{ data['file-upload'] }}
-
+                        {{ data.benefitsArray[0] }}
                       </dd>
                     </div>
                 </dl>
@@ -345,7 +335,7 @@
                       Benefit
                     </dt>
                     <dd class="govuk-summary-list__value">
-                      {{ data['yourBenefits-2'] }}
+                      {{ data.benefitsChosen[1] }}
                     </dd>
                   </div>
                   <div class="govuk-summary-list__row">
@@ -353,7 +343,7 @@
                       Evidence type
                     </dt>
                     <dd class="govuk-summary-list__value">
-                      {{ data['yourEvidence-2'] }}
+                      {{ data.evidenceType[1] }}
                     </dd>
                   </div>
                   <div class="govuk-summary-list__row">
@@ -361,8 +351,7 @@
                         File
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        {{ data['file-upload-2'] }}
-
+                        {{ data.benefitsArray[1] }}
                       </dd>
                     </div>
                 </dl>
@@ -387,7 +376,7 @@
                       Benefit
                     </dt>
                     <dd class="govuk-summary-list__value">
-                      {{ data['yourBenefits-3'] }}
+                      {{ data.benefitsChosen[2] }}
                     </dd>
                   </div>
                   <div class="govuk-summary-list__row">
@@ -395,7 +384,7 @@
                       Evidence type
                     </dt>
                     <dd class="govuk-summary-list__value">
-                      {{ data['yourEvidence-3'] }}
+                      {{ data.evidenceType[2] }}
                     </dd>
                   </div>
                   <div class="govuk-summary-list__row">
@@ -403,8 +392,7 @@
                         File
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        {{ data['file-upload-3'] }}
-
+                        {{ data.benefitsArray[2] }}
                       </dd>
                     </div>
                 </dl>
@@ -429,7 +417,7 @@
                       Benefit
                     </dt>
                     <dd class="govuk-summary-list__value">
-                      {{ data['yourBenefits-4'] }}
+                      {{ data.benefitsChosen[3] }}
                     </dd>
                   </div>
                   <div class="govuk-summary-list__row">
@@ -437,7 +425,7 @@
                       Evidence type
                     </dt>
                     <dd class="govuk-summary-list__value">
-                      {{ data['yourEvidence-4'] }}
+                      {{ data.evidenceType[3] }}
                     </dd>
                   </div>
                   <div class="govuk-summary-list__row">
@@ -445,8 +433,7 @@
                         File
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        {{ data['file-upload-4'] }}
-
+                        {{ data.benefitsArray[3] }}
                       </dd>
                     </div>
                 </dl>
