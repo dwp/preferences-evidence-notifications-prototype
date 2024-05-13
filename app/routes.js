@@ -137,7 +137,7 @@ router.post(
     // Make a variable and give it the value from 'are-you-expecting-a-payment-in-the-next-six-working-days'
     var areYouExpectingaPaymentInTheNextSixWorkingDays =
       req.session.data[
-        "are-you-expecting-a-payment-in-the-next-six-working-days"
+      "are-you-expecting-a-payment-in-the-next-six-working-days"
       ];
 
     // Check whether the variable matches a condition
@@ -186,7 +186,7 @@ router.post(
     // Make a variable and give it the value from 'are-you-expecting-a-payment-in-the-next-six-working-days'
     var areYouExpectingaPaymentInTheNextSixWorkingDays =
       req.session.data[
-        "are-you-expecting-a-payment-in-the-next-six-working-days"
+      "are-you-expecting-a-payment-in-the-next-six-working-days"
       ];
 
     // Check whether the variable matches a condition
@@ -215,7 +215,7 @@ router.post(
     // Make a variable and give it the value from 'are-you-expecting-a-payment-in-the-next-six-working-days'
     var areYouExpectingaPaymentInTheNextSixWorkingDays =
       req.session.data[
-        "are-you-expecting-a-payment-in-the-next-six-working-days"
+      "are-you-expecting-a-payment-in-the-next-six-working-days"
       ];
 
     // Check whether the variable matches a condition
@@ -460,7 +460,7 @@ router.post(
     // Make a variable and give it the value from 'are-you-expecting-a-payment-in-the-next-six-working-days'
     var areYouExpectingaPaymentInTheNextSixWorkingDays =
       req.session.data[
-        "are-you-expecting-a-payment-in-the-next-six-working-days"
+      "are-you-expecting-a-payment-in-the-next-six-working-days"
       ];
 
     // Check whether the variable matches a condition
@@ -659,7 +659,7 @@ router.post(
     // Make a variable and give it the value from 'are-you-expecting-a-payment-in-the-next-six-working-days'
     var areYouExpectingaPaymentInTheNextSixWorkingDays =
       req.session.data[
-        "are-you-expecting-a-payment-in-the-next-six-working-days"
+      "are-you-expecting-a-payment-in-the-next-six-working-days"
       ];
 
     // Check whether the variable matches a condition
@@ -711,7 +711,7 @@ router.post("/round-5/e1/start-answer", function (req, res) {
   req.session.data.evidenceType = evidenceType;
   delete req.session.data['query'];
   delete req.session.data['add-another-evidence'];
-  
+
   res.redirect("/round-5/e1/have-you-been-contacted");
 });
 
@@ -730,10 +730,10 @@ router.post(
 
     } else if (addAnotherEvidence == "yes" && req.session.data.benefitsArray.length === 3) {
       res.redirect("/round-5/e1/upload-more-evidence/benefits-4");
-    
+
     } else if (addAnotherEvidence == "yes" && req.session.data.benefitsArray.length === 4) {
       res.redirect("/round-5/e1/no-more-uploads");
-    
+
     } else {
       // Inactive
       res.redirect("/round-5/e1/declaration");
@@ -745,7 +745,7 @@ router.post("/round-5/e1/upload-evidence-form", function (req, res) {
   var fileName = req.session.data["file-upload"].replaceAll(" ", "");
   filenames.push(fileName);
   req.session.data.benefitsArray = filenames;
-  
+
   res.redirect("/round-5/e1/upload-summary");
 });
 
@@ -809,7 +809,7 @@ router.post("/round-5/e1/upload-evidence-type", function (req, res) {
   var form = req.session.data["yourEvidence"];
   evidenceType.push(form);
   req.session.data.evidenceType = evidenceType;
-  
+
   res.redirect("/round-5/e1/how-to-send-evidence");
 });
 
@@ -817,7 +817,7 @@ router.post("/round-5/e1/upload-more-evidence/upload-evidence-type-2", function 
   var form = req.session.data["yourEvidence-2"];
   evidenceType.push(form);
   req.session.data.evidenceType = evidenceType;
-  
+
   res.redirect("/round-5/e1/how-to-send-evidence");
 });
 
@@ -825,7 +825,7 @@ router.post("/round-5/e1/upload-more-evidence/upload-evidence-type-3", function 
   var form = req.session.data["yourEvidence-3"];
   evidenceType.push(form);
   req.session.data.evidenceType = evidenceType;
-  
+
   res.redirect("/round-5/e1/how-to-send-evidence");
 });
 
@@ -833,7 +833,7 @@ router.post("/round-5/e1/upload-more-evidence/upload-evidence-type-4", function 
   var form = req.session.data["yourEvidence-4"];
   evidenceType.push(form);
   req.session.data.evidenceType = evidenceType;
-  
+
   res.redirect("/round-5/e1/how-to-send-evidence");
 });
 
