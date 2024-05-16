@@ -849,3 +849,154 @@ router.all("/round-5/e1/remove-evidence-answer", function (req, res) {
 
   res.redirect("/round-5/e1/upload-summary");
 });
+
+
+// e2
+
+router.post("/round-5/e2/start-answer", function (req, res) {
+  filenames = [];
+  benefitsChosen = [];
+  evidenceType = [];
+  req.session.data.benefitsArray = filenames;
+  req.session.data.evidenceType = evidenceType;
+  req.session.data.benefitsChosen = benefitsChosen;
+  delete req.session.data['query'];
+  delete req.session.data['add-another-evidence'];
+
+  res.redirect("/round-5/e2/have-you-been-contacted");
+});
+
+router.post(
+  "/round-5/e2/evidence-summary-answer",
+  function (req, res) {
+    var addAnotherEvidence = req.session.data["add-another-evidence"];
+    req.session.data.benefitsArray = filenames
+
+    if (addAnotherEvidence == "yes" && req.session.data.benefitsArray.length === 1) {
+      // Send user to next page
+      res.redirect("/round-5/e2/upload-more-evidence/evidence-type-2");
+
+    } else if (addAnotherEvidence == "yes" && req.session.data.benefitsArray.length === 2) {
+      res.redirect("/round-5/e2/upload-more-evidence/evidence-type-3");
+
+    } else if (addAnotherEvidence == "yes" && req.session.data.benefitsArray.length === 3) {
+      res.redirect("/round-5/e2/upload-more-evidence/evidence-type-4");
+
+    } else if (addAnotherEvidence == "yes" && req.session.data.benefitsArray.length === 4) {
+      res.redirect("/round-5/e2/no-more-uploads");
+
+    } else {
+      // Inactive
+      res.redirect("/round-5/e2/declaration");
+    }
+  }
+);
+
+router.post("/round-5/e2/upload-evidence-form", function (req, res) {
+  var fileName = req.session.data["file-upload"].replaceAll(" ", "");
+  filenames.push(fileName);
+  req.session.data.benefitsArray = filenames;
+
+  res.redirect("/round-5/e2/upload-summary");
+});
+
+router.post("/round-5/e2/upload-more-evidence/upload-evidence-form-2", function (req, res) {
+  var fileName2 = req.session.data["file-upload-2"].replaceAll(" ", "");
+  filenames.push(fileName2);
+  req.session.data.benefitsArray = filenames;
+
+  res.redirect("/round-5/e2/upload-summary");
+});
+
+router.post("/round-5/e2/upload-more-evidence/upload-evidence-form-3", function (req, res) {
+  var fileName3 = req.session.data["file-upload-3"].replaceAll(" ", "");
+  filenames.push(fileName3);
+  req.session.data.benefitsArray = filenames;
+
+  res.redirect("/round-5/e2/upload-summary");
+});
+
+router.post("/round-5/e2/upload-more-evidence/upload-evidence-form-4", function (req, res) {
+  var fileName4 = req.session.data["file-upload-4"].replaceAll(" ", "");
+  filenames.push(fileName4);
+  req.session.data.benefitsArray = filenames;
+
+  res.redirect("/round-5/e2/upload-summary");
+});
+
+router.post("/round-5/e2/evidence-type", function (req, res) {
+  var benefit = req.session.data["yourBenefits"]
+  benefitsChosen.push(benefit);
+  req.session.data.benefitsChosen = benefitsChosen;
+
+  res.redirect("/round-5/e2/evidence-type");
+});
+
+router.post("/round-5/e2/upload-more-evidence/evidence-type-2", function (req, res) {
+  var benefit = req.session.data["yourBenefits-2"]
+  benefitsChosen.push(benefit);
+  req.session.data.benefitsChosen = benefitsChosen;
+
+  res.redirect("/round-5/e2/upload-more-evidence/evidence-type-2");
+});
+
+router.post("/round-5/e2/upload-more-evidence/evidence-type-3", function (req, res) {
+  var benefit = req.session.data["yourBenefits-3"]
+  benefitsChosen.push(benefit);
+  req.session.data.benefitsChosen = benefitsChosen;
+
+  res.redirect("/round-5/e2/upload-more-evidence/evidence-type-3");
+});
+
+router.post("/round-5/e2/upload-more-evidence/evidence-type-4", function (req, res) {
+  var benefit = req.session.data["yourBenefits-4"]
+  benefitsChosen.push(benefit);
+  req.session.data.benefitsChosen = benefitsChosen;
+
+  res.redirect("/round-5/e2/upload-more-evidence/evidence-type-4");
+});
+
+router.post("/round-5/e2/upload-evidence-type", function (req, res) {
+  var form = req.session.data["yourEvidence"];
+  evidenceType.push(form);
+  req.session.data.evidenceType = evidenceType;
+
+  res.redirect("/round-5/e2/benefits");
+});
+
+router.post("/round-5/e2/upload-more-evidence/upload-evidence-type-2", function (req, res) {
+  var form = req.session.data["yourEvidence-2"];
+  evidenceType.push(form);
+  req.session.data.evidenceType = evidenceType;
+
+  res.redirect("/round-5/e2/benefits");
+});
+
+router.post("/round-5/e2/upload-more-evidence/upload-evidence-type-3", function (req, res) {
+  var form = req.session.data["yourEvidence-3"];
+  evidenceType.push(form);
+  req.session.data.evidenceType = evidenceType;
+
+  res.redirect("/round-5/e2/benefits");
+});
+
+router.post("/round-5/e2/upload-more-evidence/upload-evidence-type-4", function (req, res) {
+  var form = req.session.data["yourEvidence-4"];
+  evidenceType.push(form);
+  req.session.data.evidenceType = evidenceType;
+
+  res.redirect("/round-5/e2/benefits");
+});
+
+router.all("/round-5/e2/remove-evidence-answer", function (req, res) {
+  const index = filenames.indexOf(req.query.query)
+  filenames.splice(index, 1)
+  benefitsChosen.splice(index, 1)
+  evidenceType.splice(index, 1)
+
+  req.session.data.benefitsArray = filenames;
+  req.session.data.benefitsChosen = benefitsChosen;
+  req.session.data.evidenceType = evidenceType;
+
+  res.redirect("/round-5/e2/upload-summary");
+});
