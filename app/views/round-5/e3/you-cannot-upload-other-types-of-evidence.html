@@ -25,25 +25,30 @@
   <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
       <h1 class="govuk-fieldset__heading">
-        You cannot use this service
+        You cannot upload other types of evidence at this time
       </h1>
     </legend>
 
     <div class="govuk-!-padding-bottom-4"></div>
 
-    <p>You can only send us evidence through this service when you have been notified by the Department of Work and Pensions.</p>
+    <p class="govuk-body">This service currently only allows you to upload:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Payslips</li>
+      <li>Bank statements</li>
+    </ul>
+
+    <p>If you have any other evidence types you need to provide, you will need to send it by post.</p>
 
     {% from "govuk/components/button/macro.njk" import govukButton %}
 
     <div class="govuk-button-group">
         {{ govukButton({
-            text: "Continue",
-            href: "start.html",
-            preventDoubleClick: true
+          text: "Return",
+          href: "javascript:window.history.back()"
             }) }}
   
       </div>
-
+      
  </div>
 
 </div>
