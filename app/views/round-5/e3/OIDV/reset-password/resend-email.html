@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Send me a new email - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% include 'includes/phase-banner.njk' %}
+{% include 'includes/language-toggle.njk' %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Send me a new email</h1>
+
+        <p>We will send you an email with a new security code.</p>
+
+        <details class="govuk-details govuk-!margin-top-6" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                    After several attempts, I have not received an email
+                </span>
+            </summary>
+
+            <div class="govuk-details__text">
+                <p>Check your junk folders, If you cannot find your security code the email address you entered may be
+                    wrong.
+                </p>
+                <p><a href="email">Enter your email address</a> again and check the right email address is entered, We
+                    will send a new code.</p>
+                <p>If you still do not receive a code, try again later.</p>
+            </div>
+        </details>
+
+        <p><a href="../account-recovery/start-new-email" class="govuk-link">I cannot access the email I use to sign in</a></p>
+
+
+        {{ govukButton({
+        text: "Continue",
+        href: "email-code.html"
+        }) }}
+
+
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "layouts/main.html" %}
+
+{% set pageHeading = 'You cannot go back to the previous page' %}
+
+{% block pageTitle %}
+  {{pageHeading}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/phase-banner.njk' %}
+    {% include 'includes/language-toggle.njk' %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">{{pageHeading}}</h1>
+
+            <p class="govuk-body">You can:</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>continue resetting your account details</li>
+                <li>start again if you think you have made a mistake</li>
+            </ul>
+
+            <div class="govuk-button-group">
+            {{ govukButton({
+                text: "Continue",
+                href: "#"
+            }) }}
+
+            {{ govukButton({
+                text: "Start again",
+                classes: "govuk-button--secondary",
+                href: "../account-recovery/start-new-phone"
+            }) }}
+            </div>
+        
+        </div>
+    </div>
+{% endblock %}

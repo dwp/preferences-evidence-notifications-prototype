@@ -1,0 +1,52 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Error: Enter the email address you used to register with this service - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/phase-banner.njk' %}
+    {% include 'includes/language-toggle.njk' %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+           
+
+              {{ govukErrorSummary({
+                "titleText": "There is a problem",
+                "errorList": [
+                  {
+                    "text": "You cannot reset your password because it has been changed recently. You can only change it once every 24 hours.",
+                    "href": "#reset-password-email-address"
+                  }
+                ]
+              }) }}
+
+       
+                <h1 class="govuk-heading-l">Enter the email address you used to register with this service</h1>
+                <p>We will send a security code to this email address.</p>
+                <form action="email-code" method="post" class="form">
+                {{ govukInput({
+                    label: {
+                        text: "Email address"
+                    },
+                    id: "reset-password-email-address",
+                    name: "reset-password-email-address",
+                    classes: "govuk-!-width-full-width",
+                    errorMessage: {
+                      "text": "You cannot reset your password because it has been changed recently. You can only change it once every 24 hours."
+                    }
+                }) }}
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+
+                <p><a href="../account-recovery/access" class="govuk-link">I do not have access to this email address anymore</a></p>
+
+             </form>
+        </div>
+    </div>
+{% endblock %}

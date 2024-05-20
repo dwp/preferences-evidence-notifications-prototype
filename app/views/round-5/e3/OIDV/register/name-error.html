@@ -1,0 +1,69 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Error: What is your name? - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/phase-banner.njk' %}
+    {% include 'includes/language-toggle.njk' %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ govukErrorSummary({
+              titleText: "There is a problem",
+              errorList: [
+                {
+                  text: "Enter your first name",
+                  href: "#first-name"
+                },
+                {
+                  text: "Enter your last name",
+                  href: "#last-name"
+                }
+              ]
+            }) }}
+
+            <form action="date-of-birth" method="post">
+                {{ govukFieldset({
+                    legend: {
+                        html: "What is your name?",
+                        classes: "govuk-fieldset__legend--l",
+                        isPageHeading: true
+                    }
+                })}}
+
+                {{ govukInput({
+                    label: {
+                        text: "First name"
+                    },
+                    errorMessage: {
+                      text: "Enter your first name"
+                    },
+                    id: "first-name",
+                    name: "first-name",
+                    classes: "govuk-!-width-two-thirds govuk-input--error"
+                }) }}
+
+                {{ govukInput({
+                    label: {
+                        text: "Last name"
+                    },
+                    errorMessage: {
+                      text: "Enter your last name"
+                    },
+                    id: "last-name",
+                    name: "last-name",
+                    classes: "govuk-!-width-two-thirds govuk-input--error"
+                }) }}
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+            </form>
+        </div>
+    </div>
+{% endblock %}

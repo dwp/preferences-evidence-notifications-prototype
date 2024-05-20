@@ -1,0 +1,38 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Sign in details updated - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/phase-banner.njk' %}
+    {% include 'includes/language-toggle.njk' %}
+{% endblock %}
+
+{% block content %}
+
+
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+
+            {{ govukPanel({
+                titleText: "Sign in details updated"
+            }) }}
+            <p>You can now sign in.</p>
+
+            <p>When you next sign in you will have to answer some questions about yourself before you can use the service. This is to help protect you from fraud.</p>
+            
+
+            {{ govukButton({
+                text: "Continue",
+                href: "../sign-in-recovered-account"
+            }) }}
+        </div>
+    </div>
+{% endblock %}
+
+
+
+

@@ -1,0 +1,68 @@
+{% set isHMRCPage = true %}
+{% set serviceName = "Confirm who you are" %}
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Tax Credits question - GOV.UK 
+{% endblock %}
+
+{% block serviceName %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include 'includes/phase-banner.njk' %}
+{% include 'includes/language-toggle.njk' %}
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+        <form method="post" action="" name="">
+
+            <div class="govuk-form-group">
+                <span class="govuk-caption-xl">
+                    About your tax credits
+                </span>
+
+                <h1 class="govuk-heading-xl">
+                    Enter the last 4 digits of the account your Tax credits are paid into
+                </h1>
+
+                <div id="benefit-amount-hint" class="govuk-hint">
+                    <p>Get your account number from a bank card, statement, paying in book or cheque book</p>
+                </div>
+                <input class="govuk-input govuk-input--width-3" id="account-number" name="account-number" type="text"
+                    aria-describedby="bank-account-number-hint" pattern="[0-9]*" inputmode="numeric" spellcheck="false"
+                    maxlength="4">
+
+                </fieldset>
+            </div>
+
+            <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    Where to find your account number
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                </div>
+              </details>
+
+            <a class="govuk-button" href={% if tuKbv === "true" %} "./credit-record-questions-consent" {% else %} "./success"
+                {% endif %}>Continue</a>
+
+        </form>
+
+        <p class="body-text"><a href="./more-information.html">I don't have that information</a></p>
+
+    </div>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+    Access unlocked - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/phase-banner.njk' %}
+    {% include 'includes/language-toggle.njk' %}
+{% endblock %}
+
+{% block content %}
+
+
+
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+
+            {{ govukPanel({
+                titleText: "Access unlocked"
+            }) }}
+            <p>You can now sign in to {{ data['service-name'] }}.</p>
+
+            <p>When you next sign in you will have to answer some questions about yourself before you can use the service. This helps protect you from fraud.</p>
+            
+
+            {{ govukButton({
+                text: "Continue",
+                href: "/auth/v7/sign-in-recovered-account"
+            }) }}
+        </div>
+    </div>
+{% endblock %}
+
+
+
+

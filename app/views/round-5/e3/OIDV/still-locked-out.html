@@ -1,0 +1,23 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+You’re still temporarily locked out - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/phase-banner.njk' %}
+    {% include 'includes/language-toggle.njk' %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">You’re still temporarily locked out</h1>
+
+            <p>This is because one or more of the details you used to sign in are not correct.</p>
+
+            <p>Wait for <span id="oidv-timer">15:00</span> minutes and <a href="sign-in">try again</a>
+
+        </div>
+    </div>
+{% endblock %}

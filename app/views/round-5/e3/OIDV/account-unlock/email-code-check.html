@@ -1,0 +1,54 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Email code - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/phase-banner.njk' %}
+    {% include 'includes/language-toggle.njk' %}
+{% endblock %}
+
+{% block content %}
+
+{% if data['email-security-code'] == '919291' %}
+<script>
+    window.location.href = 'complete'
+</script>
+{% endif %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            {{ govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: [
+                {
+                text: "Security code does not match the one we sent you",
+                href: "#email-security-code"
+                }
+            ]
+            }) }}
+            <h1 class="govuk-heading-l">We have sent you an email with your security code</h1>
+
+            <p>It should take one minute to arrive.</p>
+
+            <form action="email-code-check" method="post" class="form">
+                <div class="govuk-form-group  govuk-form-group--error govuk-!-margin-top-6">
+                    <label class="govuk-label" for="email-security-code">
+                        Security code
+                    </label>
+                    <span id="security-code-error" class="govuk-error-message">
+                        <span class="govuk-visually-hidden">Error:</span> Security code does not match the one we sent you
+                    </span>
+                    <input class="govuk-input govuk-input--width-10 govuk-input--error" id="email-security-code" name="email-security-code" type="text" value="{{ data['email-security-code'] }}">
+                </div>
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+            </form>
+
+            <p><a href="resend-email">I did not get the email</a></p>
+        </div>
+    </div>
+{% endblock %}

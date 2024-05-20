@@ -1,0 +1,53 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  There is a problem - GOV.UK 
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/phase-banner.njk' %}
+    {% include 'includes/language-toggle.njk' %}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            {{ govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: [
+                {
+                text: "Enter your security code",
+                href: "#signin-code"
+                }
+            ]
+            }) }}
+            <form action="sign-in-2fa-check-returning" method="post">
+                
+                <h1 class="govuk-heading-l">We have sent you a text message with your security code</h1>
+
+                <p>It should take one minute to arrive.</p>
+
+                <div class="govuk-form-group govuk-form-group--error govuk-!-margin-top-6">
+                    <label class="govuk-label" for="2fa-code">
+                        Security code
+                    </label>
+                    <span id="security-code-error" class="govuk-error-message">
+                        <span class="govuk-visually-hidden">Error:</span> Enter your security code
+                    </span>
+                    <input class="govuk-input govuk-input--width-10" id="signin-code" name="signin-code" type="text" value="{{ data['signin-code'] }}">
+                </div>
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+
+                <p><a href="sign-in-resend-2fa" class="govuk-link">I did not get a text message</a></p>
+
+                <p><a href="account-recovery/start-new-phone" class="govuk-link">I cannot access the mobile phone number I use to sign in</a></p>
+
+            </form>
+        </div>
+    </div>
+{% endblock %}

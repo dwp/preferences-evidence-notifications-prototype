@@ -1,0 +1,28 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+    Email address changed - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/phase-banner.njk' %}
+    {% include 'includes/language-toggle.njk' %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            {{ govukPanel({
+                titleText: "Email address changed"
+            }) }}
+
+            <p>Use your new email address next time you sign in.</p>
+
+            {{ govukButton({
+                text: "Sign in",
+                href: "../sign-in-returning.html"
+            }) }}
+        </div>
+    </div>
+{% endblock %}
+

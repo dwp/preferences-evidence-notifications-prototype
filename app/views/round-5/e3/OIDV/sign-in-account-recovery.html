@@ -1,0 +1,64 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Sign in - GOV.UK 
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/phase-banner.njk' %}
+    {% include 'includes/language-toggle.njk' %}
+{% endblock %}
+
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <form action="sign-in-2fa-returning" method="post">
+                {{ govukFieldset({
+                    legend: {
+                        html: 'Sign in',
+                        classes: "govuk-fieldset__legend--l",
+                        isPageHeading: true
+                    }
+                })}}
+
+                {{ govukInput({
+                    label: {
+                        text: "Email address"
+                    },
+                    id: "email-address",
+                    name: "email-address",
+                    classes: "govuk-!-width-full-width"
+                }) }}
+
+                {{ govukInput({
+                    label: {
+                        text: "Password"
+                    },
+                    id: "user-password",
+                    name: "user-password",
+                    classes: "govuk-!-width-full-width",
+                    type: "password"
+                }) }}
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+
+                <p><a href="register/start">Register now</a> if you have not used this service before. </p>
+
+                <h2 class="govuk-heading-m">Problems signing in</h2>
+
+                <ul class="govuk-list signin">
+                    <li>
+                        <a href="reset-password/start" class="govuk-link">I forgot my password</a>
+                    </li>
+                    <li>
+                        <a href="account-recovery/start-new-email" class="govuk-link">I cannot access the email I use to sign in</a>
+                    </li>
+
+                </ul>
+            </form>
+        </div>
+    </div>
+{% endblock %}

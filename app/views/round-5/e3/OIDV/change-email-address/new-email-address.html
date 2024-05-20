@@ -1,0 +1,37 @@
+{% extends "layout-header-links-dev-ready.html" %}
+
+{% block pageTitle %}
+    Enter your new email address - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/phase-banner.njk' %}
+    {% include 'includes/language-toggle.njk' %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+           
+               
+                <h1 class="govuk-heading-l">Enter your new email address</h1>
+
+                <p>We will send a security code to this email address.</p>
+                <form action="new-email-code" method="post">
+                {{ govukInput({
+                    label: {
+                        text: "New email address"
+                    },
+                    id: "new-email-address",
+                    name: "new-email-address",
+                    classes: "govuk-!-width-full-width"
+                }) }}
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  You are locked out - GOV.UK 
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/phase-banner.njk' %}
+    {% include 'includes/language-toggle.njk' %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">You are locked out</h1>
+
+            <p>This is because the wrong security code was entered too many times. You will not be able to sign back in until you unlock your access.</p>
+
+            <p>This is to keep your information secure.</p>
+
+            <h2 class="govuk-heading-m">Unlock your access</h2>
+            <p>We will ask you some basic questions about you and email you a security code. </p>
+            <p>You will be able to change your password.</p>
+
+            {{ govukButton({
+                text: "Unlock your access",
+                href: "account-unlock/email-address"
+            }) }}
+
+
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% set isHMRCPage = false %}
+{% set serviceName = "Confirm who you are" %}
+{% extends "layouts/main.html" %}
+
+{% set pageHeading = 'Identity check complete' %}
+
+{% block pageTitle %}
+  {{pageHeading}} - GOV.UK 
+{% endblock %}
+
+{% block serviceName %}
+  Confirm your identity
+{% endblock %}
+
+{% block beforeContent %}
+{% include 'includes/phase-banner.njk' %}
+{% include 'includes/language-toggle.njk' %}
+{% endblock %}
+
+
+
+{% block content %}
+
+{# <!-- Redirects to services via this page as the user enters into this page -->
+{% if data['service-name'] === 'carers-2' %}
+<script>
+    window.location.href = 'https://prototype-changes.herokuapp.com/mvp/1-0/idv-success'
+</script>
+{% elseif data['service-name'] === data['carers-service-name'] %}
+<script>
+    window.location.href = 'https://cap-2-tfgr.herokuapp.com/poc/E2E/cya'
+</script>
+{% else %}
+<script>
+    window.location.href = '/idv/hmrciv/success'
+</script>
+{% endif %} #}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="post" action="../../oidv/sign-in-1">
+
+      <h1 class="govuk-heading-xl">
+        {{pageHeading}} 
+      </h1>
+
+      <p class="govuk-body-l">
+        You have answered the security questions successfully.
+      </p>
+
+      <input type="submit" value="Continue" class="govuk-button">
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

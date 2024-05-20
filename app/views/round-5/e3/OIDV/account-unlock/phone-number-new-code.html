@@ -1,0 +1,42 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+ Phone number - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/phase-banner.njk' %}
+    {% include 'includes/language-toggle.njk' %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+                <h1 class="govuk-heading-l">Please enter the mobile number you used to register your account</h1>
+
+                    
+
+                    <form action="phone-number-code" method="post" class="form">
+
+                        <div class="govuk-form-group">
+                            <label class="govuk-label" for="telephone-number">
+                                Mobile phone number
+                            </label>
+                            <span id="telephone-number-hint" class="govuk-hint">
+                                For international numbers include the country code
+                            </span>
+                            <input class="govuk-input govuk-input--width-20" id="telephone-number" name="telephone-number" type="tel" aria-describedby="telephone-number-hint" autocomplete="tel">
+                            <input id="account-unlock-phone" name="account-unlock-phone" type="hidden" value="account-unlock-phone">
+                        </div>
+
+
+                        {{ govukButton({
+                            text: "Continue"
+                        }) }}
+                </form>
+
+                <p><a href="../account-recovery/start">I don't know the mobile phone number</a></p>
+
+        </div>
+    </div>
+{% endblock %}

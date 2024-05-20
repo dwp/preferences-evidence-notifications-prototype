@@ -1,0 +1,24 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  You are still locked out - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/phase-banner.njk' %}
+    {% include 'includes/language-toggle.njk' %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">You are still locked out</h1>
+
+            <p>This is because you entered an incorrect security code too many times.</p>
+
+            <p>Wait for <span id="oidv-timer">15:00</span> minutes and <a href="sign-in">try again</a>
+            <!-- should the link go to sign in for both no mobile and no email access journeys so should it go to sign in for mobile but 'enter email address' for email journey?  -->
+
+        </div>
+    </div>
+{% endblock %}

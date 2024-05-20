@@ -1,0 +1,26 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  You need to start again - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/phase-banner.njk' %}
+    {% include 'includes/language-toggle.njk' %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">You need to start again</h1>
+
+            <p>We have ended your session to keep your information secure. We have not saved any of your details.</p>
+
+            {{ govukButton({
+                text: "Start again",
+                href: "https://www.gov.uk"
+            }) }}
+        
+        </div>
+    </div>
+{% endblock %}
