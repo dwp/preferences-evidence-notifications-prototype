@@ -1,0 +1,30 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Resend text message - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/phase-banner.njk' %}
+    {% include 'includes/language-toggle.njk' %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">Send me another security code</h1>
+
+            <p>We will send you a text message with a new security code.</p>
+
+            {{ govukButton({
+                text: "Continue",
+                href: "text-code.html"
+            }) }}
+
+            {{ govukDetails({
+                    summaryText: "I do not have access to the phone I use to sign in",
+                    html: 'Email <a href="#">DWP sign in support</a> if you need the security code sent to a new phone number.'
+                }) }}
+        </div>
+    </div>
+{% endblock %}

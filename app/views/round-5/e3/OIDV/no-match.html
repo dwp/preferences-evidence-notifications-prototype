@@ -1,0 +1,84 @@
+{% extends "layout-header-links-no-home.html" %}
+
+{% block pageTitle %}
+Call the enquiry line - GOV.UK 
+{% endblock %}
+
+{% block beforeContent %}
+  {% include 'includes/phase-banner.njk' %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-4">
+      Call the enquiry line
+    </h1>
+      <p>We cannot show your payment information. This could be because we were not able to match your information to our records, or because you do not currently claim PIP or ESA.</p>
+      <p>You can still find out when and how much you will be paid by calling one of our enquiry lines.</p>
+  </div>
+</div>
+
+<details class="govuk-details govuk-!-margin-top-3" data-module="govuk-details">
+    <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">
+        If you claim PIP
+      </span>
+    </summary>
+    <div class="govuk-details__text">
+        {% include 'includes/pip-helpline-details.html' %}
+    </div>
+  </details>
+
+  <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          If you claim ESA
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+          <h3 class="govuk-heading-m govuk-!-margin-bottom-2"><strong>Jobcentre Plus</strong></h3>
+
+          <ul class="govuk-list govuk-list--bullet">
+            <li>Telephone: 0800 169 0310</li>
+            <li>Textphone: 0800 169 0314</li>
+            <li><a href="https://www.relayuk.bt.com">Relay UK</a> (if you cannot hear or speak on the phone): 18001 then 0800 169 0310</li>
+            <li>Welsh language: 0800 328 1744</li>
+          </ul>
+
+          <p>Monday to Friday, 8am to 6pm</p>
+          <p><a href="https://www.gov.uk/call-charges">Find out about call charges</a></p>
+            
+      </div>
+    </details>
+
+<!-- <div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <div class="govuk-panel govuk-panel--blue govuk-panel--confirmation">
+      <h2 class="govuk-panel__title govuk-!-font-size-36">
+        Call the PIP enquiry line
+      </h2>
+      <div class="govuk-panel__body govuk-!-font-size-19"> 
+        <p>We cannot confirm your identity to show you your PIP payment information.</p>
+        <p>You can call the PIP enquiry line instead for your next payment amount and date.</p>
+      </div>
+    </div>
+
+    <details class="govuk-details govuk-!-margin-top-6" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          How do I find out about my <abbr title="Personal Independence Payment">PIP</abbr> payments or claim? 
+        </span>
+      </summary>
+      <div class="govuk-details__text"> 
+        <p>If you need more information or want to tell us about a change in your circumstances, call the PIP enquiry line:</p>
+        {% include 'includes/pip-helpline-details.html' %}
+      </div>
+    </details>
+
+  </div>
+</div> -->
+
+{% endblock %}

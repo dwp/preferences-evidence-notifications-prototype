@@ -1,0 +1,49 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Error: What is your postcode? - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/phase-banner.njk' %}
+    {% include 'includes/language-toggle.njk' %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h1 class="govuk-heading-l">What is your postcode?</h1>
+            <form action="/idv/hmrciv/start-page" method="post">
+                {{ govukErrorSummary({
+                  "titleText": "There is a problem",
+                  "errorList": [
+                    {
+                      "text": "Enter a real postcode",
+                      "href": "#postcode"
+                    }
+                  ]
+                }) }}
+
+                {{ govukInput({
+                  label: {
+                    text: "Postcode"
+                  },
+                  hint: {
+                    text: "For example, AA3 1AB."
+                    },
+                  classes: "govuk-input--width-10",
+                  id: "postcode",
+                  name: "postcode",
+                  errorMessage: {
+                    text: "Enter a real postcode"
+                  },
+                  autocomplete: "postal-code"
+                }) }}
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+            </form>
+        </div>
+    </div>
+{% endblock %}

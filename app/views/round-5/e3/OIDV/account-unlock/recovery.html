@@ -1,0 +1,37 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Recover your account - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/phase-banner.njk' %}
+    {% include 'includes/language-toggle.njk' %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">Create your new sign in details</h1>
+
+            <p>Create your new sign in details so you can securely sign in whenever you use this service.</p>
+
+            <h2 class="govuk-heading-m">Before you start</h2>
+            <p>You will need:</p>
+
+            <ul class="govuk-list govuk-list--bullet">
+                <li>a new email address</li>
+                <li>a new mobile phone number</li>
+            </ul>
+
+            <h2 class="govuk-heading-m">What happens next</h2>
+            <p>We will send security codes to your new email and new mobile phone to check that they belong to you.</p>
+
+            {{ govukButton({
+                text: "Continue",
+                href: "new-email-address.html"
+            }) }}
+
+        </div>
+    </div>
+{% endblock %}

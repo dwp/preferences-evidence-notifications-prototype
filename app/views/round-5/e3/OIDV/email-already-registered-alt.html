@@ -1,0 +1,38 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+      This email address is already registered with this service - GOV.UK 
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/phase-banner.njk' %}
+    {% include 'includes/language-toggle.njk' %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">This email address is already registered with this service</h1>
+
+            <p>An email address can only be used to register one person.</p>
+            <p>If you have registered with this email address and know your password, <a href="sign-in">sign in</a>.</p>
+            <p>If you have registered with this email address but have forgotten your password, <a href="reset-password/start">reset your password</a>.</p>
+            <p>If you have not registered before, <a href="register/start">register with a different email address</a>.</p>
+            
+           
+
+
+            <details class="govuk-details govuk-!margin-top-6" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                        Problems registering
+                    </span>
+                </summary>
+
+                <div class="govuk-details__text">
+                    <p>[INSERT SUPPORT INSTRUCTIONS]</p>
+                </div>
+            </details>
+        </div>
+    </div>
+{% endblock %}

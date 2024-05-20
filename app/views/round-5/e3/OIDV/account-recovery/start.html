@@ -1,0 +1,32 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Recover your account - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/phase-banner.njk' %}
+    {% include 'includes/language-toggle.njk' %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">Recover your account</h1>
+
+            <p>Recover your existing account so you can securely sign in whenever you use this service.</p>
+
+            <p>You will need to answer some basic questions about yourself.</p>
+ 
+            <p>We will check your answers against our records to make sure we are dealing with the right person. 
+                This also helps protect you from fraud.</p>
+            
+
+            {{ govukButton({
+                text: "Continue",
+                href: "access.html"
+            }) }}
+
+        </div>
+    </div>
+{% endblock %}

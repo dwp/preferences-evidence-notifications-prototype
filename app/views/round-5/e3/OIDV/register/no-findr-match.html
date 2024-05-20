@@ -1,0 +1,31 @@
+a{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Error: Cannot sign in - GOV.UK 
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/phase-banner.njk' %}
+    {% include 'includes/language-toggle.njk' %}
+{% endblock %}
+
+
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            
+              
+                <h1 class="govuk-heading-l">Sorry, you cannot sign in to this service</h1>
+
+               <p>This is because we do not have enough information in our records to check who you are.</p>
+                <p>Select 'Continue' for other ways to use this service.</p>
+               
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+
+                
+        </div>
+    </div>
+{% endblock %}

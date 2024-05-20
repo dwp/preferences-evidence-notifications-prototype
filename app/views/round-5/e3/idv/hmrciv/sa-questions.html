@@ -1,0 +1,218 @@
+{% set isHMRCPage = false %}
+{% set serviceName = "Confirm who you are" %}
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Enter the pensions and benefits information from your tax return - GOV.UK 
+{% endblock %}
+
+{% block serviceName %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include 'includes/phase-banner.njk' %}
+{% include 'includes/language-toggle.njk' %}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-xl">
+      About your Self Assessment 
+    </span>
+
+    <h1 class="govuk-heading-xl ">
+      Enter the pensions and benefits information from your tax return
+    </h1>
+
+    <form method="post" action=
+      {% if tcKbv === "true" %} 
+        "/idv/hmrciv/tcKbv"
+      {% elif tuKbv === "true" %} 
+        "./credit-record-questions-consent" 
+      {% elif voiceId === "true" %} 
+        "/idv/hmrciv/voice-id" 
+      {% else %} 
+        "/idv/hmrciv/success" 
+      {% endif %}
+    >
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Use a Self Assessment tax return from 2018 to 2019, or 2019 to 2020</li>
+        <li>Enter the exact amount, for example, 923</li>
+        <li>If a pension or benefit does not apply to you, enter 0 </li>
+      </ul>
+
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Where to find these details on your tax return
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p class="govuk-body">Enter the information from your tax return using the numbered boxes to help you.</p>
+          <p class="govuk-body">For example, on your tax return:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>State Pension is box 8</li>
+            <li>Pensions (other than State Pensions), retirement annuities and taxable lump sums treated as pensions is
+              box 11</li>
+            <li>Taxable Incapacity Benefit and contribution-based Employment and Support Allowance (ESA) is box 13</li>
+            <li>Jobseeker’s allowance is box 15</li>
+            <li>Total of any other taxable State Pensions and benefits is box 16</li>
+          </ul>
+          <h4 class="govuk-heading-s">Online submissions</h4><img src="/public/images/sa-pension-online.png"
+            alt="Photo of online self assessment submission showing described boxes">
+          <h4 class="govuk-heading-s govuk-!-margin-top-6">Paper submissions</h4><img
+            src="/public/images/sa-pension-paper.png" alt="Photo of paper self assessment submission form showing described boxes">
+        </div>
+      </details>
+
+
+      <div class="govuk-form-group" data-required=""
+        data-error="Enter the amount of your annual state pension entitlement as it appears on your Self Assessment tax return in Box 8 of the UK pensions, annuities and other state benefits received section">
+        <label class="govuk-label govuk-label--m" for="box8-state-pension">
+          Box 8
+        </label>
+
+        <span id="box8-state-pension-hint" class="govuk-hint">
+          State Pension
+        </span>
+
+        <div class="currency-input">
+          <div class="currency-input__symbol" aria-hidden="true">£</div>
+          <input class="govuk-input govuk-input--width-10" id="box8-state-pension" name="box8-state-pension" type="text"
+            aria-describedby="amount-currency">
+        </div>
+
+      </div>
+
+
+      <div class="govuk-form-group" data-required=""
+        data-error="Enter the amount of any other pensions you might have as it appears on your Self Assessment tax return in Box 11 of the UK pensions, annuities and other state benefits received section">
+        <label class="govuk-label govuk-label--m" for="box11-other-pensions">
+          Box 11
+        </label>
+
+        <span id="box11-other-pensions-hint" class="govuk-hint">
+          Pensions (other than State Pensions), retirement annuities and taxable lump sums treated as pensions
+        </span>
+
+        <div class="currency-input">
+          <div class="currency-input__symbol" aria-hidden="true">£</div>
+          <input class="govuk-input govuk-input--width-10" id="box11-other-pensions" name="box11-other-pensions"
+            type="text" aria-describedby="amount-currency">
+        </div>
+
+      </div>
+
+
+      <div class="govuk-form-group" data-required=""
+        data-error="Enter the amount of any Taxable Incapacity Benefit and contribution-based Employment and Support Allowance you might have received as it appears on your Self Assessment tax return in Box 11 of the UK pensions, annuities and other state benefits received section">
+        <label class="govuk-label govuk-label--m" for="box13-inc-benefit-emp-sup-allowance">
+          Box 13
+        </label>
+
+        <span id="box13-inc-benefit-emp-sup-allowance-hint" class="govuk-hint">
+          Taxable Incapacity Benefit and contribution-based Employment and Support Allowance (ESA)
+        </span>
+
+        <div class="currency-input">
+          <div class="currency-input__symbol" aria-hidden="true">£</div>
+          <input class="govuk-input govuk-input--width-10" id="box13-inc-benefit-emp-sup-allowance"
+            name="box13-inc-benefit-emp-sup-allowance" type="text" aria-describedby="amount-currency">
+        </div>
+
+      </div>
+
+      <div class="govuk-form-group" data-required="" data-error="Enter the amount of any Job Seekers Allowance you might have received as it appears on your Self Assessment tax return in Box 11 of the UK pensions, annuities and other state benefits received section">
+        <label class="govuk-label govuk-label--m" for="box15-jsa">
+          Box 15
+        </label>
+        
+        <span id="box15-jsa-hint" class="govuk-hint">
+          Jobseeker’s allowance
+        </span>
+        
+        <div class="currency-input">
+              <div class="currency-input__symbol" aria-hidden="true">£</div>
+              <input class="govuk-input govuk-input--width-10" id="box15-jsa" name="box15-jsa" type="text" aria-describedby="amount-currency">
+          </div>
+        
+      </div>
+
+
+      <div class="govuk-form-group" data-required=""
+        data-error="Enter the amount of any other taxable State Pensions and benefits you might have received as it appears on your Self Assessment tax return in Box 11 of the UK pensions, annuities and other state benefits received section">
+        <label class="govuk-label govuk-label--m" for="box16-other-pens-or-bens">
+          Box 16
+        </label>
+
+        <span id="box16-other-pens-or-bens-hint" class="govuk-hint">
+          Total of any other taxable State Pensions and benefits
+        </span>
+
+        <div class="currency-input">
+          <div class="currency-input__symbol" aria-hidden="true">£</div>
+          <input class="govuk-input govuk-input--width-10" id="box16-other-pens-or-bens"
+            name="box16-any-other-pens-or-bens" type="text" aria-describedby="amount-currency">
+        </div>
+
+      </div>
+
+      <input class="govuk-button " type="submit" value="Continue">
+
+      <details class="govuk-details govuk-!-margin-top-9">
+        <summary class="govuk-details__summary govuk-details__summary--modifier">
+          <span class="govuk-details__summary-text govuk-details__summary-text--modifier"
+            style="display: block; text-decoration: underline; color: #005ea5; cursor: pointer; font-size: 16px">
+            Get help with this page
+          </span>
+        </summary>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+            <h3 class="govuk-heading">Get help with this service</h3>
+            <p class="govuk-body">Don't include any personal or financial information. For example, your National
+              Insurance or credit card numbers.</p>
+
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="name">
+                Name
+              </label>
+              <input class="govuk-input govuk-input--width-20" id="name" name="name" type="text">
+            </div>
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="email">
+                Email
+              </label>
+              <input class="govuk-input govuk-input--width-20" id="email" name="email" type="email">
+            </div>
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="what">
+                What were you doing?
+              </label>
+              <input class="govuk-input govuk-input--width-20" id="what" name="what" type="text">
+            </div>
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="help">
+                What do you need help with?
+              </label>
+              <input class="govuk-input govuk-input--width-20" id="help" name="help" type="text">
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="govuk-button">
+          Send
+        </button>
+
+      </details>
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}

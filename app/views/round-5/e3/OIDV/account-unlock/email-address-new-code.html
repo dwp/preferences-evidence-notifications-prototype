@@ -1,0 +1,35 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Email address - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/phase-banner.njk' %}
+    {% include 'includes/language-toggle.njk' %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            
+                <h1 class="govuk-heading-l">Enter the email address you used to register your account</h1>
+             
+                <form action="email-code" method="post">
+                {{ govukInput({
+                    label: {
+                        text: "Email address"
+                    },
+                    id: "recover-email-address",
+                    name: "recover-email-address",
+                    classes: "govuk-!-width-full-width"
+                }) }}
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+
+            </form>
+        </div>
+    </div>
+{% endblock %}

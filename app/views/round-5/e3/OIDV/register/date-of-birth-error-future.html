@@ -1,0 +1,67 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Error: What is your date of birth? - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/phase-banner.njk' %}
+    {% include 'includes/language-toggle.njk' %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <form action="postcode" method="post">
+              {{ govukErrorSummary({
+                  "titleText": "There is a problem",
+                  "errorList": [
+                    {
+                      "text": "Date of birth must be in the past",
+                      "href": "#date-of-birth"
+                    }
+                  ]
+                }) }}
+
+               {{ govukDateInput({
+                id: "date-of-birth",
+                namePrefix: "date-of-birth",
+                fieldset: {
+                    legend: {
+                    text: "What is your date of birth?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                    }
+                },
+                hint: {
+                    text: "For example, 27 3 1979"
+                },
+                errorMessage: {
+                  text: "Date of birth must be in the past"
+                },
+                items: [
+                  {
+                    classes: "govuk-input--width-2 govuk-input--error",
+                    name: "day",
+                    value: "6"
+                  },
+                  {
+                    classes: "govuk-input--width-2 govuk-input--error",
+                    name: "month",
+                    value: "3"
+                  },
+                  {
+                    classes: "govuk-input--width-4 govuk-input--error",
+                    name: "year",
+                    value: "2076"
+                  }
+                ]
+                }) }}
+
+                 {{ govukButton({
+                    text: "Continue"
+                 }) }}
+            </form>
+        </div>
+    </div>
+{% endblock %}

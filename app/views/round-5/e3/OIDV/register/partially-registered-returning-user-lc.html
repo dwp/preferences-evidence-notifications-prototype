@@ -1,0 +1,39 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Sign in - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% include 'includes/phase-banner.njk' %}
+{% include 'includes/language-toggle.njk' %}
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">You must complete your registration before you sign in</h1>
+
+    <p>You need a mobile phone to complete your registration. We will send a security code to your mobile phone.</p>
+
+    <h2 class="govuk-heading-m">When you sign in for the first time</h2>
+
+    <p>You will be asked security questions to confirm your identity.</p>
+
+    <p>We will ask you questions about your details held in our records so we can check it is really you we are speaking to.</p>
+
+    {{ govukButton({
+      text: "Complete registration",
+      href: "mobile",
+      classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-8",
+      isStartButton: FALSE
+    }) }}
+    {{ govukDetails({
+      summaryText: "Problems completing registration",
+      html: '<p>[INSERT SUPPORT INSTRUCTIONS]</p>'
+  }) }}
+  
+  </div>
+</div>
+{% endblock %}
