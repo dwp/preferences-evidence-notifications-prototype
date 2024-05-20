@@ -22,9 +22,8 @@
 
       <form class="form" action="how-to-send-evidence" method="post">
 
-        <h1 class="govuk-heading-l">What benefits are you sending us evidence for?</h1>
+        <h1 class="govuk-heading-l">What benefit are you sending us evidence for?</h1>
 
-        <div class="govuk-!-padding-bottom-4"></div>
 
         {{ govukCheckboxes({
           name: "yourBenefits",
@@ -32,6 +31,10 @@
             legend: {
               isPageHeading: true
             }
+          },
+
+          hint: {
+            text: "Select all that apply."
           },
 
           items: [
@@ -70,17 +73,14 @@
           {
             value: "State Pension",
             text: "State Pension"
-          },
-          {
-            divider: "or"
-          },
-          {
-            value: "I get another benefit",
-            text: "I get another benefit"
           }
         ]
 
         }) }}
+
+        <p class="govuk-body">
+          <a href="i-get-another-benefit" class="govuk-link">I get another benefit</a>
+        </p>
 
         <button class="govuk-button" data-module="govuk-button">
           Continue
