@@ -174,16 +174,6 @@
 
 <script>
 
-var contact = sessionStorage.getItem('contact-preferences');
-  var contactPreferences = document.getElementById('contactPreferences');
-  if (contactPreferences) {
-    if(contact-preferences) {
-      contactPreferences.innerHTML = contact-preferences;
-    } else {
-      contactPreferences.innerHTML = "I do not have a contact preference";
-    }
-  }
-
   var address = sessionStorage.getItem('address');
 
   var newAddressDiv = document.getElementById('newAddressDiv');
