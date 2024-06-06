@@ -1,0 +1,114 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block beforeContent %}
+
+{% include "preferences/breadcrumbs/customer-view/contact-preferences.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+<form class="form" id="radioForm">
+    <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="contact-preferences-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                    How should we contact you?
+                </h1>
+            </legend>
+            <p>This is your preference and is not neccessarily guarenteed.</p>
+            <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item" onclick="set('i-do-not-have-a-contact-preference')">
+                    <input class="govuk-radios__input" id="contact-preferences" name="contact-preferences" type="radio"
+                        value="You can contact me by standard letter">
+                    <label class="govuk-label govuk-radios__label" for="contact-preferences">
+                        I do not have a contact preference
+                    </label>
+                </div>
+
+                <div class="govuk-radios__divider">or</div>
+
+                <div class="govuk-radios__item" onclick="set('email')">
+                    <input class="govuk-radios__input" id="contact-preferences-2" name="contact-preferences" type="radio"
+                        value="Email">
+                    <label class="govuk-label govuk-radios__label" for="contact-preferences-2">
+                        Email
+                    </label>
+                </div>
+                <div class="govuk-radios__item" onclick="set('letter-by-post')">
+                    <input class="govuk-radios__input" id="contact-preferences-3" name="contact-preferences" type="radio"
+                        value="Letter by post">
+                    <label class="govuk-label govuk-radios__label" for="contact-preferences-3">
+                        Letter by post
+                    </label>
+                </div>
+                <div class="govuk-radios__item" onclick="set('mobile-phone')">
+                    <input class="govuk-radios__input" id="contact-preferences-4" name="contact-preferences" type="radio"
+                        value="Mobile phone">
+                    <label class="govuk-label govuk-radios__label" for="contact-preferences-4">
+                        Mobile phone
+                    </label>
+                </div>
+                <div class="govuk-radios__item" onclick="set('landline-phone')">
+                    <input class="govuk-radios__input" id="contact-preferences-5" name="contact-preferences" type="radio"
+                        value="Landline phone">
+                    <label class="govuk-label govuk-radios__label" for="contact-preferences-5">
+                        Landline phone
+                    </label>
+                </div>
+                <div class="govuk-radios__item" onclick="set('textphone')">
+                    <input class="govuk-radios__input" id="contact-preferences-6" name="contact-preferences" type="radio"
+                        value="Textphone for the hard of hearing">
+                    <label class="govuk-label govuk-radios__label" for="contact-preferences-6">
+                        Textphone for the hard of hearing
+                    </label>
+                </div>
+            </div>
+        </fieldset>
+        <script>
+            var redirectUrl = "";
+            function set(inputValue) {
+
+                if (inputValue === "i-do-not-have-a-contact-preference") {
+                    sessionStorage.setItem('contactPreferences', 'I do not have a contact preference');
+                    redirectUrl = "do-you-need-alternative-formats";
+                } else if (inputValue === "email") {
+                    sessionStorage.setItem('contactPreferences', 'Email');
+                    redirectUrl = "do-you-need-alternative-formats";
+                } else if (inputValue === "letter-by-post") {
+                    sessionStorage.setItem('contactPreferences', 'Letter by post');
+                    redirectUrl = "do-you-need-alternative-formats";
+                } else if (inputValue === "mobile-phone") {
+                    sessionStorage.setItem('contactPreferences', 'Mobile phone');
+                    redirectUrl = "do-you-need-alternative-formats";
+                } else if (inputValue === "landline-phone") {
+                    sessionStorage.setItem('contactPreferences', 'Landline phone');
+                    redirectUrl = "do-you-need-alternative-formats";
+                } else if (inputValue === "textphone") {
+                    sessionStorage.setItem('contactPreferences', 'Textphone for the hard of hearing');
+                    redirectUrl = "do-you-need-alternative-formats";
+                }
+            }
+
+            document.getElementById('radioForm').addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                if (redirectUrl !== "") {
+                    window.location.href = redirectUrl;
+                }
+            });
+
+        </script>
+    </div>
+
+    <button type="submit" class="govuk-button" data-module="govuk-button">
+        Continue
+    </button>
+</form>
+
+{% endblock %}
