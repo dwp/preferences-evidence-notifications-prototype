@@ -26,6 +26,37 @@
         <div class="govuk-summary-card">
           <div class="govuk-summary-card__title-wrapper">
             <h2 class="govuk-summary-card__title">
+              Contact preferences
+            </h2>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Preferred contact method
+                </dt>
+                <dd class="govuk-summary-list__value" id="contactPreferences" name="contactPreferences">
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="contact-preferences/how-should-we-contact-you">Change<span class="govuk-visually-hidden"> #</span></a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Language
+                </dt>
+                <p>English</p>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> #</span></a>
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
               Contact details
             </h2>
           </div>
@@ -142,6 +173,17 @@
 
 
 <script>
+
+var contact = sessionStorage.getItem('contact-preferences');
+  var contactPreferences = document.getElementById('contactPreferences');
+  if (contactPreferences) {
+    if(contact-preferences) {
+      contactPreferences.innerHTML = contact-preferences;
+    } else {
+      contactPreferences.innerHTML = "I do not have a contact preference";
+    }
+  }
+
   var address = sessionStorage.getItem('address');
 
   var newAddressDiv = document.getElementById('newAddressDiv');

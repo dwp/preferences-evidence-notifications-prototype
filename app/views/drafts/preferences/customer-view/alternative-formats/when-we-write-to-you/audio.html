@@ -1,0 +1,86 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block beforeContent %}
+
+{% include "preferences/breadcrumbs/customer-view/audio.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+<form class="form" id="radioForm">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        What type of audio do you need?
+      </h1>
+    </legend>
+    <div class="govuk-radios" data-module="govuk-radios">
+    <div class="govuk-radios__item" onclick="set('CD')">
+      <input class="govuk-radios__input" id="audio" name="audio" type="radio" value="cd">
+      <label class="govuk-label govuk-radios__label" for="audio">
+        CD by post
+      </label>
+    </div>
+    <div class="govuk-radios__item" onclick="set('mp3-file-by-email')">
+      <input class="govuk-radios__input" id="audio-2" name="audio" type="radio" value="mp3 file by email">
+      <label class="govuk-label govuk-radios__label" for="audiot-2">
+        MP3 file by email
+      </label>
+    </div>
+    <div class="govuk-radios__item" onclick="set('cassette-tape')">
+      <input class="govuk-radios__input" id="audio-3" name="audio" type="radio" value="cassette tape">
+      <label class="govuk-label govuk-radios__label" for="audio-3">
+        Cassette tape by post
+      </label>
+    </div>
+    <div class="govuk-radios__item" onclick="set('dvd')">
+      <input class="govuk-radios__input" id="audio-4" name="audio" type="radio" value="dvd">
+      <label class="govuk-label govuk-radios__label" for="audio-4">
+        DVD  by post
+      </label>
+    </div>          
+  </fieldset>
+  <div class="govuk-!-padding-bottom-6"></div>
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Continue
+    </button>
+</div>
+</div>
+
+<script>
+  var redirectUrl = "";
+  function set(inputValue) {
+
+    if (inputValue === "CD") {
+      sessionStorage.setItem('howWeWrite', 'Audio<br>CD by post');
+      redirectUrl = "confirm-your-changes";
+    } else if (inputValue === "cassette-tape") {
+      sessionStorage.setItem('howWeWrite', 'Audio<br>Cassette tape by post');
+      redirectUrl = "confirm-your-changes";
+    } else if (inputValue === "dvd") {
+      sessionStorage.setItem('howWeWrite', 'Audio<br>DVD by post');
+      redirectUrl = "confirm-your-changes";
+    } else {
+      sessionStorage.setItem('howWeWrite', 'Audio<br>MP3 file by email');
+      redirectUrl = "what-is-your-email/mp3-file-by-email";
+    }
+  }
+
+  document.getElementById('radioForm').addEventListener('submit', function (event) {
+    event.preventDefault();
+   
+    if (redirectUrl !== "") {
+      window.location.href = redirectUrl;
+    }
+  });
+
+</script>
+
+
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "preferences/breadcrumbs/customer-view/phone-number-singular.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+<!-- <div id="nationality-hint" class="govuk-hint">
+  This is a page filled with address and residency information on the citizen.
+</div> -->
+
+<div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          
+              <h1 class="govuk-fieldset__heading">
+                Confirm your changes
+              </h1>
+            </legend>
+          </fieldset>
+
+          {%- from "govuk/components/tag/macro.njk" import govukTag -%}
+
+          <table class="govuk-table">
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">New mobile phone number</th>
+                <td class="govuk-table__cell">
+                  07815 701 922
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          {% from "govuk/components/button/macro.njk" import govukButton %}
+
+          <div class="govuk-button-group">
+              {{ govukButton({
+                  text: "Confirm",
+                  href: "/preferences/customer-view/phone-number/updated-phone-number.html",
+                  preventDoubleClick: true
+                  }) }}
+
+                  <p class="govuk-body">
+                    <a href="/preferences/customer-view/phone-number/abandon-journey.html" class="govuk-link">Cancel</a>
+                  </p>
+        
+        
+              <!-- <a class="govuk-link" href="/round-1/1f/abandon-journey.html">Cancel</a> -->
+            </div>
+
+{% endblock %}
