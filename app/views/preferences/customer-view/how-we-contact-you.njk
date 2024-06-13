@@ -26,16 +26,25 @@
         <div class="govuk-summary-card">
           <div class="govuk-summary-card__title-wrapper">
             <h2 class="govuk-summary-card__title">
-              How we contact you
+              Contact preferences
             </h2>
           </div>
           <div class="govuk-summary-card__content">
             <dl class="govuk-summary-list">
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
+                  Preferred language
+                </dt>
+                <p>English</p>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="language/language-selection">Change<span class="govuk-visually-hidden"> change your preferred language</span></a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
                   How we speak to you
                 </dt>
-                <dd class="govuk-summary-list__value" id="mainHowWeConnectDiv" name="mainHowWeConnectDiv">
+                  <p>I do not have a preference</p>
                   <dd class="govuk-summary-list__actions">
                     <a class="govuk-link" href="/preferences/customer-view/contact-preferences/how-we-speak-to-you/speaking-selection">
                       Change<span class="govuk-visually-hidden">When we speak to you</span>
@@ -46,23 +55,10 @@
                 <dt class="govuk-summary-list__key">
                   How we write to you
                 </dt>
-                <dd class="govuk-summary-list__value" id="mainHowWeWriteDiv" name="mainHowWeWriteDiv">
-                </dd>
+                <p>I do not have a preference</p>
                 <dd class="govuk-summary-list__actions">
                   <a class="govuk-link" href="/preferences/customer-view/contact-preferences/how-we-write-to-you/writing-selection">
                     Change<span class="govuk-visually-hidden">change how we write to you </span>
-                  </a>
-                </dd>
-              </div>
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Alternative formats
-                </dt>
-                <dd class="govuk-summary-list__value" id="mainHowWeWriteDiv" name="mainHowWeWriteDiv">
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="/preferences/customer-view/alternative-formats/when-we-write-to-you/how-should-we-write-to-you">
-                    Change<span class="govuk-visually-hidden">change your alternative formats </span>
                   </a>
                 </dd>
               </div>
@@ -78,15 +74,6 @@
           </div>
           <div class="govuk-summary-card__content">
             <dl class="govuk-summary-list">
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Language
-                </dt>
-                <p>English</p>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="language/language-selection">Change<span class="govuk-visually-hidden"> change your preferred language</span></a>
-                </dd>
-              </div>
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
                   Address we send letters to
@@ -144,6 +131,43 @@
                       <a class="govuk-link" href="landline-number/landline-number-list">Change<span class="govuk-visually-hidden"> change landline phone number</span></a>
                     </li>
                   </ul>
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+
+
+
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Alternative formats
+            </h2>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  When we speak to you
+                </dt>
+                <dd class="govuk-summary-list__value" id="mainHowWeConnectDiv" name="mainHowWeConnectDiv">
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="/preferences/customer-view/alternative-formats/when-we-speak-to-you/how-should-we-contact-you-if-we-need-to-speak-to-you">
+                    Change<span class="govuk-visually-hidden">When we speak to you</span>
+                  </a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  When we write to you
+                </dt>
+                <dd class="govuk-summary-list__value" id="mainHowWeWriteDiv" name="mainHowWeWriteDiv">
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="/preferences/customer-view/alternative-formats/when-we-write-to-you/how-should-we-write-to-you">
+                    Change<span class="govuk-visually-hidden">How we write to you </span>
+                  </a>
                 </dd>
               </div>
             </dl>
@@ -228,7 +252,7 @@
 
         mainHowWeConnectDiv.innerHTML = `<p class='govuk-body'>${howWeConnectArrary[0]}</p>${list}`;
       } else {
-        mainHowWeConnectDiv.innerHTML =  "<p>I do not have a preference</p>";
+        mainHowWeConnectDiv.innerHTML =  "<p>I do not need an alternative format</p>";
       }
   }
 
@@ -253,7 +277,7 @@
 
         mainHowWeWriteDiv.innerHTML = `<p class='govuk-body'>${howWeWriteArrary[0]}</p>${list}`;
       } else {
-        mainHowWeWriteDiv.innerHTML =  "<p>I do not have a preference</p>";
+        mainHowWeWriteDiv.innerHTML =  "<p>I do not need an alternative format</p>";
       }
   }
 
