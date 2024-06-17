@@ -25,15 +25,6 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
         We usually contact you by phone if we need to speak to you. Select the best option for your needs.
       </div>
       <div class="govuk-radios" data-module="govuk-radios">
-        <div class="govuk-radios__item" onclick="set('not-needed')">
-          <input class="govuk-radios__input" id="spoken-options" name="spoken-options" type="radio"
-            value="I do not need an alternative format">
-          <label class="govuk-label govuk-radios__label" for="spoken-options">
-            I do not need an alternative format
-          </label>
-        </div>
-
-        <div class="govuk-radios__divider">or</div>
 
         <div class="govuk-radios__item" onclick="set('textphone')">
           <input class="govuk-radios__input" id="spoken-options-3" name="spoken-options" type="radio" value="Textphone for the hard of hearing">
@@ -48,6 +39,16 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
           <input class="govuk-radios__input" id="spoken-options-4" name="spoken-options" type="radio" value="Signing or lipspeaking">
           <label class="govuk-label govuk-radios__label" for="spoken-options-4">
             Signing or lipspeaking
+          </label>
+        </div>
+
+        <div class="govuk-radios__divider">or</div>
+
+        <div class="govuk-radios__item" onclick="set('not-needed')">
+          <input class="govuk-radios__input" id="spoken-options" name="spoken-options" type="radio"
+            value="I do not need an alternative format">
+          <label class="govuk-label govuk-radios__label" for="spoken-options">
+            I do not need an alternative format
           </label>
         </div>
 
