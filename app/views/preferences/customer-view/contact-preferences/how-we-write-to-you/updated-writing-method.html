@@ -6,7 +6,7 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
 
 {% block beforeContent %}
 
-{% include "preferences/breadcrumbs/customer-view/preferred-contact-method.html" %}
+{% include "preferences/breadcrumbs/customer-view/how-we-write-to-you.html" %}
 
 {% endblock %}
 
@@ -62,7 +62,7 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
 
     {% from "govuk/components/button/macro.njk" import govukButton %}
 
-    <form id="emailForm" action="../how-we-contact-you.njk" method="POST">
+    <form id="emailForm" action="../../how-we-contact-you.njk" method="POST">
       <input type="hidden" name="email" id="emailInput"
         value="emailaddress@email.com">
       <div class="govuk-button-group">
@@ -74,7 +74,7 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
         event.preventDefault();
         var email = document.getElementById('emailInput').value;
         sessionStorage.setItem('email', email);
-        window.location.href = '../how-we-contact-you.njk';
+        window.location.href = '../../how-we-contact-you.njk';
       });
     </script>
   </div>
