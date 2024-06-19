@@ -1,0 +1,41 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block beforeContent %}
+
+{% include "preferences/breadcrumbs/customer-view/when-we-speak-to-you.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+<form class="form" id="radioForm">
+    <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="written-format-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                    Ask for other alternative formats
+                </h1>
+            </legend>
+
+            <div class="govuk-!-padding-bottom-4"></div>
+
+            <p>There may be other alternative formats available to you.</p>
+            <p>To find out what other formats are available, contact your benefit offices.</p>
+            <p>They will try to find an alternative format that meets your needs.</p>
+
+            <p class="govuk-body">
+                <a href="../../how-we-contact-you.njk" class="govuk-link">Back</a>
+              </p>
+        
+          
+        </fieldset>
+    </div>
+
+</form>
+
+{% endblock %}

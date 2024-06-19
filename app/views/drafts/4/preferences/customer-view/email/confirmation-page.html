@@ -1,0 +1,67 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "preferences/breadcrumbs/customer-view/email.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+
+
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+            Application complete
+          </h1>
+          <div class="govuk-panel__body">
+            Your reference number<br><strong>HDJ2123F</strong>
+          </div>
+        </div>
+        <p class="govuk-body">We have sent you a confirmation email.</p>
+        <h2 class="govuk-heading-m">What happens next</h2>
+        <p class="govuk-body">
+          We’ve sent your application to Hackney Electoral Register Office.
+        </p>
+        <p class="govuk-body">
+          They will contact you either to confirm your registration, or to ask for more information.
+        </p>
+        <p class="govuk-body">
+          <a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)
+        </p>
+      </div>
+    </div>
+
+    <div class="govuk-!-padding-bottom-4"></div>
+
+
+
+    {% from "govuk/components/button/macro.njk" import govukButton %}
+
+    <form id="emailForm" action="../how-we-contact-you.njk" method="POST">
+      <input type="hidden" name="email" id="emailInput"
+        value="emailaddress@email.com">
+      <div class="govuk-button-group">
+        <button type="submit" class="govuk-button">Continue</button>
+      </div>
+    </form>
+    <script>
+      document.getElementById('emailForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+        var email = document.getElementById('emailInput').value;
+        sessionStorage.setItem('email', email);
+        window.location.href = '../how-we-contact-you.njk';
+      });
+    </script>
+  </div>
+
+</div>
+
+{% endblock %}
