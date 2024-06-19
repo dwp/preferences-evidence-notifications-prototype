@@ -1308,3 +1308,11 @@ router.all("/round-5/e4/remove-evidence-answer", function (req, res) {
   res.redirect("/round-5/e4/upload-summary");
 });
 
+router.post('/preferences/customer-view/contact-preferences/how-we-speak-to-you/speaking-selection', function (req, res) {
+  res.redirect('http://localhost:3000/preferences/customer-view/contact-preferences/how-we-speak-to-you/confirm-your-changes')
+})
+
+router.post('/preferences/customer-view/contact-preferences/how-we-speak-to-you/confirm-your-changes', function (req, res) {
+  req.session.data.HowWeSpeakToYouSET = req.session.data.HowWeSpeakToYou
+  res.redirect('http://localhost:3000/preferences/customer-view/contact-preferences/how-we-speak-to-you/updated-speaking-method')
+})

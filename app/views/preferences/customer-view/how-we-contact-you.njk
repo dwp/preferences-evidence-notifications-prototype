@@ -44,7 +44,11 @@
                 <dt class="govuk-summary-list__key">
                   How we speak to you
                 </dt>
-                  <p>I do not have a preference</p>
+                  {% if data.HowWeSpeakToYouSET %}
+                    <p>{{ data.HowWeSpeakToYouSET }}</p>
+                  {% else %}
+                    <p>I do not have a preference</p>
+                  {% endif %}
                   <dd class="govuk-summary-list__actions">
                     <a class="govuk-link" href="/preferences/customer-view/contact-preferences/how-we-speak-to-you/speaking-selection">
                       Change<span class="govuk-visually-hidden">When we speak to you</span>
