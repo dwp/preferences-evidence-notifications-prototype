@@ -1,0 +1,80 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block beforeContent %}
+
+{% include "preferences/breadcrumbs/customer-view/how-we-write-to-you.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-form-group">
+    <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <h1 class="govuk-fieldset__heading">
+          How should we contact you when we need to write to you?
+        </h1>
+      </legend>
+
+      <div class="govuk-radios" data-module="govuk-radios">
+
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="contactPreferences-2" name="contactPreferences" type="radio" value="email">
+          <label class="govuk-label govuk-radios__label" for="contactPreferences-2">
+            Email
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="contactPreferences-3" name="contactPreferences" type="radio" value="sms">
+          <label class="govuk-label govuk-radios__label" for="contactPreferences-3">
+            SMS
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="contactPreferences" name="contactPreferences" type="radio" value="post">
+          <label class="govuk-label govuk-radios__label" for="contactPreferences">
+            Post
+          </label>
+        </div>
+        <div class="govuk-radios__divider">or</div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="contactPreferences-4" name="contactPreferences" type="radio" value="i-do-not-have-a-contact-preference">
+          <label class="govuk-label govuk-radios__label" for="contactPreferences-4">
+            I do not have a writing preference
+          </label>
+        </div>
+        
+      </div>
+    </fieldset>
+
+    <div class="govuk-!-padding-bottom-2"></div>
+
+
+    <div class="govuk-inset-text">
+      While we will try to use the option you select here in most cases, some letters may still need to be sent by post.
+    </div>
+
+    <div class="govuk-!-padding-bottom-2"></div>
+
+    {% from "govuk/components/button/macro.njk" import govukButton %}
+
+    <div class="govuk-button-group">
+        {{ govukButton({
+            text: "Continue",
+            href: "confirm-your-changes.html",
+            preventDoubleClick: true
+            }) }}
+  
+      </div>
+
+
+  </div>
+
+{% endblock %}

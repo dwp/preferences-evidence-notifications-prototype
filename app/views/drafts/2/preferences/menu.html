@@ -1,0 +1,184 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-m">April 2024</span>
+        Preferences Baseline (customer-facing)
+      </h1>
+
+    </div>
+  </div>
+
+  <div class="govuk-!-padding-bottom-4"></div>
+
+  <h2 class="govuk-heading-m">
+    Customer view
+    </h2>
+
+    <div class="width-container govuk-!-padding-4" style="border-radius:10px; background-color:#f3f2f1">
+      <div class="govuk-!-padding-bottom-2"></div>
+
+
+<table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header app-custom-class">Name</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Description</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Status</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Action</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Baseline</th>
+      <td class="govuk-table__cell">
+
+        <p class="govuk-body">Content needed</p>
+
+
+
+
+<p class="govuk-body">For the consideration of the developers we have includes some additional screens of interest, note that they are just for reference and will have limited functionality:</p>
+
+<h3 class="govuk-heading-m">
+Additional screens to aid developers
+  </h3>
+
+<h4 class="govuk-heading-s">
+  Address we send letters to
+  </h4>
+
+  <ul class="govuk-list govuk-list--bullet">
+    <li><a href="customer-view/additional-screens/select-new-address-5-options">If a customer inputs an address with several options</a></li>
+    <li><a href="customer-view/additional-screens/address-not-found">If a customer inputs an address which cannot be found</a></li>
+    <li><a href="customer-view/additional-screens/job-centre">If a customer inputs an address which is a Job Centre</a></li>
+    <li><a href="customer-view/additional-screens/post-office">If a customer inputs an address which is a Post Office</a></li>
+    </ul>
+
+    <h4 class="govuk-heading-s">
+      Email address(es)
+      </h4>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="customer-view/additional-screens/no-email">No email on 'How we contact you' page</a></li>
+        <li><a href="customer-view/additional-screens/one-email">One email on 'How we contact you' page</a></li>
+        <li><a href="customer-view/additional-screens/two-emails">Two emails on 'How we contact you' page</a></li>
+        <li><a href="customer-view/additional-screens/three-emails">Three emails on 'How we contact you' page</a></li>
+        </ul>
+
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li><a href="customer-view/additional-screens/two-emails-list">Two email addresses on 'Remove' or 'Change' page</a></li>
+          <li><a href="customer-view/additional-screens/three-emails-list">Three email addresses on 'Remove' or 'Change' page</a></li>
+          </ul>
+
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a href="customer-view/additional-screens/enter-your-email-address">Enter your email address (0 - 1 emails registered)</a></li>
+            <li><a href="customer-view/additional-screens/adding-first-email-confirm-your-changes">Confirm your changes (0 - 1 emails registered)</a></li>
+            <li><a href="customer-view/additional-screens/first-email-updated">Changes made (0 - 1 emails registered)</a></li>
+            </ul>
+
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a href="customer-view/additional-screens/email-removed-update">Email removed update</a></li>
+            </ul>
+
+        <h4 class="govuk-heading-s">
+          Mobile phone number(s)
+          </h4>
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a href="customer-view/additional-screens/no-mobile">No mobile phone number on 'How we contact you' page</a></li>
+            <li><a href="customer-view/additional-screens/one-phone-number">One mobile phone number on 'How we contact you' page</a></li>
+            <li><a href="customer-view/additional-screens/two-phone-numbers">Two mobile phone numbers on 'How we contact you' page</a></li>
+            <li><a href="customer-view/additional-screens/three-phone-numbers">Three mobile phone numbers on 'How we contact you' page</a></li>
+            </ul>
+
+            <ul class="govuk-list govuk-list--bullet">
+              <li><a href="customer-view/additional-screens/one-phone-number-list">One mobile phone number on 'Remove' or 'Change' page</a></li>
+              <li><a href="customer-view/additional-screens/two-phone-numbers-list">Two mobile phone numbers on 'Remove' or 'Change' page</a></li>
+              <li><a href="customer-view/additional-screens/three-phone-numbers-list">Three mobile phone numbers on 'Remove' or 'Change' page</a></li>
+              </ul>
+
+              <ul class="govuk-list govuk-list--bullet">
+                <li><a href="customer-view/additional-screens/enter-your-phone-number">Enter your mobile phone number (0 - 1 emails registered)</a></li>
+                <li><a href="customer-view/additional-screens/adding-first-phone-number-confirm-your-changes">Confirm your changes (0 - 1 emails registered)</a></li>
+                <li><a href="customer-view/additional-screens/first-phone-number-updated">Changes made (0 - 1 emails registered)</a></li>
+                </ul>
+
+              <ul class="govuk-list govuk-list--bullet">
+                <li><a href="customer-view/additional-screens/phone-number-removed-update">Mobile phone number removed update</a></li>
+                </ul>
+
+            <h4 class="govuk-heading-s">
+              Landline phone number(s)
+              </h4>
+              <ul class="govuk-list govuk-list--bullet">
+                <li><a href="customer-view/additional-screens/no-landline">No landline phone number on 'How we contact you' page</a></li>
+                <li><a href="customer-view/additional-screens/one-landline-number">One landline phone number on 'How we contact you' page</a></li>
+                <li><a href="customer-view/additional-screens/two-landline-numbers">Two landline phone numbers on 'How we contact you' page</a></li>
+                <li><a href="customer-view/additional-screens/three-landline-numbers">Three landline phone numbers on 'How we contact you' page</a></li>
+                </ul>
+  
+                <ul class="govuk-list govuk-list--bullet">
+                  <li><a href="customer-view/additional-screens/one-landline-number-list">One landline phone number on 'Remove' or 'Change' page</a></li>
+                  <li><a href="customer-view/additional-screens/two-landline-numbers-list">Two landline phone numbers on 'Remove' or 'Change' page</a></li>
+                  <li><a href="customer-view/additional-screens/three-landline-numbers-list">Three landline phone numbers on 'Remove' or 'Change' page</a></li>
+                  </ul>
+
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li><a href="customer-view/additional-screens/enter-your-landline-number">Enter your landline number (0 - 1 emails registered)</a></li>
+                    <li><a href="customer-view/additional-screens/adding-first-landline-number-confirm-your-changes">Confirm your changes (0 - 1 emails registered)</a></li>
+                    <li><a href="customer-view/additional-screens/first-landline-number-updated">Changes made (0 - 1 emails registered)</a></li>
+                    </ul>
+
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li><a href="customer-view/additional-screens/landline-number-removed-update">Landline phone number removed update</a></li>
+                    </ul>
+
+
+                    <h4 class="govuk-heading-s">
+                      Alternative formats: 'How we write to you'
+                      </h4>
+                      <ul class="govuk-list govuk-list--bullet">
+                        <li><a href="customer-view/additional-screens/mp3-file-by-email">Only one email address registered for Audio (MP3 file by email)</a></li>
+                        <li><a href="customer-view/additional-screens/mpeg-file-by-email">Only one email address registered for British Sign Language video (MPEG file by email)</a></li>
+                        <li><a href="customer-view/additional-screens/microsoft-word-document">Only one email address registered for Microsoft Word document</a></li>
+                        <li><a href="customer-view/additional-screens/pdf-with-accessible-text">Only one email address registered for PDF with accessible text</a></li>
+                      
+                      </ul>
+
+
+      </td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-tag--red">
+          PENDING
+      </strong>
+    </td>
+    <td class="govuk-table__cell"><a href="customer-view/homepage.html" class="govuk-link">View</a></td>
+    </tr>
+    
+  </tbody>
+
+
+
+  
+</table>
+</div>
+
+
+
+
+{% endblock %}
