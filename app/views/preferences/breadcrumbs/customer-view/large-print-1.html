@@ -21,31 +21,10 @@
 }}
 
 
-    <!--Crumble menu-->
-    {{ govukBreadcrumbs({
-      items: [
-          {
-          text: "Home",
-          href: "homepage"
-          },
-          {
-          text: "How we contact you",
-          href: "../../how-we-contact-you"
-        },
-          {
-          text: "Alternative format",
-          href: "how-should-we-write-to-you"
-        },
-        {
-        text: "Letter with changes to font, paper colour or print size",
-        href: "font-colour-spacing-size"
-      }
-      ,
-        {
-        text: "Large print"
-      }
-      ]
-      }) }}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
 
 {% endblock %}
 

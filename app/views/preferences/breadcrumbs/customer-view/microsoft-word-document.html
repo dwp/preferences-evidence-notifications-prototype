@@ -19,27 +19,12 @@
     }
   })
 }}
-    <!--Crumble menu-->
-    {{ govukBreadcrumbs({
-      items: [
-          {
-          text: "Home",
-          href: "homepage"
-          },
-          {
-          text: "How we contact you",
-          href: "../../../how-we-contact-you"
-        },
-          {
-          text: "Alternative format",
-          href: "../how-should-we-write-to-you"
-        },
-        {
-        text: "Microsoft Word document"
-      }
-      ]
-      }) }}
 
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
 {% endblock %}
 
 

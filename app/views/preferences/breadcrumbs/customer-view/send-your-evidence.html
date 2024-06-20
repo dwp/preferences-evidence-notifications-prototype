@@ -20,18 +20,10 @@
   })
 }}
 
-    <!--Crumble menu-->
-    {{ govukBreadcrumbs({
-      items: [
-          {
-          text: "Home",
-          href: "../homepage"
-          },
-          {
-          text: "Send your evidence"
-        }
-      ]
-      }) }}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
 
 {% endblock %}
 
