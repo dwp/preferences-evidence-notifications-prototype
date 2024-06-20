@@ -1,0 +1,43 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "preferences/breadcrumbs/customer-view/how-we-write-to-you.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <form action="/preferences/customer-view/language/language-selection" method="post" novalidate>
+    {{ govukRadios({
+      name: "SelectLanguage",
+      fieldset: {
+        legend: {
+          text: "Which language should we write to you in?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+    },
+    items: [
+      {
+        value: "English",
+        text: "English"
+      },
+      {
+        value: "Welsh",
+        text: "Welsh"
+      }
+    ]
+    })  
+  }}
+
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+  </form>
+
+{% endblock %}

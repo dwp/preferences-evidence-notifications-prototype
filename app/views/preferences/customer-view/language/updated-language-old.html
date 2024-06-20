@@ -6,7 +6,7 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
 
 {% block beforeContent %}
 
-{% include "preferences/breadcrumbs/customer-view/how-we-write-to-you.html" %}
+{% include "preferences/breadcrumbs/customer-view/preferred-language.html" %}
 
 {% endblock %}
 
@@ -26,12 +26,11 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
       </div>
       <div class="govuk-notification-banner__content">
         <h3 class="govuk-notification-banner__heading">
-          How we write to you update complete
+          Language update complete
         </h3>
-        <p class="govuk-body">You have successfully changed how we write to you.</p>
+        <p class="govuk-body">You have successfully changed which language we write to you in.</p>
       </div>
     </div>
-
 
     <fieldset class="govuk-fieldset">
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
@@ -43,7 +42,6 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
     </fieldset>
 
 
-
     {%- from "govuk/components/tag/macro.njk" import govukTag -%}
 
 
@@ -52,9 +50,9 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
     <table class="govuk-table">
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">How we write to you</th>
+          <th scope="row" class="govuk-table__header">Preferred language</th>
           <td class="govuk-table__cell">
-            {{ data.HowWeWriteToYouSET }}
+            [selection]
           </td>
       </tbody>
     </table>
@@ -64,20 +62,19 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
 
     {% from "govuk/components/button/macro.njk" import govukButton %}
 
-    <form id="emailForm" action="../../how-we-contact-you.njk" method="POST">
+    <form id="emailForm" action="../how-we-contact-you.njk" method="POST">
       <input type="hidden" name="email" id="emailInput"
         value="emailaddress@email.com">
       <div class="govuk-button-group">
         <button type="submit" class="govuk-button">Continue</button>
       </div>
     </form>
-
     <script>
       document.getElementById('emailForm').addEventListener('submit', function (event) {
         event.preventDefault();
         var email = document.getElementById('emailInput').value;
         sessionStorage.setItem('email', email);
-        window.location.href = '../../how-we-contact-you.njk';
+        window.location.href = '../how-we-contact-you.njk';
       });
     </script>
   </div>

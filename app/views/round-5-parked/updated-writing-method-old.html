@@ -32,7 +32,6 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
       </div>
     </div>
 
-
     <fieldset class="govuk-fieldset">
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
 
@@ -43,7 +42,6 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
     </fieldset>
 
 
-
     {%- from "govuk/components/tag/macro.njk" import govukTag -%}
 
 
@@ -52,9 +50,9 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
     <table class="govuk-table">
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">How we write to you</th>
+          <th scope="row" class="govuk-table__header">How we speak to you</th>
           <td class="govuk-table__cell">
-            {{ data.HowWeWriteToYouSET }}
+            [selection]
           </td>
       </tbody>
     </table>
@@ -71,7 +69,6 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
         <button type="submit" class="govuk-button">Continue</button>
       </div>
     </form>
-
     <script>
       document.getElementById('emailForm').addEventListener('submit', function (event) {
         event.preventDefault();
