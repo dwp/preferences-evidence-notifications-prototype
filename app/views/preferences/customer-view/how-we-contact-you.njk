@@ -35,10 +35,16 @@
                 <dt class="govuk-summary-list__key">
                   Preferred language
                 </dt>
-                <p>English</p>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="language/language-selection">Change<span class="govuk-visually-hidden"> change your preferred language</span></a>
-                </dd>
+                  {% if data.SelectLanguageSET %}
+                    <p>{{ data.SelectLanguageSET }}</p>
+                  {% else %}
+                    <p>English</p>
+                  {% endif %}
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="/preferences/customer-view/language/language-selection">
+                      Change<span class="govuk-visually-hidden">When we speak to you</span>
+                    </a>
+                  </dd>
               </div>
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
@@ -51,7 +57,7 @@
                   {% endif %}
                   <dd class="govuk-summary-list__actions">
                     <a class="govuk-link" href="/preferences/customer-view/contact-preferences/how-we-speak-to-you/speaking-selection">
-                      Change<span class="govuk-visually-hidden">When we speak to you</span>
+                      Change<span class="govuk-visually-hidden">How we speak to you</span>
                     </a>
                   </dd>
               </div>
@@ -59,12 +65,16 @@
                 <dt class="govuk-summary-list__key">
                   How we write to you
                 </dt>
-                <p>I do not have a preference</p>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="/preferences/customer-view/contact-preferences/how-we-write-to-you/writing-selection">
-                    Change<span class="govuk-visually-hidden">change how we write to you </span>
-                  </a>
-                </dd>
+                  {% if data.HowWeWriteToYouSET %}
+                    <p>{{ data.HowWeWriteToYouSET }}</p>
+                  {% else %}
+                    <p>I do not have a preference</p>
+                  {% endif %}
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="/preferences/customer-view/contact-preferences/how-we-write-to-you/writing-selection">
+                      Change<span class="govuk-visually-hidden">How we write to you</span>
+                    </a>
+                  </dd>
               </div>
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
@@ -74,7 +84,7 @@
                 </dd>
                 <dd class="govuk-summary-list__actions">
                   <a class="govuk-link" href="/preferences/customer-view/alternative-formats/when-we-write-to-you/how-should-we-write-to-you">
-                    Change<span class="govuk-visually-hidden">How we write to you </span>
+                    Change<span class="govuk-visually-hidden">Choose an alternative format </span>
                   </a>
                 </dd>
               </div>
@@ -260,6 +270,8 @@
         mainHowWeWriteDiv.innerHTML =  "<p>I do not need an alternative format</p>";
       }
   }
+
+  
 
 </script>
 

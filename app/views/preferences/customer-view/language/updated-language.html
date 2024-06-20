@@ -28,9 +28,10 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
         <h3 class="govuk-notification-banner__heading">
           Language update complete
         </h3>
-        <p class="govuk-body">You have successfully changed which language we write to you in.</p>
+        <p class="govuk-body">You have successfully changed which language we contact you with.</p>
       </div>
     </div>
+
 
     <fieldset class="govuk-fieldset">
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
@@ -40,6 +41,7 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
         </h1>
       </legend>
     </fieldset>
+
 
 
     {%- from "govuk/components/tag/macro.njk" import govukTag -%}
@@ -52,7 +54,7 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">Preferred language</th>
           <td class="govuk-table__cell">
-            [selection]
+            {{ data.SelectLanguageSET }}
           </td>
       </tbody>
     </table>
@@ -69,6 +71,7 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
         <button type="submit" class="govuk-button">Continue</button>
       </div>
     </form>
+
     <script>
       document.getElementById('emailForm').addEventListener('submit', function (event) {
         event.preventDefault();

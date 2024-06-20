@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {% include "preferences/breadcrumbs/customer-view/how-we-speak-to-you.html" %}
+  {% include "preferences/breadcrumbs/customer-view/how-we-write-to-you.html" %}
 {% endblock %}
 
 {% block content %}
@@ -22,18 +22,18 @@
     </legend>
   </fieldset>
 
-<form action="/preferences/customer-view/contact-preferences/how-we-speak-to-you/confirm-your-changes" method="post" novalidate>
+<form action="/preferences/customer-view/contact-preferences/how-we-write-to-you/confirm-your-changes" method="post" novalidate>
 {{ govukTable({
-  name: "HowWeSpeakToYouSET",
+  name: "HowWeWriteToYouSET",
   captionClasses: "govuk-table__caption--m",
   firstCellIsHeader: true,
   rows: [
     [
       {
-        text: "How we speak to you"
+        text: "How we write to you"
       },
       {
-        text: data.HowWeSpeakToYou
+        text: data.HowWeWriteToYou
       }
     ]
   ]
