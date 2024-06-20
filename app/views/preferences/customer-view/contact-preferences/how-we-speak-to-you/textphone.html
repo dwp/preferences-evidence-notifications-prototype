@@ -7,7 +7,7 @@
 
 {% block beforeContent %}
 
-{% include "preferences/breadcrumbs/customer-view/how-we-speak-to-you.html" %}
+{% include "preferences/breadcrumbs/customer-view/textphone.html" %}
 
 {% endblock %}
 
@@ -37,9 +37,9 @@
       sessionStorage.setItem('howWeConnect', `Textphone for the hard of hearing<br>${element.value}`);
 
       if (document.getElementById("textphone-number").value && document.getElementById("textphone-number").value ) {
-        window.location.href = "/preferences/customer-view/alternative-formats/when-we-speak-to-you/confirm-your-changes.html"
+        window.location.href = "/preferences/customer-view/contact-preferences/how-we-speak-to-you/confirm-your-changes.html"
       } else {
-        window.location.href = "/preferences/customer-view/alternative-formats/when-we-speak-to-you/error/textphone.html"
+        window.location.href = "/preferences/customer-view/contact-preferences/how-we-speak-to-you/error/textphone.html"
       }
 
     }

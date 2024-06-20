@@ -21,22 +21,10 @@
 }}
 
 
-    <!--Crumble menu-->
-    {{ govukBreadcrumbs({
-      items: [
-          {
-          text: "Home",
-          href: "../homepage"
-          },
-          {
-          text: "How we contact you",
-          href: "../how-we-contact-you"
-        },
-          {
-          text: "Address we send letters to"
-        }
-      ]
-      }) }}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
 
 {% endblock %}
 

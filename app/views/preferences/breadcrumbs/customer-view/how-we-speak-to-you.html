@@ -20,22 +20,10 @@
   })
 }}
 
-    <!--Crumble menu-->
-    {{ govukBreadcrumbs({
-      items: [
-          {
-          text: "Home",
-          href: "../../homepage"
-          },
-          {
-          text: "How we contact you",
-          href: "../../how-we-contact-you"
-        },
-          {
-          text: "How we speak to you"
-          }
-      ]
-      }) }}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
 
 {% endblock %}
 
