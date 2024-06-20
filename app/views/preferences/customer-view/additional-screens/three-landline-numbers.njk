@@ -26,6 +26,75 @@
         <div class="govuk-summary-card">
           <div class="govuk-summary-card__title-wrapper">
             <h2 class="govuk-summary-card__title">
+              Contact preferences
+            </h2>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Preferred language
+                </dt>
+                  {% if data.SelectLanguageSET %}
+                    <p>{{ data.SelectLanguageSET }}</p>
+                  {% else %}
+                    <p>English</p>
+                  {% endif %}
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="/preferences/customer-view/language/language-selection">
+                      Change<span class="govuk-visually-hidden">When we speak to you</span>
+                    </a>
+                  </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  How we speak to you
+                </dt>
+                  {% if data.HowWeSpeakToYouSET %}
+                    <p>{{ data.HowWeSpeakToYouSET }}</p>
+                  {% else %}
+                    <p>I do not have a preference</p>
+                  {% endif %}
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="/preferences/customer-view/contact-preferences/how-we-speak-to-you/speaking-selection">
+                      Change<span class="govuk-visually-hidden">How we speak to you</span>
+                    </a>
+                  </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  How we write to you
+                </dt>
+                  {% if data.HowWeWriteToYouSET %}
+                    <p>{{ data.HowWeWriteToYouSET }}</p>
+                  {% else %}
+                    <p>I do not have a preference</p>
+                  {% endif %}
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="/preferences/customer-view/contact-preferences/how-we-write-to-you/writing-selection">
+                      Change<span class="govuk-visually-hidden">How we write to you</span>
+                    </a>
+                  </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Alternative formats
+                </dt>
+                <dd class="govuk-summary-list__value" id="mainHowWeWriteDiv" name="mainHowWeWriteDiv">
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="/preferences/customer-view/alternative-formats/when-we-write-to-you/how-should-we-write-to-you">
+                    Change<span class="govuk-visually-hidden">Choose an alternative format </span>
+                  </a>
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
               Contact details
             </h2>
           </div>
@@ -74,7 +143,7 @@
               </div>
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                  Landline numbers
+                  Landline number
                 </dt>
                 <dd class="govuk-summary-list__value">
                   <p class="govuk-body" id="mainLandlineDiv" name="mainLandlineDiv"></p>
@@ -83,6 +152,9 @@
                 </dd>
                 <dd class="govuk-summary-list__actions">
                   <ul class="govuk-summary-list__actions-list">
+                    <li class="govuk-summary-list__actions-list-item">
+                      <a class="govuk-link" href="#">Add<span class="govuk-visually-hidden"> add landline phone number</span></a>
+                    </li>
                     <li class="govuk-summary-list__actions-list-item">
                       <a class="govuk-link" href="landline-number/landline-number-list">Change<span class="govuk-visually-hidden"> change landline phone number</span></a>
                     </li>
@@ -94,53 +166,14 @@
         </div>
 
 
-        <div class="govuk-summary-card">
-          <div class="govuk-summary-card__title-wrapper">
-            <h2 class="govuk-summary-card__title">
-              Alternative formats
-            </h2>
-          </div>
-          <div class="govuk-summary-card__content">
-            <dl class="govuk-summary-list">
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  How we speak to you
-                </dt>
-                <dd class="govuk-summary-list__value" id="mainHowWeConnectDiv" name="mainHowWeConnectDiv">
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="/preferences/customer-view/alternative-formats/when-we-speak-to-you/how-should-we-contact-you-if-we-need-to-speak-to-you">
-                    Change<span class="govuk-visually-hidden">When we speak to you</span>
-                  </a>
-                </dd>
-              </div>
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  How we write to you
-                </dt>
-                <dd class="govuk-summary-list__value" id="mainHowWeWriteDiv" name="mainHowWeWriteDiv">
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="/preferences/customer-view/alternative-formats/when-we-write-to-you/how-should-we-write-to-you">
-                    Change<span class="govuk-visually-hidden">How we write to you </span>
-                  </a>
-                </dd>
-              </div>
-            </dl>
-          </div>
-        </div>
 
-    <div class="govuk-button-group">
-      {{ govukButton({
-        text: "Return to home",
-        href: "/preferences/customer-view/homepage.html"
-      }) }}
-    </div>
 </div>
 
 
 
 
 <script>
+
   var address = sessionStorage.getItem('address');
 
   var newAddressDiv = document.getElementById('newAddressDiv');
@@ -234,6 +267,9 @@
         mainHowWeWriteDiv.innerHTML =  "<p>I do not need an alternative format</p>";
       }
   }
+
+  
+
 </script>
 
 {% endblock %}
