@@ -24,32 +24,36 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
       Our letters are usually in 12 point Arial font.
     </div>
     <div class="govuk-radios" data-module="govuk-radios">
-      <div class="govuk-radios__item" onclick="set('16-point')">
-        <input class="govuk-radios__input" id="large-print" name="large-print" type="radio" value="16 point">
+      <div class="govuk-radios__item" onclick="set('20-point')">
+        <input class="govuk-radios__input" id="large-print" name="large-print" type="radio" value="20 point">
         <label class="govuk-label govuk-radios__label" for="large-print">
-          Large (16 point)
+          20 point
         </label>
       </div>
-      <div class="govuk-radios__item" onclick="set('18-point')">
-        <input class="govuk-radios__input" id="large-print-2" name="large-print" type="radio" value="18 point">
+      <div class="govuk-radios__item" onclick="set('22-point')">
+        <input class="govuk-radios__input" id="large-print-2" name="large-print" type="radio" value="22 point">
         <label class="govuk-label govuk-radios__label" for="large-print-2">
-          Extra large (18 point)
+          22 point
         </label>
       </div>
-      <div class="govuk-radios__item" onclick="set('26-point')">
-        <input class="govuk-radios__input" id="large-print-3" name="large-print" type="radio" value="26 point">
+      <div class="govuk-radios__item" onclick="set('24-point')">
+        <input class="govuk-radios__input" id="large-print-3" name="large-print" type="radio" value="24 point">
         <label class="govuk-label govuk-radios__label" for="large-print-3">
-          Giant (26 point)
+          24 point
         </label>
       </div>
-      <div class="govuk-radios__divider">or</div>
-
-      <div class="govuk-radios__item" onclick="set('i-need-a-different-print-size')">
-          <input class="govuk-radios__input" id="large-print-4" name="large-print" type="radio" value="I need a different print size">
+      <div class="govuk-radios__item" onclick="set('28-point')">
+          <input class="govuk-radios__input" id="large-print-4" name="large-print" type="radio" value="28 point">
           <label class="govuk-label govuk-radios__label" for="large-print-4">
-            I need a different print size
+           28 point
           </label>
       </div>
+      <div class="govuk-radios__item" onclick="set('36-point')">
+        <input class="govuk-radios__input" id="large-print-5" name="large-print" type="radio" value="36 point">
+        <label class="govuk-label govuk-radios__label" for="large-print-5">
+         36 point
+        </label>
+    </div>
   </fieldset>
   <div class="govuk-!-padding-bottom-6"></div>
   <button type="submit" class="govuk-button" data-module="govuk-button">
@@ -69,14 +73,16 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
 
       howWeWriteArrary.shift();
 
-      if (inputValue === "16-point") {
-        howWeWriteArrary.push('Large (16 point)');
-      } else if (inputValue === "18-point") {
-        howWeWriteArrary.push('Extra large (18 point)');
-      } else if (inputValue === "18-point") {
-        howWeWriteArrary.push('Giant (26 point)');
+      if (inputValue === "20-point") {
+        howWeWriteArrary.push('20 point');
+      } else if (inputValue === "22-point") {
+        howWeWriteArrary.push('22 point');
+      } else if (inputValue === "24-point") {
+        howWeWriteArrary.push('24 point');
+      } else if (inputValue === "28-point") {
+        howWeWriteArrary.push('28 point');
       } else {
-        howWeWriteArrary.push('I need a different print size');
+        howWeWriteArrary.push('36 point');
       }
     }
 
