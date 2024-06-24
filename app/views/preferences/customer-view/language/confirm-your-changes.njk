@@ -22,6 +22,9 @@
     </legend>
   </fieldset>
 
+
+  
+
 <form action="/preferences/customer-view/language/confirm-your-changes" method="post" novalidate>
 {{ govukTable({
   name: "SelectLanguageSET",
@@ -39,9 +42,20 @@
   ]
 }) }}
 
+
+
+<div class="govuk-button-group">
   {{ govukButton({
     text: "Continue"
   }) }}
+
+  <p class="govuk-body">
+    <a href="/preferences/customer-view/language/abandon-journey.html" class="govuk-link">Cancel</a>
+  </p>
+
+</div>
+  
+  
 </form>
 
 </div>
