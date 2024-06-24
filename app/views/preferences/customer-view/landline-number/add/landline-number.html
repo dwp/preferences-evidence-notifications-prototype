@@ -6,7 +6,7 @@
 
 {% block beforeContent %}
 
-{% include "preferences/breadcrumbs/customer-view/phone-number.html" %}
+{% include "preferences/breadcrumbs/customer-view/landline-number-singular.html" %}
 
 {% endblock %}
 
@@ -25,7 +25,7 @@
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             
                 <h1 class="govuk-fieldset__heading">
-                  Enter your new mobile phone number
+                  Enter your landline phone number
                 </h1>
               </legend>
             </fieldset>
@@ -39,10 +39,10 @@
 
             {{ govukInput({
               label: {
-                text: "Telephone number"
+                text: "Landline number"
               },
-              id: "telephone-number",
-              name: "telephoneNumber",
+              id: "landline",
+              name: "landlineNumber",
               type: "tel",
               autocomplete: "tel",
               classes: "govuk-input--width-20"
@@ -60,10 +60,10 @@
     function check3() {
       console.log(document.getElementById("yes"))
 
-      if (document.getElementById("telephone-number").value && document.getElementById("telephone-number").value ) {
-        window.location.href = "/preferences/customer-view/phone-number/confirm-your-changes.html"
+      if (document.getElementById("landline").value && document.getElementById("landline").value ) {
+        window.location.href = "/preferences/customer-view/landline-number/add/confirm-your-changes.html"
       } else {
-        window.location.href = "/preferences/customer-view/phone-number/error/phone-number.html"
+        window.location.href = "/preferences/customer-view/landline-number/error/landline-number.html"
       }
 
     }
