@@ -44,7 +44,7 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
 
     {% from "govuk/components/button/macro.njk" import govukButton %}
 
-    <form id="phoneForm" action="../how-we-contact-you.njk" method="POST">
+    <form id="phoneForm" action="../../how-we-contact-you.njk" method="POST">
       <input type="hidden" name="phone" id="phoneInput"
         value="07815 701 922">
       <div class="govuk-button-group">
@@ -56,7 +56,7 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
         event.preventDefault();
         var phone = document.getElementById('phoneInput').value;
         sessionStorage.setItem('phone', phone);
-        window.location.href = '../how-we-contact-you.njk';
+        window.location.href = '../../how-we-contact-you.njk';
       });
     </script>
   </div>
