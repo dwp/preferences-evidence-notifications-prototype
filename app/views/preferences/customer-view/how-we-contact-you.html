@@ -18,7 +18,7 @@
 
     <div class="govuk-grid-row">
       
-      <div class="govuk-grid-column-two-thirds-from-desktop">
+      <div class="govuk-grid-column-two-thirds">
 
 
         <h2 class="govuk-heading-l">How we contact you</h2>
@@ -50,13 +50,11 @@
                 <dt class="govuk-summary-list__key">
                   How we speak to you
                 </dt>
-                <p>{{ data['HowWeSpeakToYou'] }} </p>
-                  {% if data.HowWeSpeakToYou ===  "Textphone for the deaf and hard of hearing" %}   
+                <p>{{ data['HowWeSpeakToYouConfirmed'] }} </p>
+                  {% if data.HowWeSpeakToYouConfirmed ===  "Textphone for the deaf and hard of hearing" %}   
                     <ul class="govuk-list govuk-list--bullet">
                       <li>{{ data['textphoneNumber2'] }}</li>
                     </ul>
-                  {% else %}
-                    <p>I do not have a preference</p>
                   {% endif %}
                   <dd class="govuk-summary-list__actions">
                     <a class="govuk-link" href="/preferences/customer-view/contact-preferences/how-we-speak-to-you/speaking-selection">

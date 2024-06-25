@@ -1330,8 +1330,8 @@ router.post('/preferences/customer-view/contact-preferences/how-we-speak-to-you/
   }
 })
 
-router.post('/preferences/customer-view/contact-preferences/how-we-speak-to-you/confirm-your-changes', function (req, res) {
-  req.session.data.HowWeSpeakToYouSET = req.session.data.HowWeSpeakToYou
+router.post('/preferences/customer-view/contact-preferences/how-we-speak-to-you/confirm-your-changes-answer', function (req, res) {
+  req.session.data.HowWeSpeakToYouConfirmed = req.session.data.HowWeSpeakToYou
   res.redirect('/preferences/customer-view/contact-preferences/how-we-speak-to-you/updated-speaking-method')
 })
 
