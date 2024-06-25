@@ -1318,7 +1318,16 @@ router.post('/preferences/customer-view/language/confirm-your-changes', function
 })
 
 router.post('/preferences/customer-view/contact-preferences/how-we-speak-to-you/speaking-selection', function (req, res) {
-  res.redirect('/preferences/customer-view/contact-preferences/how-we-speak-to-you/confirm-your-changes')
+  var HowWeSpeakToYou = req.session.data['HowWeSpeakToYou']
+
+  if (HowWeSpeakToYou == "Textphone for the deaf and hard of hearing")  {
+    // Send user to contact us page
+    res.redirect('textphone2');
+
+    // Check if user selected no on multi address page
+  } else {
+    res.redirect('confirm-your-changes')
+  }
 })
 
 router.post('/preferences/customer-view/contact-preferences/how-we-speak-to-you/confirm-your-changes', function (req, res) {

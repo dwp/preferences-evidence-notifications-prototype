@@ -47,17 +47,19 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
 
 
 
-    <table class="govuk-table">
-      <tbody class="govuk-table__body">
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">How we speak to you</th>
-          <td class="govuk-table__cell">
-            {{ data.HowWeSpeakToYouSET }}
-          </td>
-      </tbody>
-    </table>
-
-    <div class="govuk-!-padding-bottom-6"></div>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          How we speak to you
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <p>{{ data['HowWeSpeakToYou'] }} </p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>{{ data['textphoneNumber2'] }}</li>
+          </ul>
+        </dd>
+      </div>
+    </dl>
 
 
     {% from "govuk/components/button/macro.njk" import govukButton %}

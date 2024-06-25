@@ -1,0 +1,56 @@
+{% extends "layouts/main.html" %}
+{%- from "govuk/components/tag/macro.njk" import govukTag -%}
+
+
+{% block pageTitle %}
+Check your details before you send them
+{% endblock %}
+
+{% block beforeContent %}
+
+  {% include "preferences/breadcrumbs/customer-view/how-we-speak-to-you.html" %}
+  
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+   
+    <h1 class="govuk-heading-l">Confirm your changes</h1>
+
+    <form class="form" action="./updated-speaking-method" method="post" novalidate>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              How we speak to you
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p>{{ data['HowWeSpeakToYou'] }} </p>
+
+              {% if data['HowWeSpeakToYou'] === "Textphone for the deaf and hard of hearing" %}
+              <ul class="govuk-list govuk-list--bullet">
+                <li>{{ data['textphoneNumber2'] }}</li>
+              </ul>
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="textphone2">Change<span class="govuk-visually-hidden"> textphone</span></a>
+            </dd>
+          </div>
+        </dl>
+
+      {{ govukButton({
+        text: "Confirm and send"
+      }) }}
+
+    </form>
+    
+    </div>
+  </div>
+
+{% endblock %}
+
+
