@@ -55,6 +55,8 @@
                     <ul class="govuk-list govuk-list--bullet">
                       <li>{{ data['textphoneNumber2'] }}</li>
                     </ul>
+                    {% else %}
+                    <p>I do not have a writing preference</p>
                   {% endif %}
                   <dd class="govuk-summary-list__actions">
                     <a class="govuk-link" href="/preferences/customer-view/contact-preferences/how-we-speak-to-you/speaking-selection">
