@@ -1,0 +1,117 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block beforeContent %}
+
+{% include "preferences-agent/breadcrumbs/agent-view/colour-paper.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+<form class="form" id="radioForm">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        What colour paper do you need?
+      </h1>
+    </legend>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item" onclick="set('cream')">
+        <input class="govuk-radios__input" id="colour-paper" name="colour-paper" type="radio" value="cream">
+        <label class="govuk-label govuk-radios__label" for="colour-paper">
+          Cream
+        </label>
+      </div>
+      <div class="govuk-radios__item" onclick="set('pastel-pink')">
+        <input class="govuk-radios__input" id="colour-paper-2" name="colour-paper" type="radio" value="pastel pink">
+        <label class="govuk-label govuk-radios__label" for="colour-paper-2">
+          Pastel pink
+        </label>
+      </div>
+      <div class="govuk-radios__item" onclick="set('pastel-yellow')">
+        <input class="govuk-radios__input" id="colour-paper-3" name="colour-paper" type="radio" value="pastel yellow">
+        <label class="govuk-label govuk-radios__label" for="colour-paper-3">
+          Pastel yellow
+        </label>
+      </div>
+      <div class="govuk-radios__item" onclick="set('pastel-green')">
+        <input class="govuk-radios__input" id="colour-paper-4" name="colour-paper" type="radio" value="pastel green">
+        <label class="govuk-label govuk-radios__label" for="colour-paper-4">
+          Pastel green
+        </label>
+      </div>
+      <div class="govuk-radios__item" onclick="set('light-blue')">
+        <input class="govuk-radios__input" id="colour-paper-5" name="colour-paper" type="radio" value="light blue">
+        <label class="govuk-label govuk-radios__label" for="colour-paper-5">
+          Light blue
+        </label>
+      </div>
+
+      <div class="govuk-radios__divider">or</div>
+
+      <div class="govuk-radios__item" onclick="set('i-need-a-different-colour')">
+          <input class="govuk-radios__input" id="colour-paper-6" name="colour-paper" type="radio"
+              value="I need a different colour">
+          <label class="govuk-label govuk-radios__label" for="colour-paper-6">
+            I need a different colour
+          </label>
+      </div>
+
+  </fieldset>
+  <div class="govuk-!-padding-bottom-6"></div>
+
+  
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Continue
+  </button>
+  </div>
+  </div>
+
+  <script>
+    var howWeWriteArrary=[];
+    function set(inputValue) {
+      var howWeWrite = sessionStorage.getItem('howWeWrite');
+      if (howWeWrite) {
+        howWeWriteArrary = howWeWrite.split("<br>");
+      }
+
+      howWeWriteArrary.shift();
+
+      if (inputValue === "cream") {
+        howWeWriteArrary.push('Cream')
+      } else if (inputValue === "pastel-pink") {
+        howWeWriteArrary.push('Pastel pink')
+      } else if (inputValue === "pastel-yellow") {
+        howWeWriteArrary.push('Pastel yellow')
+      } else if (inputValue === "pastel-green") {
+        howWeWriteArrary.push('Pastel green')
+      } else if (inputValue === "light-blue") {
+        howWeWriteArrary.push('Light blue')
+      } else {
+        howWeWriteArrary.push('I need a different colour')
+      }
+    }
+
+    document.getElementById('radioForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      sessionStorage.setItem('howWeWrite', `Letter with changes to paper colour or print size<br>${howWeWriteArrary.join('<br>')}`);
+
+      const redirectUrls = JSON.parse(sessionStorage.getItem('redirectUrls'));
+      if (redirectUrls.length > 0) {
+        sessionStorage.setItem('redirectUrls', JSON.stringify(redirectUrls.slice(1)))
+        window.location.href = redirectUrls[0];
+      } else {
+        window.location.href = "confirm-your-changes";
+      }
+    });
+
+  </script>
+
+
+  {% endblock %}

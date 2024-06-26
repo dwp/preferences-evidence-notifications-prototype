@@ -1,0 +1,80 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "preferences-agent/breadcrumbs/agent-view/how-we-write-to-you.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <form action="/preferences-agent/agent-view/contact-preferences-agent/how-we-write-to-you/writing-selection" method="post" novalidate>
+    {{ govukRadios({
+      name: "HowWeWriteToYou",
+      fieldset: {
+        legend: {
+          text: "How should we contact you when we need to write to you?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+    },
+    items: [
+      {
+        value: "Email",
+        text: "Email"
+      },
+      {
+        value: "SMS",
+        text: "SMS"
+      },
+      {
+        value: "Post",
+        text: "Post"
+      },
+      {
+        divider: "or"
+      },
+      {
+        value: "I do not have a writing preference",
+        text: "I do not have a writing preference"
+      }
+    ]
+    })  
+  }}
+
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+  </form>
+
+{% endblock %}
+
+
+
+
+
+<script>
+  function check() {
+    console.log('in function')
+    var radios = document.getElementsByName("UK");
+    var hasSelection = false
+    for (var i = 0, len = radios.length; i < len; i++) {
+      if (radios[i].checked) {
+        hasSelection = true;
+      }
+    }
+    if (!hasSelection) {
+      window.location.href = "/preferences-agent/agent-view/address-we-send-letters-to/error/uk-or-international.html";
+    } else {
+      if (document.getElementById("UK-yes").checked) {
+        window.location.href = "/preferences-agent/agent-view/address-we-send-letters-to/find-address.html"
+      } else {
+        window.location.href = "/preferences-agent/agent-view/address-we-send-letters-to/international/enter-address.html"
+      }
+    }
+  }
+</script>

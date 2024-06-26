@@ -1308,6 +1308,10 @@ router.all("/round-5/e4/remove-evidence-answer", function (req, res) {
   res.redirect("/round-5/e4/upload-summary");
 });
 
+
+// Preferences - customer view
+
+
 router.post('/preferences/customer-view/language/language-selection', function (req, res) {
   res.redirect('/preferences/customer-view/language/confirm-your-changes')
 })
@@ -1342,4 +1346,44 @@ router.post('/preferences/customer-view/contact-preferences/how-we-write-to-you/
 router.post('/preferences/customer-view/contact-preferences/how-we-write-to-you/confirm-your-changes', function (req, res) {
   req.session.data.HowWeWriteToYouSET = req.session.data.HowWeWriteToYou
   res.redirect('/preferences/customer-view/contact-preferences/how-we-write-to-you/updated-writing-method')
+})
+
+
+// Preferences - agent view
+
+
+router.post('/preferences-agent/agent-view/language/language-selection', function (req, res) {
+  res.redirect('/preferences-agent/agent-view/language/confirm-your-changes')
+})
+
+router.post('/preferences-agent/agent-view/language/confirm-your-changes', function (req, res) {
+  req.session.data.SelectLanguageSET = req.session.data.SelectLanguage
+  res.redirect('/preferences-agent/agent-view/language/updated-language')
+})
+
+router.post('/preferences-agent/agent-view/contact-preferences-agent/how-we-speak-to-you/speaking-selection', function (req, res) {
+  var HowWeSpeakToYou = req.session.data['HowWeSpeakToYou']
+
+  if (HowWeSpeakToYou == "Textphone for the deaf and hard of hearing")  {
+    // Send user to contact us page
+    res.redirect('textphone2');
+
+    // Check if user selected no on multi address page
+  } else {
+    res.redirect('confirm-your-changes')
+  }
+})
+
+router.post('/preferences-agent/agent-view/contact-preferences-agent/how-we-speak-to-you/confirm-your-changes-answer', function (req, res) {
+  req.session.data.HowWeSpeakToYouConfirmed = req.session.data.HowWeSpeakToYou
+  res.redirect('/preferences-agent/agent-view/contact-preferences-agent/how-we-speak-to-you/updated-speaking-method')
+})
+
+router.post('/preferences-agent/agent-view/contact-preferences-agent/how-we-write-to-you/writing-selection', function (req, res) {
+  res.redirect('/preferences-agent/agent-view/contact-preferences-agent/how-we-write-to-you/confirm-your-changes')
+})
+
+router.post('/preferences-agent/agent-view/contact-preferences-agent/how-we-write-to-you/confirm-your-changes', function (req, res) {
+  req.session.data.HowWeWriteToYouSET = req.session.data.HowWeWriteToYou
+  res.redirect('/preferences-agent/agent-view/contact-preferences-agent/how-we-write-to-you/updated-writing-method')
 })

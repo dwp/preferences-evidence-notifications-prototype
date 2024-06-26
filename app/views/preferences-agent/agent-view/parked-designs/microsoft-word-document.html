@@ -1,0 +1,64 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block beforeContent %}
+
+{% include "preferences-agent/breadcrumbs/agent-view/microsoft-word-document.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+<form class="form">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        We will send the file to your registered email
+      </h1>
+    </legend>
+    <p class="govuk-body">We will send the Microsoft Word document to this email address.</p>
+
+    <div class="govuk-inset-text">
+      <b>sarah.phillips@example.com</b>
+    </div>
+    
+  </fieldset>
+  <div class="govuk-!-padding-bottom-2"></div>
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Continue
+    </button>
+</div>
+</div>
+
+<script>
+  var redirectUrl = "";
+  function set(inputValue) {
+
+    if (inputValue === "microsoft-word-document") {
+      sessionStorage.setItem('howWeWrite', 'Microsoft Word document<br>sarah.phillips@example.com');
+      redirectUrl = "../confirm-your-changes";
+    } else if (inputValue === "microsoft-word-document-2") {
+      sessionStorage.setItem('howWeWrite', 'Microsoft Word document<br>sarah.lee@email.com');
+      redirectUrl = "../confirm-your-changes";
+    } else {
+      sessionStorage.setItem('howWeWrite', 'Microsoft Word document<br>s.lee@university.ac.uk');
+      redirectUrl = "../confirm-your-changes";
+    }
+  }
+
+  document.getElementById('radioForm').addEventListener('submit', function (event) {
+    event.preventDefault();
+   
+    if (redirectUrl !== "") {
+      window.location.href = redirectUrl;
+    }
+  });
+
+</script>
+
+
+{% endblock %}
