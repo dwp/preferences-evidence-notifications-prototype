@@ -1,0 +1,90 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "preferences-agent/breadcrumbs/agent-view/preferred-contact-method.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-error-summary" data-module="govuk-error-summary">
+  <div role="alert">
+    <h2 class="govuk-error-summary__title">
+      There is a problem
+    </h2>
+    <div class="govuk-error-summary__body">
+      <ul class="govuk-list govuk-error-summary__list">
+        <li>
+          <a href="#">Select Yes if you want to cancel this update</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-form-group govuk-form-group--error">
+      <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading">
+            Do you want to cancel this update?
+          </h1>
+        </legend>
+        <div id="contact-hint" class="govuk-hint">
+          Any changes you have made will not be saved if you select Yes.
+        </div>
+        </fieldset>
+        <p id="where-do-you-live-error" class="govuk-error-message">
+          <span class="govuk-visually-hidden">Error:</span> Select Yes if you want to cancel this update
+        </p>
+              <div class="govuk-radios govuk-radios--inline">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="yes" name="abandon" type="radio" value="true">
+                  <label class="govuk-label govuk-radios__label" for="yes">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="no" name="abandon" type="radio" value="false">
+                  <label class="govuk-label govuk-radios__label" for="no">
+                    No
+                  </label>
+                </div>
+              </div>
+              </div>
+              
+              <button class="govuk-button" value= "true" data-module="govuk-button" onclick="check()">Continue</button>
+  
+              <script>
+                function check() {
+                  console.log('in function')
+                  var radios = document.getElementsByName("abandon");
+                  var hasSelection = false
+                  for (var i = 0, len = radios.length; i < len; i++) {
+                    if (radios[i].checked) {
+                      hasSelection = true;
+                    }
+                  }
+                  if (!hasSelection) {
+                    window.location.href = "/preferences-agent/agent-view/contact-preferences-agent/error/abandon-journey.html";
+                  } else {
+                    if (document.getElementById("yes").checked) {
+                      window.location.href = "../../how-we-contact-you.njk"
+                    } else {
+                      window.location.href = "javascript:history.go(-2)"
+                    }
+                  }
+                }
+              </script>
+                </div>
+           
+    </div>
+
+
+{% endblock %}

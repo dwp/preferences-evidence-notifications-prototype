@@ -1,0 +1,66 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "preferences-agent/breadcrumbs/agent-view/phone-number.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+
+
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+            Mobile number update complete
+          </h1>
+          <div class="govuk-panel__body">
+            Your new mobile phone number is: <br><strong>07815 701 922</strong>
+          </div>
+        </div>
+
+        <div class="govuk-!-padding-bottom-4"></div>
+
+        <h2 class="govuk-heading-m">What happens next?</h2>
+        <p class="govuk-body">
+          We recommend you verify your new mobile phone number.
+        </p>
+        <p class="govuk-body">
+          We have sent a text message to your new mobile phone number with instructions on how to do this.
+        </p>
+      </div>
+    </div>
+
+    <div class="govuk-!-padding-bottom-4"></div>
+
+
+
+    {% from "govuk/components/button/macro.njk" import govukButton %}
+
+    <form id="phoneForm" action="../how-we-contact-you.njk" method="POST">
+      <input type="hidden" name="phone" id="phoneInput"
+        value="07815 701 922">
+      <div class="govuk-button-group">
+        <button type="submit" class="govuk-button govuk-button--secondary">Return to 'How we contact you'</button>
+      </div>
+    </form>
+    <script>
+      document.getElementById('phoneForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+        var phone = document.getElementById('phoneInput').value;
+        sessionStorage.setItem('phone', phone);
+        window.location.href = '../how-we-contact-you.njk';
+      });
+    </script>
+  </div>
+
+</div>
+
+{% endblock %}
