@@ -50,7 +50,7 @@
                 <dt class="govuk-summary-list__key">
                   How we speak to you
                 </dt>
-                <p>{{ data['HowWeSpeakToYouConfirmed'] }} </p>
+                <p>{{ data['HowWeSpeakToYouConfirmed'] or "I do not have a speaking preference"}} </p>
                   {% if data.HowWeSpeakToYouConfirmed ===  "Textphone for the deaf and hard of hearing" %}   
                     <ul class="govuk-list govuk-list--bullet">
                       <li>{{ data['textphoneNumber2'] }}</li>
