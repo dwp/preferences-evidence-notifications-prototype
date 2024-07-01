@@ -24,25 +24,27 @@
     <h2 class="govuk-heading-m">Pages added</h2>
 
     <dl class="govuk-summary-list">
-
+        {% for item in data.benefits %}
+        {% if item.name === data.yourBenefits %}
+        {% for item in item.files %}
       <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Page 1
+
+          <dt class="govuk-summary-list__key">
+          Page {{ loop.index }}
         </dt>
         <dd class="govuk-summary-list__value">
-          <a download href="/" class="govuk-link">Bankstatement_page1.jpg</a>
+          <a download href="/" class="govuk-link">{{item}}</a>
         </dd>
-
         <dd class="govuk-summary-list__actions">
 
           <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> file 2</span></a>
 
         </dd>
-
       </div>
-
+      {% endfor %}
+      {% endif %}
+      {% endfor %}
     </dl>
-
   </div>
 </div>
 
@@ -59,16 +61,16 @@
     <div class="govuk-radios" data-module="govuk-radios">
 
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="another" name="another" type="radio" value="yes">
-        <label class="govuk-label govuk-radios__label" for="another">
+        <input class="govuk-radios__input" id="another-yes" name="another" type="radio" value="true">
+        <label class="govuk-label govuk-radios__label" for="another-yes">
           Yes
         </label>
 
       </div>
 
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="another-2" name="another" type="radio" value="no">
-        <label class="govuk-label govuk-radios__label" for="another-2">
+        <input class="govuk-radios__input" id="another-no" name="another" type="radio" value="false">
+        <label class="govuk-label govuk-radios__label" for="another-no">
           No
         </label>
 
@@ -78,19 +80,28 @@
 
 </div>
 
-<button type="submit" class="govuk-button" data-module="govuk-button">
-  Continue
-</button>
+<button class="govuk-button" value= "true" data-module="govuk-button" onclick="check()">Continue</button>
 
-
-
-
-        </div>
-        </div>
-
-    </div>
-</div>
-
+<script>
+  function check() {
+    let yesNoRadio = document.getElementsByName("another");
+    let hasSelection = false
+    for (var i = 0; i < yesNoRadio.length; i++) {
+      if (yesNoRadio[i].checked) {
+        hasSelection = true;
+      }
+    }
+    if (!hasSelection) {
+      window.location.href = "/error/have-you-been-contacted.html";
+    } else {
+      if (document.getElementById("another-yes").checked) {
+        window.location.href = "upload-another-page"
+      } else {
+        window.location.href = "upload-summary"
+      }
+    }
+  }
+</script>
 
 
 
