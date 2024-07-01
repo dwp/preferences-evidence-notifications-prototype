@@ -1,0 +1,60 @@
+{% extends "layouts/main.html" %}
+{%- from "govuk/components/tag/macro.njk" import govukTag -%}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "preferences/breadcrumbs/customer-view/how-we-write-to-you.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        Confirm your changes
+      </h1>
+    </legend>
+  </fieldset>
+
+<form action="/preferences/customer-view/contact-preferences/how-we-write-to-you/confirm-your-changes" method="post" novalidate>
+{{ govukTable({
+  name: "HowWeWriteToYouSET",
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: true,
+  rows: [
+    [
+      {
+        text: "How we write to you"
+      },
+      {
+        text: data.HowWeWriteToYou
+      }
+    ]
+  ]
+}) }}
+  
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+  
+    <p class="govuk-body">
+      <a href="/preferences/customer-view/contact-preferences/how-we-write-to-you/abandon-journey.html" class="govuk-link">Cancel</a>
+    </p>
+  
+  </div>
+  
+</form>
+
+
+
+</div>
+</div>
+
+{% endblock %}

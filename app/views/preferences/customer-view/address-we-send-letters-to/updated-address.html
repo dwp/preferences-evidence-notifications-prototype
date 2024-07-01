@@ -61,10 +61,6 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
       </tbody>
     </table>
 
-    <div class="govuk-inset-text">
-      Some letters could already be on their way to your old address. If you do not receive a letter you were expecting, contact your benefit office. 
-      They will be able to send a copy of the letter to your new address.
-    </div>
 
     {% from "govuk/components/button/macro.njk" import govukButton %}
 
@@ -72,7 +68,7 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
       <input type="hidden" name="address" id="addressInput"
         value="58 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL">
       <div class="govuk-button-group">
-        <button type="submit" class="govuk-button">Continue</button>
+        <button type="submit" class="govuk-button govuk-button--secondary">Return to 'How we contact you'</button>
       </div>
     </form>
     <script>

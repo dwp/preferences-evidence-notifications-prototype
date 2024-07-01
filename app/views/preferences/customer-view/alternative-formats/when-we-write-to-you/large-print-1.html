@@ -36,17 +36,22 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
           Extra large (18 point)
         </label>
       </div>
-      <div class="govuk-radios__item" onclick="set('24-point')">
-        <input class="govuk-radios__input" id="large-print-3" name="large-print" type="radio" value="24 point">
+      <div class="govuk-radios__item" onclick="set('26-point')">
+        <input class="govuk-radios__input" id="large-print-3" name="large-print" type="radio" value="26 point">
         <label class="govuk-label govuk-radios__label" for="large-print-3">
-          Giant (24 point)
+          Giant (26 point)
         </label>
+      </div>
+      <div class="govuk-radios__divider">or</div>
+
+      <div class="govuk-radios__item" onclick="set('i-need-a-different-print-size')">
+          <input class="govuk-radios__input" id="large-print-4" name="large-print" type="radio" value="I need a different print size">
+          <label class="govuk-label govuk-radios__label" for="large-print-4">
+            I need a different print size
+          </label>
       </div>
   </fieldset>
   <div class="govuk-!-padding-bottom-6"></div>
-  <p class="govuk-body">
-    <a href="/preferences/customer-view/alternative-formats/when-we-write-to-you/the-format-i-need-is-not-listed-here.html" class="govuk-link">The format I need is not listed here</a>
-  </p>
   <button type="submit" class="govuk-button" data-module="govuk-button">
     Continue
   </button>
@@ -68,15 +73,17 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
         howWeWriteArrary.push('Large (16 point)');
       } else if (inputValue === "18-point") {
         howWeWriteArrary.push('Extra large (18 point)');
+      } else if (inputValue === "18-point") {
+        howWeWriteArrary.push('Giant (26 point)');
       } else {
-        howWeWriteArrary.push('Giant (24 point)');
+        howWeWriteArrary.push('I need a different print size');
       }
     }
 
     document.getElementById('radioForm').addEventListener('submit', function (event) {
       event.preventDefault();
 
-      sessionStorage.setItem('howWeWrite', `Letter with changes to font, paper colour or print size<br>${howWeWriteArrary.join('<br>')}`);
+      sessionStorage.setItem('howWeWrite', `Letter with changes to paper colour or print size<br>${howWeWriteArrary.join('<br>')}`);
 
       const redirectUrls = JSON.parse(sessionStorage.getItem('redirectUrls'));
       if (redirectUrls.length > 0) {

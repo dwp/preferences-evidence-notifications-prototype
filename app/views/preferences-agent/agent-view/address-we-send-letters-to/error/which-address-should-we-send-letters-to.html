@@ -1,0 +1,113 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "preferences-agent/breadcrumbs/agent-view/address-we-send-letters-to-error.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-error-summary" data-module="govuk-error-summary">
+  <div role="alert">
+    <h2 class="govuk-error-summary__title">
+      There is a problem
+    </h2>
+    <div class="govuk-error-summary__body">
+      <ul class="govuk-list govuk-error-summary__list">
+        <li>
+          <a href="#UK-yes">Choose your home address or a different address</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <h1 class="govuk-fieldset__heading">
+          Address we send letters to
+        </h1>
+      </legend>
+
+      <p>We may need to send you letters about your benefit. Choose an address we can send letters to.</p>
+
+      <p>This will not affect your benefit claim.</p>
+
+      <p>Our records show your home address is:</p>
+
+      <div class="govuk-inset-text">
+        72 Guild Street<br>
+        London<br>
+        SE23 6FH
+      </div>
+
+      <div class="govuk-form-group govuk-form-group--error">
+
+
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <h2 class="govuk-fieldset__heading">
+            Which address should we send letters to?
+          </h2>
+        </legend>
+        <p id="where-do-you-live-error" class="govuk-error-message">
+          <span class="govuk-visually-hidden">Error:</span> Choose your home address or a different address
+        </p>
+              <div class="govuk-radios govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="home-address" name="address" type="radio" value="true">
+                  <label class="govuk-label govuk-radios__label" for="home-address">
+                    My home address
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="different-address" name="address" type="radio" value="false">
+                  <label class="govuk-label govuk-radios__label" for="different-address">
+                    A different address
+                  </label>
+                </div>
+              </div>
+              </div>
+              
+              <div class="govuk-!-padding-bottom-4"></div>
+              <button class="govuk-button" value= "true" data-module="govuk-button" onclick="check()">Continue</button>
+
+
+<script>
+  function check() {
+    console.log('in function')
+    var radios = document.getElementsByName("address");
+    var hasSelection = false
+    for (var i = 0, len = radios.length; i < len; i++) {
+      if (radios[i].checked) {
+        hasSelection = true;
+      }
+    }
+    if (!hasSelection) {
+      window.location.href = "/preferences-agent/agent-view/address-we-send-letters-to/error/which-address-should-we-send-letters-to.html";
+    } else {
+      if (document.getElementById("different-address").checked) {
+        window.location.href = "../uk-or-international.njk"
+      } else {
+        window.location.href = "../../how-we-contact-you.html"
+      }
+    }
+  }
+</script>
+ 
+</div>
+
+
+</div>
+
+</div>
+
+{% endblock %}

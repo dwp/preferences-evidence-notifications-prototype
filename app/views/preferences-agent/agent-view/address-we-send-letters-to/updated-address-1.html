@@ -1,0 +1,98 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "preferences-agent/breadcrumbs/agent-view/address-we-send-letters-to.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <div class="govuk-notification-banner govuk-notification-banner--success" role="region"
+      aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Success
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <h3 class="govuk-notification-banner__heading">
+          Address update complete
+        </h3>
+        <p class="govuk-body">You have successfully changed the address that we send letters to.</p>
+      </div>
+    </div>
+
+    <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+
+        <h1 class="govuk-fieldset__heading">
+          Changes made
+        </h1>
+      </legend>
+    </fieldset>
+
+
+    {%- from "govuk/components/tag/macro.njk" import govukTag -%}
+
+
+
+
+    <table class="govuk-table">
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Address we send letters to</th>
+          <td class="govuk-table__cell">
+            58 Wellington House<br>
+            Windsor Street<br>
+            South Gosforth<br>
+            Newcastle upon Tyne<br>
+            NE3 1YL
+          </td>
+      </tbody>
+    </table>
+
+    <div class="govuk-!-padding-bottom-4"></div>
+
+    <h2 class="govuk-heading-m">What happens next?</h2>
+
+    <p>
+      Some letters could already be on their way to your old address. If you do not receive a letter you were expecting, contact your benefit office. 
+      They will be able to send a copy of the letter to your new address.
+    </p>
+
+    <div class="govuk-!-padding-bottom-4"></div>
+
+    {% from "govuk/components/button/macro.njk" import govukButton %}
+
+    <form id="addressForm" action="../how-we-contact-you.njk" method="POST">
+      <input type="hidden" name="address" id="addressInput"
+        value="58 Wellington House, Windsor Street, South Gosforth, Newcastle upon Tyne, NE3 1YL">
+      <div class="govuk-button-group">
+        <button type="submit" class="govuk-button govuk-button--secondary">Return to 'How we contact you'</button>
+      </div>
+    </form>
+    <script>
+      document.getElementById('addressForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+        var address = document.getElementById('addressInput').value;
+        sessionStorage.setItem('address', address);
+        window.location.href = '../how-we-contact-you.njk';
+      });
+    </script>
+  </div>
+
+</div>
+</main>
+</div>
+
+{% endblock %}

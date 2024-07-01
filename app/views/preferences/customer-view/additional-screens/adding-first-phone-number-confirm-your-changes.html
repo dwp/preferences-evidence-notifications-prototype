@@ -14,10 +14,6 @@
 
 {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 
-<!-- <div id="nationality-hint" class="govuk-hint">
-  This is a page filled with address and residency information on the citizen.
-</div> -->
-
 <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
 
@@ -48,16 +44,15 @@
           <div class="govuk-button-group">
               {{ govukButton({
                   text: "Confirm",
-                  href: "/preferences/customer-view/phone-number/updated-phone-number.html",
+                  href: "#",
                   preventDoubleClick: true
                   }) }}
 
                   <p class="govuk-body">
-                    <a href="/preferences/customer-view/phone-number/abandon-journey.html" class="govuk-link">Cancel</a>
+                    <a href="#" class="govuk-link">Cancel</a>
                   </p>
         
-        
-              <!-- <a class="govuk-link" href="/round-1/1f/abandon-journey.html">Cancel</a> -->
+      
             </div>
 
 {% endblock %}

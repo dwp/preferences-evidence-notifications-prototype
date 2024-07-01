@@ -27,10 +27,10 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
           Cream
         </label>
       </div>
-      <div class="govuk-radios__item" onclick="set('pastel-blue')">
-        <input class="govuk-radios__input" id="colour-paper-2" name="colour-paper" type="radio" value="pastel blue">
+      <div class="govuk-radios__item" onclick="set('pastel-pink')">
+        <input class="govuk-radios__input" id="colour-paper-2" name="colour-paper" type="radio" value="pastel pink">
         <label class="govuk-label govuk-radios__label" for="colour-paper-2">
-          Pastel blue
+          Pastel pink
         </label>
       </div>
       <div class="govuk-radios__item" onclick="set('pastel-yellow')">
@@ -39,17 +39,32 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
           Pastel yellow
         </label>
       </div>
-      <div class="govuk-radios__item" onclick="set('pastel-pink')">
-        <input class="govuk-radios__input" id="colour-paper-4" name="colour-paper" type="radio" value="pastel pink">
+      <div class="govuk-radios__item" onclick="set('pastel-green')">
+        <input class="govuk-radios__input" id="colour-paper-4" name="colour-paper" type="radio" value="pastel green">
         <label class="govuk-label govuk-radios__label" for="colour-paper-4">
-          Pastel pink
+          Pastel green
         </label>
       </div>
+      <div class="govuk-radios__item" onclick="set('light-blue')">
+        <input class="govuk-radios__input" id="colour-paper-5" name="colour-paper" type="radio" value="light blue">
+        <label class="govuk-label govuk-radios__label" for="colour-paper-5">
+          Light blue
+        </label>
+      </div>
+
+      <div class="govuk-radios__divider">or</div>
+
+      <div class="govuk-radios__item" onclick="set('i-need-a-different-colour')">
+          <input class="govuk-radios__input" id="colour-paper-6" name="colour-paper" type="radio"
+              value="I need a different colour">
+          <label class="govuk-label govuk-radios__label" for="colour-paper-6">
+            I need a different colour
+          </label>
+      </div>
+
   </fieldset>
   <div class="govuk-!-padding-bottom-6"></div>
-  <p class="govuk-body">
-    <a href="/preferences/customer-view/alternative-formats/when-we-write-to-you/the-format-i-need-is-not-listed-here.html" class="govuk-link">The format I need is not listed here</a>
-  </p>
+
   
   <button type="submit" class="govuk-button" data-module="govuk-button">
     Continue
@@ -69,19 +84,23 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
 
       if (inputValue === "cream") {
         howWeWriteArrary.push('Cream')
-      } else if (inputValue === "pastel-blue") {
-        howWeWriteArrary.push('Pastel blue')
+      } else if (inputValue === "pastel-pink") {
+        howWeWriteArrary.push('Pastel pink')
       } else if (inputValue === "pastel-yellow") {
         howWeWriteArrary.push('Pastel yellow')
+      } else if (inputValue === "pastel-green") {
+        howWeWriteArrary.push('Pastel green')
+      } else if (inputValue === "light-blue") {
+        howWeWriteArrary.push('Light blue')
       } else {
-        howWeWriteArrary.push('Pastel pink')
+        howWeWriteArrary.push('I need a different colour')
       }
     }
 
     document.getElementById('radioForm').addEventListener('submit', function (event) {
       event.preventDefault();
 
-      sessionStorage.setItem('howWeWrite', `Letter with changes to font, paper colour or print size<br>${howWeWriteArrary.join('<br>')}`);
+      sessionStorage.setItem('howWeWrite', `Letter with changes to paper colour or print size<br>${howWeWriteArrary.join('<br>')}`);
 
       const redirectUrls = JSON.parse(sessionStorage.getItem('redirectUrls'));
       if (redirectUrls.length > 0) {

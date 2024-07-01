@@ -1,0 +1,51 @@
+
+
+{% block pageTitle %}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
+
+{{
+  hmrcLanguageSelect({
+    language: 'en',
+    en: {
+      href: '?en'
+    },
+    cy: {
+      href: '?cy'
+    }
+  })
+}}
+
+    <!--Crumble menu-->
+    {{ govukBreadcrumbs({
+      items: [
+          {
+          text: "Home",
+          href: "homepage"
+          },
+          {
+          text: "How we contact you",
+          href: "../../how-we-contact-you"
+        },
+          {
+          text: "When we write to you",
+          href: "how-should-we-write-to-you"
+        },
+        {
+        text: "Letter with changes to font, paper colour or print size"
+      }
+      ]
+      }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+
+
+{% endblock %}

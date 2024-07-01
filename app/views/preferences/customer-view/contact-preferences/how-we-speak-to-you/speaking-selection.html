@@ -1,74 +1,63 @@
 {% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
 
 {% block pageTitle %}
-Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
-
 {% block beforeContent %}
-
-{% include "preferences/breadcrumbs/customer-view/preferred-contact-method.html" %}
-
+  {% include "preferences/breadcrumbs/customer-view/how-we-speak-to-you.html" %}
 {% endblock %}
 
 {% block content %}
 
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
+    <form action="/preferences/customer-view/contact-preferences/how-we-speak-to-you/speaking-selection" method="post" novalidate>
+      
+      {{ govukRadios({
+        name: "HowWeSpeakToYou",
+        fieldset: {
+          legend: {
+            text: "How should we contact you when we need to speak to you?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "Mobile",
+            text: "Mobile"
+          },
+          {
+            value: "Landline phone",
+            text: "Landline phone"
+          },
+          {
+            value: "Textphone for the deaf and hard of hearing",
+            text: "Textphone for the deaf and hard of hearing",
+            hint: {
+              text: "Including Relay UK."
+            }
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "I do not have a speaking preference",
+            text: "I do not have a speaking preference"
+          }
+        ]
+        })  
+      }}
 
-<div class="govuk-form-group">
-    <fieldset class="govuk-fieldset">
-      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-        <h1 class="govuk-fieldset__heading">
-          How should we contact you when we need to speak to you?
-        </h1>
-      </legend>
-
-      <div class="govuk-radios" data-module="govuk-radios">
-
-        <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="contactPreferences" name="contactPreferences" type="radio" value="mobile">
-          <label class="govuk-label govuk-radios__label" for="contactPreferences">
-            Mobile
-          </label>
-        </div>
-        <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="contactPreferences-2" name="contactPreferences" type="radio" value="landline-phone">
-          <label class="govuk-label govuk-radios__label" for="contactPreferences-2">
-            Landline phone
-          </label>
-        </div>
-        <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="contactPreferences-3" name="contactPreferences" type="radio" value="textphone-for-the-hard-of-hearing">
-          <label class="govuk-label govuk-radios__label" for="contactPreferences-3">
-            Textphone for the hard of hearing
-          </label>
-        </div>
-        <div class="govuk-radios__divider">or</div>
-        <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="contactPreferences-4" name="contactPreferences" type="radio" value="i-do-not-have-a-contact-preference">
-          <label class="govuk-label govuk-radios__label" for="contactPreferences-4">
-            I do not have a speaking preference
-          </label>
-        </div>
-        
-      </div>
-    </fieldset>
-
-    <div class="govuk-!-padding-bottom-6"></div>
-
-
-    {% from "govuk/components/button/macro.njk" import govukButton %}
-
-    <div class="govuk-button-group">
-        {{ govukButton({
-            text: "Continue",
-            href: "confirm-your-changes.html",
-            preventDoubleClick: true
-            }) }}
-  
-      </div>
-
-
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+    </form>
   </div>
+</div>
 
 {% endblock %}

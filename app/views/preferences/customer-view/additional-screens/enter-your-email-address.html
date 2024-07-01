@@ -29,7 +29,6 @@
                 </h1>
               </legend>
             </fieldset>
-            <p class="govuk-body">We will send a security code to this email address. You will need this code to verify your email.</p>
 
             {% from "govuk/components/input/macro.njk" import govukInput %}
 
@@ -55,9 +54,9 @@
     console.log(document.getElementById("yes"))
 
     if (document.getElementById("email-address").value && document.getElementById("email-address").value ) {
-      window.location.href = "email-code.html"
+      window.location.href = "#"
     } else {
-      window.location.href = "error/enter-your-new-email-address.html"
+      window.location.href = "#"
     }
 
   }

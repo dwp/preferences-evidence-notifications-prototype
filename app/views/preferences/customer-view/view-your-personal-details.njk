@@ -26,19 +26,6 @@
   href: "javascript:window.history.back()"
 }) }}
 
-    <!--Crumble menu-->
-    {{ govukBreadcrumbs({
-      items: [
-          {
-          text: "Home",
-          href: "homepage"
-          },
-          {
-          text: "View your personal details",
-          href: "#"
-          }
-      ]
-      }) }}
 
 
 {% endblock %}
@@ -108,13 +95,6 @@
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="govuk-button-group">
-      {{ govukButton({
-        text: "Return to home",
-        href: "/preferences/customer-view/homepage.html"
-      }) }}
     </div>
 </div>
 

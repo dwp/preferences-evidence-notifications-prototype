@@ -25,12 +25,10 @@
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             
                 <h1 class="govuk-fieldset__heading">
-                  Mobile phone number
+                  Enter your mobile phone number
                 </h1>
               </legend>
             </fieldset>
-
-            <p class="govuk-body">We will send a security code to this number by text. You will need this code to verify your number. </p>
 
             <div id="more-detail-hint" class="govuk-hint">
               For international numbers include the country code
@@ -65,7 +63,7 @@
       if (document.getElementById("telephone-number").value && document.getElementById("telephone-number").value ) {
         window.location.href = "/preferences/customer-view/phone-number/add/confirm-your-changes.html"
       } else {
-        window.location.href = "/preferences/customer-view/phone-number/add/error/phone-number.html"
+        window.location.href = "/preferences/customer-view/phone-number/error/phone-number.html"
       }
 
     }
