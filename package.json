@@ -11,7 +11,7 @@
     "@govuk-prototype-kit/task-list": "1.1.2",
     "@x-govuk/govuk-prototype-filters": "^1.3.0",
     "govuk-frontend": "4.7.0",
-    "govuk-prototype-kit": "13.15.0",
+    "govuk-prototype-kit": "13.16.2",
     "hmrc-frontend": "5.56.0",
     "jquery": "3.7.1"
   }
