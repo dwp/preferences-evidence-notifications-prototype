@@ -42,11 +42,19 @@ Check your details before you send them
           </div>
         </dl>
 
-      {{ govukButton({
-        text: "Confirm and send"
-      }) }}
 
-    </form>
+
+<div class="govuk-button-group">
+  {{ govukButton({
+    text: "Confirm"
+  }) }}
+
+  <p class="govuk-body">
+    <a href="/preferences-agent/agent-view/contact-preferences-agent/how-we-write-to-you/abandon-journey.html" class="govuk-link">Cancel</a>
+  </p>
+
+</form>
+</div>
     
     </div>
   </div>
