@@ -37,7 +37,7 @@
 
     <div class="govuk-grid-row">
       
-      <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-grid-column-three-quarters">
 
 
         <h2 class="govuk-heading-l">How we contact customer</h2>
@@ -65,22 +65,22 @@
                     </a>
                   </dd>
               </div>
+
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
                   How we speak to them
                 </dt>
-                <p>{{ data['HowWeSpeakToYouConfirmed'] or "They do not have a speaking preference"}} </p>
-                  {% if data.HowWeSpeakToYouConfirmed ===  "Textphone for the deaf and hard of hearing" %}   
+                <p>Textphone for the deaf and hard of hearing</p>
                     <ul class="govuk-list govuk-list--bullet">
-                      <li>{{ data['textphoneNumber2'] }}</li>
+                      <li class="govuk-body"><a href="#" class="govuk-link">02*** *** 101</a></li>
                     </ul>
-                  {% endif %}
                   <dd class="govuk-summary-list__actions">
                     <a class="govuk-link" href="/preferences-agent/agent-view/contact-preferences-agent/how-we-speak-to-you/speaking-selection">
                       Change<span class="govuk-visually-hidden">How we speak to them</span>
                     </a>
                   </dd>
               </div>
+
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
                   How we write to them
@@ -131,10 +131,12 @@
               </div>
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                  Email address
+                  Email addresses
                 </dt>
                 <dd class="govuk-summary-list__value">
                   <p class="govuk-body"><a href="#" class="govuk-link">sar***********@example.com</a></p>
+                  <p class="govuk-body"><a href="#" class="govuk-link">sar******@email.com</a></p>
+                  <p class="govuk-body"><a href="#" class="govuk-link">s.l**@university.ac.uk</a></p>
                   </dd>
                 <dd class="govuk-summary-list__actions">
                   <a class="govuk-link" href="email/email-list">Change<span class="govuk-visually-hidden"> email</span></a>
@@ -142,10 +144,11 @@
               </div>
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                  Mobile phone number
+                  Mobile phone numbers
                 </dt>
                 <dd class="govuk-summary-list__value">
                   <p class="govuk-body"><a href="#" class="govuk-link">07*** *** 457</a></p>
+                  <p class="govuk-body"><a href="#" class="govuk-link">07*** *** 982</a></p>
                 </dd>
                 <dd class="govuk-summary-list__actions">
                   <ul class="govuk-summary-list__actions-list">
