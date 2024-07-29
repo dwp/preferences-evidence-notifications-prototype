@@ -16,22 +16,46 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-  <h1 class="govuk-heading-l">Easy read</h1>
+  <h1 class="govuk-heading-l">Tell the customer about Easy Read</h1>
   <p class="govuk-body">
-  By sending the application you agree that the information you have given is complete and correct.
-  If you deliberately give the wrong or incomplete information, or you do not report any changes, you may:
+    Easy Read uses simple language and images to make information easier to understand. It is designed to help those with learning difficulties.
   </p>
-  <ul class="govuk-list govuk-list--bullet">
-  <li>be prosecuted</li>
-  <li>need to pay a financial penalty</li>
-  <li>need to pay back any money you are overpaid if you are asked to</li>
-  </ul>
+  <p>Easy Read is not normally appropriate for general communication. It should only be used if you really believe no other alternative format would be a better option.</p>
+  <p>Discuss with the customer their needs and why they want to choose Easy Read. Offer alternatives and only select Easy Read if it really is the best option for them.</p>
+  
+  
+  <div class="govuk-!-padding-bottom-2"></div>
+
+
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+        <h1 class="govuk-fieldset__heading">
+          Are you sure you want to select Easy Read?
+        </h1>
+      </legend>
+      <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
+          <label class="govuk-label govuk-radios__label" for="changedName">
+            Yes
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
+          <label class="govuk-label govuk-radios__label" for="changedName-2">
+            No
+          </label>
+        </div>
+      </div>
+    </fieldset>
+  </div>
 
   <div class="govuk-!-padding-bottom-2"></div>
   <div class="govuk-button-group">
     {{ govukButton({
-      text: "I agree",
-      href: "/preferences-agent/agent-view/alternative-formats/when-we-write-to-you/confirm-your-changes.html"
+      text: "Continue",
+      href: "#"
     }) }}
   </div>
 
