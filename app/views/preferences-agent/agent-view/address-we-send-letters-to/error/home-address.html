@@ -25,68 +25,62 @@
       <div class="govuk-error-summary__body">
         <ul class="govuk-list govuk-error-summary__list">
           <li>
-            <a href="#UK-yes">Choose your home address or a different address</a>
+            <a href="#UK-yes">xxxxxxxxxxxx</a>
           </li>
         </ul>
       </div>
     </div>
   </div>
-  
 
   <div class="govuk-form-group">
     <fieldset class="govuk-fieldset">
 
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
         <h1 class="govuk-fieldset__heading">
-          Address we send letters to
+          Do we have the right home address?
         </h1>
       </legend>
 
-      <p>We may need to send you letters about your benefit.</p>
+      <p>Our records show your home address is:</p>
 
-      <p>You can choose to have these sent to your home address or to a different address.</p>
-
-      <p>This will not affect your benefit claim. It will just let us know where you want us to send letters to.</p>
-
-      <div class="govuk-!-padding-bottom-4"></div>
+      <div class="govuk-inset-text">
+        72 Guild Street<br>
+        London<br>
+        SE23 6FH
+      </div>
 
       <div class="govuk-form-group govuk-form-group--error">
 
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
         <h2 class="govuk-fieldset__heading">
-          Which address should we send letters to?
+          Is this your home address?
         </h2>
       </legend>
 
       <p id="where-do-you-live-error" class="govuk-error-message">
-        <span class="govuk-visually-hidden">Error:</span> Choose your home address or a different address
+        <span class="govuk-visually-hidden">Error:</span> xxxxxxxxxxxxxxxxx
       </p>
 
-    <div class="govuk-radios govuk-radios">
+      <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="home-address" name="address" type="radio" value="true">
-        <label class="govuk-label govuk-radios__label" for="home-address">
-          My home address
+        <input class="govuk-radios__input" id="yes" name="address" type="radio" value="true">
+        <label class="govuk-label govuk-radios__label" for="yes">
+          Yes
         </label>
       </div>
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="different-address" name="address" type="radio" value="false">
-        <label class="govuk-label govuk-radios__label" for="different-address">
-          A different address
+        <input class="govuk-radios__input" id="no" name="address" type="radio" value="false">
+        <label class="govuk-label govuk-radios__label" for="no">
+          No
         </label>
-        <div id="different-address-hint" class="govuk-hint govuk-radios__hint">
-          For example a family or friends address, hotel or other
-        </div>
-      </div>
-
-      </div>
+      </div>  
+    </div>
 
     </div>
 
-      <div class="govuk-!-padding-bottom-4"></div>
-      <button class="govuk-button" value= "true" data-module="govuk-button" onclick="check()">Continue</button>
-  
-    </div>
+    <div class="govuk-!-padding-bottom-4"></div>
+    <button class="govuk-button" value= "true" data-module="govuk-button" onclick="check()">Continue</button>
+
     </fieldset>
   </div>
 
@@ -101,12 +95,12 @@
       }
     }
     if (!hasSelection) {
-      window.location.href = "/preferences-agent/agent-view/address-we-send-letters-to/error/which-address-should-we-send-letters-to.html";
+      window.location.href = "/preferences-agent/agent-view/address-we-send-letters-to/error/home-address-not-correct.html";
     } else {
-      if (document.getElementById("different-address").checked) {
-        window.location.href = "/preferences-agent/agent-view/address-we-send-letters-to/uk-or-international.html"
+      if (document.getElementById("no").checked) {
+        window.location.href = "/preferences-agent/agent-view/address-we-send-letters-to/home-address-not-correct.html"
       } else {
-        window.location.href = "/preferences-agent/agent-view/address-we-send-letters-to/home-address.html"
+        window.location.href = "/preferences-agent/agent-view/address-we-send-letters-to/home-address/confirm-your-changes.html"
       }
     }
   }
