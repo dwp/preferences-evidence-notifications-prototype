@@ -6,7 +6,7 @@
 
 {% block beforeContent %}
 
-{% include "preferences-agent/breadcrumbs/agent-view/address-we-send-letters-to.html" %}
+{% include "preferences/breadcrumbs/customer-view/address-we-send-letters-to.html" %}
 
 {% endblock %}
 
@@ -22,10 +22,23 @@
 
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
         <h1 class="govuk-fieldset__heading">
-          Which address should we send letters to?
+          Address we send letters to
         </h1>
       </legend>
 
+      <p>We may need to send you letters about your benefit.</p>
+
+      <p>You can choose to have these sent to your home address or to a different address.</p>
+
+      <p>This will not affect your benefit claim. It will just let us know where you want us to send letters to.</p>
+
+      <div class="govuk-!-padding-bottom-4"></div>
+
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+        <h2 class="govuk-fieldset__heading">
+          Which address should we send letters to?
+        </h2>
+      </legend>
     <div class="govuk-radios govuk-radios">
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="home-address" name="address" type="radio" value="true">
@@ -38,6 +51,9 @@
         <label class="govuk-label govuk-radios__label" for="different-address">
           A different address
         </label>
+        <div id="different-address-hint" class="govuk-hint govuk-radios__hint">
+          For example a family or friends address, hotel or other
+        </div>
       </div>
 
       <div class="govuk-!-padding-bottom-4"></div>
@@ -63,7 +79,7 @@
       if (document.getElementById("different-address").checked) {
         window.location.href = "/preferences-agent/agent-view/address-we-send-letters-to/uk-or-international.html"
       } else {
-        window.location.href = "/preferences-agent/agent-view/how-we-contact-you.html"
+        window.location.href = "/preferences-agent/agent-view/address-we-send-letters-to/home-address.html"
       }
     }
   }
