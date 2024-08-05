@@ -50,12 +50,10 @@
                 <dt class="govuk-summary-list__key">
                   How we speak to you
                 </dt>
-                <p>{{ data['HowWeSpeakToYouConfirmed'] or "I do not have a speaking preference"}} </p>
-                  {% if data.HowWeSpeakToYouConfirmed ===  "Textphone for the deaf and hard of hearing" %}   
+                <p>Textphone for the deaf and hard of hearing</p>
                     <ul class="govuk-list govuk-list--bullet">
-                      <li>{{ data['textphoneNumber2'] }}</li>
+                      <li>07123456789</li>
                     </ul>
-                  {% endif %}
                   <dd class="govuk-summary-list__actions">
                     <a class="govuk-link" href="/preferences/customer-view/contact-preferences/how-we-speak-to-you/speaking-selection">
                       Change<span class="govuk-visually-hidden">How we speak to you</span>
@@ -81,8 +79,10 @@
                 <dt class="govuk-summary-list__key">
                   Alternative formats
                 </dt>
-                <dd class="govuk-summary-list__value" id="mainHowWeWriteDiv" name="mainHowWeWriteDiv">
-                </dd>
+                <p>Textphone for the deaf and hard of hearing</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                      <li>07123456789</li>
+                    </ul>
                 <dd class="govuk-summary-list__actions">
                   <a class="govuk-link" href="/preferences/customer-view/alternative-formats/when-we-write-to-you/options">
                     Change<span class="govuk-visually-hidden">Choose an alternative format </span>
