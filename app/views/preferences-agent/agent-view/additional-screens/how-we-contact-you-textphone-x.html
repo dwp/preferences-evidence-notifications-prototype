@@ -40,7 +40,7 @@
       <div class="govuk-grid-column-three-quarters">
 
 
-        <h2 class="govuk-heading-l">How we contact customer</h2>
+        <h2 class="govuk-heading-l">How we contact you</h2>
 
         <div class="govuk-summary-card">
           <div class="govuk-summary-card__title-wrapper">
@@ -60,38 +60,33 @@
                     <p>English</p>
                   {% endif %}
                   <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="/preferences-agent/agent-view/language/language-selection">
-                      Change<span class="govuk-visually-hidden">When we speak to them</span>
+                    <a class="govuk-link" href="/preferences/customer-view/language/language-selection">
+                      Change<span class="govuk-visually-hidden">When we speak to you</span>
                     </a>
                   </dd>
               </div>
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                  How we speak to them
+                  How we speak to you
                 </dt>
-                <p>{{ data['HowWeSpeakToYouConfirmed'] or "They do not have a speaking preference"}} </p>
-                  {% if data.HowWeSpeakToYouConfirmed ===  "Textphone for the deaf and hard of hearing" %}   
-                    <ul class="govuk-list govuk-list--bullet">
-                      <li>{{ data['textphoneNumber2'] }}</li>
-                    </ul>
-                  {% endif %}
+                <p>Textphone for the deaf and hard of hearing</p>
                   <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="/preferences-agent/agent-view/contact-preferences-agent/how-we-speak-to-you/speaking-selection">
-                      Change<span class="govuk-visually-hidden">How we speak to them</span>
+                    <a class="govuk-link" href="/preferences/customer-view/contact-preferences/how-we-speak-to-you/speaking-selection">
+                      Change<span class="govuk-visually-hidden">How we speak to you</span>
                     </a>
                   </dd>
               </div>
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                  How we write to them
+                  How we write to you
                 </dt>
                   {% if data.HowWeWriteToYouSET %}
                     <p>{{ data.HowWeWriteToYouSET }}</p>
                   {% else %}
-                    <p>They do not have a writing preference</p>
+                    <p>I do not have a writing preference</p>
                   {% endif %}
                   <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="/preferences-agent/agent-view/contact-preferences-agent/how-we-write-to-you/writing-selection">
+                    <a class="govuk-link" href="/preferences/customer-view/contact-preferences/how-we-write-to-you/writing-selection">
                       Change<span class="govuk-visually-hidden">How we write to you</span>
                     </a>
                   </dd>
@@ -100,10 +95,15 @@
                 <dt class="govuk-summary-list__key">
                   Alternative formats
                 </dt>
-                <dd class="govuk-summary-list__value" id="mainHowWeWriteDiv" name="mainHowWeWriteDiv">
-                </dd>
+                <p>Letter with changes to paper colour or print size</p>
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>Pastel pink</li>
+                  <li>Large (16 point)</li>
+                </ul>
+                <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+                <p>Textphone for the deaf and hard of hearing</p>
                 <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="/preferences-agent/agent-view/alternative-formats/when-we-write-to-you/how-should-we-write-to-you">
+                  <a class="govuk-link" href="/preferences/customer-view/alternative-formats/when-we-write-to-you/options">
                     Change<span class="govuk-visually-hidden">Choose an alternative format </span>
                   </a>
                 </dd>
@@ -124,7 +124,7 @@
                 <dt class="govuk-summary-list__key">
                   Address we send letters to
                 </dt>
-                <p class="govuk-body"><a href="#" class="govuk-link">** ***** ******<br>******<br>SE23 6FH</a></p>
+                <dd class="govuk-summary-list__value" id="newAddressDiv" name="newAddressDiv">
                 <dd class="govuk-summary-list__actions">
                   <a class="govuk-link" href="address-we-send-letters-to/which-address-should-we-send-letters-to">Change<span class="govuk-visually-hidden"> address we send letters to</span></a>
                 </dd>
@@ -134,9 +134,9 @@
                   Email addresses
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  <p class="govuk-body"><a href="#" class="govuk-link">sar***********@example.com</a></p>
-                  <p class="govuk-body"><a href="#" class="govuk-link">sar******@email.com</a></p>
-                  <p class="govuk-body"><a href="#" class="govuk-link">s.l**@university.ac.uk</a></p>
+                  <p class="govuk-body" id="newEmailDiv" name="newEmailDiv"></p>
+                  <p class="govuk-body">sarah.lee@email.com</p>
+                  <p class="govuk-body">s.lee@university.ac.uk</p>
                   </dd>
                 <dd class="govuk-summary-list__actions">
                   <a class="govuk-link" href="email/email-list">Change<span class="govuk-visually-hidden"> email</span></a>
@@ -147,8 +147,8 @@
                   Mobile phone numbers
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  <p class="govuk-body"><a href="#" class="govuk-link">07*** *** 457</a></p>
-                  <p class="govuk-body"><a href="#" class="govuk-link">07*** *** 982</a></p>
+                  <p class="govuk-body" id="mainPhoneDiv" name="mainPhoneDiv"></p>
+                  <p class="govuk-body">07700 900 982</p>
                 </dd>
                 <dd class="govuk-summary-list__actions">
                   <ul class="govuk-summary-list__actions-list">
@@ -166,7 +166,7 @@
                   Landline number
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  <p class="govuk-body"><a href="#" class="govuk-link">01*** *** 001</a></p>
+                  <p class="govuk-body" id="mainLandlineDiv" name="mainLandlineDiv"></p>
                 </dd>
                 <dd class="govuk-summary-list__actions">
                   <ul class="govuk-summary-list__actions-list">
@@ -177,6 +177,17 @@
                       <a class="govuk-link" href="landline-number/landline-number-list">Change<span class="govuk-visually-hidden"> change landline phone number</span></a>
                     </li>
                   </ul>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Textphone number
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  07123456789
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a>
                 </dd>
               </div>
             </dl>
@@ -257,7 +268,7 @@
 
         mainHowWeConnectDiv.innerHTML = `<p class='govuk-body'>${howWeConnectArrary[0]}</p>${list}`;
       } else {
-        mainHowWeConnectDiv.innerHTML =  "<p>They do not need an alternative format</p>";
+        mainHowWeConnectDiv.innerHTML =  "<p>I do not need an alternative format</p>";
       }
   }
 
@@ -282,7 +293,7 @@
 
         mainHowWeWriteDiv.innerHTML = `<p class='govuk-body'>${howWeWriteArrary[0]}</p>${list}`;
       } else {
-        mainHowWeWriteDiv.innerHTML =  "<p>They do not need an alternative format</p>";
+        mainHowWeWriteDiv.innerHTML =  "<p>I do not need an alternative format</p>";
       }
   }
 

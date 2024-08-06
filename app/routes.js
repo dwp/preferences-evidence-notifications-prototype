@@ -1508,7 +1508,7 @@ router.post('/preferences/customer-view/contact-preferences/how-we-speak-to-you/
 
   if (HowWeSpeakToYou == "Textphone for the deaf and hard of hearing")  {
     // Send user to contact us page
-    res.redirect('textphone2');
+    res.redirect('confirm-your-changes');
 
     // Check if user selected no on multi address page
   } else {
@@ -1548,7 +1548,7 @@ router.post('/preferences-agent/agent-view/contact-preferences-agent/how-we-spea
 
   if (HowWeSpeakToYou == "Textphone for the deaf and hard of hearing")  {
     // Send user to contact us page
-    res.redirect('textphone2');
+    res.redirect('confirm-your-changes');
 
     // Check if user selected no on multi address page
   } else {
