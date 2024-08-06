@@ -65,7 +65,7 @@
 
 {% from "govuk/components/button/macro.njk" import govukButton %}
 
-<form id="landlineForm" action="../how-we-contact-you-hidden-1.njk" method="POST">
+<form id="landlineForm" action="../how-we-contact-you.njk" method="POST">
   <input type="hidden" name="landline" id="landlineInput"
     value="01632 960 123">
   <div class="govuk-button-group">
@@ -77,7 +77,7 @@
     event.preventDefault();
     var landline = document.getElementById('landlineInput').value;
     sessionStorage.setItem('landline', landline);
-    window.location.href = '../how-we-contact-you-hidden-1.njk';
+    window.location.href = '../how-we-contact-you.njk';
   });
 </script>
 

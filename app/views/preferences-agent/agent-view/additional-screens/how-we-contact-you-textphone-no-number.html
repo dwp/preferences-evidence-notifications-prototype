@@ -1,18 +1,38 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+  Personal details
 {% endblock %}
+
+{% block header %}
+  {% include "round-3/components/key-details.html" %}
+{% endblock %}
+
 
 {% block beforeContent %}
 
-{% include "preferences/breadcrumbs/customer-view/how-we-contact-you.html" %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
 
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is a prototype of a new service. None of your data will be stored from this test'
+}) }}
+
+
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
 
 {% endblock %}
 
 
 {% block content %}
+
 
 <div class="govuk-width-container">
 
@@ -76,12 +96,6 @@
                 <dt class="govuk-summary-list__key">
                   Alternative formats
                 </dt>
-                <p>Letter with changes to paper colour or print size</p>
-                <ul class="govuk-list govuk-list--bullet">
-                  <li>Pastel pink</li>
-                  <li>Large (16 point)</li>
-                </ul>
-                <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
                 <p>Textphone for the deaf and hard of hearing</p>
                 <dd class="govuk-summary-list__actions">
                   <a class="govuk-link" href="/preferences/customer-view/alternative-formats/when-we-write-to-you/options">
@@ -160,15 +174,12 @@
                   </ul>
                 </dd>
               </div>
-              <div class="govuk-summary-list__row">
+              <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
                 <dt class="govuk-summary-list__key">
                   Textphone number
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  07123456789
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a>
+                  <a href="#" class="govuk-link">Add a textphone number</a>
                 </dd>
               </div>
             </dl>

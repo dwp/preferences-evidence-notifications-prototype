@@ -27,18 +27,17 @@ Check your details before you send them
             <dt class="govuk-summary-list__key">
               How we speak to you
             </dt>
+
             <dd class="govuk-summary-list__value">
               <p>{{ data['HowWeSpeakToYou'] }} </p>
 
-              {% if data['HowWeSpeakToYou'] === "Textphone for the deaf and hard of hearing" %}
+              {# {% if data['HowWeSpeakToYou'] === "Textphone for the deaf and hard of hearing" %}
               <ul class="govuk-list govuk-list--bullet">
                 <li>{{ data['textphoneNumber2'] }}</li>
               </ul>
-              {% endif %}
+              {% endif %} #}
             </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="textphone2">Change<span class="govuk-visually-hidden"> textphone</span></a>
-            </dd>
+
           </div>
         </dl>
 
