@@ -17,34 +17,18 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds-from-desktop">
 
-    <div class="govuk-notification-banner govuk-notification-banner--success" role="region"
-      aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-      <div class="govuk-notification-banner__header">
-        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-          Success
-        </h2>
-      </div>
-      <div class="govuk-notification-banner__content">
-        <h3 class="govuk-notification-banner__heading">
-          How we write to you update complete
-        </h3>
-        <p class="govuk-body">You have successfully changed how we write to you.</p>
-      </div>
-    </div>
-
 
     <h1 class="govuk-heading-l">
-      Changes made
+      Confirm your changes
     </h1>
 
     <dl class="govuk-summary-list">
 
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
-          Alternative formats
+          Textphone number
         </dt>
-        <dd class="govuk-summary-list__value" id="updatedValue">
-        </dd>
+        <p>07123456789</p>
       </div>
     </dl>
 
@@ -52,11 +36,14 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
 
     <div class="govuk-button-group">
       {{ govukButton({
-      text: "Return to 'How we contact you'",
-      classes: "govuk-button--secondary",
-      href: "../../how-we-contact-you.html",
+      text: "Confirm",
+      href: "/preferences/customer-view/alternative-formats/when-we-write-to-you/updated-written.html",
       preventDoubleClick: true
       }) }}
+
+      <p class="govuk-body">
+        <a href="/preferences/customer-view/alternative-formats/when-we-write-to-you/abandon-journey.html" class="govuk-link">Cancel</a>
+      </p>
 
       <!-- <a class="govuk-link" href="/preferences/customer-view/address-we-send-letters-to/abandon-journey.html">Cancel</a> -->
     </div>
@@ -90,6 +77,8 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
     }
 
   </script>
+
 </div>
 </div>
 {% endblock %}
+
