@@ -1,0 +1,51 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="govuk-!-padding-bottom-4"></div>
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+<div class="govuk-notification-banner govuk-notification-banner--success" role="region"
+aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+<div class="govuk-notification-banner__header">
+  <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+    Success
+  </h2>
+</div>
+<div class="govuk-notification-banner__content">
+  <h3 class="govuk-notification-banner__heading">
+    Evidence upload complete
+  </h3>
+  <p class="govuk-body">You have successfully uploaded your evidence.</p>
+</div>
+</div>
+
+<h2 class="govuk-heading-m">What happens next</h2>
+        <p class="govuk-body">
+          We will now process your evidence.
+        </p>
+        <p class="govuk-body">
+          We will check and confirm the details in your evidence. We will then contact you about your benefit claim.
+        </p>
+
+     </div>
+     </div>
+ 
+
+
+{% endblock %}
