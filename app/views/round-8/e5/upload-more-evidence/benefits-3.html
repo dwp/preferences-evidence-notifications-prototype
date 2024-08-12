@@ -20,12 +20,14 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="evidence-type" method="post">
+      <form class="form" action="evidence-type-3" method="post">
 
-        <h1 class="govuk-heading-l">What benefit are you sending us evidence for?</h1>
+        <h1 class="govuk-heading-l">What benefits are you sending us evidence for?</h1>
+
+        <div class="govuk-!-padding-bottom-4"></div>
 
         {{ govukRadios({
-          name: "yourBenefits",
+          name: "yourBenefits-3",
           fieldset: {
             legend: {
               isPageHeading: true
@@ -68,14 +70,17 @@
           {
             value: "State Pension",
             text: "State Pension"
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "I get another benefit",
+            text: "I get another benefit"
           }
         ]
 
         }) }}
-
-        <p class="govuk-body">
-          <a href="i-get-another-benefit" class="govuk-link">I get another benefit</a>
-        </p>
 
         <button class="govuk-button" data-module="govuk-button">
           Continue

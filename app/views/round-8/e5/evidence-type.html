@@ -1,0 +1,66 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="govuk-!-padding-bottom-4"></div>
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="upload-evidence-type" method="post">
+
+        <h1 class="govuk-heading-l">What evidence are you sending?</h1>
+
+{{ govukRadios({
+    name: "yourEvidence",
+    fieldset: {
+      legend: {
+        isPageHeading: true
+      }
+    },
+  items: [
+
+    {
+      value: "Bank statement",
+      text: "Bank statement"
+    },
+    {
+      value: "Payslip",
+      text: "Payslip"
+    },
+    {
+      value: "P60",
+      text: "P60"
+    }
+  ]
+
+  
+
+        }) }}
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+      <p class="govuk-body">
+        <a href="you-cannot-upload-other-types-of-evidence" class="govuk-link govuk-link--no-visited-state">The evidence I want to upload is not in the list</a>
+      </p>
+
+    </div>
+  </div>
+
+{% endblock %}
