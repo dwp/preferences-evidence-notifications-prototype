@@ -84,7 +84,7 @@
                   {% if data.HowWeWriteToYouSET %}
                     <p>{{ data.HowWeWriteToYouSET }}</p>
                   {% else %}
-                    <p>I do not have a writing preference</p>
+                    <p>No writing preference</p>
                   {% endif %}
                   <dd class="govuk-summary-list__actions">
                     <a class="govuk-link" href="/preferences/customer-view/contact-preferences/how-we-write-to-you/writing-selection">
@@ -119,7 +119,7 @@
                 <dt class="govuk-summary-list__key">
                   Address we send letters to
                 </dt>
-                <dd class="govuk-summary-list__value" id="newAddressDiv" name="newAddressDiv">
+                <p class="govuk-body"><a href="#" class="govuk-link">** ***** ******<br>******<br>SE23 6FH</a></p>
                 <dd class="govuk-summary-list__actions">
                   <a class="govuk-link" href="address-we-send-letters-to/which-address-should-we-send-letters-to">Change<span class="govuk-visually-hidden"> address we send letters to</span></a>
                 </dd>
@@ -129,12 +129,12 @@
                   Email addresses
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  <p class="govuk-body" id="newEmailDiv" name="newEmailDiv"></p>
-                  <p class="govuk-body">sarah.lee@email.com</p>
-                  <p class="govuk-body">s.lee@university.ac.uk</p>
+                  <p class="govuk-body"><a href="#" class="govuk-link">sar***********@example.com</a></p>
+                  <p class="govuk-body"><a href="#" class="govuk-link">sar******@email.com</a></p>
+                  <p class="govuk-body"><a href="#" class="govuk-link">s.l**@university.ac.uk</a></p>
                   </dd>
                 <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="email/email-list">Change<span class="govuk-visually-hidden"> email</span></a>
+                  <a class="govuk-link" href="how-we-contact-you-hidden-email-list">Change<span class="govuk-visually-hidden"> email</span></a>
                 </dd>
               </div>
               <div class="govuk-summary-list__row">
@@ -142,8 +142,8 @@
                   Mobile phone numbers
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  <p class="govuk-body" id="mainPhoneDiv" name="mainPhoneDiv"></p>
-                  <p class="govuk-body">07700 900 982</p>
+                  <p class="govuk-body"><a href="#" class="govuk-link">07*** *** 457</a></p>
+                  <p class="govuk-body"><a href="#" class="govuk-link">07*** *** 982</a></p>
                 </dd>
                 <dd class="govuk-summary-list__actions">
                   <ul class="govuk-summary-list__actions-list">
@@ -151,7 +151,7 @@
                       <a class="govuk-link" href="phone-number/add/phone-number">Add<span class="govuk-visually-hidden"> add mobile phone number</span></a>
                     </li>
                     <li class="govuk-summary-list__actions-list-item">
-                      <a class="govuk-link" href="phone-number/phone-number-list">Change<span class="govuk-visually-hidden"> change mobile phone numbers</span></a>
+                      <a class="govuk-link" href="how-we-contact-you-hidden-mobile-list">Change<span class="govuk-visually-hidden"> change mobile phone numbers</span></a>
                     </li>
                   </ul>
                 </dd>
@@ -161,7 +161,7 @@
                   Landline number
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  <p class="govuk-body" id="mainLandlineDiv" name="mainLandlineDiv"></p>
+                  <p class="govuk-body"><a href="#" class="govuk-link">01*** *** 001</a></p>
                 </dd>
                 <dd class="govuk-summary-list__actions">
                   <ul class="govuk-summary-list__actions-list">
@@ -169,7 +169,7 @@
                       <a class="govuk-link" href="landline-number/add/landline-number">Add<span class="govuk-visually-hidden"> add landline phone number</span></a>
                     </li>
                     <li class="govuk-summary-list__actions-list-item">
-                      <a class="govuk-link" href="landline-number/landline-number-list">Change<span class="govuk-visually-hidden"> change landline phone number</span></a>
+                      <a class="govuk-link" href="how-we-contact-you-hidden-landline-list">Change<span class="govuk-visually-hidden"> change landline phone number</span></a>
                     </li>
                   </ul>
                 </dd>
@@ -185,7 +185,6 @@
             </dl>
           </div>
         </div>
-
 
 
 </div>

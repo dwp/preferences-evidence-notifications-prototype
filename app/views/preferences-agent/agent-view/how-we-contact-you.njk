@@ -69,7 +69,7 @@
                 <dt class="govuk-summary-list__key">
                   How we speak to them
                 </dt>
-                <p>{{ data['HowWeSpeakToYouConfirmed'] or "They do not have a speaking preference"}} </p>
+                <p>{{ data['HowWeSpeakToYouConfirmed'] or "No speaking preference"}} </p>
                 {# <p>{{ data['HowWeSpeakToYouConfirmed'] or "They do not have a speaking preference"}} </p>
                   {% if data.HowWeSpeakToYouConfirmed ===  "Textphone for the deaf and hard of hearing" %}   
                     <ul class="govuk-list govuk-list--bullet">
@@ -89,7 +89,7 @@
                   {% if data.HowWeWriteToYouSET %}
                     <p>{{ data.HowWeWriteToYouSET }}</p>
                   {% else %}
-                    <p>They do not have a writing preference</p>
+                    <p>No writing preference</p>
                   {% endif %}
                   <dd class="govuk-summary-list__actions">
                     <a class="govuk-link" href="/preferences-agent/agent-view/contact-preferences-agent/how-we-write-to-you/writing-selection">
@@ -283,7 +283,7 @@
 
         mainHowWeWriteDiv.innerHTML = `<p class='govuk-body'>${howWeWriteArrary[0]}</p>${list}`;
       } else {
-        mainHowWeWriteDiv.innerHTML =  "<p>They do not need an alternative format</p>";
+        mainHowWeWriteDiv.innerHTML =  "<p>No alternative format</p>";
       }
   }
 
