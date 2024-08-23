@@ -1799,7 +1799,7 @@ router.post(
   }
 );
 
-router.all("/round-8/e5/remove-evidence-answer", function (req, res) {
+router.all("/round-5/e5/remove-evidence-answer", function (req, res) {
   const index = filenames.indexOf(req.query.query);
   filenames.splice(index, 1);
   benefitsChosen.splice(index, 1);
@@ -1809,5 +1809,5 @@ router.all("/round-8/e5/remove-evidence-answer", function (req, res) {
   req.session.data.benefitsChosen = benefitsChosen;
   req.session.data.evidenceType = evidenceType;
 
-  res.redirect("/round-8/e5/upload-summary");
+  res.redirect("/round-5/e5/upload-summary");
 });

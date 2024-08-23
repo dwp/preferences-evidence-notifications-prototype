@@ -1,0 +1,72 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="govuk-!-padding-bottom-4"></div>
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+<!-- <div id="nationality-hint" class="govuk-hint">
+  This is a page filled with address and residency information on the citizen.
+</div> -->
+
+<div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+
+          <div class="govuk-width-container">
+            <h1 class="govuk-heading-l">I have tried multiple times</h1>
+            <p>If your evidence keeps failing to upload, try uploading it at another time of day.</p>
+            <p>This error can happen when lots of people are trying to upload their evidence at the same time.</p>
+
+
+            <div class="govuk-!-padding-bottom-2"></div>
+
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h2 class="govuk-fieldset__heading">
+                Post my evidence instead
+              </h2>
+            </legend>
+        
+
+
+            <p>You can also choose to post your evidence to:</p>
+
+
+            <div class="govuk-inset-text">
+              Address line 1<br>
+              Address line 2<br>
+              Address line 3<br>
+              Address line 4<br>
+            </div>
+
+            {% from "govuk/components/button/macro.njk" import govukButton %}
+
+            {{ govukButton({
+                text: "Check your files",
+                href: "/round-8/e5/upload-summary.html",
+                classes: "govuk-button--secondary"
+            }) }}
+ 
+     </div>
+ 
+
+</fieldset>
+
+  </div>
+
+
+{% endblock %}

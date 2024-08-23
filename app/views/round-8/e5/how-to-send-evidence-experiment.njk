@@ -17,12 +17,17 @@
 
 {% block content %}
 
+
+
 {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
       <form action="receipt-upload" method="post" class="form">
-          <h1 class="govuk-heading-l">How to send us evidence</h1>
+
+
+
+          <h1 class="govuk-heading-l">How to send us your </h1>
 
             <p>We accept either:</p>
           <ul class="govuk-list govuk-list--bullet">
@@ -43,11 +48,13 @@
           
       </form>
 
+
+
     {% from "govuk/components/button/macro.njk" import govukButton %}
 
     <div class="govuk-button-group">
         {{ govukButton({
-            text: "Continue",
+            text: "Continue to upload",
             href: "upload-evidence.html",
             preventDoubleClick: true
             }) }}
@@ -57,5 +64,7 @@
  </div>
 
 </div>
+
+
 
 {% endblock %}
