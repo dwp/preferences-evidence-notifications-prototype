@@ -13,14 +13,19 @@
       <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
           <h1 class="govuk-fieldset__heading">
-            Upload another page of evidence
+            Upload another bank statement file
           </h1>
         </legend>
 
-        <div id="file-upload-1-hint" class="govuk-hint">
-          You can upload your evidence as a digtial copy, scanned copy or photo
-          of the original.
-        </div>
+        <p class="govuk-body">Your files must:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>be JPG, JPEG, HEIC, HEIF, BMP, PNG, TIF or PDF</li>
+          <li>be smaller than 10mb</li>
+          <li>not be password protected</li>
+        </ul>
+
+        <div class="govuk-!-padding-bottom-2"></div>
+
 
         <div class="govuk-form-group">
           <label class="govuk-label" for="file-upload"> Upload a file </label>
@@ -31,10 +36,11 @@
             type="file"
           />
         </div>
+
       </fieldset>
 
       <button type="submit" class="govuk-button" data-module="govuk-button">
-        Continue
+        Upload and continue
       </button>
     </form>
   </div>

@@ -38,14 +38,30 @@
       <li>P60s</li>
     </ul>
 
-    <p>If you have any other evidence types you need to provide, you will need to send it by post.</p>
+    <div class="govuk-!-padding-bottom-2"></div>
+
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      <h2 class="govuk-fieldset__heading">
+        Post my evidence instead
+      </h2>
+    </legend>
+
+    <p>If you have any other evidence types you need to provide, you will need to send it by post to:</p>
+
+    <div class="govuk-inset-text">
+      Address line 1<br>
+      Address line 2<br>
+      Address line 3<br>
+      Address line 4<br>
+    </div>
+
 
     {% from "govuk/components/button/macro.njk" import govukButton %}
 
     <div class="govuk-button-group">
         {{ govukButton({
-          text: "Return",
-          href: "javascript:window.history.back()"
+          text: "Continue",
+          href: "start"
             }) }}
   
       </div>

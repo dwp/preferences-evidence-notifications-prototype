@@ -10,12 +10,34 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+
+    <div class="govuk-error-summary" data-module="govuk-error-summary">
+      <div role="alert">
+        <h2 class="govuk-error-summary__title">
+          There is a problem
+        </h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            <li>
+              <a href="#UK-yes">Select Yes if you have been contacted to send us evidence</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="govuk-form-group govuk-form-group--error">
+
     <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
         <h1 class="govuk-fieldset__heading">
           Have you been contacted to send us evidence?
         </h1>
       </legend>
+
+      <p id="where-do-you-live-error" class="govuk-error-message">
+        <span class="govuk-visually-hidden">Error:</span>Select Yes if you have been contacted to send us evidence
+      </p>
 
       <div class="govuk-radios govuk-radios--inline">
         <div class="govuk-radios__item">
@@ -44,7 +66,7 @@
         </div>
       </div>
     </fieldset>
-    <br />
+  </div>
     <button
       class="govuk-button"
       value="true"
@@ -66,17 +88,16 @@
         }
         console.log({ hasSelection });
         if (!hasSelection) {
-          window.location.href = "/round-8/e5//error/have-you-been-contacted.html";
+          window.location.href = "/error/have-you-been-contacted.html";
         } else {
           if (document.getElementById("notification-yes").checked) {
-            window.location.href = "benefits.html";
+            window.location.href = "../benefits.html";
           } else {
-            window.location.href = "you-cannot-use-this-service";
+            window.location.href = "../you-cannot-use-this-service";
           }
         }
       }
     </script>
-  </div>
 </div>
 
 {% endblock %}

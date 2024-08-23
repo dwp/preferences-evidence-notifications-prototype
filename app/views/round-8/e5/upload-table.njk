@@ -17,11 +17,13 @@
 
 {% block content %}
 
-<h1 class="govuk-heading-xl">Upload evidence</h1>
+{% for item in data.benefits %}
+
+<h1 class="govuk-heading-xl">Upload bank statement</h1>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h2 class="govuk-heading-m">Pages added</h2>
+    <h2 class="govuk-heading-m">Bank statement files added</h2>
 
     <dl class="govuk-summary-list">
         {% for item in data.benefits %}
@@ -30,7 +32,7 @@
       <div class="govuk-summary-list__row">
 
           <dt class="govuk-summary-list__key">
-          Page {{ loop.index }}
+          File {{ loop.index }}
         </dt>
         <dd class="govuk-summary-list__value">
           <a download href="/" class="govuk-link">{{item}}</a>
@@ -48,17 +50,26 @@
   </div>
 </div>
 
+<div class="govuk-!-padding-bottom-4"></div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
 <div class="govuk-form-group">
 
   <fieldset class="govuk-fieldset">
 
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
 
-      Do you want to upload another page?
+      Do you want to upload another file to your bank statement?
 
     </legend>
 
-    <div class="govuk-radios" data-module="govuk-radios">
+    <div id="changedName-hint" class="govuk-hint">
+      For example, if your bank statement has more pages. You can upload a maximum of 10 files.
+    </div>
+
+    <div class="govuk-radios govuk-radios--inline"data-module="govuk-radios">
 
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="another-yes" name="another" type="radio" value="true">
@@ -79,6 +90,8 @@
   </fieldset>
 
 </div>
+
+{% endfor %}
 
 <button class="govuk-button" value= "true" data-module="govuk-button" onclick="check()">Continue</button>
 
@@ -102,6 +115,9 @@
     }
   }
 </script>
+
+</div>
+</div>
 
 
 
