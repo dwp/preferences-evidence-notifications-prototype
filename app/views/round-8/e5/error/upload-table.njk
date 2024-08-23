@@ -19,10 +19,26 @@
 
 {% for item in data.benefits %}
 
-<h1 class="govuk-heading-xl">Upload bank statement</h1>
-
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+
+    <div class="govuk-error-summary" data-module="govuk-error-summary">
+      <div role="alert">
+        <h2 class="govuk-error-summary__title">
+          There is a problem
+        </h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            <li>
+              <a href="#UK-yes">Select Yes if you want to upload another bank statement file</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <h1 class="govuk-heading-xl">Upload bank statement</h1>
+
     <h2 class="govuk-heading-m">Bank statement files added</h2>
 
     <dl class="govuk-summary-list">
@@ -55,7 +71,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-<div class="govuk-form-group">
+    <div class="govuk-form-group govuk-form-group--error">
 
   <fieldset class="govuk-fieldset">
 
@@ -68,6 +84,10 @@
     <div id="changedName-hint" class="govuk-hint">
       For example, if your bank statement has more pages. You can upload a maximum of 10 files.
     </div>
+
+    <p id="whereDoYouLive-error" class="govuk-error-message">
+      <span class="govuk-visually-hidden">Error:</span> Select Yes if you want to upload another bank statement file
+    </p>
 
     <div class="govuk-radios govuk-radios--inline"data-module="govuk-radios">
 
@@ -108,9 +128,9 @@
       window.location.href = "/error/have-you-been-contacted.html";
     } else {
       if (document.getElementById("another-yes").checked) {
-        window.location.href = "upload-another-page"
+        window.location.href = "../upload-another-page"
       } else {
-        window.location.href = "upload-summary"
+        window.location.href = "../upload-summary"
       }
     }
   }
