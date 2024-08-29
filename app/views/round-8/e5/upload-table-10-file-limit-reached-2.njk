@@ -21,32 +21,32 @@
 
 <h1 class="govuk-heading-xl">Upload bank statement</h1>
 
-
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-m">Bank statement files added</h2>
 
-    <div class="govuk-error-summary" data-module="govuk-error-summary">
-      <div role="alert">
-        <h2 class="govuk-error-summary__title">
-          There is a problem
-        </h2>
-        <div class="govuk-error-summary__body">
-          <ul class="govuk-list govuk-error-summary__list">
-            <li>
-              <a href="#UK-yes">You must upload at least one file to continue</a>
-            </li>
-          </ul>
-        </div>
+    <dl class="govuk-summary-list">
+        {% for item in data.benefits %}
+        {% if item.name === data.yourBenefits %}
+        {% for item in item.files %}
+      <div class="govuk-summary-list__row">
+
+          <dt class="govuk-summary-list__key">
+          File {{ loop.index }}
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <a download href="/" class="govuk-link">{{item}}</a>
+        </dd>
+        <dd class="govuk-summary-list__actions">
+
+          <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> file 2</span></a>
+
+        </dd>
       </div>
-    </div>
-
-
-    <h2 class="govuk-heading-m">No bank statement files added</h2>
-
-    <div class="govuk-inset-text">
-      You will need to upload a file to send your evidence
-    </div>
-
+      {% endfor %}
+      {% endif %}
+      {% endfor %}
+    </dl>
   </div>
 </div>
 
@@ -54,8 +54,6 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-
-<div class="govuk-form-group govuk-form-group--error">
 
 <div class="govuk-form-group">
 
@@ -70,10 +68,6 @@
     <div id="changedName-hint" class="govuk-hint">
       For example, if your bank statement has more pages. You can upload a maximum of 10 files.
     </div>
-
-    <p id="whereDoYouLive-error" class="govuk-error-message">
-      <span class="govuk-visually-hidden">Error:</span> You must upload at least one file to continue
-    </p>
 
     <div class="govuk-radios govuk-radios--inline"data-module="govuk-radios">
 
@@ -97,16 +91,9 @@
 
 </div>
 
-</div>
-
 {% endfor %}
 
 <button class="govuk-button" value= "true" data-module="govuk-button" onclick="check()">Continue</button>
-
-</div>
-
-
-
 
 <script>
   function check() {
@@ -129,7 +116,8 @@
   }
 </script>
 
-
+</div>
+</div>
 
 
 
