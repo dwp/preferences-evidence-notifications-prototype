@@ -18,7 +18,7 @@
 
     <div class="govuk-grid-row">
       
-      <div class="govuk-grid-column-two-thirds-from-desktop">
+      <div class="govuk-grid-column-three-quarters">
 
 
         <h2 class="govuk-heading-l">How we contact you</h2>
@@ -41,7 +41,7 @@
                     <p>English</p>
                   {% endif %}
                   <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="#">
+                    <a class="govuk-link" href="/preferences/customer-view/language/language-selection">
                       Change<span class="govuk-visually-hidden">When we speak to you</span>
                     </a>
                   </dd>
@@ -50,13 +50,15 @@
                 <dt class="govuk-summary-list__key">
                   How we speak to you
                 </dt>
-                  {% if data.HowWeSpeakToYouSET %}
-                    <p>{{ data.HowWeSpeakToYouSET }}</p>
-                  {% else %}
-                    <p>I do not have a preference</p>
-                  {% endif %}
+                <p>{{ data['HowWeSpeakToYouConfirmed'] or "I do not have a speaking preference"}} </p>
+                {# <p>{{ data['HowWeSpeakToYouConfirmed'] or "I do not have a speaking preference"}} </p>
+                  {% if data.HowWeSpeakToYouConfirmed ===  "Textphone for the deaf and hard of hearing" %}   
+                    <ul class="govuk-list govuk-list--bullet">
+                      <li>{{ data['textphoneNumber2'] }}</li>
+                    </ul>
+                  {% endif %} #}
                   <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="#">
+                    <a class="govuk-link" href="/preferences/customer-view/contact-preferences/how-we-speak-to-you/speaking-selection">
                       Change<span class="govuk-visually-hidden">How we speak to you</span>
                     </a>
                   </dd>
@@ -65,25 +67,51 @@
                 <dt class="govuk-summary-list__key">
                   How we write to you
                 </dt>
-                  {% if data.HowWeWriteToYouSET %}
-                    <p>{{ data.HowWeWriteToYouSET }}</p>
-                  {% else %}
-                    <p>I do not have a preference</p>
-                  {% endif %}
+                    <p>I use a textphone for deaf and hard of hearing</p>
                   <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="#">
+                    <a class="govuk-link" href="/preferences/customer-view/textphone/do-you-want-us-to-speak-to-you-by-textphone">
                       Change<span class="govuk-visually-hidden">How we write to you</span>
                     </a>
                   </dd>
               </div>
+            </dl>
+          </div>
+        </div>
+
+                <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Alternative formats
+            </h2>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                  Alternative formats
+                  Written alternative format
                 </dt>
-                <dd class="govuk-summary-list__value" id="mainHowWeWriteDiv" name="mainHowWeWriteDiv">
+                <dd class="govuk-summary-list__value">	
+
+                  <p class="govuk-body">Letter with changes to paper colour or print size</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                     <li>Cream</li>
+                     <li>Extra large (18 point)</li>
+                    </ul>
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="#">
+                  <a class="govuk-link" href="/preferences/customer-view/alternative-formats/when-we-write-to-you/options">
+                    Change<span class="govuk-visually-hidden">Choose an alternative format </span>
+                  </a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Textphone
+                </dt>
+                <dd class="govuk-summary-list__value">I use a textphone for deaf and hard of hearing
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="/preferences/customer-view/alternative-formats/when-we-write-to-you/options">
                     Change<span class="govuk-visually-hidden">Choose an alternative format </span>
                   </a>
                 </dd>
@@ -91,6 +119,7 @@
             </dl>
           </div>
         </div>
+
 
         <div class="govuk-summary-card">
           <div class="govuk-summary-card__title-wrapper">
@@ -106,18 +135,20 @@
                 </dt>
                 <dd class="govuk-summary-list__value" id="newAddressDiv" name="newAddressDiv">
                 <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address we send letters to</span></a>
+                  <a class="govuk-link" href="address-we-send-letters-to/which-address-should-we-send-letters-to">Change<span class="govuk-visually-hidden"> address we send letters to</span></a>
                 </dd>
               </div>
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                  Email address
+                  Email addresses
                 </dt>
                 <dd class="govuk-summary-list__value">
                   <p class="govuk-body" id="newEmailDiv" name="newEmailDiv"></p>
+                  <p class="govuk-body">sarah.lee@email.com</p>
+                  <p class="govuk-body">s.lee@university.ac.uk</p>
                   </dd>
                 <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> email</span></a>
+                  <a class="govuk-link" href="email/email-list">Change<span class="govuk-visually-hidden"> email</span></a>
                 </dd>
               </div>
               <div class="govuk-summary-list__row">
@@ -131,10 +162,10 @@
                 <dd class="govuk-summary-list__actions">
                   <ul class="govuk-summary-list__actions-list">
                     <li class="govuk-summary-list__actions-list-item">
-                      <a class="govuk-link" href="#">Add<span class="govuk-visually-hidden"> add mobile phone number</span></a>
+                      <a class="govuk-link" href="phone-number/add/phone-number">Add<span class="govuk-visually-hidden"> add mobile phone number</span></a>
                     </li>
                     <li class="govuk-summary-list__actions-list-item">
-                      <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> change mobile phone numbers</span></a>
+                      <a class="govuk-link" href="phone-number/phone-number-list">Change<span class="govuk-visually-hidden"> change mobile phone numbers</span></a>
                     </li>
                   </ul>
                 </dd>
@@ -149,12 +180,20 @@
                 <dd class="govuk-summary-list__actions">
                   <ul class="govuk-summary-list__actions-list">
                     <li class="govuk-summary-list__actions-list-item">
-                      <a class="govuk-link" href="#">Add<span class="govuk-visually-hidden"> add landline phone number</span></a>
+                      <a class="govuk-link" href="landline-number/add/landline-number">Add<span class="govuk-visually-hidden"> add landline phone number</span></a>
                     </li>
                     <li class="govuk-summary-list__actions-list-item">
-                      <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> change landline phone number</span></a>
+                      <a class="govuk-link" href="landline-number/landline-number-list">Change<span class="govuk-visually-hidden"> change landline phone number</span></a>
                     </li>
                   </ul>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Textphone number
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <a href="#" class="govuk-link">Add a textphone number</a>
                 </dd>
               </div>
             </dl>
