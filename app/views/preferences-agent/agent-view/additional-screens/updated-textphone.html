@@ -41,17 +41,27 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
 
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
-          Alternative formats
+            Alternative formats
         </dt>
-        <p>Letter with changes to paper colour or print size</p>
-        <ul class="govuk-list govuk-list--bullet">
-          <li>Pastel pink</li>
-          <li>Large (16 point)</li>
-        </ul>
-        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-        <p>Textphone for the deaf and hard of hearing</p>
-      </div>
-    </dl>
+        <dd class="govuk-summary-list__value">
+            <h3 class="govuk-heading-s">Written alternative formats</h3>
+            <p>Letter with changes to paper colour or print size</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>Pastel pink</li>
+                <li>Large (16 point)</li>
+            </ul>
+            <h3 class="govuk-heading-s">Textphone</h3>
+            <p>Textphone for the deaf and hard of hearing</p>
+            <br>
+        </dd>
+        <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/preferences/customer-view/alternative-formats/when-we-write-to-you/options">
+                Change<span class="govuk-visually-hidden">Choose an alternative format </span>
+            </a>
+        </dd>
+    </div>
+</dl>
+
 
     {% from "govuk/components/button/macro.njk" import govukButton %}
 
