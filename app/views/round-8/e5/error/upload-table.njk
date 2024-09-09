@@ -51,7 +51,7 @@
           File {{ loop.index }}
         </dt>
         <dd class="govuk-summary-list__value">
-          <a download href="/" class="govuk-link">{{item}}</a>
+          <p><a download href="/" class="govuk-link">{{item}}</a> (9MB)</p>
         </dd>
         <dd class="govuk-summary-list__actions">
 
@@ -64,6 +64,10 @@
       {% endfor %}
     </dl>
   </div>
+</div>
+
+<div class="govuk-inset-text">
+  You have used 9MB out of your 100MB upload limit.
 </div>
 
 <div class="govuk-!-padding-bottom-4"></div>
@@ -82,7 +86,7 @@
     </legend>
 
     <div id="changedName-hint" class="govuk-hint">
-      For example, if your bank statement has more pages. You can upload a maximum of 10 files.
+      For example, if your bank statement has more pages.
     </div>
 
     <p id="whereDoYouLive-error" class="govuk-error-message">

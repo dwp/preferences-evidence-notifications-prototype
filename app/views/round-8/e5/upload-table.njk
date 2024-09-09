@@ -35,7 +35,7 @@
           File {{ loop.index }}
         </dt>
         <dd class="govuk-summary-list__value">
-          <p></p><a download href="/" class="govuk-link">{{item}}</a> (9MB)</p>
+          <p><a download href="/" class="govuk-link">{{item}}</a> (9MB)</p>
         </dd>
         <dd class="govuk-summary-list__actions">
 
@@ -48,6 +48,10 @@
       {% endfor %}
     </dl>
   </div>
+</div>
+
+<div class="govuk-inset-text">
+  You have used 18MB out of your 100MB upload limit.
 </div>
 
 <div class="govuk-!-padding-bottom-4"></div>
@@ -66,7 +70,7 @@
     </legend>
 
     <div id="changedName-hint" class="govuk-hint">
-      For example, if your bank statement has more pages. You can upload a maximum of 10 files.
+      For example, if your bank statement has more pages.
     </div>
 
     <div class="govuk-radios govuk-radios--inline"data-module="govuk-radios">
@@ -105,7 +109,7 @@
       }
     }
     if (!hasSelection) {
-      window.location.href = "/error/have-you-been-contacted.html";
+      window.location.href = "/error/upload-table.njk";
     } else {
       if (document.getElementById("another-yes").checked) {
         window.location.href = "upload-another-page"

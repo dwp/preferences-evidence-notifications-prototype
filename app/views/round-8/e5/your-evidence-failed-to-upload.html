@@ -28,13 +28,16 @@
 
 
           <div class="govuk-width-container">
-            <h1 class="govuk-heading-l">Your evidence has failed to upload</h1>
-            <p>Check the files meet the upload requirements and try again.</p>
+            <h1 class="govuk-heading-l">You will need upload your files again</h1>
+
+              <p>We are sorry for this inconvenience.</p>
+
+            <p>Check your files meet the upload requirements before you try again.</p>
 
             <p class="govuk-body">Your files must:</p>
             <ul class="govuk-list govuk-list--bullet">
               <li>be JPG, JPEG, HEIC, HEIF, BMP, PNG, TIF or PDF</li>
-              <li>be smaller than 10MB</li>
+              <li>be smaller than 50MB</li>
               <li>not be password protected</li>
             </ul>
 
@@ -45,8 +48,8 @@
             {% from "govuk/components/button/macro.njk" import govukButton %}
 
             {{ govukButton({
-                text: "Check your files",
-                href: "/round-8/e5/upload-summary.html",
+                text: "Return to upload bank statement",
+                href: "/round-8/e5/upload-evidence.html",
                 classes: "govuk-button--secondary"
             }) }}
  
