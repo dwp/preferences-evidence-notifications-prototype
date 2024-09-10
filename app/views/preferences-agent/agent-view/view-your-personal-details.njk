@@ -39,8 +39,22 @@
       
       <div class="govuk-grid-column-two-thirds-from-desktop">
 
-        <h1 class="govuk-heading-l">View their personal details</h1>
-
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">Personal details</h1>
+        
+        
+        </div>
+        <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+          <form action="#" method="post">
+            <button class="govuk-button" data-module="govuk-button" onclick="global_var['a']['b']=1;">
+              Add or change notes
+            </button>
+          </form>
+        </div>
+        </div>
+  
+       
 
         <div class="govuk-summary-card">
           <div class="govuk-summary-card__title-wrapper">
@@ -63,7 +77,7 @@
                   Date of birth
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  5 January 1978
+                  <p class="govuk-body"><a href="#" class="govuk-link">** ***** ****</a></p>
                 </dd>
               </div>
               <div class="govuk-summary-list__row">
@@ -79,7 +93,7 @@
                   Home address
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  72 Guild Street<br>London<br>SE23 6FH
+                  <p class="govuk-body"><a href="#" class="govuk-link">** ***** *******<br>******<br>**** 6FH</a></p>
                 </dd>
               </div>
               <div class="govuk-summary-list__row">
@@ -87,9 +101,9 @@
                   Benefits
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  <p class="govuk-body">Maternity Allowance (MA)</p>
-                  <p class="govuk-body">Employment and Support Allowance (ESA)</p>
-                  <p class="govuk-body">Personal Independence Payment (PIP)</p>
+                  <p class="govuk-body"><a href="#" class="govuk-link">******************</a></p>
+                  <p class="govuk-body"><a href="#" class="govuk-link">******************</a></p>
+                  <p class="govuk-body"><a href="#" class="govuk-link">******************</a></p>
                 </dd>
               </div>
             </dl>
@@ -97,6 +111,14 @@
         </div>
       </div>
     </div>
+    <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Return to home",
+        href: "homepage",
+        preventDoubleClick: true
+      }) }}
+
+      </div>
 </div>
 
 <script>

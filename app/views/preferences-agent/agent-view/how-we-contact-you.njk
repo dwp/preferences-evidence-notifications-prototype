@@ -39,8 +39,21 @@
       
       <div class="govuk-grid-column-three-quarters">
 
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">How we contact customer</h1>
+        
+        
+        </div>
+        <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+          <form action="#" method="post">
+            <button class="govuk-button" data-module="govuk-button" onclick="global_var['a']['b']=1;">
+              Add or change notes
+            </button>
+          </form>
+        </div>
+        </div>
 
-        <h2 class="govuk-heading-l">How we contact customer</h2>
 
         <div class="govuk-summary-card">
           <div class="govuk-summary-card__title-wrapper">
@@ -184,7 +197,14 @@
           </div>
         </div>
 
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Return to home",
+            href: "homepage",
+            preventDoubleClick: true
+          }) }}
 
+          </div>
 
 </div>
 
