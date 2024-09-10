@@ -1,7 +1,15 @@
 {% extends "layouts/main.html" %}
 
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "preferences/customer-view/homepage",
+  serviceName: "Customer view",
+  serviceUrl: "#"
+}) }}
+{% endblock %}
+
 {% block pageTitle %}
-  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+  Customer view
 {% endblock %}
 
 {% block beforeContent %}
@@ -53,6 +61,9 @@
         <ul class="govuk-list">
           <li class="govuk-!-margin-bottom-3">
             <a class="govuk-link" href="#">Change your bank details</a>
+          </li>
+          <li class="govuk-!-margin-bottom-3">
+            <a class="govuk-link" href="#">Get a proof of benefit letter</a>
           </li>
           <li class="govuk-!-margin-bottom-3">
             <a class="govuk-link" href="view-your-personal-details.njk">View your personal details</a>
