@@ -28,10 +28,23 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
             <p>To find out what other formats are available, contact your benefit offices.</p>
             <p>They will try to find an alternative format that meets your needs.</p>
 
-            <p class="govuk-body">
-                <a href="../../how-we-contact-you.njk" class="govuk-link">Back</a>
+            <div class="govuk-!-padding-bottom-4"></div>
+
+            {% from "govuk/components/button/macro.njk" import govukButton %}
+
+            <div class="govuk-button-group">
+              {{ govukButton({
+              text: "Return to 'How we contact you'",
+              classes: "govuk-button--secondary",
+              href: "#",
+              preventDoubleClick: true
+              }) }}
+
+              <p class="govuk-body">
+                <a href="#" class="govuk-link">Back</a>
               </p>
         
+            </div>
           
         </fieldset>
     </div>
