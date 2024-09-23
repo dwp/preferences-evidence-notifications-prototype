@@ -33,50 +33,19 @@
   </div>
 </div>
 
-<div class="govuk-!-padding-bottom-4"></div>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-<div class="govuk-form-group">
 
-  <fieldset class="govuk-fieldset">
-
-    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-
-      Do you want to upload another bank statement file?
-
-    </legend>
-
-    <div id="changedName-hint" class="govuk-hint">
-      For example, if your bank statement has more pages.
-    </div>
-
-    <div class="govuk-radios govuk-radios--inline"data-module="govuk-radios">
-
-      <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="another-yes" name="another" type="radio" value="true">
-        <label class="govuk-label govuk-radios__label" for="another-yes">
-          Yes
-        </label>
-
-      </div>
-
-      <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="another-no" name="another" type="radio" value="false">
-        <label class="govuk-label govuk-radios__label" for="another-no">
-          No
-        </label>
-
-    </div>
-
-  </fieldset>
-
-</div>
 
 {% endfor %}
 
-<button class="govuk-button" value= "true" data-module="govuk-button" onclick="check()">Continue</button>
+<div class="govuk-button-group">
+  <button class="govuk-button" value= "true" data-module="govuk-button" onclick="check()">Continue to upload</button>
+  <a class="govuk-link" href="abandon-journey.html">Cancel upload</a>
+</div>
+
 
 <script>
   function check() {
@@ -88,12 +57,12 @@
       }
     }
     if (!hasSelection) {
-      window.location.href = "/error/have-you-been-contacted.html";
+      window.location.href = "upload-evidence.njk";
     } else {
       if (document.getElementById("another-yes").checked) {
-        window.location.href = "upload-another-page"
+        window.location.href = "upload-evidence"
       } else {
-        window.location.href = "upload-summary"
+        window.location.href = "upload-evidence"
       }
     }
   }
