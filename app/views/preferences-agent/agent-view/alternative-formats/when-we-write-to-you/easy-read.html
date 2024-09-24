@@ -28,7 +28,7 @@
 
 
   <div class="govuk-form-group">
-    <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+    <fieldset class="govuk-fieldset" aria-describedby="easy-read-hint">
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
         <h1 class="govuk-fieldset__heading">
           Are you sure you want to select Easy Read?
@@ -36,14 +36,14 @@
       </legend>
       <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
-          <label class="govuk-label govuk-radios__label" for="changedName">
+          <input class="govuk-radios__input" id="yes" name="easy-read" type="radio" value="yes">
+          <label class="govuk-label govuk-radios__label" for="easy-read">
             Yes
           </label>
         </div>
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
-          <label class="govuk-label govuk-radios__label" for="changedName-2">
+          <input class="govuk-radios__input" id="no" name="easy-read" type="radio" value="no">
+          <label class="govuk-label govuk-radios__label" for="easy-read-2">
             No
           </label>
         </div>
@@ -52,12 +52,30 @@
   </div>
 
   <div class="govuk-!-padding-bottom-2"></div>
-  <div class="govuk-button-group">
-    {{ govukButton({
-      text: "Continue",
-      href: "confirm-your-changes"
-    }) }}
-  </div>
+
+  <button class="govuk-button" value= "true" data-module="govuk-button" onclick="check()">Continue</button>
+  
+  <script>
+    function check() {
+      console.log('in function')
+      var radios = document.getElementsByName("easy-read");
+      var hasSelection = false
+      for (var i = 0, len = radios.length; i < len; i++) {
+        if (radios[i].checked) {
+          hasSelection = true;
+        }
+      }
+      if (!hasSelection) {
+        window.location.href = "/preferences-agent/agent-view/alternative-formats/when-we-write-to-you/error/easy-read";
+      } else {
+        if (document.getElementById("yes").checked) {
+          window.location.href = "/preferences-agent/agent-view/alternative-formats/when-we-write-to-you/confirm-your-changes.html"
+        } else {
+          window.location.href = "/preferences-agent/agent-view/alternative-formats/when-we-write-to-you/how-should-we-write-to-you.html"
+        }
+      }
+    }
+  </script>
 
   </div>
 
