@@ -20,23 +20,16 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+      <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
           <h1 class="govuk-fieldset__heading">
-            Do you want to remove this file?
+            Do you want to cancel uploading your {{ data.evidenceType }}?
           </h1>
         </legend>
-
-
-        <p>
-            {% for item in data.benefits %}
-            {% if item.name === data.yourBenefits %}
-            {% for item in item.files %}
-              <p><a download href="/" class="govuk-link">{{item}}</a> (9MB)</p>
-          {% endfor %}
-          {% endif %}
-          {% endfor %}
-        </p>
-    
+        <div id="contact-hint" class="govuk-hint">
+          Any changes you have made will not be saved if you select Yes.
+        </div>
+        </fieldset>
 
               <div class="govuk-radios govuk-radios--inline">
                 <div class="govuk-radios__item">
@@ -66,10 +59,10 @@
                     }
                   }
                   if (!hasSelection) {
-                    window.location.href = "/round-8/e5/error/are-you-sure";
+                    window.location.href = "/round-8/e5/error/abandon-journey";
                   } else {
                     if (document.getElementById("yes").checked) {
-                      window.location.href = "upload-table-no-file.html"
+                      window.location.href = "start-esa.html"
                     } else {
                       window.location.href = "javascript:history.back()"
                     }
