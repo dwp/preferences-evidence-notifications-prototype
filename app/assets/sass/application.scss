@@ -1,73 +1,73 @@
 //
 // For guidance on how to add CSS and SCSS see:
 // https://prototype-kit.service.gov.uk/docs/adding-css-javascript-and-images
-// 
+//
 
 // Add extra styles here
 
 @import "big-number";
 
 .white-link {
-  color:#ffffff !important;
+  color: #ffffff !important;
   text-align: right;
 }
 
-.white-link a:hover{
-  color:#ffffff !important;
+.white-link a:hover {
+  color: #ffffff !important;
   font-weight: bolder;
 }
 
 .navigation-secondary ul:after {
-content: "";
-display: block;
-clear: both;
+  content: "";
+  display: block;
+  clear: both;
 }
 
 .navigation-secondary {
-border-bottom: 1px solid #bfc1c3;
-margin: auto;
-max-width: 960px;
+  border-bottom: 1px solid #bfc1c3;
+  margin: auto;
+  max-width: 960px;
 }
 
 .navigation-secondary ul {
-margin: 0 auto;
-max-width: 960px;
-padding-left: 0;
+  margin: 0 auto;
+  max-width: 960px;
+  padding-left: 0;
 }
 
 .navigation-secondary li {
-float: left;
-list-style-type: none;
+  float: left;
+  list-style-type: none;
 }
 
 @media (max-width: 640px) {
-.navigation-secondary li {
-border: 0;
-width: 100%;
-}
+  .navigation-secondary li {
+    border: 0;
+    width: 100%;
+  }
 }
 
 .navigation-secondary a {
-display: block;
-padding: 15px;
+  display: block;
+  padding: 15px;
 }
 
 .navigation-secondary a:visited {
-color: #005ea5;
+  color: #005ea5;
 }
 
 .navigation-secondary a:hover {
-background-color: #f8f8f8;
+  background-color: #f8f8f8;
 }
 
 .navigation-secondary .active {
-box-shadow: inset 0px -5px 0px 0px #005ea5;
-color: #0b0c0c;
-text-decoration: none;
+  box-shadow: inset 0px -5px 0px 0px #005ea5;
+  color: #0b0c0c;
+  text-decoration: none;
 }
 
 .navigation-secondary .active:visited {
-color: #0b0c0c;
+  color: #0b0c0c;
 }
 
 //button list-style-type
@@ -198,7 +198,6 @@ color: #0b0c0c;
   }
 }
 
-
 /* Full screen header */
 .govuk-fullscreen-header__container {
   border-bottom: 1px solid $govuk-border-colour;
@@ -216,7 +215,7 @@ color: #0b0c0c;
   margin: 0 auto;
   position: relative;
   &::after {
-    content: '';
+    content: "";
     clear: both;
   }
 }
@@ -228,7 +227,7 @@ color: #0b0c0c;
 
 .govuk-fullscreen-header__close {
   position: absolute;
-  right:  0;
+  right: 0;
   top: govuk-spacing(1);
   .mdi {
     font-size: 24px;
@@ -295,226 +294,270 @@ color: #0b0c0c;
   }
 }
 .customer-view-card-group {
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 16px;
-    padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+  padding: 0;
 }
 
 .customer-view-card-group__item {
-    display: flex;
-    list-style-type: none;
-    margin-bottom: 0;
+  display: flex;
+  list-style-type: none;
+  margin-bottom: 0;
 }
 
 .customer-view-card-group__item .customer-view-card {
-    margin-bottom: 32px;
+  margin-bottom: 32px;
 }
 
 .customer-view-card {
-    margin-bottom: 40px;
-    background: #fff;
-    border: 1px solid #d8dde0;
-    position: relative;
-    width: 100%;
+  margin-bottom: 40px;
+  background: #fff;
+  border: 1px solid #d8dde0;
+  position: relative;
+  width: 100%;
 }
 .customer-view-card--clickable {
-    border-bottom-width: 4px;
+  border-bottom-width: 4px;
 }
 .customer-view-card--clickable:hover {
-    border-color: #aeb7bd;
+  border-color: #aeb7bd;
 }
-.customer-view-card--clickable:hover, .customer-view-card--clickable:active {
-    /*cursor: pointer;*/
+.customer-view-card--clickable:hover,
+.customer-view-card--clickable:active {
+  /*cursor: pointer;*/
 }
 .customer-view-card--clickable:active {
-    border-color: #aeb7bd;
-    bottom: -1px;
+  border-color: #aeb7bd;
+  bottom: -1px;
 }
 
 .customer-view-card__content {
-    padding: 24px;
-    position: relative;
+  padding: 24px;
+  position: relative;
 }
-.customer-view-card__content>*:first-child {
-    margin-top: 0;
+.customer-view-card__content > *:first-child {
+  margin-top: 0;
 }
-.customer-view-card__heading, .customer-view-card__metadata, .customer-view-card__description {
-    margin-bottom: 16px;
-}
-
-.customer-view-card__content>*:last-child {
-    margin-bottom: 0;
+.customer-view-card__heading,
+.customer-view-card__metadata,
+.customer-view-card__description {
+  margin-bottom: 16px;
 }
 
-.customer-view-card--clickable:hover .customer-view-card__heading a, .customer-view-card--clickable:hover .customer-view-card__link, .customer-view-card--clickable:active .customer-view-card__heading a, .customer-view-card--clickable:active .customer-view-card__link {
-    color: #003078;
-    /*text-decoration: none;*/
+.customer-view-card__content > *:last-child {
+  margin-bottom: 0;
 }
 
-.customer-view-card-list>li:last-child, ul>li:last-child, ol>li:last-child {
-    margin-bottom: 0;
+.customer-view-card--clickable:hover .customer-view-card__heading a,
+.customer-view-card--clickable:hover .customer-view-card__link,
+.customer-view-card--clickable:active .customer-view-card__heading a,
+.customer-view-card--clickable:active .customer-view-card__link {
+  color: #003078;
+  /*text-decoration: none;*/
 }
 
-@media (max-width: 48.0525em){
+.customer-view-card-list > li:last-child,
+ul > li:last-child,
+ol > li:last-child {
+  margin-bottom: 0;
+}
 
+@media (max-width: 48.0525em) {
   .customer-view-card-group {
-      margin-bottom: 40px;
+    margin-bottom: 40px;
   }
-
 }
 
-@media (max-width: 48.0525em){
+@media (max-width: 48.0525em) {
   .customer-view-card-group__item {
-      flex: 0 0 100%;
+    flex: 0 0 100%;
   }
 }
 
-
-@media (max-width: 48.0525em){
+@media (max-width: 48.0525em) {
   .customer-view-card-group__item .customer-view-card {
-      margin-bottom: 16px;
+    margin-bottom: 16px;
   }
 }
 
-@media (min-width: 40.0625em){
+@media (min-width: 40.0625em) {
   .customer-view-card__content {
-      padding: 24px;
+    padding: 24px;
   }
 }
-
-
 
 .customer-view-card-group {
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 16px;
-    padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+  padding: 0;
 }
 
 .customer-view-card-group__item {
-    display: flex;
-    list-style-type: none;
-    margin-bottom: 0;
+  display: flex;
+  list-style-type: none;
+  margin-bottom: 0;
 }
 
 .customer-view-card-group__item .customer-view-card {
-    margin-bottom: 32px;
+  margin-bottom: 32px;
 }
 
 .customer-view-card {
-    margin-bottom: 40px;
-    background: #fff;
-    border: 1px solid #d8dde0;
-    position: relative;
-    width: 100%;
+  margin-bottom: 40px;
+  background: #fff;
+  border: 1px solid #d8dde0;
+  position: relative;
+  width: 100%;
 }
 .customer-view-card--clickable {
-    border-bottom-width: 4px;
+  border-bottom-width: 4px;
 }
 .customer-view-card--clickable:hover {
-    border-color: #aeb7bd;
+  border-color: #aeb7bd;
 }
 
 .customer-view-card--clickable:active {
-    border-color: #aeb7bd;
-    bottom: -1px;
+  border-color: #aeb7bd;
+  bottom: -1px;
 }
 
 .customer-view-card__content {
-    padding: 24px;
-    position: relative;
+  padding: 24px;
+  position: relative;
 }
-.customer-view-card__content>*:first-child {
-    margin-top: 0;
+.customer-view-card__content > *:first-child {
+  margin-top: 0;
 }
-.customer-view-card__heading, .customer-view-card__metadata, .customer-view-card__description {
-    margin-bottom: 16px;
-}
-
-.customer-view-card__content>*:last-child {
-    margin-bottom: 0;
+.customer-view-card__heading,
+.customer-view-card__metadata,
+.customer-view-card__description {
+  margin-bottom: 16px;
 }
 
-.customer-view-card--clickable:hover .customer-view-card__heading a, .customer-view-card--clickable:hover .customer-view-card__link, .customer-view-card--clickable:active .customer-view-card__heading a, .customer-view-card--clickable:active .customer-view-card__link {
-    color: #003078;
-    /*text-decoration: none;*/
+.customer-view-card__content > *:last-child {
+  margin-bottom: 0;
 }
 
-.customer-view-card-list>li:last-child {
-    margin-bottom: 0;
+.customer-view-card--clickable:hover .customer-view-card__heading a,
+.customer-view-card--clickable:hover .customer-view-card__link,
+.customer-view-card--clickable:active .customer-view-card__heading a,
+.customer-view-card--clickable:active .customer-view-card__link {
+  color: #003078;
+  /*text-decoration: none;*/
 }
 
-@media (max-width: 48.0525em){
+.customer-view-card-list > li:last-child {
+  margin-bottom: 0;
+}
 
+@media (max-width: 48.0525em) {
   .customer-view-card-group {
-      margin-bottom: 40px;
+    margin-bottom: 40px;
   }
-
 }
 
-@media (max-width: 48.0525em){
+@media (max-width: 48.0525em) {
   .customer-view-card-group__item {
-      flex: 0 0 100%;
+    flex: 0 0 100%;
   }
 }
 
-
-@media (max-width: 48.0525em){
+@media (max-width: 48.0525em) {
   .customer-view-card-group__item .customer-view-card {
-      margin-bottom: 16px;
+    margin-bottom: 16px;
   }
 }
 
-@media (min-width: 40.0625em){
+@media (min-width: 40.0625em) {
   .customer-view-card__content {
-      padding: 24px;
+    padding: 24px;
   }
 }
-
 
 .govuk-hidden {
-    display: none;
+  display: none;
 }
 
 .govuk-show {
-    display: block;
+  display: block;
 }
 
-
 .govuk-width-container {
-    max-width: 1200px;
-    margin-right: 15px;
-    margin-left: 15px;
+  max-width: 1200px;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+@supports (margin: max(calc(0px))) {
+  .govuk-width-container {
+    margin-right: max(15px, calc(15px + env(safe-area-inset-right)));
+    margin-left: max(15px, calc(15px + env(safe-area-inset-left)));
   }
-  
+}
+@media (min-width: 40.0625em) {
+  .govuk-width-container {
+    margin-right: 30px;
+    margin-left: 30px;
+  }
   @supports (margin: max(calc(0px))) {
     .govuk-width-container {
-      margin-right: max(15px, calc(15px + env(safe-area-inset-right)));
-      margin-left: max(15px, calc(15px + env(safe-area-inset-left)));
+      margin-right: max(30px, calc(15px + env(safe-area-inset-right)));
+      margin-left: max(30px, calc(15px + env(safe-area-inset-left)));
     }
   }
-  @media (min-width: 40.0625em) {
-    .govuk-width-container {
-      margin-right: 30px;
-      margin-left: 30px;
-    }
-    @supports (margin: max(calc(0px))) {
-      .govuk-width-container {
-        margin-right: max(30px, calc(15px + env(safe-area-inset-right)));
-        margin-left: max(30px, calc(15px + env(safe-area-inset-left)));
-      }
-    }
+}
+@media (min-width: 1020px) {
+  .govuk-width-container {
+    margin-right: auto;
+    margin-left: auto;
   }
-  @media (min-width: 1020px) {
+  @supports (margin: max(calc(0px))) {
     .govuk-width-container {
       margin-right: auto;
       margin-left: auto;
     }
-    @supports (margin: max(calc(0px))) {
-      .govuk-width-container {
-        margin-right: auto;
-        margin-left: auto;
-      }
-    }
   }
+}
+
+.hods-loading-spinner {
+  @include govuk-responsive-padding(4, "top");
+
+  &__spinner {
+    margin-left: auto;
+    margin-right: auto;
+    border: 12px solid #dee0e2;
+    border-radius: 50%;
+    border-top-color: govuk-colour("blue");
+    width: 80px;
+    height: 80px;
+    -webkit-animation: hods-loading-spinner-animation 2s linear infinite;
+    animation: hods-loading-spinner-animation 2s linear infinite;
+  }
+
+  &__content {
+    @include govuk-responsive-padding(4, "top");
+    text-align: center;
+  }
+}
+
+@-webkit-keyframes hods-loading-spinner-animation {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes hods-loading-spinner-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

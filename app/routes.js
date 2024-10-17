@@ -1493,84 +1493,129 @@ router.all("/round-5/e4/remove-evidence-answer", function (req, res) {
 
 // Preferences - customer view
 
-
-router.post('/preferences/customer-view/language/language-selection', function (req, res) {
-  res.redirect('/preferences/customer-view/language/confirm-your-changes')
-})
-
-router.post('/preferences/customer-view/language/confirm-your-changes', function (req, res) {
-  req.session.data.SelectLanguageSET = req.session.data.SelectLanguage
-  res.redirect('/preferences/customer-view/language/updated-language')
-})
-
-router.post('/preferences/customer-view/contact-preferences/how-we-speak-to-you/speaking-selection', function (req, res) {
-  var HowWeSpeakToYou = req.session.data['HowWeSpeakToYou']
-
-  if (HowWeSpeakToYou == "Textphone for the deaf and hard of hearing")  {
-    // Send user to contact us page
-    res.redirect('confirm-your-changes');
-
-    // Check if user selected no on multi address page
-  } else {
-    res.redirect('confirm-your-changes')
+router.post(
+  "/preferences/customer-view/language/language-selection",
+  function (req, res) {
+    res.redirect("/preferences/customer-view/language/confirm-your-changes");
   }
-})
+);
 
-router.post('/preferences/customer-view/contact-preferences/how-we-speak-to-you/confirm-your-changes-answer', function (req, res) {
-  req.session.data.HowWeSpeakToYouConfirmed = req.session.data.HowWeSpeakToYou
-  res.redirect('/preferences/customer-view/contact-preferences/how-we-speak-to-you/updated-speaking-method')
-})
+router.post(
+  "/preferences/customer-view/language/confirm-your-changes",
+  function (req, res) {
+    req.session.data.SelectLanguageSET = req.session.data.SelectLanguage;
+    res.redirect("/preferences/customer-view/language/updated-language");
+  }
+);
 
-router.post('/preferences/customer-view/contact-preferences/how-we-write-to-you/writing-selection', function (req, res) {
-  res.redirect('/preferences/customer-view/contact-preferences/how-we-write-to-you/confirm-your-changes')
-})
+router.post(
+  "/preferences/customer-view/contact-preferences/how-we-speak-to-you/speaking-selection",
+  function (req, res) {
+    var HowWeSpeakToYou = req.session.data["HowWeSpeakToYou"];
 
-router.post('/preferences/customer-view/contact-preferences/how-we-write-to-you/confirm-your-changes', function (req, res) {
-  req.session.data.HowWeWriteToYouSET = req.session.data.HowWeWriteToYou
-  res.redirect('/preferences/customer-view/contact-preferences/how-we-write-to-you/updated-writing-method')
-})
+    if (HowWeSpeakToYou == "Textphone for the deaf and hard of hearing") {
+      // Send user to contact us page
+      res.redirect("confirm-your-changes");
 
+      // Check if user selected no on multi address page
+    } else {
+      res.redirect("confirm-your-changes");
+    }
+  }
+);
+
+router.post(
+  "/preferences/customer-view/contact-preferences/how-we-speak-to-you/confirm-your-changes-answer",
+  function (req, res) {
+    req.session.data.HowWeSpeakToYouConfirmed =
+      req.session.data.HowWeSpeakToYou;
+    res.redirect(
+      "/preferences/customer-view/contact-preferences/how-we-speak-to-you/updated-speaking-method"
+    );
+  }
+);
+
+router.post(
+  "/preferences/customer-view/contact-preferences/how-we-write-to-you/writing-selection",
+  function (req, res) {
+    res.redirect(
+      "/preferences/customer-view/contact-preferences/how-we-write-to-you/confirm-your-changes"
+    );
+  }
+);
+
+router.post(
+  "/preferences/customer-view/contact-preferences/how-we-write-to-you/confirm-your-changes",
+  function (req, res) {
+    req.session.data.HowWeWriteToYouSET = req.session.data.HowWeWriteToYou;
+    res.redirect(
+      "/preferences/customer-view/contact-preferences/how-we-write-to-you/updated-writing-method"
+    );
+  }
+);
 
 // Preferences - agent view
 
-
-router.post('/preferences-agent/agent-view/language/language-selection', function (req, res) {
-  res.redirect('/preferences-agent/agent-view/language/confirm-your-changes')
-})
-
-router.post('/preferences-agent/agent-view/language/confirm-your-changes', function (req, res) {
-  req.session.data.SelectLanguageSET = req.session.data.SelectLanguage
-  res.redirect('/preferences-agent/agent-view/language/updated-language')
-})
-
-router.post('/preferences-agent/agent-view/contact-preferences-agent/how-we-speak-to-you/speaking-selection', function (req, res) {
-  var HowWeSpeakToYou = req.session.data['HowWeSpeakToYou']
-
-  if (HowWeSpeakToYou == "Textphone for the deaf and hard of hearing")  {
-    // Send user to contact us page
-    res.redirect('confirm-your-changes');
-
-    // Check if user selected no on multi address page
-  } else {
-    res.redirect('confirm-your-changes')
+router.post(
+  "/preferences-agent/agent-view/language/language-selection",
+  function (req, res) {
+    res.redirect("/preferences-agent/agent-view/language/confirm-your-changes");
   }
-})
+);
 
-router.post('/preferences-agent/agent-view/contact-preferences-agent/how-we-speak-to-you/confirm-your-changes-answer', function (req, res) {
-  req.session.data.HowWeSpeakToYouConfirmed = req.session.data.HowWeSpeakToYou
-  res.redirect('/preferences-agent/agent-view/contact-preferences-agent/how-we-speak-to-you/updated-speaking-method')
-})
+router.post(
+  "/preferences-agent/agent-view/language/confirm-your-changes",
+  function (req, res) {
+    req.session.data.SelectLanguageSET = req.session.data.SelectLanguage;
+    res.redirect("/preferences-agent/agent-view/language/updated-language");
+  }
+);
 
-router.post('/preferences-agent/agent-view/contact-preferences-agent/how-we-write-to-you/writing-selection', function (req, res) {
-  res.redirect('/preferences-agent/agent-view/contact-preferences-agent/how-we-write-to-you/confirm-your-changes')
-})
+router.post(
+  "/preferences-agent/agent-view/contact-preferences-agent/how-we-speak-to-you/speaking-selection",
+  function (req, res) {
+    var HowWeSpeakToYou = req.session.data["HowWeSpeakToYou"];
 
-router.post('/preferences-agent/agent-view/contact-preferences-agent/how-we-write-to-you/confirm-your-changes', function (req, res) {
-  req.session.data.HowWeWriteToYouSET = req.session.data.HowWeWriteToYou
-  res.redirect('/preferences-agent/agent-view/contact-preferences-agent/how-we-write-to-you/updated-writing-method')
-})
+    if (HowWeSpeakToYou == "Textphone for the deaf and hard of hearing") {
+      // Send user to contact us page
+      res.redirect("confirm-your-changes");
 
+      // Check if user selected no on multi address page
+    } else {
+      res.redirect("confirm-your-changes");
+    }
+  }
+);
 
+router.post(
+  "/preferences-agent/agent-view/contact-preferences-agent/how-we-speak-to-you/confirm-your-changes-answer",
+  function (req, res) {
+    req.session.data.HowWeSpeakToYouConfirmed =
+      req.session.data.HowWeSpeakToYou;
+    res.redirect(
+      "/preferences-agent/agent-view/contact-preferences-agent/how-we-speak-to-you/updated-speaking-method"
+    );
+  }
+);
+
+router.post(
+  "/preferences-agent/agent-view/contact-preferences-agent/how-we-write-to-you/writing-selection",
+  function (req, res) {
+    res.redirect(
+      "/preferences-agent/agent-view/contact-preferences-agent/how-we-write-to-you/confirm-your-changes"
+    );
+  }
+);
+
+router.post(
+  "/preferences-agent/agent-view/contact-preferences-agent/how-we-write-to-you/confirm-your-changes",
+  function (req, res) {
+    req.session.data.HowWeWriteToYouSET = req.session.data.HowWeWriteToYou;
+    res.redirect(
+      "/preferences-agent/agent-view/contact-preferences-agent/how-we-write-to-you/updated-writing-method"
+    );
+  }
+);
 
 // e5
 
@@ -1587,14 +1632,20 @@ router.post("/round-8/e5/start-answer", function (req, res) {
   // req.session.data.evidenceType = evidenceType;
   delete req.session.data["query"];
   delete req.session.data["add-another-evidence"];
-  delete req.session.data["yourEvidence"];
+  delete req.session.data["evidenceType"];
   delete req.session.data["file-upload"];
+  delete req.session.data["remainingUploadBalance"];
+  delete req.session.data["uploadLimit"];
+  delete req.session.data["fileToDelete"];
+  delete req.session.data["benefitsArray"];
 
   benefits = [];
   req.session.data.benefits = benefits;
 
   currentFiles = [];
   req.session.data.currentFiles = currentFiles;
+
+  req.session.data.uploadLimit = 100;
 
   res.redirect("/round-8/e5/have-you-been-contacted");
 });
@@ -1617,7 +1668,7 @@ router.post("/round-8/e5/evidence-type", function (req, res) {
     files: [],
   };
 
-  benefits.push(obj);
+  req.session.data.benefits.push(obj);
 
   console.log({ benefits });
 
@@ -1625,7 +1676,7 @@ router.post("/round-8/e5/evidence-type", function (req, res) {
 });
 
 router.post("/round-8/e5/upload-evidence-type", function (req, res) {
-  var form = req.session.data["yourEvidence"];
+  const evidenceType = req.session.data["evidenceType"];
 
   const index = benefits.findIndex(
     (benefit) => benefit.name === req.session.data["yourBenefits"]
@@ -1633,7 +1684,7 @@ router.post("/round-8/e5/upload-evidence-type", function (req, res) {
 
   benefits[index] = {
     ...benefits[index],
-    evidenceType: form,
+    evidenceType,
   };
 
   console.log({ benefits });
@@ -1643,24 +1694,46 @@ router.post("/round-8/e5/upload-evidence-type", function (req, res) {
 
 router.post("/round-8/e5/upload-evidence-form", function (req, res) {
   var fileName = req.session.data["file-upload"].replaceAll(" ", "");
-  filenames.push(fileName);
-  req.session.data.benefitsArray = filenames;
+  // filenames.push(fileName);
+  // req.session.data.benefitsArray = filenames;
 
-  const index = benefits.findIndex(
-    (benefit) => benefit.name === req.session.data["yourBenefits"]
-  );
-  benefits[index].files.push(fileName);
+  // const index = benefits.findIndex(
+  //   (benefit) => benefit.name === req.session.data["yourBenefits"]
+  // );
+  // benefits[index].files.push(fileName);
 
-  currentFiles.push(fileName);
-  req.session.data.currentFiles = currentFiles;
+  // currentFiles.push(fileName);
+  // req.session.data.currentFiles = currentFiles;
 
-  console.log(benefits);
+  // console.log(benefits);
 
-  req.session.data.benefits = benefits;
+  // req.session.data.benefits = benefits;
 
-  console.log(JSON.stringify(req.session.data.benefits));
+  // console.log(JSON.stringify(req.session.data.benefits));
 
-  res.redirect("/round-8/e5/upload-table");
+  console.log("hello + " + JSON.stringify(req.session.data));
+
+  req.session.data.benefits[0].files.push(fileName);
+
+  res.redirect("/round-8/e5/file-check");
+});
+
+router.get("/round-8/e5/are-you-sure", function (req, res) {
+  const fileToDeleteIndex = parseInt(req.query["file"]) - 1;
+  const fileToDelete = req.session.data.benefits[0].files[fileToDeleteIndex];
+  console.log("file is : " + fileToDelete);
+
+  res.render("./round-8/e5/are-you-sure.njk", { fileToDelete });
+});
+
+router.get("/round-8/e5/upload-table", function (req, res) {
+  const fileToDelete = req.query["file"];
+  req.session.data.benefits[0].files = [
+    ...req.session.data.benefits[0].files,
+  ].filter((fileName) => fileName !== fileToDelete);
+  console.log("new files : " + req.session.data.benefits[0].files);
+
+  res.render("./round-8/e5/upload-table.njk");
 });
 
 router.post("/round-8/e5/evidence-summary-answer", function (req, res) {
