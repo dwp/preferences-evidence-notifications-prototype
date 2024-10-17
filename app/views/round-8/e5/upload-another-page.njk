@@ -1,5 +1,12 @@
 {% extends "layouts/main.html" %}
 
+{% set evidenceTypeCapitalFirstLetter = data.evidenceType %}
+{% if data.evidenceType !== "P60" %}
+  {% set evidenceType = data.evidenceType.toLowerCase() %}
+{% else %}
+  {% set evidenceType = data.evidenceType %}
+{% endif %}
+
 {% set remainingUploadBalance = data.uploadLimit - data.benefits[0].files.length * 9 %}
 
 {% block pageTitle %} Content page template –
@@ -8,7 +15,7 @@
 
 {% block beforeContent %}
 
-{{ data | dump }}
+{# {{ data | dump }} #}
 
 <div class="govuk-!-padding-bottom-4"></div>
 
@@ -21,7 +28,7 @@
       <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
           <h1 class="govuk-fieldset__heading">
-            Upload another bank statement file
+            Upload another {{ evidenceType }} file
           </h1>
         </legend>
 

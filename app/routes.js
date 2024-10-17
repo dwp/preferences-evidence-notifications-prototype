@@ -1715,7 +1715,7 @@ router.post("/round-8/e5/upload-evidence-form", function (req, res) {
 
   req.session.data.benefits[0].files.push(fileName);
 
-  res.redirect("/round-8/e5/upload-table");
+  res.redirect("/round-8/e5/file-check");
 });
 
 router.get("/round-8/e5/are-you-sure", function (req, res) {

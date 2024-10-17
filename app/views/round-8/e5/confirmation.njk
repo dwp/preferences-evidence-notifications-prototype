@@ -1,7 +1,11 @@
 {% extends "layouts/main.html" %}
 
 {% set evidenceTypeCapitalFirstLetter = data.evidenceType %}
-{% set evidenceType = data.evidenceType.toLowerCase() %}
+{% if data.evidenceType !== "P60" %}
+  {% set evidenceType = data.evidenceType.toLowerCase() %}
+{% else %}
+  {% set evidenceType = data.evidenceType %}
+{% endif %}
 
 {% block pageTitle %}
   Content page template – {{ serviceName }} – GOV.UK Prototype Kit
