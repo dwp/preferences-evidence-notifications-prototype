@@ -1,5 +1,12 @@
 {% extends "layouts/main.html" %}
 
+{% set evidenceTypeCapitalFirstLetter = data.evidenceType %}
+{% if data.evidenceType !== "P60" %}
+  {% set evidenceType = data.evidenceType.toLowerCase() %}
+{% else %}
+  {% set evidenceType = data.evidenceType %}
+{% endif %}
+
 {% block pageTitle %}
   Content page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
@@ -29,9 +36,9 @@ aria-labelledby="govuk-notification-banner-title" data-module="govuk-notificatio
 </div>
 <div class="govuk-notification-banner__content">
   <h3 class="govuk-notification-banner__heading">
-    Bank statement upload complete
+    {{ evidenceTypeCapitalFirstLetter }} upload complete
   </h3>
-  <p class="govuk-body">You have successfully uploaded your bank statement for Employment and Support Allowance (ESA).</p>
+  <p class="govuk-body">You have successfully uploaded your {{ evidenceType }} for Employment and Support Allowance (ESA).</p>
 </div>
 </div>
 
