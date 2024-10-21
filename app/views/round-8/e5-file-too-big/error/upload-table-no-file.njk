@@ -1,0 +1,137 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="govuk-!-padding-bottom-4"></div>
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+{% for item in data.benefits %}
+
+<h1 class="govuk-heading-xl">Upload bank statement</h1>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <div class="govuk-error-summary" data-module="govuk-error-summary">
+      <div role="alert">
+        <h2 class="govuk-error-summary__title">
+          There is a problem
+        </h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            <li>
+              <a href="#UK-yes">You must upload at least one file to continue</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+    <h2 class="govuk-heading-m">No bank statement files added</h2>
+
+    <div class="govuk-inset-text">
+      You will need to upload a file to send your evidence
+    </div>
+
+  </div>
+</div>
+
+<div class="govuk-!-padding-bottom-4"></div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+<div class="govuk-form-group govuk-form-group--error">
+
+<div class="govuk-form-group">
+
+  <fieldset class="govuk-fieldset">
+
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+
+      Do you want to upload another bank statement file?
+
+    </legend>
+
+    <div id="changedName-hint" class="govuk-hint">
+      For example, if your bank statement has more pages.
+    </div>
+
+    <p id="whereDoYouLive-error" class="govuk-error-message">
+      <span class="govuk-visually-hidden">Error:</span> You must upload at least one file to continue
+    </p>
+
+    <div class="govuk-radios govuk-radios--inline"data-module="govuk-radios">
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="another-yes" name="another" type="radio" value="true">
+        <label class="govuk-label govuk-radios__label" for="another-yes">
+          Yes
+        </label>
+
+      </div>
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="another-no" name="another" type="radio" value="false">
+        <label class="govuk-label govuk-radios__label" for="another-no">
+          No
+        </label>
+
+    </div>
+
+  </fieldset>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+<button class="govuk-button" value= "true" data-module="govuk-button" onclick="check()">Continue</button>
+
+</div>
+
+
+
+
+<script>
+  function check() {
+    let yesNoRadio = document.getElementsByName("another");
+    let hasSelection = false
+    for (var i = 0; i < yesNoRadio.length; i++) {
+      if (yesNoRadio[i].checked) {
+        hasSelection = true;
+      }
+    }
+    if (!hasSelection) {
+      window.location.href = "/error/have-you-been-contacted.html";
+    } else {
+      if (document.getElementById("another-yes").checked) {
+        window.location.href = "upload-another-page"
+      } else {
+        window.location.href = "upload-summary"
+      }
+    }
+  }
+</script>
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="govuk-!-padding-bottom-4"></div>
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+{% for item in data.benefits %}
+
+<h1 class="govuk-heading-xl">Upload bank statement</h1>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-m">No bank statement files added</h2>
+
+    <div class="govuk-!-padding-bottom-2"></div>
+
+    <div>
+      <p>
+      You will need to upload a file to send your evidence.
+    </p>
+    </div>
+
+    <div class="govuk-!-padding-bottom-2"></div>
+
+  </div>
+</div>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+{% endfor %}
+
+<div class="govuk-button-group">
+  <button class="govuk-button" value= "true" data-module="govuk-button" onclick="check()">Continue to upload</button>
+  <a class="govuk-link" href="abandon-journey.html">Cancel upload</a>
+</div>
+
+
+<script>
+  function check() {
+    let yesNoRadio = document.getElementsByName("another");
+    let hasSelection = false
+    for (var i = 0; i < yesNoRadio.length; i++) {
+      if (yesNoRadio[i].checked) {
+        hasSelection = true;
+      }
+    }
+    if (!hasSelection) {
+      window.location.href = "upload-evidence.njk";
+    } else {
+      if (document.getElementById("another-yes").checked) {
+        window.location.href = "upload-evidence"
+      } else {
+        window.location.href = "upload-evidence"
+      }
+    }
+  }
+</script>
+
+</div>
+</div>
+
+
+
+
+{% endblock %}

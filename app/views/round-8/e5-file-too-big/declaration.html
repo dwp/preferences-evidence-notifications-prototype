@@ -1,0 +1,61 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="govuk-!-padding-bottom-4"></div>
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+<!-- <div id="nationality-hint" class="govuk-hint">
+  This is a page filled with address and residency information on the citizen.
+</div> -->
+
+<div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+
+          <div class="govuk-width-container">
+            <h1 class="govuk-heading-l">Declaration</h1>
+            <p class="govuk-body">
+            By sending this evidence you agree that the information you have given is complete and correct.
+            If you deliberately give the wrong or incomplete information, or you do not report any changes, you may:
+            </p>
+            <ul class="govuk-list govuk-list--bullet">
+            <li>be prosecuted</li>
+            <li>need to pay a financial penalty</li>
+            <li>need to pay back any money you are overpaid if you are asked to</li>
+            </ul>
+            </div>
+
+
+   {% from "govuk/components/button/macro.njk" import govukButton %}
+
+   <div class="govuk-button-group">
+       {{ govukButton({
+           text: "I agree - send evidence",
+           href: "/round-8/e5/confirmation.html",
+           preventDoubleClick: true
+           }) }}
+ 
+     </div>
+ 
+
+</fieldset>
+
+  </div>
+
+
+{% endblock %}
