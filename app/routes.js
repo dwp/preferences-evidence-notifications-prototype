@@ -1872,6 +1872,10 @@ router.post(
   }
 );
 
+router.get("/round-8/e5/sending-data", function (req, res) {
+  res.render("/round-8/e5/sending-data.njk");
+});
+
 router.all("/round-5/e5/remove-evidence-answer", function (req, res) {
   const index = filenames.indexOf(req.query.query);
   filenames.splice(index, 1);
@@ -1916,6 +1920,7 @@ router.post("/round-8/e5-file-too-big/start-answer", function (req, res) {
 
   req.session.data.uploadLimit = 100;
 
+  // Currently not making use of this, might implement in future
   req.session.data.hasSeenFileTooBigError = false;
 
   res.redirect("/round-8/e5-file-too-big/have-you-been-contacted");
@@ -2307,9 +2312,22 @@ router.post(
 
     console.log("hello + " + JSON.stringify(req.session.data));
 
-    req.session.data.benefits[0].files.push(fileName);
+    // req.session.data.benefits[0].files.push(fileName);
 
     res.redirect("/round-8/e5-upload-error/file-check");
+  }
+);
+
+router.post(
+  "/round-8/e5-upload-error/error/upload-evidence-form-retry",
+  function (req, res) {
+    var fileName = req.session.data["file-upload"].replaceAll(" ", "");
+
+    console.log("hello + " + JSON.stringify(req.session.data));
+
+    req.session.data.benefits[0].files.push(fileName);
+
+    res.redirect("/round-8/e5-upload-error/file-check-retry");
   }
 );
 
