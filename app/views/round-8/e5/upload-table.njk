@@ -124,7 +124,7 @@
 {% else %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h2 class="govuk-heading-m">No {{ evidenceTypeCapitalFirstLetter }} files added</h2>
+      <h2 class="govuk-heading-m">No {{ evidenceType }} files added</h2>
       <p>You will need to upload a file to send your evidence.</p>
     </div>
   </div>
@@ -151,7 +151,8 @@
       }
     }
     if (!hasSelection) {
-      window.location.href = "/error/upload-table.njk";
+      //window.location.href = "/error/upload-table.njk";
+      return;
     } else {
       if (document.getElementById("another-yes").checked) {
         window.location.href = "upload-another-page"

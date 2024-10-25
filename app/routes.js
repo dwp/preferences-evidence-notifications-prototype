@@ -1650,16 +1650,19 @@ router.post("/round-8/e5/start-answer", function (req, res) {
   res.redirect("/round-8/e5/have-you-been-contacted");
 });
 
-// router.get("/round-8/e5/benefits", function (req, res) {
-//   console.log("fdfdf");
-//   if (req.session.data.currentFiles.length > 0) {
-//     currentFiles = [];
-//     req.session.data.currentFiles = currentFiles;
+router.get("/round-8/e5/evidence-type", function (req, res) {
+  const obj = {
+    name: req.session.data["yourBenefits"],
+    evidenceType: null,
+    files: [],
+  };
 
-//     benefits = [];
-//     req.session.data.benefits = benefits;
-//   }
-// });
+  req.session.data.benefits = [obj];
+
+  console.log({ benefits });
+
+  res.render("/round-8/e5/evidence-type.njk");
+});
 
 router.post("/round-8/e5/evidence-type", function (req, res) {
   const obj = {
@@ -1668,7 +1671,7 @@ router.post("/round-8/e5/evidence-type", function (req, res) {
     files: [],
   };
 
-  req.session.data.benefits.push(obj);
+  req.session.data.benefits = [obj];
 
   console.log({ benefits });
 
@@ -1677,6 +1680,11 @@ router.post("/round-8/e5/evidence-type", function (req, res) {
 
 router.post("/round-8/e5/upload-evidence-type", function (req, res) {
   const evidenceType = req.session.data["evidenceType"];
+
+  if (evidenceType === "na") {
+    res.redirect("/round-8/e5/you-cannot-upload-other-types-of-evidence");
+    return;
+  }
 
   const index = benefits.findIndex(
     (benefit) => benefit.name === req.session.data["yourBenefits"]
@@ -1937,6 +1945,20 @@ router.post("/round-8/e5-file-too-big/start-answer", function (req, res) {
 //   }
 // });
 
+router.get("/round-8/e5-file-too-big/evidence-type", function (req, res) {
+  const obj = {
+    name: req.session.data["yourBenefits"],
+    evidenceType: null,
+    files: [],
+  };
+
+  req.session.data.benefits = [obj];
+
+  console.log({ benefits });
+
+  res.render("/round-8/e5-file-too-big/evidence-type.njk");
+});
+
 router.post("/round-8/e5-file-too-big/evidence-type", function (req, res) {
   const obj = {
     name: req.session.data["yourBenefits"],
@@ -1944,7 +1966,7 @@ router.post("/round-8/e5-file-too-big/evidence-type", function (req, res) {
     files: [],
   };
 
-  req.session.data.benefits.push(obj);
+  req.session.data.benefits = [obj];
 
   console.log({ benefits });
 
@@ -1955,6 +1977,11 @@ router.post(
   "/round-8/e5-file-too-big/upload-evidence-type",
   function (req, res) {
     const evidenceType = req.session.data["evidenceType"];
+
+    if (evidenceType === "na") {
+      res.redirect("/round-8/e5/you-cannot-upload-other-types-of-evidence");
+      return;
+    }
 
     const index = benefits.findIndex(
       (benefit) => benefit.name === req.session.data["yourBenefits"]
@@ -2255,6 +2282,20 @@ router.post("/round-8/e5-upload-error/start-answer", function (req, res) {
 //   }
 // });
 
+router.get("/round-8/e5-upload-error/evidence-type", function (req, res) {
+  const obj = {
+    name: req.session.data["yourBenefits"],
+    evidenceType: null,
+    files: [],
+  };
+
+  req.session.data.benefits = [obj];
+
+  console.log({ benefits });
+
+  res.render("/round-8/e5-upload-error/evidence-type.njk");
+});
+
 router.post("/round-8/e5-upload-error/evidence-type", function (req, res) {
   const obj = {
     name: req.session.data["yourBenefits"],
@@ -2262,7 +2303,7 @@ router.post("/round-8/e5-upload-error/evidence-type", function (req, res) {
     files: [],
   };
 
-  req.session.data.benefits.push(obj);
+  req.session.data.benefits = [obj];
 
   console.log({ benefits });
 
@@ -2273,6 +2314,11 @@ router.post(
   "/round-8/e5-upload-error/upload-evidence-type",
   function (req, res) {
     const evidenceType = req.session.data["evidenceType"];
+
+    if (evidenceType === "na") {
+      res.redirect("/round-8/e5/you-cannot-upload-other-types-of-evidence");
+      return;
+    }
 
     const index = benefits.findIndex(
       (benefit) => benefit.name === req.session.data["yourBenefits"]
