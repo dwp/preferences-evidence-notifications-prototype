@@ -151,10 +151,11 @@
       }
     }
     if (!hasSelection) {
-      window.location.href = "/error/upload-table.njk";
+      // window.location.href = "/error/upload-table.njk";
+      return;
     } else {
       if (document.getElementById("another-yes").checked) {
-        window.location.href = "upload-another-page"
+        window.location.href = "../e5/upload-another-page"
       } else {
         window.location.href = "upload-summary"
       }

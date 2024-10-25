@@ -1650,16 +1650,19 @@ router.post("/round-8/e5/start-answer", function (req, res) {
   res.redirect("/round-8/e5/have-you-been-contacted");
 });
 
-// router.get("/round-8/e5/benefits", function (req, res) {
-//   console.log("fdfdf");
-//   if (req.session.data.currentFiles.length > 0) {
-//     currentFiles = [];
-//     req.session.data.currentFiles = currentFiles;
+router.get("/round-8/e5/evidence-type", function (req, res) {
+  const obj = {
+    name: req.session.data["yourBenefits"],
+    evidenceType: null,
+    files: [],
+  };
 
-//     benefits = [];
-//     req.session.data.benefits = benefits;
-//   }
-// });
+  req.session.data.benefits = [obj];
+
+  console.log({ benefits });
+
+  res.render("/round-8/e5/evidence-type.njk");
+});
 
 router.post("/round-8/e5/evidence-type", function (req, res) {
   const obj = {
@@ -1668,7 +1671,7 @@ router.post("/round-8/e5/evidence-type", function (req, res) {
     files: [],
   };
 
-  req.session.data.benefits.push(obj);
+  req.session.data.benefits = [obj];
 
   console.log({ benefits });
 
@@ -1677,6 +1680,11 @@ router.post("/round-8/e5/evidence-type", function (req, res) {
 
 router.post("/round-8/e5/upload-evidence-type", function (req, res) {
   const evidenceType = req.session.data["evidenceType"];
+
+  if (evidenceType === "na") {
+    res.redirect("/round-8/e5/you-cannot-upload-other-types-of-evidence");
+    return;
+  }
 
   const index = benefits.findIndex(
     (benefit) => benefit.name === req.session.data["yourBenefits"]
@@ -1872,6 +1880,10 @@ router.post(
   }
 );
 
+router.get("/round-8/e5/sending-data", function (req, res) {
+  res.render("/round-8/e5/sending-data.njk");
+});
+
 router.all("/round-5/e5/remove-evidence-answer", function (req, res) {
   const index = filenames.indexOf(req.query.query);
   filenames.splice(index, 1);
@@ -1884,13 +1896,6 @@ router.all("/round-5/e5/remove-evidence-answer", function (req, res) {
 
   res.redirect("/round-5/e5/upload-summary");
 });
-
-
-
-
-
-
-
 
 // e5-file-too-big
 
@@ -1913,6 +1918,7 @@ router.post("/round-8/e5-file-too-big/start-answer", function (req, res) {
   delete req.session.data["uploadLimit"];
   delete req.session.data["fileToDelete"];
   delete req.session.data["benefitsArray"];
+  delete req.session.data["hasSeenFileTooBigError"];
 
   benefits = [];
   req.session.data.benefits = benefits;
@@ -1921,6 +1927,9 @@ router.post("/round-8/e5-file-too-big/start-answer", function (req, res) {
   req.session.data.currentFiles = currentFiles;
 
   req.session.data.uploadLimit = 100;
+
+  // Currently not making use of this, might implement in future
+  req.session.data.hasSeenFileTooBigError = false;
 
   res.redirect("/round-8/e5-file-too-big/have-you-been-contacted");
 });
@@ -1936,6 +1945,20 @@ router.post("/round-8/e5-file-too-big/start-answer", function (req, res) {
 //   }
 // });
 
+router.get("/round-8/e5-file-too-big/evidence-type", function (req, res) {
+  const obj = {
+    name: req.session.data["yourBenefits"],
+    evidenceType: null,
+    files: [],
+  };
+
+  req.session.data.benefits = [obj];
+
+  console.log({ benefits });
+
+  res.render("/round-8/e5-file-too-big/evidence-type.njk");
+});
+
 router.post("/round-8/e5-file-too-big/evidence-type", function (req, res) {
   const obj = {
     name: req.session.data["yourBenefits"],
@@ -1943,55 +1966,95 @@ router.post("/round-8/e5-file-too-big/evidence-type", function (req, res) {
     files: [],
   };
 
-  req.session.data.benefits.push(obj);
+  req.session.data.benefits = [obj];
 
   console.log({ benefits });
 
   res.redirect("/round-8/e5-file-too-big/evidence-type");
 });
 
-router.post("/round-8/e5-file-too-big/upload-evidence-type", function (req, res) {
-  const evidenceType = req.session.data["evidenceType"];
+router.post(
+  "/round-8/e5-file-too-big/upload-evidence-type",
+  function (req, res) {
+    const evidenceType = req.session.data["evidenceType"];
 
-  const index = benefits.findIndex(
-    (benefit) => benefit.name === req.session.data["yourBenefits"]
-  );
+    if (evidenceType === "na") {
+      res.redirect("/round-8/e5/you-cannot-upload-other-types-of-evidence");
+      return;
+    }
 
-  benefits[index] = {
-    ...benefits[index],
-    evidenceType,
-  };
+    const index = benefits.findIndex(
+      (benefit) => benefit.name === req.session.data["yourBenefits"]
+    );
 
-  console.log({ benefits });
+    benefits[index] = {
+      ...benefits[index],
+      evidenceType,
+    };
 
-  res.redirect("/round-8/e5-file-too-big/how-to-send-evidence");
-});
+    console.log({ benefits });
 
-router.post("/round-8/e5-file-too-big/upload-evidence-form", function (req, res) {
-  var fileName = req.session.data["file-upload"].replaceAll(" ", "");
-  // filenames.push(fileName);
-  // req.session.data.benefitsArray = filenames;
+    res.redirect("/round-8/e5-file-too-big/how-to-send-evidence");
+  }
+);
 
-  // const index = benefits.findIndex(
-  //   (benefit) => benefit.name === req.session.data["yourBenefits"]
-  // );
-  // benefits[index].files.push(fileName);
+router.post(
+  "/round-8/e5-file-too-big/upload-evidence-form",
+  function (req, res) {
+    var fileName = req.session.data["file-upload"].replaceAll(" ", "");
+    // filenames.push(fileName);
+    // req.session.data.benefitsArray = filenames;
 
-  // currentFiles.push(fileName);
-  // req.session.data.currentFiles = currentFiles;
+    // const index = benefits.findIndex(
+    //   (benefit) => benefit.name === req.session.data["yourBenefits"]
+    // );
+    // benefits[index].files.push(fileName);
 
-  // console.log(benefits);
+    // currentFiles.push(fileName);
+    // req.session.data.currentFiles = currentFiles;
 
-  // req.session.data.benefits = benefits;
+    // console.log(benefits);
 
-  // console.log(JSON.stringify(req.session.data.benefits));
+    // req.session.data.benefits = benefits;
 
-  console.log("hello + " + JSON.stringify(req.session.data));
+    // console.log(JSON.stringify(req.session.data.benefits));
 
-  req.session.data.benefits[0].files.push(fileName);
+    console.log("hello + " + JSON.stringify(req.session.data));
 
-  res.redirect("/round-8/e5-file-too-big/file-check");
-});
+    // req.session.data.benefits[0].files.push(fileName);
+
+    res.redirect("/round-8/e5-file-too-big/error/upload-evidence");
+  }
+);
+
+router.post(
+  "/round-8/e5-file-too-big/error/upload-evidence-form",
+  function (req, res) {
+    var fileName = req.session.data["file-upload"].replaceAll(" ", "");
+    // filenames.push(fileName);
+    // req.session.data.benefitsArray = filenames;
+
+    // const index = benefits.findIndex(
+    //   (benefit) => benefit.name === req.session.data["yourBenefits"]
+    // );
+    // benefits[index].files.push(fileName);
+
+    // currentFiles.push(fileName);
+    // req.session.data.currentFiles = currentFiles;
+
+    // console.log(benefits);
+
+    // req.session.data.benefits = benefits;
+
+    // console.log(JSON.stringify(req.session.data.benefits));
+
+    console.log("hello + " + JSON.stringify(req.session.data));
+
+    req.session.data.benefits[0].files.push(fileName);
+
+    res.redirect("/round-8/e5-file-too-big/file-check");
+  }
+);
 
 router.get("/round-8/e5-file-too-big/are-you-sure", function (req, res) {
   const fileToDeleteIndex = parseInt(req.query["file"]) - 1;
@@ -2011,36 +2074,39 @@ router.get("/round-8/e5-file-too-big/upload-table", function (req, res) {
   res.render("./round-8/e5-file-too-big/upload-table.njk");
 });
 
-router.post("/round-8/e5-file-too-big/evidence-summary-answer", function (req, res) {
-  var addAnotherEvidence = req.session.data["add-another-evidence"];
-  req.session.data.benefitsArray = filenames;
+router.post(
+  "/round-8/e5-file-too-big/evidence-summary-answer",
+  function (req, res) {
+    var addAnotherEvidence = req.session.data["add-another-evidence"];
+    req.session.data.benefitsArray = filenames;
 
-  if (
-    addAnotherEvidence == "yes" &&
-    req.session.data.benefitsArray.length === 1
-  ) {
-    // Send user to next page
-    res.redirect("/round-8/e5-file-too-big/upload-more-evidence/benefits-2");
-  } else if (
-    addAnotherEvidence == "yes" &&
-    req.session.data.benefitsArray.length === 2
-  ) {
-    res.redirect("/round-8/e5-file-too-big/upload-more-evidence/benefits-3");
-  } else if (
-    addAnotherEvidence == "yes" &&
-    req.session.data.benefitsArray.length === 3
-  ) {
-    res.redirect("/round-8/e5-file-too-big/upload-more-evidence/benefits-4");
-  } else if (
-    addAnotherEvidence == "yes" &&
-    req.session.data.benefitsArray.length === 4
-  ) {
-    res.redirect("/round-8/e5-file-too-big/no-more-uploads");
-  } else {
-    // Inactive
-    res.redirect("/round-8/e5-file-too-big/national-insurance-number");
+    if (
+      addAnotherEvidence == "yes" &&
+      req.session.data.benefitsArray.length === 1
+    ) {
+      // Send user to next page
+      res.redirect("/round-8/e5-file-too-big/upload-more-evidence/benefits-2");
+    } else if (
+      addAnotherEvidence == "yes" &&
+      req.session.data.benefitsArray.length === 2
+    ) {
+      res.redirect("/round-8/e5-file-too-big/upload-more-evidence/benefits-3");
+    } else if (
+      addAnotherEvidence == "yes" &&
+      req.session.data.benefitsArray.length === 3
+    ) {
+      res.redirect("/round-8/e5-file-too-big/upload-more-evidence/benefits-4");
+    } else if (
+      addAnotherEvidence == "yes" &&
+      req.session.data.benefitsArray.length === 4
+    ) {
+      res.redirect("/round-8/e5-file-too-big/no-more-uploads");
+    } else {
+      // Inactive
+      res.redirect("/round-8/e5-file-too-big/national-insurance-number");
+    }
   }
-});
+);
 
 router.post(
   "/round-8/e5-file-too-big/upload-more-evidence/upload-evidence-form-2",
@@ -2075,11 +2141,14 @@ router.post(
   }
 );
 
-router.post("/round-8/e5-file-too-big/how-to-send-evidence", function (req, res) {
-  console.log("session data: " + JSON.stringify(req.session.data));
+router.post(
+  "/round-8/e5-file-too-big/how-to-send-evidence",
+  function (req, res) {
+    console.log("session data: " + JSON.stringify(req.session.data));
 
-  res.redirect("/round-8/e5-file-too-big/how-to-send-evidence");
-});
+    res.redirect("/round-8/e5-file-too-big/how-to-send-evidence");
+  }
+);
 
 router.post(
   "/round-8/e5-file-too-big/upload-more-evidence/evidence-type-2",
@@ -2088,7 +2157,9 @@ router.post(
     benefitsChosen.push(benefit);
     req.session.data.benefitsChosen = benefitsChosen;
 
-    res.redirect("/round-8/e5-file-too-big/upload-more-evidence/evidence-type-2");
+    res.redirect(
+      "/round-8/e5-file-too-big/upload-more-evidence/evidence-type-2"
+    );
   }
 );
 
@@ -2099,7 +2170,9 @@ router.post(
     benefitsChosen.push(benefit);
     req.session.data.benefitsChosen = benefitsChosen;
 
-    res.redirect("/round-8/e5-file-too-big/upload-more-evidence/evidence-type-3");
+    res.redirect(
+      "/round-8/e5-file-too-big/upload-more-evidence/evidence-type-3"
+    );
   }
 );
 
@@ -2110,7 +2183,9 @@ router.post(
     benefitsChosen.push(benefit);
     req.session.data.benefitsChosen = benefitsChosen;
 
-    res.redirect("/round-8/e5-file-too-big/upload-more-evidence/evidence-type-4");
+    res.redirect(
+      "/round-8/e5-file-too-big/upload-more-evidence/evidence-type-4"
+    );
   }
 );
 
@@ -2147,23 +2222,21 @@ router.post(
   }
 );
 
-router.all("/round-5/e5-file-too-big/remove-evidence-answer", function (req, res) {
-  const index = filenames.indexOf(req.query.query);
-  filenames.splice(index, 1);
-  benefitsChosen.splice(index, 1);
-  evidenceType.splice(index, 1);
+router.all(
+  "/round-5/e5-file-too-big/remove-evidence-answer",
+  function (req, res) {
+    const index = filenames.indexOf(req.query.query);
+    filenames.splice(index, 1);
+    benefitsChosen.splice(index, 1);
+    evidenceType.splice(index, 1);
 
-  req.session.data.benefitsArray = filenames;
-  req.session.data.benefitsChosen = benefitsChosen;
-  req.session.data.evidenceType = evidenceType;
+    req.session.data.benefitsArray = filenames;
+    req.session.data.benefitsChosen = benefitsChosen;
+    req.session.data.evidenceType = evidenceType;
 
-  res.redirect("/round-5/e5-file-too-big/upload-summary");
-});
-
-
-
-
-
+    res.redirect("/round-5/e5-file-too-big/upload-summary");
+  }
+);
 
 // e5-upload-error
 
@@ -2209,6 +2282,20 @@ router.post("/round-8/e5-upload-error/start-answer", function (req, res) {
 //   }
 // });
 
+router.get("/round-8/e5-upload-error/evidence-type", function (req, res) {
+  const obj = {
+    name: req.session.data["yourBenefits"],
+    evidenceType: null,
+    files: [],
+  };
+
+  req.session.data.benefits = [obj];
+
+  console.log({ benefits });
+
+  res.render("/round-8/e5-upload-error/evidence-type.njk");
+});
+
 router.post("/round-8/e5-upload-error/evidence-type", function (req, res) {
   const obj = {
     name: req.session.data["yourBenefits"],
@@ -2216,55 +2303,79 @@ router.post("/round-8/e5-upload-error/evidence-type", function (req, res) {
     files: [],
   };
 
-  req.session.data.benefits.push(obj);
+  req.session.data.benefits = [obj];
 
   console.log({ benefits });
 
   res.redirect("/round-8/e5-upload-error/evidence-type");
 });
 
-router.post("/round-8/e5-upload-error/upload-evidence-type", function (req, res) {
-  const evidenceType = req.session.data["evidenceType"];
+router.post(
+  "/round-8/e5-upload-error/upload-evidence-type",
+  function (req, res) {
+    const evidenceType = req.session.data["evidenceType"];
 
-  const index = benefits.findIndex(
-    (benefit) => benefit.name === req.session.data["yourBenefits"]
-  );
+    if (evidenceType === "na") {
+      res.redirect("/round-8/e5/you-cannot-upload-other-types-of-evidence");
+      return;
+    }
 
-  benefits[index] = {
-    ...benefits[index],
-    evidenceType,
-  };
+    const index = benefits.findIndex(
+      (benefit) => benefit.name === req.session.data["yourBenefits"]
+    );
 
-  console.log({ benefits });
+    benefits[index] = {
+      ...benefits[index],
+      evidenceType,
+    };
 
-  res.redirect("/round-8/e5-upload-error/how-to-send-evidence");
-});
+    console.log({ benefits });
 
-router.post("/round-8/e5-upload-error/upload-evidence-form", function (req, res) {
-  var fileName = req.session.data["file-upload"].replaceAll(" ", "");
-  // filenames.push(fileName);
-  // req.session.data.benefitsArray = filenames;
+    res.redirect("/round-8/e5-upload-error/how-to-send-evidence");
+  }
+);
 
-  // const index = benefits.findIndex(
-  //   (benefit) => benefit.name === req.session.data["yourBenefits"]
-  // );
-  // benefits[index].files.push(fileName);
+router.post(
+  "/round-8/e5-upload-error/upload-evidence-form",
+  function (req, res) {
+    var fileName = req.session.data["file-upload"].replaceAll(" ", "");
+    // filenames.push(fileName);
+    // req.session.data.benefitsArray = filenames;
 
-  // currentFiles.push(fileName);
-  // req.session.data.currentFiles = currentFiles;
+    // const index = benefits.findIndex(
+    //   (benefit) => benefit.name === req.session.data["yourBenefits"]
+    // );
+    // benefits[index].files.push(fileName);
 
-  // console.log(benefits);
+    // currentFiles.push(fileName);
+    // req.session.data.currentFiles = currentFiles;
 
-  // req.session.data.benefits = benefits;
+    // console.log(benefits);
 
-  // console.log(JSON.stringify(req.session.data.benefits));
+    // req.session.data.benefits = benefits;
 
-  console.log("hello + " + JSON.stringify(req.session.data));
+    // console.log(JSON.stringify(req.session.data.benefits));
 
-  req.session.data.benefits[0].files.push(fileName);
+    console.log("hello + " + JSON.stringify(req.session.data));
 
-  res.redirect("/round-8/e5-upload-error/file-check");
-});
+    // req.session.data.benefits[0].files.push(fileName);
+
+    res.redirect("/round-8/e5-upload-error/file-check");
+  }
+);
+
+router.post(
+  "/round-8/e5-upload-error/error/upload-evidence-form-retry",
+  function (req, res) {
+    var fileName = req.session.data["file-upload"].replaceAll(" ", "");
+
+    console.log("hello + " + JSON.stringify(req.session.data));
+
+    req.session.data.benefits[0].files.push(fileName);
+
+    res.redirect("/round-8/e5-upload-error/file-check-retry");
+  }
+);
 
 router.get("/round-8/e5-upload-error/are-you-sure", function (req, res) {
   const fileToDeleteIndex = parseInt(req.query["file"]) - 1;
@@ -2284,36 +2395,39 @@ router.get("/round-8/e5-upload-error/upload-table", function (req, res) {
   res.render("./round-8/e5-upload-error/upload-table.njk");
 });
 
-router.post("/round-8/e5-upload-error/evidence-summary-answer", function (req, res) {
-  var addAnotherEvidence = req.session.data["add-another-evidence"];
-  req.session.data.benefitsArray = filenames;
+router.post(
+  "/round-8/e5-upload-error/evidence-summary-answer",
+  function (req, res) {
+    var addAnotherEvidence = req.session.data["add-another-evidence"];
+    req.session.data.benefitsArray = filenames;
 
-  if (
-    addAnotherEvidence == "yes" &&
-    req.session.data.benefitsArray.length === 1
-  ) {
-    // Send user to next page
-    res.redirect("/round-8/e5-upload-error/upload-more-evidence/benefits-2");
-  } else if (
-    addAnotherEvidence == "yes" &&
-    req.session.data.benefitsArray.length === 2
-  ) {
-    res.redirect("/round-8/e5-upload-error/upload-more-evidence/benefits-3");
-  } else if (
-    addAnotherEvidence == "yes" &&
-    req.session.data.benefitsArray.length === 3
-  ) {
-    res.redirect("/round-8/e5-upload-error/upload-more-evidence/benefits-4");
-  } else if (
-    addAnotherEvidence == "yes" &&
-    req.session.data.benefitsArray.length === 4
-  ) {
-    res.redirect("/round-8/e5-upload-error/no-more-uploads");
-  } else {
-    // Inactive
-    res.redirect("/round-8/e5-upload-error/national-insurance-number");
+    if (
+      addAnotherEvidence == "yes" &&
+      req.session.data.benefitsArray.length === 1
+    ) {
+      // Send user to next page
+      res.redirect("/round-8/e5-upload-error/upload-more-evidence/benefits-2");
+    } else if (
+      addAnotherEvidence == "yes" &&
+      req.session.data.benefitsArray.length === 2
+    ) {
+      res.redirect("/round-8/e5-upload-error/upload-more-evidence/benefits-3");
+    } else if (
+      addAnotherEvidence == "yes" &&
+      req.session.data.benefitsArray.length === 3
+    ) {
+      res.redirect("/round-8/e5-upload-error/upload-more-evidence/benefits-4");
+    } else if (
+      addAnotherEvidence == "yes" &&
+      req.session.data.benefitsArray.length === 4
+    ) {
+      res.redirect("/round-8/e5-upload-error/no-more-uploads");
+    } else {
+      // Inactive
+      res.redirect("/round-8/e5-upload-error/national-insurance-number");
+    }
   }
-});
+);
 
 router.post(
   "/round-8/e5-upload-error/upload-more-evidence/upload-evidence-form-2",
@@ -2348,11 +2462,14 @@ router.post(
   }
 );
 
-router.post("/round-8/e5-upload-error/how-to-send-evidence", function (req, res) {
-  console.log("session data: " + JSON.stringify(req.session.data));
+router.post(
+  "/round-8/e5-upload-error/how-to-send-evidence",
+  function (req, res) {
+    console.log("session data: " + JSON.stringify(req.session.data));
 
-  res.redirect("/round-8/e5-upload-error/how-to-send-evidence");
-});
+    res.redirect("/round-8/e5-upload-error/how-to-send-evidence");
+  }
+);
 
 router.post(
   "/round-8/e5-upload-error/upload-more-evidence/evidence-type-2",
@@ -2361,7 +2478,9 @@ router.post(
     benefitsChosen.push(benefit);
     req.session.data.benefitsChosen = benefitsChosen;
 
-    res.redirect("/round-8/e5-upload-error/upload-more-evidence/evidence-type-2");
+    res.redirect(
+      "/round-8/e5-upload-error/upload-more-evidence/evidence-type-2"
+    );
   }
 );
 
@@ -2372,7 +2491,9 @@ router.post(
     benefitsChosen.push(benefit);
     req.session.data.benefitsChosen = benefitsChosen;
 
-    res.redirect("/round-8/e5-upload-error/upload-more-evidence/evidence-type-3");
+    res.redirect(
+      "/round-8/e5-upload-error/upload-more-evidence/evidence-type-3"
+    );
   }
 );
 
@@ -2383,7 +2504,9 @@ router.post(
     benefitsChosen.push(benefit);
     req.session.data.benefitsChosen = benefitsChosen;
 
-    res.redirect("/round-8/e5-upload-error/upload-more-evidence/evidence-type-4");
+    res.redirect(
+      "/round-8/e5-upload-error/upload-more-evidence/evidence-type-4"
+    );
   }
 );
 
@@ -2420,15 +2543,18 @@ router.post(
   }
 );
 
-router.all("/round-5/e5-upload-error/remove-evidence-answer", function (req, res) {
-  const index = filenames.indexOf(req.query.query);
-  filenames.splice(index, 1);
-  benefitsChosen.splice(index, 1);
-  evidenceType.splice(index, 1);
+router.all(
+  "/round-5/e5-upload-error/remove-evidence-answer",
+  function (req, res) {
+    const index = filenames.indexOf(req.query.query);
+    filenames.splice(index, 1);
+    benefitsChosen.splice(index, 1);
+    evidenceType.splice(index, 1);
 
-  req.session.data.benefitsArray = filenames;
-  req.session.data.benefitsChosen = benefitsChosen;
-  req.session.data.evidenceType = evidenceType;
+    req.session.data.benefitsArray = filenames;
+    req.session.data.benefitsChosen = benefitsChosen;
+    req.session.data.evidenceType = evidenceType;
 
-  res.redirect("/round-5/e5-upload-error/upload-summary");
-});
+    res.redirect("/round-5/e5-upload-error/upload-summary");
+  }
+);
