@@ -1,0 +1,39 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">Email content</h1>
+
+        <h2 class="govuk-heading-m">From</h2>
+        <p>[do not reply, 'Verify your email' email address]</p>
+
+        <h2 class="govuk-heading-m">To</h2>
+        <p>[customer email address]</p>
+
+        <h2 class="govuk-heading-m">Subject</h2>
+        <p>Your email verification code - Verify your email GOV.UK</p>
+
+        <h2 class="govuk-heading-m">Email content</h2>
+        <p class="govuk-body">Hi [name],</p>
+        <p class="govuk-body">Here is your 6 digit code. Enter it on the 'Verify your email' screen to continue.</p>
+        <p class="govuk-body"><b>123456</b></p>
+        <p class="govuk-body">Department for Work and Pensions (DWP)</p>
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}
