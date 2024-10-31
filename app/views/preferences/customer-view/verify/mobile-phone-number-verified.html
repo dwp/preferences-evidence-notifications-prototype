@@ -1,0 +1,40 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+          <div class="govuk-notification-banner__header">
+            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+              Success
+            </h2>
+          </div>
+          <div class="govuk-notification-banner__content">
+            <h3 class="govuk-notification-banner__heading">
+              Phone number verification complete
+            </h3>
+            <p class="govuk-body">You have successfully verified the phone number 07123 456 789.</p>
+          </div>
+        </div>
+
+
+        <h2 class="govuk-heading-m">What happens next</h2>
+        <p class="govuk-body">We have sent you a confirmation text message to 07123 456 789.</p>
+        <p class="govuk-body">You can now <a href="#" class="govuk-link">exit this page</a>.</p>
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}
