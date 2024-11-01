@@ -1,0 +1,97 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-m">November - December 2024</span>
+        Round 9 UR prototypes
+      </h1>
+
+    </div>
+  </div>
+
+  <div class="govuk-!-padding-bottom-4"></div>
+
+  <h2 class="govuk-heading-m">
+    Send your evidence
+    </h2>
+
+    <div class="width-container govuk-!-padding-4" style="border-radius:10px; background-color:#f3f2f1">
+      <div class="govuk-!-padding-bottom-2"></div>
+
+
+<table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header app-custom-class">Name</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Description</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Status</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Action</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">E6</th>
+      <td class="govuk-table__cell">
+
+<p class="govuk-body">This prototype incorporates a series of iterations based on UR feedback, insights and recent changes in technical requirements. The main focus of this round is to test additional guidance and an all-in-one multiple file upload component.</p>
+
+<p>Testing scheduled with 8 customers starting in early December 2024.</p>
+
+<h4 class="govuk-heading-s">
+  UR testing scenarios
+  </h4>
+
+  <p><a href="e6/start.html"><b>Scenario 1:</b> Happy path</a>.</p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>run through happy path</li> 
+    </ul>
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+
+<h4 class="govuk-heading-s">
+  Service unavailability or problems
+  </h4>
+
+  <ul class="govuk-list govuk-list--bullet">
+    <li><a href="e6/you-will-need-to-start-again">You'll need to start again</a></li> 
+    <li><a href="e6/problem-with-the-service">There is a problem with the service page</a></li> 
+    <li><a href="e6/service-unavailable">Service unavailable page</a></li> 
+    </ul>
+
+      </td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag">
+          Ready
+    </strong>
+    </td>
+    <td class="govuk-table__cell"><a href="e6/start.html" class="govuk-link">View</a></td>
+    </tr>
+    
+  </tbody>
+
+
+
+  
+</table>
+</div>
+
+
+
+
+{% endblock %}

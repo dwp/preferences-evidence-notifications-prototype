@@ -1,0 +1,95 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="govuk-!-padding-bottom-4"></div>
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+{% for item in data.benefits %}
+
+<h1 class="govuk-heading-xl">Upload bank statement</h1>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-m">Bank statement files added</h2>
+
+    <dl class="govuk-summary-list">
+        {% for item in data.benefits %}
+        {% if item.name === data.yourBenefits %}
+        {% for item in item.files %}
+      <div class="govuk-summary-list__row">
+
+          <dt class="govuk-summary-list__key">
+          File {{ loop.index }}
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <p><a download href="/" class="govuk-link">{{item}}</a> (9MB)</p>
+        </dd>
+        <dd class="govuk-summary-list__actions">
+
+          <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> file 2</span></a>
+
+        </dd>
+      </div>
+      {% endfor %}
+      {% endif %}
+      {% endfor %}
+    </dl>
+  </div>
+</div>
+
+<div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-visually-hidden">Warning</span>
+    You have gone over your 100MB limit. You must remove at least 8MB to continue.
+  </strong>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+{% endfor %}
+
+<button class="govuk-button" value= "true" data-module="govuk-button" onclick="check()">Continue</button>
+
+<script>
+  function check() {
+    let yesNoRadio = document.getElementsByName("another");
+    let hasSelection = false
+    for (var i = 0; i < yesNoRadio.length; i++) {
+      if (yesNoRadio[i].checked) {
+        hasSelection = true;
+      }
+    }
+    if (!hasSelection) {
+      window.location.href = "/error/upload-table.njk";
+    } else {
+      if (document.getElementById("another-yes").checked) {
+        window.location.href = "upload-another-page"
+      } else {
+        window.location.href = "upload-summary"
+      }
+    }
+  }
+</script>
+
+</div>
+</div>
+
+
+
+
+{% endblock %}

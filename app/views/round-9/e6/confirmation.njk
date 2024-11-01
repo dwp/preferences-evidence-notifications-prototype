@@ -1,0 +1,63 @@
+{% extends "layouts/main.html" %}
+
+{% set evidenceTypeCapitalFirstLetter = data.evidenceType %}
+{% if data.evidenceType !== "P60" %}
+  {% set evidenceType = data.evidenceType.toLowerCase() %}
+{% else %}
+  {% set evidenceType = data.evidenceType %}
+{% endif %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="govuk-!-padding-bottom-4"></div>
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+<div class="govuk-notification-banner govuk-notification-banner--success" role="region"
+aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+<div class="govuk-notification-banner__header">
+  <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+    Success
+  </h2>
+</div>
+<div class="govuk-notification-banner__content">
+  <h3 class="govuk-notification-banner__heading">
+    {{ evidenceTypeCapitalFirstLetter }} upload complete
+  </h3>
+  <p class="govuk-body">You have successfully uploaded your {{ evidenceType }} for Employment and Support Allowance (ESA).</p>
+</div>
+</div>
+
+<h2 class="govuk-heading-m">What happens next</h2>
+        <p class="govuk-body">
+          We will now check your evidence.
+        </p>
+
+        <p class="govuk-body">
+          We will contact you about your benefit claim once we have confirmed the details in your evidence.
+        </p>
+
+        <p class="govuk-body">
+          You do not need to contact us before then.
+        </p>
+
+     </div>
+     </div>
+ 
+
+
+{% endblock %}
