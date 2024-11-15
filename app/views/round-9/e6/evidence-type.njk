@@ -22,14 +22,17 @@
 
       <form class="form" action="upload-evidence-type" method="post">
 
-        <h1 class="govuk-heading-l">What evidence are you sending?</h1>
-
           {{ govukRadios({
               name: "evidenceType",
               fieldset: {
                 legend: {
-                  isPageHeading: true
+                  text: "What evidence are you sending?",
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend--l"
                 }
+              },
+              hint: {
+                text: "If you need to upload multiple evidence types, you will need to repeat this process for each type."
               },
             items: [
 
