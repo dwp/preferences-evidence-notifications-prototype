@@ -2559,9 +2559,6 @@ router.all(
   }
 );
 
-
-
-
 // e6
 
 // var filenames = [];
@@ -2646,27 +2643,15 @@ router.post("/round-9/e6/upload-evidence-type", function (req, res) {
 });
 
 router.post("/round-9/e6/upload-evidence-form", function (req, res) {
-  var fileName = req.session.data["file-upload"].replaceAll(" ", "");
-  // filenames.push(fileName);
-  // req.session.data.benefitsArray = filenames;
-
-  // const index = benefits.findIndex(
-  //   (benefit) => benefit.name === req.session.data["yourBenefits"]
-  // );
-  // benefits[index].files.push(fileName);
-
-  // currentFiles.push(fileName);
-  // req.session.data.currentFiles = currentFiles;
-
-  // console.log(benefits);
-
-  // req.session.data.benefits = benefits;
-
-  // console.log(JSON.stringify(req.session.data.benefits));
-
   console.log("hello + " + JSON.stringify(req.session.data));
 
-  req.session.data.benefits[0].files.push(fileName);
+  if (Array.isArray(req.session.data["file-upload"])) {
+    req.session.data["file-upload"].forEach((file) => {
+      req.session.data.benefits[0].files.push(file);
+    });
+  } else {
+    req.session.data.benefits[0].files.push(req.session.data["file-upload"]);
+  }
 
   res.redirect("/round-9/e6/file-check");
 });
