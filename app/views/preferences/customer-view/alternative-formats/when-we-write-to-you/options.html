@@ -1,110 +1,157 @@
-{% extends "layouts/main.html" %}
-
-{% block pageTitle %}
-Content page template – {{ serviceName }} – GOV.UK Prototype Kit
-{% endblock %}
-
-
-{% block beforeContent %}
-
-{% include "preferences/breadcrumbs/customer-view/alternative-format.html" %}
-
-{% endblock %}
-
-{% block content %}
+{% extends "layouts/main.html" %} {% block pageTitle %} Content page template –
+{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
+%} {% include "preferences/breadcrumbs/customer-view/alternative-format.html" %}
+{% endblock %} {% block content %}
 
 <form class="form" id="checkboxForm">
-
-    <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset" aria-describedby="format-type-hint">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-            <h1 class="govuk-fieldset__heading">
-              What alternative format types do you need?
-            </h1>
-          </legend>
-          <div id="format-type-hint" class="govuk-hint">
-            Select all that apply.
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset" aria-describedby="format-type-hint">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <h1 class="govuk-fieldset__heading">
+          What alternative format types do you need?
+        </h1>
+      </legend>
+      <div id="format-type-hint" class="govuk-hint">Select all that apply.</div>
+      <div
+        class="govuk-checkboxes"
+        data-module="govuk-checkboxes"
+        id="checkboxesTest"
+      >
+        <div class="govuk-checkboxes__item">
+          <input
+            class="govuk-checkboxes__input"
+            id="format-type"
+            name="format-type"
+            type="checkbox"
+            value="I need a written alternative format"
+          />
+          <label class="govuk-label govuk-checkboxes__label" for="format-type">
+            I need a written alternative format
+          </label>
+          <div id="format-type-hint" class="govuk-hint govuk-checkboxes__hint">
+            For example, letters with changes to paper colour or print size,
+            Braille and British Sign Language
           </div>
-          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="format-type" name="format-type" type="checkbox" value="I need a written alternative format">
-              <label class="govuk-label govuk-checkboxes__label" for="format-type">
-                I need a written alternative format
-              </label>
-              <div id="format-type-hint" class="govuk-hint govuk-checkboxes__hint">
-                For example, letters with changes to paper colour or print size, Braille and British Sign Language
-              </div>
-            </div>
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="format-type-2" name="format-type" type="checkbox" value="Textphone for the deaf and hard of hearing">
-              <label class="govuk-label govuk-checkboxes__label" for="format-type-2">
-                Textphone for the deaf and hard of hearing
-              </label>
-              <div id="format-type-hint" class="govuk-hint govuk-checkboxes__hint">
-                Including Relay UK
-              </div>
-            </div>
-            <div class="govuk-checkboxes__divider">or</div>
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="format-type-3" name="format-type" type="checkbox" value="none" data-behaviour="exclusive">
-              <label class="govuk-label govuk-checkboxes__label" for="format-type-3">
-                I do not need an alternative format
-              </label>
-            </div>
-          </div>
-        </fieldset>
-      </div>
-
-      <script>
-        var redirectUrls = [];
-        function handleClick(cb, redirectUrl) {
-          if (cb.checked) {
-            redirectUrls.push(redirectUrl);
-          } else {
-            redirectUrls.pop(redirectUrl);
-          }
-        }
-      
-        function set(inputValue) {
-          if (inputValue === "how-should-we-write-to-you") {
-            sessionStorage.setItem('howWeWriteOptions', 'I need a written alternative format');
-          } else if (inputValue === "textphone") {
-            sessionStorage.setItem('howWeWriteOptions', 'Textphone for the deaf and hard of hearing');
-          }
-        }
-      
-        document.getElementById('checkboxForm').addEventListener('submit', function (event) {
-          event.preventDefault();
-      
-          if (redirectUrls.length > 0) {
-            sessionStorage.setItem('redirectUrls', JSON.stringify(redirectUrls.slice(1)))
-            window.location.href = redirectUrls[0];
-          } else {
-            window.location.href = "confirm-your-changes";
-          }
-        });
-      
-      </script>
-
-
-
-
-
-    <details class="govuk-details">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">
-            What is an alternative format?
-          </span>
-        </summary>
-        <div class="govuk-details__text">
-          Alternative formats are any changes we can make to how we contact you so we can meet your specific needs.<br><br>
-          We can write to you using a range of different formats. We can also speak to you using different methods.
         </div>
-      </details>
+        <div class="govuk-checkboxes__item">
+          <input
+            class="govuk-checkboxes__input"
+            id="format-type-2"
+            name="format-type"
+            type="checkbox"
+            value="Textphone for the deaf and hard of hearing"
+          />
+          <label
+            class="govuk-label govuk-checkboxes__label"
+            for="format-type-2"
+          >
+            Textphone for the deaf and hard of hearing
+          </label>
+          <div id="format-type-hint" class="govuk-hint govuk-checkboxes__hint">
+            Including Relay UK
+          </div>
+        </div>
+        <div class="govuk-checkboxes__divider">or</div>
+        <div class="govuk-checkboxes__item">
+          <input
+            class="govuk-checkboxes__input"
+            id="format-type-3"
+            name="format-type"
+            type="checkbox"
+            value="none"
+            data-behaviour="exclusive"
+          />
+          <label
+            class="govuk-label govuk-checkboxes__label"
+            for="format-type-3"
+          >
+            I do not need an alternative format
+          </label>
+        </div>
+      </div>
+    </fieldset>
+  </div>
 
-    <button type="submit" class="govuk-button" data-module="govuk-button">
-        Continue
-    </button>
+  <script>
+    var redirectUrls = [];
+    function handleClick(cb, redirectUrl) {
+      if (cb.checked) {
+        redirectUrls.push(redirectUrl);
+      } else {
+        redirectUrls.pop(redirectUrl);
+      }
+    }
+
+    function set(inputValue) {
+      if (inputValue === "how-should-we-write-to-you") {
+        sessionStorage.setItem(
+          "howWeWriteOptions",
+          "I need a written alternative format"
+        );
+      } else if (inputValue === "textphone") {
+        sessionStorage.setItem(
+          "howWeWriteOptions",
+          "Textphone for the deaf and hard of hearing"
+        );
+      }
+    }
+
+    // If "I need a written alternative format" selected, redirect to "how-should-we-write-to-you"
+    // Elif "Textphone for the deaf and hard of hearing" selected, redirect to "confirm-your-changes"
+    // Elif BOTH of above options selected, redirect to how-should-we-write-to-you"
+
+    document
+      .getElementById("checkboxForm")
+      .addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        // if (redirectUrls.length > 0) {
+        //   sessionStorage.setItem(
+        //     "redirectUrls",
+        //     JSON.stringify(redirectUrls.slice(1))
+        //   );
+        //   window.location.href = redirectUrls[0];
+        // } else {
+        //   console.log(document.getElementById("format-type").checked);
+        //   return;
+        //   window.location.href = "confirm-your-changes";
+        // }
+
+        const option1 = document.getElementById("format-type").checked;
+        const option2 = document.getElementById("format-type-2").checked;
+        const option3 = document.getElementById("format-type-3").checked;
+
+        if ((option1 && option2) || option2 || option3) {
+          if (option3) {
+            sessionStorage.setItem(
+              "howWeWrite",
+              "I do not need an alternative format"
+            );
+          }
+          window.location.href = "confirm-your-changes";
+        } else if (option1) {
+          window.location.href = "how-should-we-write-to-you";
+        }
+      });
+  </script>
+
+  <details class="govuk-details">
+    <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">
+        What is an alternative format?
+      </span>
+    </summary>
+    <div class="govuk-details__text">
+      Alternative formats are any changes we can make to how we contact you so
+      we can meet your specific needs.<br /><br />
+      We can write to you using a range of different formats. We can also speak
+      to you using different methods.
+    </div>
+  </details>
+
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Continue
+  </button>
 </form>
 
 {% endblock %}
