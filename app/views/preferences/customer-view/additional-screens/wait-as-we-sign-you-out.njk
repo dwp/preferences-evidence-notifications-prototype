@@ -8,10 +8,6 @@
 
 <div class="govuk-!-padding-bottom-4"></div>
 
-{{ govukBackLink({
-  text: "Back",
-  href: "javascript:window.history.back()"
-}) }}
 
 {% endblock %}
 
@@ -20,27 +16,19 @@
   <div class="govuk-grid-row">
 
     <div class="hods-loading-spinner">
-      <h1 class="govuk-heading-m" style="text-align: center; margin-bottom: 30px">
-        Checking your files
-        </h1>
       <div
         class="hods-loading-spinner__spinner"
         aria-live="polite"
         role="status"
       ></div>
+      
       <div class="hods-loading-spinner__content" style="margin-top: 20px">
-        <p>
-          This may take a while. Keep this page open while you wait.
-        </p>
+
+        <h1 class="govuk-heading-m">Please wait while we sign you out</h1>
+
       </div>
     </div>
 
   </div>
-
-  <script>
-    setTimeout(() => {
-      window.location.href="/round-9/e6/upload-table"
-    }, 3000)
-  </script>
 
 {% endblock %}
