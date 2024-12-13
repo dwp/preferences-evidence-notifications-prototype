@@ -1,0 +1,70 @@
+{% extends "layouts/main.html" %}
+
+{% if data.evidenceType !== "P60" %}
+  {% set evidenceType = data.evidenceType.toLowerCase() %}
+{% else %}
+  {% set evidenceType = data.evidenceType %}
+{% endif %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="govuk-!-padding-bottom-4"></div>
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+      <form action="receipt-upload" method="post" class="form">
+          <h1 class="govuk-heading-l">How to send us your {{ evidenceType }}</h1>
+
+            <p>We accept either:</p>
+          <ul class="govuk-list govuk-list--bullet">
+              <li>photos or scans</li>
+              <li>digital versions</li>
+          </ul>
+
+          <h2 class="govuk-heading-m">Taking photos of your {{ evidenceType }}</h2>
+
+          <p class="govuk-body">If you need to upload a photo of your {{ evidenceType }}, make sure:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>you include the whole document in the picture</li>
+            <li>the photo is not blurry</li>
+            <li>you take photos from above and not at an angle</li>
+            <li>you take photos in a well-lit place</li>
+            <li>the text in the photo is clear</li>
+          </ul>
+          
+      </form>
+
+      <div class="govuk-!-padding-bottom-4"></div>
+
+    {% from "govuk/components/button/macro.njk" import govukButton %}
+
+    <div class="govuk-button-group">
+        {{ govukButton({
+            text: "Continue to upload",
+            href: "upload-evidence.html",
+            preventDoubleClick: true
+            }) }}
+  
+      </div>
+
+ </div>
+
+</div>
+
+{% endblock %}
