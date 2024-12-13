@@ -1,0 +1,46 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="govuk-!-padding-bottom-4"></div>
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="hods-loading-spinner">
+      <h1 class="govuk-heading-m" style="text-align: center; margin-bottom: 30px">
+          Uploading your files
+        </h1>
+      <div
+        class="hods-loading-spinner__spinner"
+        aria-live="polite"
+        role="status"
+      ></div>
+      <div class="hods-loading-spinner__content" style="margin-top: 20px">
+        <p>
+          This may take a while. Keep this page open while you wait.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    setTimeout(() => {
+      window.location.href="/evidence/confirmation"
+    }, 3000)
+  </script>
+
+{% endblock %}
