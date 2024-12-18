@@ -20,34 +20,46 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
         What colour paper do you need?
       </h1>
     </legend>
+    <div id="coloured-paper-options-hint" class="govuk-hint">
+      Our letters are usually in standard white.
+    </div>
     <div class="govuk-radios" data-module="govuk-radios">
-      <div class="govuk-radios__item" onclick="set('cream')">
-        <input class="govuk-radios__input" id="colour-paper" name="colour-paper" type="radio" value="cream">
+      <div class="govuk-radios__item" onclick="set('white')">
+        <input class="govuk-radios__input" id="colour-paper" name="colour-paper" type="radio" value="white">
         <label class="govuk-label govuk-radios__label" for="colour-paper">
+          Standard white
+        </label>
+        <div id="colour-paper-hint" class="govuk-hint govuk-radios__hint">
+          I do not need an alternative paper colour
+        </div>
+      </div>
+      <div class="govuk-radios__item" onclick="set('cream')">
+        <input class="govuk-radios__input" id="colour-paper-2" name="colour-paper" type="radio" value="cream">
+        <label class="govuk-label govuk-radios__label" for="colour-paper-2">
           Cream
         </label>
       </div>
       <div class="govuk-radios__item" onclick="set('pastel-pink')">
-        <input class="govuk-radios__input" id="colour-paper-2" name="colour-paper" type="radio" value="pastel pink">
-        <label class="govuk-label govuk-radios__label" for="colour-paper-2">
+        <input class="govuk-radios__input" id="colour-paper-3" name="colour-paper" type="radio" value="pastel pink">
+        <label class="govuk-label govuk-radios__label" for="colour-paper-3">
           Pastel pink
         </label>
       </div>
       <div class="govuk-radios__item" onclick="set('pastel-yellow')">
-        <input class="govuk-radios__input" id="colour-paper-3" name="colour-paper" type="radio" value="pastel yellow">
-        <label class="govuk-label govuk-radios__label" for="colour-paper-3">
+        <input class="govuk-radios__input" id="colour-paper-4" name="colour-paper" type="radio" value="pastel yellow">
+        <label class="govuk-label govuk-radios__label" for="colour-paper-4">
           Pastel yellow
         </label>
       </div>
       <div class="govuk-radios__item" onclick="set('pastel-green')">
-        <input class="govuk-radios__input" id="colour-paper-4" name="colour-paper" type="radio" value="pastel green">
-        <label class="govuk-label govuk-radios__label" for="colour-paper-4">
+        <input class="govuk-radios__input" id="colour-paper-5" name="colour-paper" type="radio" value="pastel green">
+        <label class="govuk-label govuk-radios__label" for="colour-paper-5">
           Pastel green
         </label>
       </div>
       <div class="govuk-radios__item" onclick="set('light-blue')">
-        <input class="govuk-radios__input" id="colour-paper-5" name="colour-paper" type="radio" value="light blue">
-        <label class="govuk-label govuk-radios__label" for="colour-paper-5">
+        <input class="govuk-radios__input" id="colour-paper-6" name="colour-paper" type="radio" value="light blue">
+        <label class="govuk-label govuk-radios__label" for="colour-paper-6">
           Light blue
         </label>
       </div>
@@ -55,9 +67,9 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
       <div class="govuk-radios__divider">or</div>
 
       <div class="govuk-radios__item" onclick="set('i-need-a-different-colour')">
-          <input class="govuk-radios__input" id="colour-paper-6" name="colour-paper" type="radio"
+          <input class="govuk-radios__input" id="colour-paper-7" name="colour-paper" type="radio"
               value="I need a different colour">
-          <label class="govuk-label govuk-radios__label" for="colour-paper-6">
+          <label class="govuk-label govuk-radios__label" for="colour-paper-7">
             I need a different colour
           </label>
       </div>
@@ -82,7 +94,9 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
 
       howWeWriteArrary.shift();
 
-      if (inputValue === "cream") {
+      if (inputValue === "white") {
+        howWeWriteArrary.push('I do not need an alternative paper colour')
+      } else if (inputValue === "cream") {
         howWeWriteArrary.push('Cream')
       } else if (inputValue === "pastel-pink") {
         howWeWriteArrary.push('Pastel pink')

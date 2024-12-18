@@ -32,11 +32,11 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
             Coloured paper
           </label>
         </div>
-        <div class="govuk-checkboxes__item" onclick="set('large-print')">
+        <div class="govuk-checkboxes__item" onclick="set('print-size')">
           <input class="govuk-checkboxes__input" id="non-standard-letter-options-3" name="non-standard-letter-options"
-            type="checkbox" value="Large print" onclick='handleClick(this, "large-print-1");'>
+            type="checkbox" value="Print size" onclick='handleClick(this, "large-print-1");'>
           <label class="govuk-label govuk-checkboxes__label" for="non-standard-letter-options-3">
-            Large print
+            Print size
           </label>
         </div>
       </div>
@@ -61,7 +61,7 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
   function set(inputValue) {
     if (inputValue === "colour-paper") {
       sessionStorage.setItem('howWeWrite', 'Letter with changes to paper colour or print size');
-    } else if (inputValue === "large-print") {
+    } else if (inputValue === "print-size") {
       sessionStorage.setItem('howWeWrite', 'Letter with changes to paper colour or print size');
     }
   }
