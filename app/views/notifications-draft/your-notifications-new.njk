@@ -1,0 +1,374 @@
+{% extends "layouts/main.html" %} {% block header %} {{ govukHeader({
+homepageUrl: "preferences/customer-view/homepage", serviceName: "Customer view",
+serviceUrl: "#" }) }} {% endblock %} {% block beforeContent %} {% include
+"preferences/breadcrumbs/customer-view/how-we-contact-you.html" %} {% endblock
+%} {% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half">
+        <h1 class="govuk-heading-xl">Your notifications</h1>
+      </div>
+    </div>
+    <div class="govuk-tabs" data-module="govuk-tabs">
+      <h2 class="govuk-tabs__title">
+        Your notifications
+      </h2>
+
+      {%- from "govuk/components/checkboxes/macro.njk" import govukCheckboxes -%}
+      {%- from "govuk/components/input/macro.njk" import govukInput -%}
+      {%- from "govuk/components/table/macro.njk" import govukTable -%}
+      {%- from "moj/components/filter/macro.njk" import mojFilter -%}
+      {%- from "moj/components/button-menu/macro.njk" import mojButtonMenu -%}
+      
+      {% set filterOptionsHtml %}
+      
+        {{ govukInput({
+          id: 'keywords',
+          name: 'keywords',
+          label: {
+            text: 'Keywords',
+            classes: 'govuk-label--m'
+          }
+        }) }}
+      
+        {{ govukCheckboxes({
+          idPrefix: 'type',
+          name: 'type',
+          classes: "govuk-checkboxes--small",
+          fieldset: {
+            legend: {
+              text: 'Colour',
+              classes: 'govuk-fieldset__legend--m'
+            }
+          },
+          items: [
+            {
+              value: '1',
+              text: 'Blue (18)',
+              checked: true
+            },
+            {
+              value: '2',
+              text: 'Yellow (5)',
+              checked: true
+            },
+            {
+              value: '3',
+              text: 'Red (2)'
+            }
+          ]
+        }) }}
+      
+        {{ govukCheckboxes({
+          idPrefix: 'status',
+          name: 'status',
+          classes: "govuk-checkboxes--small",
+          fieldset: {
+            legend: {
+              text: 'Status',
+              classes: 'govuk-fieldset__legend--m'
+            }
+          },
+          items: [
+            {
+              value: '1',
+              text: 'Complete (5)',
+              checked: true
+            },
+            {
+              value: '2',
+              text: 'Incomplete (3)'
+            },
+            {
+              value: '3',
+              text: 'In progress (13)'
+            }
+          ]
+        }) }}
+      
+      {% endset %}
+      
+      
+      <div class="moj-filter-layout">
+      
+        <div class="moj-filter-layout__filter">
+      
+          {{ mojFilter({
+            heading: {
+            text: 'Filter'
+            },
+            selectedFilters: {
+      
+            heading: {
+              text: 'Selected filters'
+            },
+      
+            clearLink: {
+              text: 'Clear filters'
+            },
+      
+            categories: [
+              {
+                heading: {
+                  text: 'Colour'
+                },
+                items: [{
+                  href: '#',
+                  text: 'Blue'
+                }, {
+                  href: '#',
+                  text: 'Yellow'
+                }]
+              },
+              {
+                heading: {
+                  text: 'Status'
+                },
+                items: [{
+                  href: '#',
+                  text: 'Complete'
+                }]
+              }
+            ]
+          },
+            optionsHtml: filterOptionsHtml
+          }) }}
+      
+        </div>
+      
+        <div class="moj-filter-layout__content">
+      
+        <div class="moj-action-bar">
+      
+          <div class="moj-action-bar__filter"></div>
+      
+          {{ mojButtonMenu({
+            items: [{
+              text: 'Action 1',
+              classes: 'govuk-button--secondary'
+            }, {
+              text: 'Action 2',
+              classes: 'govuk-button--secondary'
+            }]
+          }) }}
+      
+        </div>
+      
+        <div class="moj-scrollable-pane">
+          {{ govukTable({
+            firstCellIsHeader: true,
+            head: [
+              {text: 'Reference'},
+              {text: 'Person'},
+              {text: 'Colour'},
+              {text: 'Status'},
+              {text: 'Date of last event'}
+            ],
+            rows: [
+              [
+                {html: '<a href="#" class="govuk-link">44455453</a>'},
+                {html: 'John Smith'},
+                {text: 'Blue'},
+                {html: 'Complete'},
+                {text: '25 Jan 2018'}
+              ],
+              [
+                {html: '<a href="#" class="govuk-link">12323212</a>'},
+                {html: 'Warren Sutton'},
+                {text: 'Yellow'},
+                {html: 'In progress'},
+                {text: '25 Jan 2018'}
+              ],
+              [
+                {html: '<a href="#" class="govuk-link">45678765</a>'},
+                {html: 'Alan Jones'},
+                {text: 'Yellow'},
+                {html: 'In progress'},
+                {text: '9 May 2018'}
+              ],
+              [
+                {html: '<a href="#" class="govuk-link">12345678</a>'},
+                {html: 'Jennifer Langley'},
+                {text: 'Yellow'},
+                {html: 'In progress'},
+                {text: '9 May 2018'}
+              ],
+              [
+                {html: '<a href="#" class="govuk-link">89009800</a>'},
+                {html: 'Susan Francis'},
+                {text: 'Red'},
+                {html: 'Incomplete'},
+                {text: '9 May 2018'}
+              ],
+              [
+                {html: '<a href="#" class="govuk-link">44455453</a>'},
+                {html: 'John Smith'},
+                {text: 'Blue'},
+                {html: 'Complete'},
+                {text: '25 Jan 2018'}
+              ],
+              [
+                {html: '<a href="#" class="govuk-link">12323212</a>'},
+                {html: 'Warren Sutton'},
+                {text: 'Yellow'},
+                {html: 'In progress'},
+                {text: '25 Jan 2018'}
+              ],
+              [
+                {html: '<a href="#" class="govuk-link">45678765</a>'},
+                {html: 'Alan Jones'},
+                {text: 'Yellow'},
+                {html: 'In progress'},
+                {text: '9 May 2018'}
+              ],
+              [
+                {html: '<a href="#" class="govuk-link">12345678</a>'},
+                {html: 'Jennifer Langley'},
+                {text: 'Yellow'},
+                {html: 'In progress'},
+                {text: '9 May 2018'}
+              ],
+              [
+                {html: '<a href="#" class="govuk-link">89009800</a>'},
+                {html: 'Susan Francis'},
+                {text: 'Red'},
+                {html: 'Incomplete'},
+                {text: '9 May 2018'}
+              ],
+              [
+                {html: '<a href="#" class="govuk-link">45456765</a>'},
+                {html: 'John Smith'},
+                {text: 'Red'},
+                {html: 'Incomplete'},
+                {text: '9 May 2018'}
+              ],
+              [
+                {html: '<a href="#" class="govuk-link">88675411</a>'},
+                {html: 'Margaret Blake'},
+                {text: 'Red'},
+                {html: 'Incomplete'},
+                {text: '9 May 2018'}
+              ],
+              [
+                {html: '<a href="#" class="govuk-link">44455453</a>'},
+                {html: 'John Smith'},
+                {text: 'Blue'},
+                {html: 'Complete'},
+                {text: '25 Jan 2018'}
+              ],
+              [
+                {html: '<a href="#" class="govuk-link">12323212</a>'},
+                {html: 'Warren Sutton'},
+                {text: 'Yellow'},
+                {html: 'In progress'},
+                {text: '25 Jan 2018'}
+              ],
+              [
+                {html: '<a href="#" class="govuk-link">45678765</a>'},
+                {html: 'Alan Jones'},
+                {text: 'Yellow'},
+                {html: 'In progress'},
+                {text: '9 May 2018'}
+              ],
+              [
+                {html: '<a href="#" class="govuk-link">12345678</a>'},
+                {html: 'Jennifer Langley'},
+                {text: 'Yellow'},
+                {html: 'In progress'},
+                {text: '9 May 2018'}
+              ]
+            ]
+          }) }}
+        </div>
+      </div>
+      
+
+  </div>
+</div>
+
+
+<!-- logic for filter function -->
+<script type="text/javascript">
+  function showfull() {
+    var fullText = document.getElementById('full-text');
+    var fullTextlink = document.getElementById('full-text-link');
+    var lessText = document.getElementById('less-text');
+    var lessTextlink = document.getElementById('less-text-link');
+
+    fullText.classList.remove("govuk-!-display-none");
+    fullTextlink.classList.add("govuk-!-display-none");
+    
+    lessText.classList.add("govuk-!-display-none");
+    lessTextlink.classList.remove("govuk-!-display-none");
+  }
+
+  function showless() {
+    var fullText = document.getElementById('full-text');
+    var fullTextlink = document.getElementById('full-text-link');
+    var lessText = document.getElementById('less-text');
+    var lessTextlink = document.getElementById('less-text-link');
+
+    fullText.classList.add("govuk-!-display-none");
+    fullTextlink.classList.remove("govuk-!-display-none");
+    lessText.classList.remove("govuk-!-display-none");
+    lessTextlink.classList.add("govuk-!-display-none");
+  }
+
+
+  function showfull2() {
+    var fullText2 = document.getElementById('full-text-2');
+    var fullTextlink2 = document.getElementById('full-text-link-2');
+    var lessText2 = document.getElementById('less-text-2');
+    var lessTextlink2 = document.getElementById('less-text-link-2');
+
+    fullText2.classList.remove("govuk-!-display-none");
+    fullTextlink2.classList.add("govuk-!-display-none");
+    
+    lessText2.classList.add("govuk-!-display-none");
+    lessTextlink2.classList.remove("govuk-!-display-none");
+  }
+
+  function showless2() {
+    var fullText2 = document.getElementById('full-text-2');
+    var fullTextlink2 = document.getElementById('full-text-link-2');
+    var lessText2 = document.getElementById('less-text-2');
+    var lessTextlink2 = document.getElementById('less-text-link-2');
+
+    fullText2.classList.add("govuk-!-display-none");
+    fullTextlink2.classList.remove("govuk-!-display-none");
+    lessText2.classList.remove("govuk-!-display-none");
+    lessTextlink2.classList.add("govuk-!-display-none");
+  }
+
+  function showfull3() {
+    var fullText3 = document.getElementById('full-text-3');
+    var fullTextlink3 = document.getElementById('full-text-link-3');
+    var lessText3 = document.getElementById('less-text-3');
+    var lessTextlink3 = document.getElementById('less-text-link-3');
+
+    fullText3.classList.remove("govuk-!-display-none");
+    fullTextlink3.classList.add("govuk-!-display-none");
+    
+    lessText3.classList.add("govuk-!-display-none");
+    lessTextlink3.classList.remove("govuk-!-display-none");
+  }
+
+  function showless3() {
+    var fullText3 = document.getElementById('full-text-3');
+    var fullTextlink3 = document.getElementById('full-text-link-3');
+    var lessText3 = document.getElementById('less-text-3');
+    var lessTextlink3 = document.getElementById('less-text-link-3');
+
+    fullText3.classList.add("govuk-!-display-none");
+    fullTextlink3.classList.remove("govuk-!-display-none");
+    lessText3.classList.remove("govuk-!-display-none");
+    lessTextlink3.classList.add("govuk-!-display-none");
+  }
+  </script>
+
+{% endblock %}
+  </div>
+</div>
