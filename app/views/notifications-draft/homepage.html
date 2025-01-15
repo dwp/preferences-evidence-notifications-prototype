@@ -1,0 +1,100 @@
+{% extends "layouts/main.html" %}
+
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "preferences/customer-view/homepage",
+  serviceName: "Customer view",
+  serviceUrl: "#"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+  Customer view
+{% endblock %}
+
+{% block beforeContent %}
+
+{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
+
+{{
+  hmrcLanguageSelect({
+    language: 'en',
+    en: {
+      href: '?en'
+    },
+    cy: {
+      href: '?cy'
+    }
+  })
+}}
+
+
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      <span class="govuk-caption-xl">Account home</span>
+      Sarah Phillips
+    </h1>
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    <!--<div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <h2 class="govuk-heading-m">Payments</h2>
+        <ul class="govuk-list">
+          <li class="govuk-!-margin-bottom-3">
+            <a class="govuk-link" href="end-page/what-happen-next-checknextpayments.html">Check your next payment</a>
+          </li>
+          <li class="govuk-!-margin-bottom-3">
+            <a class="govuk-link" href="end-page/what-happen-next-viewpaymenthstory.html">View your payment history</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">-->
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <ul class="govuk-list">
+          <li class="govuk-!-margin-bottom-3">
+            <a class="govuk-link" href="#">Change your bank details</a>
+          </li>
+          <li class="govuk-!-margin-bottom-3">
+            <a class="govuk-link" href="#">Get a proof of benefit letter</a>
+          </li>
+          <li class="govuk-!-margin-bottom-3">
+            <a class="govuk-link" href="view-your-personal-details.njk">View your personal details</a>
+          </li>
+          <li class="govuk-!-margin-bottom-3">
+            <a class="govuk-link" href="how-we-contact-you.njk">How we contact you</a>
+          </li>
+          <li class="govuk-!-margin-bottom-3">
+            <a class="govuk-link" href="evidence/guidance.html">Send your evidence</a>
+          </li>
+          <li class="govuk-!-margin-bottom-3">
+            <a class="govuk-link" href="your-notifications.njk">Your notifications</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    <!--<div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <h2 class="govuk-heading-m">Documents</h2>
+        <ul class="govuk-list">
+          <li class="govuk-!-margin-bottom-3">
+            <a class="govuk-link" href="end-page/what-happen-next-get-letter.html">Get a letter to prove you get benefits</a>
+          </li>
+          <li class="govuk-!-margin-bottom-3">
+            <a class="govuk-link" href="end-page/what-happen-next-uploadevidence.html">Upload evidence or send us documents</a>
+          </li>
+        </ul>
+      </div>
+    </div>-->
+  </div>
+</div>
+
+{% endblock %}
