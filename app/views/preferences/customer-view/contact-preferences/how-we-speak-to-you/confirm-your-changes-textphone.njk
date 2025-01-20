@@ -20,31 +20,29 @@ Check your details before you send them
    
     <h1 class="govuk-heading-l">Confirm your changes</h1>
 
-    <form class="form" action="./confirm-your-changes-answer" method="post" novalidate>
+    <form class="form" action="/preferences/customer-view/contact-preferences/how-we-speak-to-you/confirm-your-changes-textphone" method="post" novalidate>
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              How we speak to you
+              Textphone number
             </dt>
 
             <dd class="govuk-summary-list__value">
-              <p>{{ data['HowWeSpeakToYou'] }} </p>
-
-              {# {% if data['HowWeSpeakToYou'] === "Textphone for the deaf and hard of hearing" %}
-              <ul class="govuk-list govuk-list--bullet">
-                <li>{{ data['textphoneNumber2'] }}</li>
-              </ul>
-              {% endif %} #}
+              <p>{{ data.TextphoneNumber }} </p>
             </dd>
 
           </div>
         </dl>
 
+        <div class="govuk-inset-text">
+          We will also add textphone as one of your alternative formats when you make this change.
+        </div>
+
         <div class="govuk-button-group">
-      {{ govukButton({
-        text: "Confirm"
-      }) }}
+        {{ govukButton({
+          text: "Confirm"
+        }) }}
 
       <p class="govuk-body">
         <a href="/preferences/customer-view/contact-preferences/how-we-speak-to-you/abandon-journey.html" class="govuk-link">Cancel</a>

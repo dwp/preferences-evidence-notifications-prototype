@@ -1,0 +1,105 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block beforeContent %}
+
+{% include "preferences/breadcrumbs/customer-view/when-we-write-to-you.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+
+    <div class="govuk-notification-banner govuk-notification-banner--success" role="region"
+      aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Success
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <h3 class="govuk-notification-banner__heading">
+          Alternative formats update complete
+        </h3>
+        <p class="govuk-body">You have successfully changed your alternative formats.</p>
+      </div>
+    </div>
+
+
+    <h1 class="govuk-heading-l">
+      Changes made
+    </h1>
+
+    <dl class="govuk-summary-list">
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Alternative formats
+        </dt>
+        <dd class="govuk-summary-list__value" id="updatedValue">
+          <div>
+            {% if data.ConfirmedAlternativeFormats.length > 1 %}
+              <p class='govuk-summary-list__key'>Written Alternative formats</p>
+              <p>{{ data.ConfirmedAlternativeFormatsOption }}</p>
+              {% if data.ConfirmedAlternativeFormatsBulletPoints %}
+                <ul class='govuk-list govuk-list--bullet'>
+                  {% for name, item in data.ConfirmedAlternativeFormatsBulletPoints %}
+                      <li>{{ item }} </li>
+                  {% endfor %}
+                </ul>
+              {% endif%}
+              <p class='govuk-summary-list__key'>Textphone</p>
+              <p>Textphone for the deaf and hard of hearing</p>
+              {% else %}
+              {% if data.AlternativeFormats[0] === 'I do not need an alternative format' or data.AlternativeFormats[0] === 'Textphone for the deaf and hard of hearing' %}
+                <p>{{ data.ConfirmedAlternativeFormats[0] }}
+              {% else %}
+                <p>{{ data.ConfirmedAlternativeFormatsOption }}</p>
+              {% if data.ConfirmedAlternativeFormatsBulletPoints %}
+                <ul class='govuk-list govuk-list--bullet'>
+              {% for name, item in data.ConfirmedAlternativeFormatsBulletPoints %}
+                <li>{{ item }} </li>
+              {% endfor %}
+              </ul>
+              {% endif %}
+            {% endif %}
+            {% endif %}
+          </div>
+        </dd>
+      </div>
+    </dl>
+
+    {% from "govuk/components/button/macro.njk" import govukButton %}
+
+    {% if data['HowWeSpeakToYouConfirmed'] === "Textphone for the deaf and hard of hearing" or data.AlternativeFormats[1] === "Textphone for the deaf and hard of hearing"%}
+          <div>
+          {{ govukButton({ text: "Add textphone number", href: "../../contact-preferences/how-we-speak-to-you/textphone",
+            preventDoubleClick: true 
+          }) }}
+          <p class="govuk-body">
+            <a href="/preferences/customer-view/how-we-contact-you" class="govuk-link govuk-link--no-visited-state">Return to 'How we contact you'</a>
+          </p>
+          </div>
+          {% else %}
+          <div class="govuk-button-group">
+            {{ govukButton({
+      text: "Return to 'How we contact you'",
+      classes: "govuk-button--secondary",
+      href: "../../how-we-contact-you-reset",
+      preventDoubleClick: true
+      }) }}
+          </div>
+      {% endif %}
+
+  </div>
+
+</div>
+</div>
+{% endblock %}
