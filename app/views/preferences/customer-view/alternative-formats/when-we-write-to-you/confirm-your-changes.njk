@@ -1,0 +1,85 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block beforeContent %}
+
+{% include "preferences/breadcrumbs/customer-view/when-we-write-to-you.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+    <h1 class="govuk-heading-l">
+      Confirm your changes
+    </h1>
+
+    <dl class="govuk-summary-list">
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Alternative formats
+        </dt>
+        <dd class="govuk-summary-list__value" id="updatedValue">
+            {% if data.AlternativeFormats.length > 1 %}
+              <p class='govuk-summary-list__key'>Written Alternative formats</p>
+              <p>{{ data.AlternativeFormatsOption }}</p>
+              {% if data.AlternativeFormatsBulletPoints %}
+                <ul class='govuk-list govuk-list--bullet'>
+                  {% for name, item in data.AlternativeFormatsBulletPoints %}
+                      <li>{{ item }} </li>
+                  {% endfor %}
+                </ul>
+              {% endif%}
+              <p class='govuk-summary-list__key'>Textphone</p>
+              <p>Textphone for the deaf and hard of hearing</p>
+              {% else %}
+              {% if data.AlternativeFormats[0] === 'I do not need an alternative format' or data.AlternativeFormats[0] === 'Textphone for the deaf and hard of hearing' %}
+                <p>{{ data.AlternativeFormats[0] }}
+              {% else %}
+                <p>{{ data.AlternativeFormatsOption }}</p>
+              {% if data.AlternativeFormatsBulletPoints %}
+                <ul class='govuk-list govuk-list--bullet'>
+              {% for name, item in data.AlternativeFormatsBulletPoints %}
+                <li>{{ item }} </li>
+              {% endfor %}
+                </ul>
+              {% endif %}
+              {% endif %}
+            {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="how-should-we-write-to-you">
+            Change
+          </a>
+        </dd>
+      </div>
+    </dl>
+
+    {% from "govuk/components/button/macro.njk" import govukButton %}
+
+    <div class="govuk-button-group">
+      {{ govukButton({
+      text: "Confirm",
+      href: "/preferences/customer-view/alternative-formats/when-we-write-to-you/changes-confirmed",
+      preventDoubleClick: true
+      }) }}
+
+      <p class="govuk-body">
+        <a href="/preferences/customer-view/alternative-formats/when-we-write-to-you/abandon-journey.html" class="govuk-link">Cancel</a>
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
+</div>
+{% endblock %}
+

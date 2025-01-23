@@ -1,0 +1,44 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block beforeContent %}
+
+{% include "preferences/breadcrumbs/customer-view/braille.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+<form class="form" id="radioForm" action="/preferences/customer-view/alternative-formats/when-we-write-to-you/braille" method="post" novalidate>
+  {{ govukRadios({
+        name: "Braille",
+        fieldset: {
+          legend: {
+            text: "What type of braille do you need?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "Uncontracted braille (grade 1)",
+            text: "Uncontracted braille (grade 1)"
+          },
+          {
+            value: "Contracted braille (grade 2)",
+            text: "Contracted braille (grade 2)"
+          }
+        ]
+        })  
+      }}
+
+      {{ govukButton({
+      text: "Continue"
+    }) }}
+</form>
+
+{% endblock %}

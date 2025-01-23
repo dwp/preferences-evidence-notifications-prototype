@@ -1,4 +1,5 @@
 {% extends "layouts/main.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
 
 {% block pageTitle %}
 Content page template – {{ serviceName }} – GOV.UK Prototype Kit
@@ -54,12 +55,6 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
         </dt>
         <dd class="govuk-summary-list__value">
           <p>{{ data['HowWeSpeakToYouConfirmed'] }} </p>
-
-          {# {% if data['HowWeSpeakToYouConfirmed'] === "Textphone for the deaf and hard of hearing" %}
-          <ul class="govuk-list govuk-list--bullet">
-            <li>{{ data['textphoneNumber2'] }}</li>
-          </ul>
-          {% endif %} #}
         </dd>
       </div>
     </dl>
@@ -70,16 +65,28 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
     <form id="emailForm" action="../../how-we-contact-you.njk" method="POST">
       <input type="hidden" name="email" id="emailInput"
         value="emailaddress@email.com">
-      <div class="govuk-button-group">
-        <button type="submit" class="govuk-button govuk-button--secondary">Return to 'How we contact you'</button>
-      </div>
+        {% if data['HowWeSpeakToYouConfirmed'] === "Textphone for the deaf and hard of hearing" %}
+          <div>
+          {{ govukButton({ text: "Add textphone number", href: "textphone",
+            preventDoubleClick: true 
+          }) }}
+          <p class="govuk-body">
+            <a href="/preferences/customer-view/how-we-contact-you" class="govuk-link govuk-link--no-visited-state">Return to 'How we contact you'</a>
+          </p>
+          </div>
+          {% else %}
+          <div class="govuk-button-group">
+            <button type="submit" class="govuk-button govuk-button--secondary">Return to 'How we contact you'</button>
+          </div>
+          {% endif %}
+      
     </form>
     <script>
       document.getElementById('emailForm').addEventListener('submit', function (event) {
         event.preventDefault();
         var email = document.getElementById('emailInput').value;
         sessionStorage.setItem('email', email);
-        window.location.href = '../../how-we-contact-you.njk';
+        window.location.href = '../../how-we-contact-you-reset';
       });
     </script>
   </div>
