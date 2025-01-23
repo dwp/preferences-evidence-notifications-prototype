@@ -20,7 +20,7 @@ Check your details before you send them
    
     <h1 class="govuk-heading-l">Confirm your changes</h1>
 
-    <form class="form" action="./confirm-your-changes-answer" method="post" novalidate>
+    <form action="/preferences/customer-view/contact-preferences/how-we-speak-to-you/confirm-your-changes" method="post" novalidate>
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
@@ -29,15 +29,11 @@ Check your details before you send them
             </dt>
 
             <dd class="govuk-summary-list__value">
-              <p>Textphone for deaf and hard of hearing</p>
+              <p>{{ data['HowWeSpeakToYou'] }} </p>
             </dd>
 
           </div>
         </dl>
-
-        <div class="govuk-inset-text">
-          We will also add textphone as one of your alternative formats when you make this change.
-        </div>
 
         <div class="govuk-button-group">
       {{ govukButton({

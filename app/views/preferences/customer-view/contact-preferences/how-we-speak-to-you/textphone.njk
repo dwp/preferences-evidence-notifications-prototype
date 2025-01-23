@@ -14,36 +14,48 @@
 {% block content %}
 
 <div class="govuk-form-group">
+  <form class="form" id="radioForm" action="/preferences/customer-view/contact-preferences/how-we-speak-to-you/textphone" method="post" novalidate>
   <fieldset class="govuk-fieldset">
   <h1 class="govuk-heading-l">
     What is your textphone number?
   </h1>
 
-  <label class="govuk-label" for="textphone-number">
+  {# <label class="govuk-label" for="textphone-number">
    Textphone number
   </label>
-  <input class="govuk-input govuk-input--width-20" id="textphone-number" name="textphoneNumber" type="tex" autocomplete="tex">
+  <input class="govuk-input govuk-input--width-20" id="textphone-number" name="textphoneNumber" type="tex" autocomplete="tex"> #}
+  {{ govukInput({
+  label: {
+    text: "Textphone number",
+    classes: "govuk-label",
+    isPageHeading: false
+  },
+  classes: 'govuk-input--width-20',
+  id: "TextphoneNumber",
+  name: "TextphoneNumber"
+}) }}
 </div>
 
 <button class="govuk-button" value= "true" data-module="govuk-button" style="margin-bottom:50px;" onclick="check3()" >Continue</button>
 
 </fieldset>
+</form>
 
   </div>
 
   <script>
-    function check3() {
+    {# function check3() {
       var element = document.getElementById('textphone-number');
       // sessionStorage.setItem('howWeConnect', `Textphone for the hard of hearing<br>${element.value}`);
 
       if (element.value) {
         sessionStorage.setItem('textphoneNumber', element.value)
-        window.location.href = "/preferences/customer-view/contact-preferences/how-we-speak-to-you/confirm-your-changes-textphone"
+        window.location.href = `/preferences/customer-view/contact-preferences/how-we-speak-to-you/confirm-your-changes-textphone?number=${element.value}`
       } else {
         window.location.href = "/preferences/customer-view/contact-preferences/how-we-speak-to-you/error/textphone.html"
       }
 
-    }
+    } #}
   </script>
 
 {% endblock %}

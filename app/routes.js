@@ -1508,16 +1508,120 @@ router.post(
   }
 );
 
-router.post(
-  "/preferences/customer-view/contact-preferences/how-we-speak-to-you/speaking-selection",
+router.get(
+  "/preferences/customer-view/how-we-contact-you",
   function (req, res) {
-    var HowWeSpeakToYou = req.session.data["HowWeSpeakToYou"];
+    if (
+      req.session.data.HowWeSpeakToYouConfirmed !==
+      "Textphone for the deaf and hard of hearing"
+    ) {
+      delete req.session.data.UnconfirmedTextphoneNumber;
+      delete req.session.data.ConfirmedTextphoneNumber;
+      delete req.session.data.textphoneNumber;
+    }
+    
 
-    if (HowWeSpeakToYou == "Textphone for the deaf and hard of hearing") {
-      // Send user to contact us page
+    req.session.data.AlternativeFormatsSubOptions = [];
+    req.session.data.AlternativeFormatsBulletPoints = {};
+
+    res.render(
+      "/preferences/customer-view/how-we-contact-you.njk"
+    );
+  }
+);
+
+router.post(
+  "/preferences/customer-view/contact-preferences/how-we-speak-to-you/confirm-your-changes-textphone",
+  function (req, res) {
+    req.session.data.ConfirmedTextphoneNumber = req.session.data.TextphoneNumber;
+    delete req.session.data.TextphoneNumber;
+
+    console.log(req.session.data);
+
+    res.redirect(
+      "updated-speaking-method-textphone"
+    );
+  }
+);
+
+router.get(
+  "/preferences/customer-view/contact-preferences/how-we-speak-to-you/updated-speaking-method-textphone",
+  function (req, res) {
+    res.render(
+      "/preferences/customer-view/contact-preferences/how-we-speak-to-you/updated-speaking-method-textphone.njk"
+    );
+  }
+);
+
+router.get(
+  "preferences/customer-view/alternative-formats/when-we-write-to-you/updated-written",
+  function (req, res) {
+    req.session.data["ConfirmedAlternativeFormats"] = sessionStorage.getItem("UnconfirmedAlternativeFormats");
+
+    res.render(
+      "/preferences/customer-view/alternative-formats/when-we-write-to-you/updated-written.njk"
+    );
+  }
+);
+
+router.post(
+  "/preferences/customer-view/alternative-formats/when-we-write-to-you/options",
+  function (req, res) {
+    console.log(req.session.data)
+    const textPhone = req.session.data.AlternativeFormats.includes(
+      "Textphone for the deaf and hard of hearing"
+    );
+
+    const writtenAltFormat = req.session.data.AlternativeFormats.includes(
+      "I need a written alternative format"
+    );
+
+    if (textPhone && writtenAltFormat) {
+      req.session.data.TextPhone = true;
+      res.redirect("how-should-we-write-to-you");
+    } else if (writtenAltFormat) {
+      res.redirect("how-should-we-write-to-you");
+    } else {
       res.redirect("confirm-your-changes");
+    }
+  }
+);
 
-      // Check if user selected no on multi address page
+router.get(
+  "/preferences/customer-view/alternative-formats/when-we-write-to-you/how-should-we-write-to-you",
+  function (req, res) {
+    console.log(req.session.data);
+
+    req.session.data.AlternativeFormatsOption = '';
+    req.session.data.AlternativeFormatsBulletPoints = {};
+
+    res.render(
+      "/preferences/customer-view/alternative-formats/when-we-write-to-you/how-should-we-write-to-you.njk"
+    );
+  }
+);
+
+router.post(
+  "/preferences/customer-view/alternative-formats/when-we-write-to-you/how-should-we-write-to-you",
+  function (req, res) {
+    console.log(req.session.data);
+
+    const inputValue = req.session.data.AlternativeFormatsOption;
+
+    if (inputValue === "I do not need an alternative format") {
+      res.redirect("confirm-your-changes");
+    } else if (inputValue === "Letter with changes to paper colour or print size") {
+      res.redirect("font-colour-spacing-size");
+    } else if (inputValue === "Audio") {
+      res.redirect("audio");
+    } else if (inputValue === "Braille") {
+      res.redirect("braille");
+    } else if (inputValue === "British Sign Language video") {
+      res.redirect("british-sign-language");
+    } else if (inputValue === "Microsoft Word document with accessible text") {
+      res.redirect("confirm-your-changes");
+    } else if (inputValue === "PDF with accessible text") {
+      res.redirect("confirm-your-changes");
     } else {
       res.redirect("confirm-your-changes");
     }
@@ -1525,12 +1629,127 @@ router.post(
 );
 
 router.post(
-  "/preferences/customer-view/contact-preferences/how-we-speak-to-you/confirm-your-changes-answer",
+  "/preferences/customer-view/alternative-formats/when-we-write-to-you/font-colour-spacing-size",
   function (req, res) {
+    console.log(req.session.data);
+    if (req.session.data.AlternativeFormatsSubOptions.length === 2) {
+      res.redirect('colour-paper')
+    } else {
+      selectedOption = req.session.data.AlternativeFormatsSubOptions[0]
+      if (selectedOption === "Coloured paper") {
+        res.redirect("colour-paper");
+      } else if (selectedOption === "Large print") {
+        res.redirect("large-print-1");
+      } else {
+        return;
+      }
+    }
+  }
+);
+
+router.post(
+  "/preferences/customer-view/alternative-formats/when-we-write-to-you/colour-paper",
+  function (req, res) {
+    req.session.data.AlternativeFormatsBulletPoints = {
+      ...req.session.data.AlternativeFormatsBulletPoints,
+      ColourPaper: req.session.data.ColourPaper
+    }
+
+    if (req.session.data.AlternativeFormatsSubOptions.length === 2) {
+      res.redirect("large-print-1");
+    } else {
+      res.redirect("confirm-your-changes");
+    }
+  }
+);
+
+router.post(
+  "/preferences/customer-view/alternative-formats/when-we-write-to-you/large-print-1",
+  function (req, res) {
+    req.session.data.AlternativeFormatsBulletPoints = {
+      ...req.session.data.AlternativeFormatsBulletPoints,
+      LargePrint: req.session.data.LargePrint,
+    };
+
+    console.log(req.session.data);
+
+    res.redirect("confirm-your-changes")
+  }
+);
+
+router.get(
+  "/preferences/customer-view/alternative-formats/when-we-write-to-you/changes-confirmed",
+  function (req, res) {
+
+    req.session.data.AlternativeFormatSET = true;
+
+    if (req.session.data.AlternativeFormats[0] === "I do not need an alternative format") {
+      req.session.data.ConfirmedAlternativeFormatsOption = "I do not need an alternative format";
+    } else {
+      req.session.data.ConfirmedAlternativeFormatsOption = req.session.data.AlternativeFormatsOption;
+    }
+
+    req.session.data.ConfirmedAlternativeFormats = req.session.data.AlternativeFormats;
+    req.session.data.ConfirmedAlternativeFormatsBulletPoints =
+      req.session.data.AlternativeFormatsBulletPoints;
+
+    console.log(req.session.data);
+
+    res.redirect('updated-written')
+  }
+);
+
+router.get(
+  "/preferences/customer-view/how-we-contact-you-reset",
+  function (req, res) {
+    delete req.session.data.Audio;
+    delete req.session.data.Braille;
+    delete req.session.data.BritishSignLanguage;
+    delete req.session.data.ColourPaper;
+    delete req.session.data.LargePrint;
+    delete req.session.data.AlternativeFormats;
+    delete req.session.data.AlternativeFormatsSubOptions;
+    delete req.session.data.AlternativeFormatsOption;
+    delete req.session.data.AlternativeFormatsBulletPoints;
+    delete req.session.data.TextphoneNumber;
+
+    console.log(req.session.data);
+
+    res.redirect("how-we-contact-you");
+  }
+);
+
+router.post(
+  "/preferences/customer-view/contact-preferences/how-we-speak-to-you/speaking-selection",
+  function (req, res) {
+    res.redirect("confirm-your-changes");
+  }
+);
+
+router.post(
+  "/preferences/customer-view/contact-preferences/how-we-speak-to-you/confirm-your-changes",
+  function (req, res) {
+    
     req.session.data.HowWeSpeakToYouConfirmed =
-      req.session.data.HowWeSpeakToYou;
+    req.session.data.HowWeSpeakToYou;
+  
+    delete req.session.data.HowWeSpeakToYou;
+
+    console.log(req.session.data);
+
     res.redirect(
       "/preferences/customer-view/contact-preferences/how-we-speak-to-you/updated-speaking-method"
+    );
+  }
+);
+
+router.post(
+  "/preferences/customer-view/contact-preferences/how-we-speak-to-you/textphone",
+  function (req, res) {
+    req.session.data.TextphoneNumber = req.session.data.TextphoneNumber;
+    console.log(req.session.data);
+    res.redirect(
+      "/preferences/customer-view/contact-preferences/how-we-speak-to-you/confirm-your-changes-textphone"
     );
   }
 );
@@ -1548,9 +1767,54 @@ router.post(
   "/preferences/customer-view/contact-preferences/how-we-write-to-you/confirm-your-changes",
   function (req, res) {
     req.session.data.HowWeWriteToYouSET = req.session.data.HowWeWriteToYou;
+
+    console.log(req.session.data);
+
     res.redirect(
       "/preferences/customer-view/contact-preferences/how-we-write-to-you/updated-writing-method"
     );
+  }
+);
+
+router.post(
+  "/preferences/customer-view/alternative-formats/when-we-write-to-you/audio",
+  function (req, res) {
+    req.session.data.AlternativeFormatsBulletPoints = {
+      ...req.session.data.AlternativeFormatsBulletPoints,
+      Audio: req.session.data.Audio,
+    };
+
+    console.log(req.session.data.AlternativeFormatsBulletPoints)
+
+    res.redirect('confirm-your-changes')
+  }
+);
+
+router.post(
+  "/preferences/customer-view/alternative-formats/when-we-write-to-you/braille",
+  function (req, res) {
+    req.session.data.AlternativeFormatsBulletPoints = {
+      ...req.session.data.AlternativeFormatsBulletPoints,
+      Braille: req.session.data.Braille,
+    };
+
+    console.log(req.session.data.AlternativeFormatsBulletPoints);
+
+    res.redirect("confirm-your-changes");
+  }
+);
+
+router.post(
+  "/preferences/customer-view/alternative-formats/when-we-write-to-you/britishsignlanguage",
+  function (req, res) {
+    req.session.data.AlternativeFormatsBulletPoints = {
+      ...req.session.data.AlternativeFormatsBulletPoints,
+      BritishSignLanguage: req.session.data.BritishSignLanguage,
+    };
+
+    console.log(req.session.data.AlternativeFormatsBulletPoints);
+
+    res.redirect("confirm-your-changes");
   }
 );
 
@@ -1574,22 +1838,18 @@ router.post(
 router.post(
   "/preferences-agent/agent-view/contact-preferences-agent/how-we-speak-to-you/speaking-selection",
   function (req, res) {
-    var HowWeSpeakToYou = req.session.data["HowWeSpeakToYou"];
-
-    if (HowWeSpeakToYou == "Textphone for the deaf and hard of hearing") {
-      // Send user to contact us page
-      res.redirect("confirm-your-changes");
-
-      // Check if user selected no on multi address page
-    } else {
-      res.redirect("confirm-your-changes");
-    }
+    res.redirect("confirm-your-changes");
   }
 );
 
 router.post(
   "/preferences-agent/agent-view/contact-preferences-agent/how-we-speak-to-you/confirm-your-changes-answer",
   function (req, res) {
+
+    if (req.session.data.HowWeSpeakToYou !== 'Textphone for the deaf and hard of hearing') {
+      req.session.data.ConfirmedAlternativeFormats.pop();
+    }
+
     req.session.data.HowWeSpeakToYouConfirmed =
       req.session.data.HowWeSpeakToYou;
     res.redirect(
