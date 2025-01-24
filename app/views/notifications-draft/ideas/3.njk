@@ -1,8 +1,17 @@
-{% extends "layouts/main.html" %} {% block header %} {{ govukHeader({
-homepageUrl: "preferences/customer-view/homepage", serviceName: "Customer view",
-serviceUrl: "#" }) }} {% endblock %} {% block beforeContent %} {% include
-"preferences/breadcrumbs/customer-view/how-we-contact-you.html" %} {% endblock
-%} {% block content %}
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+My notifications
+{% endblock %}
+
+
+{% block beforeContent %}
+
+{% include "preferences/breadcrumbs/customer-view/when-we-speak-to-you.html" %}
+
+{% endblock %}
+
+{% block content %}
 
 
 <div class="govuk-grid-row">
@@ -53,7 +62,6 @@ serviceUrl: "#" }) }} {% endblock %} {% block beforeContent %} {% include
                   
                   <div class="govuk-!-padding-bottom-6"></div>
 
-               
                     <!-- filter by benefits -->
                     <div class="govuk-form-group">
                       {% set benefitName = data['benefit'] %}
@@ -220,6 +228,11 @@ serviceUrl: "#" }) }} {% endblock %} {% block beforeContent %} {% include
           </div>
           <div class="govuk-grid-column-two-thirds">  
 
+            <div class="width-container govuk-!-padding-4" style="border-radius:0px; background-color:#ffffff; border: 2px solid #f3f2f1">
+
+              <h2 class="govuk-heading-m">Urgent messages</h2>
+
+
             <div class="moj-filter-layout">
             
               <div class="moj-filter-layout__content">
@@ -228,25 +241,10 @@ serviceUrl: "#" }) }} {% endblock %} {% block beforeContent %} {% include
             
 
             
-                  <div class="moj-button-menu" data-module="moj-button-menu">
-            
-                    <button type="submit" class="govuk-button moj-button-menu__item govuk-button--secondary govuk-button--secondary" data-module="govuk-button">
-                      All
-                    </button>
-            
-                    <button type="submit" class="govuk-button moj-button-menu__item govuk-button--secondary govuk-button--secondary govuk-button--secondary" data-module="govuk-button">
-                      Read
-                    </button>
 
-                    <button type="submit" class="govuk-button moj-button-menu__item govuk-button--secondary govuk-button--secondary govuk-button--secondary" data-module="govuk-button">
-                      Unread
-                    </button>
-            
-                  </div>
             
                 </div>
 
-                <div class="govuk-!-padding-bottom-4"></div>
 
                 <table class="govuk-table" data-module="moj-sortable-table">
 
@@ -268,203 +266,262 @@ serviceUrl: "#" }) }} {% endblock %} {% block beforeContent %} {% include
                 
                     <tr class="govuk-table__row" style="background-color:#f3f2f1">
                 
-                      <td class="govuk-table__cell">15/01/2025</td>
-                
-                      <td class="govuk-table__cell" data-sort-value="6194">Employment Support Allowance (ESA)</td>
-                
-                      <td class="govuk-table__cell"><a href="e6/start.html"><b>Submit your evidence</b></a></td>
-                
-                      <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1897">Unread</td>
-                
-                    </tr>
-                
-                    <tr class="govuk-table__row">
-                
-                      <td class="govuk-table__cell">13/12/2024</td>
-                
-                      <td class="govuk-table__cell" data-sort-value="6194">Carer's Allowance</td>
-                
-                      <td class="govuk-table__cell"><a href="e6/start.html"><b>Contact us</b></a></td>
-                
-                      <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1913">Read</td>
-                
-                    </tr>
-                
-                    <tr class="govuk-table__row">
-                
-                      <td class="govuk-table__cell">12/12/2024</td>
-                
-                      <td class="govuk-table__cell" data-sort-value="5642">Carer's Allowance</td>
-                
-                      <td class="govuk-table__cell"><a href="e6/start.html"><b>Contact us</b></a></td>
-                
-                      <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1874">Read</td>
-                
-                    </tr>
-                
-                    <tr class="govuk-table__row">
-                
                       <td class="govuk-table__cell">1/11/2024</td>
                 
                       <td class="govuk-table__cell" data-sort-value="8850">Carer's Allowance</td>
                 
                       <td class="govuk-table__cell"><a href="e6/start.html"><b>Changes to your benefit</b></a></td>
                 
-                      <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1953">Read</td>
-                
-                    </tr>
-                
-                    <tr class="govuk-table__row" style="background-color:#f3f2f1">
-                
-                      <td class="govuk-table__cell">3/05/2024</td>
-                
-                      <td class="govuk-table__cell" data-sort-value="5895">Employment Support Allowance (ESA)</td>
-                
-                      <td class="govuk-table__cell"><a href="e6/start.html"><b>Payment increase</b></a></td>
-                
-                      <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1889">Unread</td>
-                
-                    </tr>
-                
-                    <tr class="govuk-table__row">
-                
-                      <td class="govuk-table__cell">27/04/2024</td>
-                
-                      <td class="govuk-table__cell" data-sort-value="4884">Personal Independence Payment</td>
-                
-                      <td class="govuk-table__cell"><a href="e6/start.html"><b>Your query</b></a></td>
-                
-                      <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1962">Read</td>
-                
-                    </tr>
-                
-                    <tr class="govuk-table__row">
-                
-                      <td class="govuk-table__cell">17/04/2024</td>
-                
-                      <td class="govuk-table__cell" data-sort-value="4897">Employment Support Allowance (ESA)</td>
-                
-                      <td class="govuk-table__cell"><a href="e6/start.html"><b>Book medical assessment</b></a></td>
-                
-                      <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1966">Read</td>
-                
-                    </tr>
-
-                    <tr class="govuk-table__row" style="background-color:#f3f2f1">
-                
-                      <td class="govuk-table__cell">15/01/2024</td>
-                
-                      <td class="govuk-table__cell" data-sort-value="6194">Employment Support Allowance (ESA)</td>
-                
-                      <td class="govuk-table__cell"><a href="e6/start.html"><b>Submit your evidence</b></a></td>
-                
-                      <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1897">Unread</td>
-                
-                    </tr>
-                
-                    <tr class="govuk-table__row">
-                
-                      <td class="govuk-table__cell">13/12/2023</td>
-                
-                      <td class="govuk-table__cell" data-sort-value="6194">Carer's Allowance</td>
-                
-                      <td class="govuk-table__cell"><a href="e6/start.html"><b>Contact us</b></a></td>
-                
-                      <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1913">Read</td>
-                
-                    </tr>
-                
-                    <tr class="govuk-table__row">
-                
-                      <td class="govuk-table__cell">12/12/2023</td>
-                
-                      <td class="govuk-table__cell" data-sort-value="5642">Carer's Allowance</td>
-                
-                      <td class="govuk-table__cell"><a href="e6/start.html"><b>Contact us</b></a></td>
-                
-                      <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1874">Read</td>
-                
-                    </tr>
-                
-                    <tr class="govuk-table__row">
-                
-                      <td class="govuk-table__cell">1/11/2023</td>
-                
-                      <td class="govuk-table__cell" data-sort-value="8850">Carer's Allowance</td>
-                
-                      <td class="govuk-table__cell"><a href="e6/start.html"><b>Changes to your benefit</b></a></td>
-                
-                      <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1953">Read</td>
-                
-                    </tr>
-                
-                    <tr class="govuk-table__row" style="background-color:#f3f2f1">
-                
-                      <td class="govuk-table__cell">3/05/2023</td>
-                
-                      <td class="govuk-table__cell" data-sort-value="5895">Employment Support Allowance (ESA)</td>
-                
-                      <td class="govuk-table__cell"><a href="e6/start.html"><b>Payment increase</b></a></td>
-                
-                      <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1889">Unread</td>
-                
-                    </tr>
-                
-                    <tr class="govuk-table__row">
-                
-                      <td class="govuk-table__cell">27/04/2023</td>
-                
-                      <td class="govuk-table__cell" data-sort-value="4884">Personal Independence Payment</td>
-                
-                      <td class="govuk-table__cell"><a href="e6/start.html"><b>Your query</b></a></td>
-                
-                      <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1962">Read</td>
-                
-                    </tr>
-                
-                    <tr class="govuk-table__row">
-                
-                      <td class="govuk-table__cell">17/04/2023</td>
-                
-                      <td class="govuk-table__cell" data-sort-value="4897">Employment Support Allowance (ESA)</td>
-                
-                      <td class="govuk-table__cell"><a href="e6/start.html"><b>Book medical assessment</b></a></td>
-                
-                      <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1966">Read</td>
+                      <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1953">Unread</td>
                 
                     </tr>
                 
                   </tbody>
+                  
                 </table>
                 
             
               </div>
         </div>
 
-        <div class="govuk-!-padding-bottom-4"></div>
+      </div>
+      
 
-        <nav class="moj-pagination" aria-label="Pagination navigation">
+      <div class="govuk-!-padding-bottom-6"></div>
 
-          <ul class="moj-pagination__list">
-            <li class="moj-pagination__item  moj-pagination__item--prev">
-              <a class="moj-pagination__link" href="">Previous<span class="govuk-visually-hidden"> page</span></a>
-            </li>
-        
-            <li class="moj-pagination__item moj-pagination__item--active" aria-label="Page 1 of 3" aria-current="page">1</li>
+      <div class="width-container govuk-!-padding-4" style="border-radius:0px; background-color:#ffffff; border: 2px solid #f3f2f1">
 
-            <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=1" aria-label="Page 1 of 3">2</a></li>
+
+        <div class="moj-filter-layout">
         
-            <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=3" aria-label="Page 3 of 3">3</a></li>
+          <div class="moj-filter-layout__content">
         
-            <li class="moj-pagination__item  moj-pagination__item--next">
-              <a class="moj-pagination__link" href="">Next<span class="govuk-visually-hidden"> page</span></a>
-            </li>
-          </ul>
-          <p class="moj-pagination__results">Showing <b>1</b> to <b>14</b> of <b>30</b> results</p>
-        </nav>
+            <div class="moj-action-bar">
         
+
+        
+
+        
+            </div>
+
+            <h2 class="govuk-heading-m">Messages</h2>
+
+            <table class="govuk-table" data-module="moj-sortable-table">
+
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+            
+                  <th scope="col" class="govuk-table__header" aria-sort="ascending">Date</th>
+            
+                  <th scope="col" class="govuk-table__header" aria-sort="none">Benefit</th>
+            
+                  <th scope="col" class="govuk-table__header" aria-sort="none">Message</th>
+            
+                  <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Status</th>
+            
+                </tr>
+              </thead>
+            
+              <tbody class="govuk-table__body">
+            
+                <tr class="govuk-table__row" style="background-color:#f3f2f1">
+                
+                  <td class="govuk-table__cell">15/01/2025</td>
+            
+                  <td class="govuk-table__cell" data-sort-value="6194">Employment Support Allowance (ESA)</td>
+            
+                  <td class="govuk-table__cell"><a href="e6/start.html"><b>Submit your evidence</b></a></td>
+            
+                  <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1897">Unread</td>
+            
+                </tr>
+            
+                <tr class="govuk-table__row">
+            
+                  <td class="govuk-table__cell">13/12/2024</td>
+            
+                  <td class="govuk-table__cell" data-sort-value="6194">Carer's Allowance</td>
+            
+                  <td class="govuk-table__cell"><a href="e6/start.html"><b>Contact us</b></a></td>
+            
+                  <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1913">Read</td>
+            
+                </tr>
+            
+                <tr class="govuk-table__row">
+            
+                  <td class="govuk-table__cell">12/12/2024</td>
+            
+                  <td class="govuk-table__cell" data-sort-value="5642">Carer's Allowance</td>
+            
+                  <td class="govuk-table__cell"><a href="e6/start.html"><b>Contact us</b></a></td>
+            
+                  <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1874">Read</td>
+            
+                </tr>
+            
+                <tr class="govuk-table__row" style="background-color:#f3f2f1">
+            
+                  <td class="govuk-table__cell">3/05/2024</td>
+            
+                  <td class="govuk-table__cell" data-sort-value="5895">Employment Support Allowance (ESA)</td>
+            
+                  <td class="govuk-table__cell"><a href="e6/start.html"><b>Payment increase</b></a></td>
+            
+                  <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1889">Unread</td>
+            
+                </tr>
+            
+                <tr class="govuk-table__row">
+            
+                  <td class="govuk-table__cell">27/04/2024</td>
+            
+                  <td class="govuk-table__cell" data-sort-value="4884">Personal Independence Payment</td>
+            
+                  <td class="govuk-table__cell"><a href="e6/start.html"><b>Your query</b></a></td>
+            
+                  <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1962">Read</td>
+            
+                </tr>
+            
+                <tr class="govuk-table__row">
+            
+                  <td class="govuk-table__cell">17/04/2024</td>
+            
+                  <td class="govuk-table__cell" data-sort-value="4897">Employment Support Allowance (ESA)</td>
+            
+                  <td class="govuk-table__cell"><a href="e6/start.html"><b>Book medical assessment</b></a></td>
+            
+                  <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1966">Read</td>
+            
+                </tr>
+
+                <tr class="govuk-table__row" style="background-color:#f3f2f1">
+            
+                  <td class="govuk-table__cell">15/01/2024</td>
+            
+                  <td class="govuk-table__cell" data-sort-value="6194">Employment Support Allowance (ESA)</td>
+            
+                  <td class="govuk-table__cell"><a href="e6/start.html"><b>Submit your evidence</b></a></td>
+            
+                  <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1897">Unread</td>
+            
+                </tr>
+            
+                <tr class="govuk-table__row">
+            
+                  <td class="govuk-table__cell">13/12/2023</td>
+            
+                  <td class="govuk-table__cell" data-sort-value="6194">Carer's Allowance</td>
+            
+                  <td class="govuk-table__cell"><a href="e6/start.html"><b>Contact us</b></a></td>
+            
+                  <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1913">Read</td>
+            
+                </tr>
+            
+                <tr class="govuk-table__row">
+            
+                  <td class="govuk-table__cell">12/12/2023</td>
+            
+                  <td class="govuk-table__cell" data-sort-value="5642">Carer's Allowance</td>
+            
+                  <td class="govuk-table__cell"><a href="e6/start.html"><b>Contact us</b></a></td>
+            
+                  <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1874">Read</td>
+            
+                </tr>
+            
+                <tr class="govuk-table__row">
+            
+                  <td class="govuk-table__cell">1/11/2023</td>
+            
+                  <td class="govuk-table__cell" data-sort-value="8850">Carer's Allowance</td>
+            
+                  <td class="govuk-table__cell"><a href="e6/start.html"><b>Changes to your benefit</b></a></td>
+            
+                  <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1953">Read</td>
+            
+                </tr>
+            
+                <tr class="govuk-table__row" style="background-color:#f3f2f1">
+            
+                  <td class="govuk-table__cell">3/05/2023</td>
+            
+                  <td class="govuk-table__cell" data-sort-value="5895">Employment Support Allowance (ESA)</td>
+            
+                  <td class="govuk-table__cell"><a href="e6/start.html"><b>Payment increase</b></a></td>
+            
+                  <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1889">Unread</td>
+            
+                </tr>
+            
+                <tr class="govuk-table__row">
+            
+                  <td class="govuk-table__cell">27/04/2023</td>
+            
+                  <td class="govuk-table__cell" data-sort-value="4884">Personal Independence Payment</td>
+            
+                  <td class="govuk-table__cell"><a href="e6/start.html"><b>Your query</b></a></td>
+            
+                  <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1962">Read</td>
+            
+                </tr>
+            
+                <tr class="govuk-table__row">
+            
+                  <td class="govuk-table__cell">17/04/2023</td>
+            
+                  <td class="govuk-table__cell" data-sort-value="4897">Employment Support Allowance (ESA)</td>
+            
+                  <td class="govuk-table__cell"><a href="e6/start.html"><b>Book medical assessment</b></a></td>
+            
+                  <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1966">Read</td>
+            
+                </tr>
+            
+              </tbody>
+              
+            </table>
+            
+        
+          </div>
+    </div>
+
+
+    
+
+    <div class="govuk-!-padding-bottom-4"></div>
+
+    <nav class="moj-pagination" aria-label="Pagination navigation">
+
+      <ul class="moj-pagination__list">
+        <li class="moj-pagination__item  moj-pagination__item--prev">
+          <a class="moj-pagination__link" href="">Previous<span class="govuk-visually-hidden"> page</span></a>
+        </li>
+    
+        <li class="moj-pagination__item moj-pagination__item--active" aria-label="Page 1 of 3" aria-current="page">1</li>
+
+        <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=1" aria-label="Page 1 of 3">2</a></li>
+    
+        <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=3" aria-label="Page 3 of 3">3</a></li>
+    
+        <li class="moj-pagination__item  moj-pagination__item--next">
+          <a class="moj-pagination__link" href="">Next<span class="govuk-visually-hidden"> page</span></a>
+        </li>
+      </ul>
+      <p class="moj-pagination__results">Showing <b>1</b> to <b>14</b> of <b>30</b> results</p>
+    </nav>
+    
+
+  </div>
+
 
       </div>
+
+
+
+      
 
     </div>
 
