@@ -1,8 +1,17 @@
-{% extends "layouts/main.html" %} {% block header %} {{ govukHeader({
-homepageUrl: "preferences/customer-view/homepage", serviceName: "Customer view",
-serviceUrl: "#" }) }} {% endblock %} {% block beforeContent %} {% include
-"preferences/breadcrumbs/customer-view/how-we-contact-you.html" %} {% endblock
-%} {% block content %}
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+My notifications
+{% endblock %}
+
+
+{% block beforeContent %}
+
+{% include "preferences/breadcrumbs/customer-view/when-we-speak-to-you.html" %}
+
+{% endblock %}
+
+{% block content %}
 
 
 <div class="govuk-grid-row">
