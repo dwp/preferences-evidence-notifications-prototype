@@ -138,7 +138,7 @@
                 <dt class="govuk-summary-list__key">
                   Address we send letters to
                 </dt>
-                <p class="govuk-body"><a href="#" class="govuk-link">** ***** ******<br>******<br>NE3 1YL</a></p>
+                <p class="govuk-body"><a href="#" style="focus:background-color:none;" class="govuk-link" id="obfuscatedAddress" onclick='testFunction(event, "obfuscatedAddress")'>** ***** ******<br>******<br>NE3 1YL</a></p>
                 <dd class="govuk-summary-list__actions">
                   <a class="govuk-link" href="address-we-send-letters-to/which-address-should-we-send-letters-to">Change<span class="govuk-visually-hidden"> address we send letters to</span></a>
                 </dd>
@@ -147,10 +147,10 @@
                 <dt class="govuk-summary-list__key">
                   Email addresses
                 </dt>
-                <dd class="govuk-summary-list__value">
-                  <p class="govuk-body"><a href="#" class="govuk-link">sar***********@example.com</a></p>
-                  <p class="govuk-body"><a href="#" class="govuk-link">sar******@email.com</a></p>
-                  <p class="govuk-body"><a href="#" class="govuk-link">s.l**@university.ac.uk</a></p>
+                <dd class="govuk-summary-list__value" id="obfuscatedEmailAddresses">
+                  <p class="govuk-body"><a href="#" class="govuk-link" id="obfuscatedEmail1" onclick='testFunction(event, "obfuscatedEmail1")'>sar***********@example.com</a></p>
+                  <p class="govuk-body"><a href="#" class="govuk-link" id="obfuscatedEmail2" onclick='testFunction(event, "obfuscatedEmail2")'>sar******@email.com</a></p>
+                  <p class="govuk-body"><a href="#" class="govuk-link" id="obfuscatedEmail3" onclick='testFunction(event, "obfuscatedEmail3")'>s.l**@university.ac.uk</a></p>
                   </dd>
                 <dd class="govuk-summary-list__actions">
                   <a class="govuk-link" href="how-we-contact-you-hidden-email-list">Change<span class="govuk-visually-hidden"> email</span></a>
@@ -161,8 +161,8 @@
                   Mobile phone numbers
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  <p class="govuk-body"><a href="#" class="govuk-link">07*** *** 457</a></p>
-                  <p class="govuk-body"><a href="#" class="govuk-link">07*** *** 982</a></p>
+                  <p class="govuk-body"><a href="#" class="govuk-link" id="obfuscatedMobile1" onclick='testFunction(event, "obfuscatedMobile1")'>07*** *** 457</a></p>
+                  <p class="govuk-body"><a href="#" class="govuk-link" id="obfuscatedMobile2" onclick='testFunction(event, "obfuscatedMobile2")'>07*** *** 982</a></p>
                 </dd>
                 <dd class="govuk-summary-list__actions">
                   <ul class="govuk-summary-list__actions-list">
@@ -180,7 +180,7 @@
                   Landline number
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  <p class="govuk-body"><a href="#" class="govuk-link">01*** *** 001</a></p>
+                  <p class="govuk-body"><a href="#" class="govuk-link" id="obfuscatedLandline" onclick='testFunction(event, "obfuscatedLandline")'>01*** *** 001</a></p>
                 </dd>
                 <dd class="govuk-summary-list__actions">
                   <ul class="govuk-summary-list__actions-list">
@@ -212,6 +212,39 @@
 
 
 <script>
+
+  function testFunction(event, id) {
+
+  event.preventDefault()
+
+  var dataToUnobfuscate = document.getElementById(id);
+
+  switch(id) {
+    case "obfuscatedAddress":
+      dataToUnobfuscate.innerHTML = "101 Test Street<br>Test City<br>NE3 1YL"
+      break;
+    case "obfuscatedEmail1":
+      dataToUnobfuscate.innerHTML = "sarIMREVEALEDNOW@example.com"
+      break;
+    case "obfuscatedEmail2":
+      dataToUnobfuscate.innerHTML = "sarIMFREE@email.com"
+      break;
+    case "obfuscatedEmail3":
+      dataToUnobfuscate.innerHTML = "s.lREVEALED@university.ac.uk"
+      break;
+      case "obfuscatedMobile1":
+      dataToUnobfuscate.innerHTML = "07123 456 457"
+      break;
+    case "obfuscatedMobile2":
+      dataToUnobfuscate.innerHTML = "07999 999 982"
+      break;
+    case "obfuscatedLandline":
+      dataToUnobfuscate.innerHTML = "01234 567 001"
+      break;
+    default:
+      return;
+  }
+  }
 
   var address = sessionStorage.getItem('address');
 
