@@ -25,7 +25,7 @@
               Landline
             </dt>
             <dd class="govuk-summary-list__value">
-              <p class="govuk-body"><a href="#" class="govuk-link">01*** *** 001</a></p>
+              <p class="govuk-body"><a href="#" class="govuk-link" id="obfuscatedLandline" onclick='testFunction(event, "obfuscatedLandline")'>01*** *** 001</a></p>
             </dd>
             <dd class="govuk-summary-list__actions">
               <ul class="govuk-summary-list__actions-list">
@@ -41,16 +41,28 @@
           
         </dl>
 
-        <p class="govuk-body">
-          <a href="javascript:window.history.back()" class="govuk-link">Back</a>
-        </p>
-
       </div>
       </div>
 </div>
 
 
 <script>
+
+function testFunction(event, id) {
+
+event.preventDefault()
+
+var dataToUnobfuscate = document.getElementById(id);
+
+switch(id) {
+  case "obfuscatedLandline":
+    dataToUnobfuscate.innerHTML = "01234 567 001"
+    break;
+  default:
+    return;
+}
+}
+
   var landline = sessionStorage.getItem('landline');
   var mainLandlineDiv = document.getElementById('mainLandlineDiv');
   if (mainLandlineDiv) {

@@ -25,8 +25,8 @@
             <dt class="govuk-summary-list__key">
               Email 1
             </dt>
-            <dd class="govuk-summary-list__value">
-              <p class="govuk-body"><a href="#" class="govuk-link">sar***********@example.com</a></p>
+            <dd class="govuk-summary-list__value" id="obfuscatedEmailAddresses">
+              <p class="govuk-body"><a href="#" class="govuk-link" id="obfuscatedEmail1" onclick='testFunction(event, "obfuscatedEmail1")'>sar***********@example.com</a></p>
             </dd>
             <dd class="govuk-summary-list__actions">
               <ul class="govuk-summary-list__actions-list">
@@ -44,8 +44,8 @@
             <dt class="govuk-summary-list__key">
               Email 2
             </dt>
-            <dd class="govuk-summary-list__value">
-              <p class="govuk-body"><a href="#" class="govuk-link">sar******@email.com</a></p>
+            <dd class="govuk-summary-list__value" id="obfuscatedEmailAddresses">
+              <p class="govuk-body"><a href="#" class="govuk-link" id="obfuscatedEmail2" onclick='testFunction(event, "obfuscatedEmail2")'>sar******@email.com</a></p>
             </dd>
             <dd class="govuk-summary-list__actions">
               <ul class="govuk-summary-list__actions-list">
@@ -63,8 +63,8 @@
             <dt class="govuk-summary-list__key">
               Email 3
             </dt>
-            <dd class="govuk-summary-list__value">
-              <p class="govuk-body"><a href="#" class="govuk-link">s.l**@university.ac.uk</a></p>
+            <dd class="govuk-summary-list__value" id="obfuscatedEmailAddresses">
+              <p class="govuk-body"><a href="#" class="govuk-link" id="obfuscatedEmail3" onclick='testFunction(event, "obfuscatedEmail3")'>s.l**@university.ac.uk</a></p>
             </dd>
             <dd class="govuk-summary-list__actions">
               <ul class="govuk-summary-list__actions-list">
@@ -80,11 +80,6 @@
 
         </dl>
 
-        <p class="govuk-body">
-          <a href="javascript:window.history.back()" class="govuk-link">Back</a>
-        </p>
-
-
       </div>
     </div>
   </div>
@@ -95,6 +90,28 @@
 
 
 <script>
+
+function testFunction(event, id) {
+
+event.preventDefault()
+
+var dataToUnobfuscate = document.getElementById(id);
+
+switch(id) {
+  case "obfuscatedEmail1":
+    dataToUnobfuscate.innerHTML = "sarah.phillips@example.com"
+    break;
+  case "obfuscatedEmail2":
+    dataToUnobfuscate.innerHTML = "sarah.lee@email.com"
+    break;
+  case "obfuscatedEmail3":
+    dataToUnobfuscate.innerHTML = "s.lee@university.ac.uk"
+    break;
+}
+}
+
+
+
   var email = sessionStorage.getItem('email');
 
 var newEmailDiv = document.getElementById('newEmailDiv');

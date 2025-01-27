@@ -138,7 +138,7 @@
                 <dt class="govuk-summary-list__key">
                   Address we send letters to
                 </dt>
-                <p class="govuk-body"><a href="#" style="focus:background-color:none;" class="govuk-link" id="obfuscatedAddress" onclick='testFunction(event, "obfuscatedAddress")'>** ***** ******<br>******<br>NE3 1YL</a></p>
+                <p class="govuk-body"><a href="#" style="focus:background-color:none;" class="govuk-link" id="obfuscatedAddress" onclick='testFunction(event, "obfuscatedAddress")'>** ***** *****<br>******<br>**** ***</a></p>
                 <dd class="govuk-summary-list__actions">
                   <a class="govuk-link" href="address-we-send-letters-to/which-address-should-we-send-letters-to">Change<span class="govuk-visually-hidden"> address we send letters to</span></a>
                 </dd>
@@ -221,16 +221,16 @@
 
   switch(id) {
     case "obfuscatedAddress":
-      dataToUnobfuscate.innerHTML = "101 Test Street<br>Test City<br>NE3 1YL"
+      dataToUnobfuscate.innerHTML = "72 Guild Street<br>London<br>SE23 6FH"
       break;
     case "obfuscatedEmail1":
-      dataToUnobfuscate.innerHTML = "sarIMREVEALEDNOW@example.com"
+      dataToUnobfuscate.innerHTML = "sarah.phillips@example.com"
       break;
     case "obfuscatedEmail2":
-      dataToUnobfuscate.innerHTML = "sarIMFREE@email.com"
+      dataToUnobfuscate.innerHTML = "sarah.lee@email.com"
       break;
     case "obfuscatedEmail3":
-      dataToUnobfuscate.innerHTML = "s.lREVEALED@university.ac.uk"
+      dataToUnobfuscate.innerHTML = "s.lee@university.ac.uk"
       break;
       case "obfuscatedMobile1":
       dataToUnobfuscate.innerHTML = "07123 456 457"
@@ -254,7 +254,7 @@
     if(address) {
       newAddressDiv.innerHTML = address.replace(/,/g, '<br>');
     } else {
-      newAddressDiv.innerHTML = "	72 Guild Street<br>London<br>SE23 6FH";
+      newAddressDiv.innerHTML = "72 Guild Street<br>London<br>SE23 6FH";
     }
   }
 
