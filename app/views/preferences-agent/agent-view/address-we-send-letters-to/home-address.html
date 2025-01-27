@@ -29,9 +29,7 @@
       <p>Our records show your home address is:</p>
 
       <div class="govuk-inset-text">
-        72 Guild Street<br>
-        London<br>
-        SE23 6FH
+        <p class="govuk-body"><a href="#" style="focus:background-color:none;" class="govuk-link" id="obfuscatedAddress" onclick='testFunction(event, "obfuscatedAddress")'>** ***** *****<br>******<br>**** ***</a></p>
       </div>
 
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
@@ -60,7 +58,24 @@
     </fieldset>
   </div>
 
+
 <script>
+
+
+function testFunction(event, id) {
+
+event.preventDefault()
+
+var dataToUnobfuscate = document.getElementById(id);
+
+switch(id) {
+  case "obfuscatedAddress":
+    dataToUnobfuscate.innerHTML = "72 Guild Street<br>London<br>SE23 6FH"
+    break;
+    return;
+}
+}
+
   function check() {
     console.log('in function')
     var radios = document.getElementsByName("address");
