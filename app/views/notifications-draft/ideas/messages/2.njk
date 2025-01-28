@@ -1,0 +1,64 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+My notifications
+{% endblock %}
+
+
+{% block beforeContent %}
+
+{% include "preferences/breadcrumbs/customer-view/when-we-speak-to-you.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+<style>
+  .dwp-logo {max-width: 20%}
+  .dwp-logo {max-height: 20%}
+
+  .dwp-logo {
+        float: right;
+    }
+
+  </style>
+
+<img src="/public/images/dwp-logo.png" class="dwp-logo">  
+
+</div>
+</div>
+
+<div class="govuk-!-padding-bottom-9"></div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+        <p>[name],<br>72 Guild Street<br>London<br>SE23 6FH</p>
+
+        <div class="govuk-!-padding-bottom-4"></div>
+
+        <h1 class="govuk-heading-xl">Lorem ipsum dolor sit amet</h1>
+
+          <p>Dear [name],</p>
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          
+          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        <h2 class="govuk-heading-l">Lorem ipsum dolor sit amet</h2>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+        <div class="govuk-!-padding-bottom-6"></div>
+        <div class="govuk-button-group">
+        <button class="govuk-button" value= "true" data-module="govuk-button" style="margin-bottom:50px;" onclick="check3()" >Download message</button>
+        <a class="govuk-link" href="#">Print message</a>
+        </div>
+</div>
+
+
+
+{% endblock %}
