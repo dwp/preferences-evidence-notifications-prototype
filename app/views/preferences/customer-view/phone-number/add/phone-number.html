@@ -34,6 +34,45 @@
               For international numbers include the country code
             </div>
 
+            {{ xGovukAutocomplete({
+              id: "country",
+              name: "country",
+              allowEmpty: false,
+              label: {
+                text: "Country code",
+                isPageHeading: true,
+                text: "Country code"              },
+              items: [
+                { text: "Austria" },
+                { text: "Belgium" },
+                { text: "Bulgaria" },
+                { text: "Croatia" },
+                { text: "Republic of Cyprus" },
+                { text: "Czech Republic" },
+                { text: "Denmark" },
+                { text: "Estonia" },
+                { text: "Finland" },
+                { text: "France" },
+                { text: "Germany" },
+                { text: "Greece" },
+                { text: "Hungary" },
+                { text: "Ireland" },
+                { text: "Italy" },
+                { text: "Latvia" },
+                { text: "Lithuania" },
+                { text: "Luxembourg" },
+                { text: "Malta" },
+                { text: "Netherlands" },
+                { text: "Poland" },
+                { text: "Portugal" },
+                { text: "Romania" },
+                { text: "Slovakia" },
+                { text: "Slovenia" },
+                { text: "Spain" },
+                { text: "Sweden" }
+              ]
+            }) }}
+
 
             {% from "govuk/components/input/macro.njk" import govukInput %}
 
@@ -47,7 +86,6 @@
               autocomplete: "tel",
               classes: "govuk-input--width-20"
             }) }}
-
 
 
 <button class="govuk-button" value= "true" data-module="govuk-button" style="margin-bottom:50px;" onclick="check3()" >Continue</button>
