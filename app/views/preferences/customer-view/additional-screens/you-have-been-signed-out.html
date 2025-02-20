@@ -1,0 +1,33 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">You have been signed out</h1>
+        <p class="govuk-body">To protect your information, you have been signed out. This is because you did not do anything for 20 minutes.</p>
+
+        <div class="govuk-!-padding-bottom-2"></div>
+
+        <div class="govuk-button-group">
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Start again
+          </button>
+        </div>
+
+      </div>
+    </div>
+    </main>
+</div>
+
+{% endblock %}
