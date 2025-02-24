@@ -1,0 +1,96 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-m">January 2025</span>
+        Design ideas
+      </h1>
+
+    </div>
+  </div>
+
+  <div class="govuk-!-padding-bottom-4"></div>
+
+  <h2 class="govuk-heading-m">
+    Your notifications
+    </h2>
+
+    <div class="width-container govuk-!-padding-4" style="border-radius:10px; background-color:#f3f2f1">
+      <div class="govuk-!-padding-bottom-2"></div>
+
+
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header app-custom-class">Name</th>
+            <th scope="col" class="govuk-table__header app-custom-class">Description</th>
+            <th scope="col" class="govuk-table__header app-custom-class">Action</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Idea 1</th>
+            <td class="govuk-table__cell">Initial thinking based on high level requirements.</td>
+          <td class="govuk-table__cell"><a href="ideas/ideation/1.html" class="govuk-link">View</a></td>
+          </tr>
+          
+        </tbody>
+          
+        </tbody>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Idea 2</th>
+            <td class="govuk-table__cell"><p class="govuk-body">High level iteration based on conversations with the architcture team:</p>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>Removal of the search bar</li>
+                <li>Addition of a <a href="https://design-patterns.service.justice.gov.uk/components/sortable-table/">sortable table</a></li>
+                <li>Addition of a <a href="https://design-patterns.service.justice.gov.uk/components/date-picker/">date picker</a></li>
+                <li>Changing how dates are displayed, DD/MM/YYYY</li>
+              </ul></td>
+          <td class="govuk-table__cell"><a href="ideas/ideation/2.html" class="govuk-link">View</a></td>
+          </tr>
+          
+        </tbody>
+
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Idea 3</th>
+            <td class="govuk-table__cell">Separating urgent messages.</td>
+          <td class="govuk-table__cell"><a href="ideas/ideation/3.html" class="govuk-link">View</a></td>
+          </tr>
+          
+        </tbody>
+    
+      </tbody>
+
+      
+    </tbody>
+    
+
+
+
+  
+</table>
+</div>
+
+</div>
+
+
+
+
+{% endblock %}
