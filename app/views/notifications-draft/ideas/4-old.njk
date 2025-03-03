@@ -38,7 +38,7 @@ My notifications
       <details class="govuk-details">
         <summary class="govuk-details__summary">
           <span class="govuk-details__summary-text">
-            Show filters
+            Apply a search filter
           </span>
         </summary>
         <div class="govuk-details">
@@ -49,7 +49,7 @@ My notifications
             <div class="moj-filter__content">
               <!-- filter options -->
               <div class="moj-filter__options">
-                <h2 class="govuk-heading-m">Filters</h2>
+                <h2 class="govuk-heading-m">Filter</h2>
   
                 <div class="govuk-grid-row">
                   <div class="govuk-grid-column-one-third sidebar">
@@ -65,24 +65,22 @@ My notifications
                     <fieldset class="govuk-fieldset">
                       <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
                         <div class="govuk-radios__item">
-                          <input class="govuk-radios__input" id="all-notifications" name="read-status" type="radio" value="all" checked>
-                          <label class="govuk-label govuk-radios__label" for="all-notifications">
-                            All notifications
+                          <input class="govuk-radios__input" id="changedRead" name="changedRead" type="radio" value="all">
+                          <label class="govuk-label govuk-radios__label" for="changedRead">
+                            All
                           </label>
                         </div>
                         <div class="govuk-radios__item">
-                          <input class="govuk-radios__input" id="read" name="read-status" type="radio" value="read">
-                          <label class="govuk-label govuk-radios__label" for="read">
+                          <input class="govuk-radios__input" id="changedRead" name="changedRead" type="radio" value="read">
+                          <label class="govuk-label govuk-radios__label" for="changedRead">
                             Read
                           </label>
                         </div>
                         <div class="govuk-radios__item">
-                          <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="unread" name="read-status" type="radio" value="unread">
-                            <label class="govuk-label govuk-radios__label" for="unread">
-                              Unread
-                            </label>
-                          </div>
+                          <input class="govuk-radios__input" id="changedRead" name="changedRead" type="radio" value="unread">
+                          <label class="govuk-label govuk-radios__label" for="changedRead">
+                            Unread
+                          </label>
                         </div>
                       </div>
                     </fieldset>
@@ -93,22 +91,29 @@ My notifications
                     <div class="govuk-!-padding-bottom-2"></div>
                   <!-- filter by benefits -->
                   <div class="govuk-form-group sidebar">
+                    {% set benefitName = data['benefit'] %}
                     <fieldset class="govuk-fieldset">
                       <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
                           Benefit
                       </legend> 
                       <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
                         <div class="govuk-checkboxes__item">
-                          <input class="govuk-checkboxes__input" id="benefit-1" name="benefit" type="checkbox" value="benefit-1" checked>
-                          <label class="govuk-label govuk-checkboxes__label" for="benefit-1">Carer's Allowance</label>
+                          <input class="govuk-checkboxes__input" id="JA-benefit" name="benefit" type="checkbox" value="Carers Allowance">
+                          <label class="govuk-label govuk-checkboxes__label" for="JA-benefit">
+                            Carer's Allowance
+                          </label>
                         </div>
                         <div class="govuk-checkboxes__item">
-                          <input class="govuk-checkboxes__input" id="benefit-2" name="benefit" type="checkbox" value="benefit-2" checked>
-                          <label class="govuk-label govuk-checkboxes__label" for="benefit-2">Employment and Support Allowance</label>
+                          <input class="govuk-checkboxes__input" id="ESA-benefit" name="benefit" type="checkbox" value="Employment and Support Allowance">
+                          <label class="govuk-label govuk-checkboxes__label" for="ESA-benefit">
+                            Employment and Support Allowance
+                          </label>
                         </div>
                         <div class="govuk-checkboxes__item">
-                          <input class="govuk-checkboxes__input" id="benefit-3" name="benefit" type="checkbox" value="benefit-3" checked>
-                          <label class="govuk-label govuk-checkboxes__label" for="benefit-3">Personal Independence Payment</label>
+                          <input class="govuk-checkboxes__input" id="PIP-benefit" name="benefit" type="checkbox" value="Personal Independence Payment">
+                          <label class="govuk-label govuk-checkboxes__label" for="PIP-benefit">
+                            Personal Independence Payment
+                          </label>
                         </div>
                       </div>
                     </fieldset>
@@ -117,58 +122,38 @@ My notifications
   
                 <div class="govuk-grid-column-one-third leftside">
                   <div class="govuk-!-padding-bottom-2"></div>
-
-                    <!-- Start date picker -->
                   <div class="moj-datepicker" data-module="moj-date-picker">
-                    <div class="govuk-form-group">
-                      <label class="govuk-label" for="start-date">
-                         Start date
-                      </label>
-                      <div id="start-date-hint" class="govuk-hint">For example, 03/0/2025.</div>
-                      <input class="govuk-input moj-js-datepicker-input" id="start-date" name="start-date" type="text" aria-describedby="start-date-hint" autocomplete="off">                  
+  
+                    <div class="govuk-form-group sidebar">
+                      <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                        Start date
+                    </legend> 
+                  
+                      <div id="date-hint" class="govuk-hint">
+                        For example, 17/5/2024.
+                      </div>
+                  
+                      <input class="govuk-input moj-js-datepicker-input " id="date" name="date" type="text" aria-describedby="date-hint" autocomplete="off">
+                  
                     </div>
-
-                  <div class="govuk-!-padding-bottom-2"></div>
-
-                   <!-- End date picker -->
-                  <div class="moj-datepicker" data-module="moj-date-picker">
-                    <div class="govuk-form-group">
-                     <label class="govuk-label" for="end-date">
-                      End date
-                    </label>
-                    <div id="end-date-hint" class="govuk-hint">For example, 10/02/2025.</div>
-                    <input class="govuk-input moj-js-datepicker-input" id="end-date" name="end-date" type="text" aria-describedby="end-date-hint" autocomplete="off">                    
                   </div>
-
                 </div>
-
-                <div class="govuk-!-padding-bottom-2"></div>
-
-                {# <button type="button" class="govuk-button" id="apply-date-filter">Apply Date Filter</button> #}
   
                 </div>
-                </div>
-
+  
                 </form>
-
-              </div>
-
-              <div class="govuk-!-padding-bottom-6"></div>
+                  <div class="govuk-!-padding-bottom-6"></div>
   
-              <!-- apply filter button -->
-
-
-              <div style="width: 100%;">
-                <button type="button" class="govuk-button govuk-button--full-width" id="apply-date-filter">Apply filters</button>
+                <!-- apply filter button -->
+                  <button type="submit" class="govuk-button" data-module="govuk-button" id="apply-filter-btn">
+                    Apply filters
+                  </button>
               </div>
-
             </div>
   
           </div>
-          
         </div>
   
-        
 
         </div>
       </details>
@@ -195,7 +180,7 @@ My notifications
               </tr>
             </thead>
             <tbody class="govuk-table__body">
-              <tr class="govuk-table__row" data-benefit="benefit-1" data-status="read" data-date="24/02/2025">
+              <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">24/02/2025</th>
                 <td class="govuk-table__cell">Carer's Allowance</td>
                 <td class="govuk-table__cell"><a href="#" class="govuk-link">An important change to your child maintenance payments</a></td>
@@ -204,7 +189,7 @@ My notifications
                   Read
                 </strong></td>
               </tr>
-              <tr class="govuk-table__row" data-benefit="benefit-2"  data-status="unread" data-date="12/02/2025">
+              <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">12/02/2025</th>
                 <td class="govuk-table__cell">Employment Support Allowance (ESA)</td>
                 <td class="govuk-table__cell"><a href="#" class="govuk-link">Your Employment and Support Allowance (ESA) Work Capability Assessment</a></td>
@@ -214,7 +199,7 @@ My notifications
                 </strong>
                 </td>
               </tr>
-              <tr class="govuk-table__row" data-benefit="benefit-3" data-status="read" data-date="11/02/2025">
+              <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">11/02/2025</th>
                 <td class="govuk-table__cell">Personal Independence Payment</td>
                 <td class="govuk-table__cell"><a href="#" class="govuk-link">I have looked at your claim and decided to award you Personal Independence Payment</a></td>
@@ -223,7 +208,7 @@ My notifications
                   Read
                 </strong></td>
               </tr>
-              <tr class="govuk-table__row" data-benefit="benefit-3" data-status="read" data-date="30/01/2025">
+              <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">30/01/2025</th>
                 <td class="govuk-table__cell">Personal Independence Payment</td>
                 <td class="govuk-table__cell"><a href="#" class="govuk-link">Changes in PIP law</a></td>
@@ -232,7 +217,7 @@ My notifications
                   Read
                 </strong></td>
               </tr>
-              <tr class="govuk-table__row" data-benefit="benefit-1" data-status="read" data-date="26/01/2025">
+              <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">26/01/2025</th>
                 <td class="govuk-table__cell">Carer's Allowance</td>
                 <td class="govuk-table__cell"><a href="#" class="govuk-link">The Annual Review of your child maintenance payments - our decision</a></td>
@@ -241,7 +226,7 @@ My notifications
                   Read
                 </strong></td>
               </tr>
-              <tr class="govuk-table__row" data-benefit="benefit-2" data-status="unread" data-date="15/01/2025">
+              <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">15/01/2025</th>
                 <td class="govuk-table__cell">Employment Support Allowance (ESA)</td>
                 <td class="govuk-table__cell"><a href="#" class="govuk-link">Your ESA review</a></td>
@@ -251,7 +236,7 @@ My notifications
                 </strong>
                 </td>
               </tr>
-              <tr class="govuk-table__row" data-benefit="benefit-2" data-status="read" data-date="10/01/2025">
+              <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">10/01/2025</th>
                 <td class="govuk-table__cell">Employment Support Allowance (ESA)</td>
                 <td class="govuk-table__cell"><a href="#" class="govuk-link">[content]</a></td>
@@ -260,7 +245,7 @@ My notifications
                   Read
                 </strong></td>
               </tr>
-              <tr class="govuk-table__row" data-benefit="benefit-3" data-status="read" data-date="05/01/2025">
+              <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">05/01/2025</th>
                 <td class="govuk-table__cell">Personal Independence Payment</td>
                 <td class="govuk-table__cell"><a href="#" class="govuk-link">[content]</a></td>
@@ -269,7 +254,7 @@ My notifications
                   Read
                 </strong></td>
               </tr>
-              <tr class="govuk-table__row" data-benefit="benefit-1" data-status="read" data-date="24/12/2024">
+              <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">24/12/2024</th>
                 <td class="govuk-table__cell">Carer's Allowance</td>
                 <td class="govuk-table__cell"><a href="#" class="govuk-link">[content]</a></td>
@@ -278,7 +263,7 @@ My notifications
                   Read
                 </strong></td>
               </tr>
-              <tr class="govuk-table__row" data-benefit="benefit-3" data-status="read" data-date="13/12/2024">
+              <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">13/12/2024</th>
                 <td class="govuk-table__cell">Personal Independence Payment</td>
                 <td class="govuk-table__cell"><a href="#" class="govuk-link">[content]</a></td>
@@ -287,7 +272,7 @@ My notifications
                   Read
                 </strong></td>
               </tr>
-              <tr class="govuk-table__row" data-benefit="benefit-2" data-status="read" data-date="12/12/2024">
+              <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">12/12/2024</th>
                 <td class="govuk-table__cell">Employment Support Allowance (ESA)</td>
                 <td class="govuk-table__cell"><a href="#" class="govuk-link">[content]</a></td>
@@ -296,7 +281,7 @@ My notifications
                   Read
                 </strong></td>
               </tr>
-              <tr class="govuk-table__row" data-benefit="benefit-1" data-status="read" data-date="24/11/2024">
+              <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">24/11/2024</th>
                 <td class="govuk-table__cell">Carer's Allowance</td>
                 <td class="govuk-table__cell"><a href="#" class="govuk-link">[content]</a></td>
@@ -305,7 +290,7 @@ My notifications
                   Read
                 </strong></td>
               </tr>
-              <tr class="govuk-table__row" data-benefit="benefit-1" data-status="read" data-date="02/11/2024">
+              <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">02/11/2024</th>
                 <td class="govuk-table__cell">Carer's Allowance</td>
                 <td class="govuk-table__cell"><a href="#" class="govuk-link">[content]</a></td>
@@ -314,7 +299,7 @@ My notifications
                   Read
                 </strong></td>
               </tr>
-              <tr class="govuk-table__row" data-benefit="benefit-2" data-status="read" data-date="05/09/2024">
+              <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">05/09/2024</th>
                 <td class="govuk-table__cell">Employment Support Allowance (ESA)</td>
                 <td class="govuk-table__cell"><a href="#" class="govuk-link">[content]</a></td>
@@ -323,7 +308,7 @@ My notifications
                   Read
                 </strong></td>
               </tr>
-              <tr class="govuk-table__row" data-benefit="benefit-1" data-status="read" data-date="21/08/2024">
+              <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">21/08/2024</th>
                 <td class="govuk-table__cell">Carer's Allowance</td>
                 <td class="govuk-table__cell"><a href="#" class="govuk-link">[content]</a></td>
@@ -387,56 +372,6 @@ My notifications
     padding-top: 18px;
     padding-bottom: 20px;
   }
-
-  #apply-date-filter {
-    width: 100%;
-    display: block;
-  }
-
 </style>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-   
-    const checkboxes = document.querySelectorAll("input[name='benefit']");
-    const radios = document.querySelectorAll("input[name='read-status']");
-    const tableRows = document.querySelectorAll(".govuk-table__row[data-benefit]");
-    const dateButton = document.getElementById("apply-date-filter");
- 
-    function parseDate(input) {
-      if (!input) return null;
-      const [day, month, year] = input.split("/").map(num => parseInt(num, 10));
-      return new Date(year, month - 1, day); 
-    }
- 
-    function filterTable() {
-      const selectedBenefits = Array.from(checkboxes)
-        .filter(checkbox => checkbox.checked)
-        .map(checkbox => checkbox.value);
- 
-      const selectedReadStatus = document.querySelector("input[name='read-status']:checked")?.value || "all";
-      const startDate = parseDate(document.getElementById("start-date").value);
-      const endDate = parseDate(document.getElementById("end-date").value);
- 
-      tableRows.forEach(row => {
-        const rowBenefit = row.getAttribute("data-benefit");
-        const rowStatus = row.getAttribute("data-status");
-        const rowDate = parseDate(row.getAttribute("data-date"));
- 
-        const benefitMatch = selectedBenefits.includes(rowBenefit);
-        const statusMatch = (selectedReadStatus === "all") || (rowStatus === selectedReadStatus);
-        const dateMatch = (!startDate || rowDate <= startDate) && (!endDate || rowDate >= endDate);
- 
-        row.style.display = (benefitMatch && statusMatch && dateMatch) ? "" : "none";
-      });
-    }
- 
-    checkboxes.forEach(checkbox => checkbox.addEventListener("change", filterTable));
-    radios.forEach(radio => radio.addEventListener("change", filterTable));
-    dateButton.addEventListener("click", filterTable);
- 
-    filterTable();
-  });
-</script>
 
 {% endblock %}
