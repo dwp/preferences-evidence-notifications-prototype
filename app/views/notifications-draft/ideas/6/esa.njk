@@ -1,0 +1,81 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+My notifications
+{% endblock %}
+
+
+{% block beforeContent %}
+
+{% include "preferences/breadcrumbs/customer-view/when-we-speak-to-you.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <div class="govuk-grid-column-full">
+
+    <div class="govuk-grid-row">
+      <span class="govuk-caption-l">Employment Support Allowance (ESA)</span>
+        <h1 class="govuk-heading-l">Your notifications</h1>
+    </div>
+
+      <div class="govuk-grid-row">
+
+      <div class="width-container govuk-!-padding-4" style="border-radius:0px; background-color:#ffffff; border: 2px solid #f3f2f1">
+
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Date</th>
+              <th scope="col" class="govuk-table__header">Notification</th>
+              <th scope="col" class="govuk-table__header">Status</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">24/02/2025</th>
+              <td class="govuk-table__cell"><a href="../messages/round-1" class="govuk-link">Your Employment and Support Allowance (ESA) Work Capability Assessment</a></td>
+              <td class="govuk-table__cell">Read</td>
+            </tr>
+            <tr class="govuk-table__row" style="background-color:#f3f2f1">
+              <th scope="row" class="govuk-table__header">26/01/2025</th>
+              <td class="govuk-table__cell"><a href="../messages/round-1" class="govuk-link">Your ESA review</a></td>
+              <td class="govuk-table__cell">Unread</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">24/12/2024</th>
+              <td class="govuk-table__cell"><a href="../messages/round-1" class="govuk-link">Your ESA review</a></td>
+              <td class="govuk-table__cell">Read</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">24/11/2024</th>
+              <td class="govuk-table__cell"><a href="../messages/round-1" class="govuk-link">About the claim for Employment and Support Allowance</a></td>
+              <td class="govuk-table__cell">Read</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">02/11/2024</th>
+              <td class="govuk-table__cell"><a href="../messages/round-1" class="govuk-link">Overpayment decision reconsideration</a></td>
+              <td class="govuk-table__cell">Read</td>
+            </tr>
+          </tbody>
+        </table>
+
+
+  </div>
+
+
+      </div>
+
+
+  </div>
+</div>
+  </div>
+
+
+{% endblock %}
