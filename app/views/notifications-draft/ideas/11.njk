@@ -20,7 +20,15 @@ My notifications
 
       <div class="govuk-grid-column-two-thirds">
 
-            <h1 class="govuk-heading-l">Employment Support Allowance (ESA)</h1>
+        <h1 class="govuk-heading-l">Your notifications</h1>
+
+        <p>This service does not show notifications for Universal Credit or Scottish devolved benefits.</p>
+
+        <p>Notifications will be deleted two years after the closure of your benefit. Print any notifications you may need.</p>
+
+        <p><a href="#" class="govuk-link">Proof of benefit letters</a> can be requested.</p>
+
+        <p>You have unread notifications&nbsp<span id="notifications" class="moj-notification-badge">4</span></p>
 
         <div class="govuk-!-padding-bottom-2"></div>
       
@@ -83,11 +91,49 @@ My notifications
 
           <div class="govuk-grid-column-one-third leftside">
             <div class="govuk-!-padding-bottom-2"></div>
+
+          <!-- filter by benefits -->
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">Sender</legend>
+                <div class="govuk-checkboxes">
+                    <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="benefit-one" name="benefit" type="checkbox" value="Carer’s Allowance" checked data-name="Carer’s Allowance">
+                        <label class="govuk-label govuk-checkboxes__label" for="benefit-one">Carer’s Allowance</label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="benefit-two" name="benefit" type="checkbox" value="Child Maintenance" checked data-name="Child Maintenance">
+                      <label class="govuk-label govuk-checkboxes__label" for="benefit-two">Child Maintenance</label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="benefit-three" name="benefit" type="checkbox" value="Department for Work and Pensions" checked data-name="Department for Work and Pensions">
+                        <label class="govuk-label govuk-checkboxes__label" for="benefit-three">Department for Work and Pensions</label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="benefit-four" name="benefit" type="checkbox" value="Employment Support Allowance (ESA)" checked data-name="Employment Support Allowance (ESA)">
+                      <label class="govuk-label govuk-checkboxes__label" for="benefit-four">Employment Support Allowance (ESA)</label>
+                  </div>
+                    <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="benefit-five" name="benefit" type="checkbox" value="Personal Independence Payment" checked data-name="Personal Independence Payment">
+                        <label class="govuk-label govuk-checkboxes__label" for="benefit-five">Personal Independence Payment</label>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+          </div>
+
+              <!-- Start date picker -->
+
+          <div class="govuk-grid-column-one-third leftside">
+            <div class="govuk-!-padding-bottom-2"></div>
+
             <div class="govuk-form-group sidebar">
 
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">Date range</legend>
 
+              <div class="govuk-!-padding-bottom-2"></div>
 
-              <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">Start date</legend>
+              <label class="govuk-label" for="start-date">Start date</label>
               <div class="govuk-date-input" id="start-date">
                   <div class="govuk-date-input__item">
                       <div class="govuk-form-group">
@@ -110,16 +156,10 @@ My notifications
               </div>
           </div>
 
-          </div>
+          <!-- End date picker -->
 
-
-          <div class="govuk-grid-column-one-third leftside">
-            <div class="govuk-!-padding-bottom-2"></div>
-            <div class="govuk-form-group sidebar">
-
-
-
-              <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">End date</legend>
+          <div class="govuk-form-group">
+              <label class="govuk-label" for="end-date">End date</label>
               <div class="govuk-date-input" id="end-date">
                   <div class="govuk-date-input__item">
                       <div class="govuk-form-group">
@@ -140,12 +180,7 @@ My notifications
                       </div>
                   </div>
               </div>
-
           </div>
-
-          </div>
-
-
 
         </div>
 
@@ -179,6 +214,7 @@ My notifications
   <thead class="govuk-table__head">
       <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__header date-column">Date</th>
+          <th scope="col" class="govuk-table__header">Sender</th>
           <th scope="col" class="govuk-table__header">Notification</th>
           <th scope="col" class="govuk-table__header" style="padding-right:10px;">Status</th>
       </tr>
@@ -186,7 +222,8 @@ My notifications
   <tbody class="govuk-table__body" id="table-body">
       <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header date-column">04/03/2025</th>
-          <td class="govuk-table__cell"><a href="messages/round-1" class="govuk-link">Example notification from ESA</a></td>
+          <td class="govuk-table__cell" data-benefit="Carer’s Allowance">Carer’s Allowance</td>
+          <td class="govuk-table__cell"><a href="messages/round-1" class="govuk-link">Carer’s Allowance civil penalty decision</a></td>
           <td class="govuk-table__cell" style="padding-right:10px;" data-status="read">
             <strong class="govuk-tag govuk-tag--grey">
             Read
@@ -195,7 +232,11 @@ My notifications
       </tr>
       <tr class="govuk-table__row" style="background-color:#f3f2f1">
           <th scope="row" class="govuk-table__header date-column">12/02/2025</th>
-          <td class="govuk-table__cell"><a href="messages/round-1" class="govuk-link">Example notification from ESA</a></td>
+          <td class="govuk-table__cell" data-benefit="Department for Work and Pensions">Department for Work and Pensions</td>
+          <td class="govuk-table__cell"><a href="messages/round-1" class="govuk-link">We need you to send us a copy of your passport</a>
+            <div class="govuk-!-padding-bottom-2"></div>
+            <p class="govuk-body"><b>This notification has a due date</b></p>
+          </td>
           <td class="govuk-table__cell" style="padding-right:10px;" data-status="unread">
             <strong class="govuk-tag custom-unread-tag">
             Unread
@@ -204,7 +245,8 @@ My notifications
       </tr>
       <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header date-column">29/01/2025</th>
-          <td class="govuk-table__cell"><a href="messages/round-1" class="govuk-link">Example notification from ESA</a></td>
+          <td class="govuk-table__cell" data-benefit="Personal Independence Payment">Personal Independence Payment</td>
+          <td class="govuk-table__cell"><a href="messages/round-1" class="govuk-link">I have looked at your claim and decided to award you Personal Independence Payment</a></td>
           <td class="govuk-table__cell" style="padding-right:10px;" data-status="read">
             <strong class="govuk-tag govuk-tag--grey">
             Read
@@ -213,7 +255,8 @@ My notifications
       </tr>
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header date-column">23/01/2025</th>
-        <td class="govuk-table__cell"><a href="messages/round-1" class="govuk-link">Example notification from ESA</a></td>
+        <td class="govuk-table__cell" data-benefit="Child Maintenance">Child Maintenance</td>
+        <td class="govuk-table__cell"><a href="messages/round-1" class="govuk-link">An important change to your child maintenance payments</a></td>
         <td class="govuk-table__cell" style="padding-right:10px;" data-status="read">
           <strong class="govuk-tag govuk-tag--grey">
           Read
@@ -222,7 +265,8 @@ My notifications
       </tr>
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header date-column">07/01/2025</th>
-        <td class="govuk-table__cell"><a href="messages/round-1" class="govuk-link">Example notification from ESA</a></td>
+        <td class="govuk-table__cell" data-benefit="Employment Support Allowance (ESA)">Employment Support Allowance (ESA)</td>
+        <td class="govuk-table__cell"><a href="messages/round-1" class="govuk-link">Your ESA review</a></td>
         <td class="govuk-table__cell" style="padding-right:10px;" data-status="read">
           <strong class="govuk-tag govuk-tag--grey">
           Read
@@ -231,25 +275,28 @@ My notifications
       </tr>
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header date-column">22/12/2024</th>
-        <td class="govuk-table__cell"><a href="messages/round-1" class="govuk-link">Example notification from ESA</a></td>
+        <td class="govuk-table__cell" data-benefit="Employment Support Allowance (ESA)">Employment Support Allowance (ESA)</td>
+        <td class="govuk-table__cell"><a href="messages/round-1" class="govuk-link">Your ESA review</a></td>
         <td class="govuk-table__cell" style="padding-right:10px;" data-status="read">
           <strong class="govuk-tag govuk-tag--grey">
           Read
         </strong>
         </td>
       </tr>
-      <tr class="govuk-table__row">
+      <tr class="govuk-table__row"  style="background-color:#f3f2f1">
         <th scope="row" class="govuk-table__header date-column">02/12/2024</th>
-        <td class="govuk-table__cell"><a href="messages/round-1" class="govuk-link">Example notification from ESA</a></td>
-        <td class="govuk-table__cell" style="padding-right:10px;" data-status="read">
-          <strong class="govuk-tag govuk-tag--grey">
-          Read
+        <td class="govuk-table__cell" data-benefit="Child Maintenance">Child Maintenance</td>
+        <td class="govuk-table__cell"><a href="messages/round-1" class="govuk-link">The Annual Review of your child maintenance payments - our decision</a></td>
+        <td class="govuk-table__cell" style="padding-right:10px;" data-status="unread">
+          <strong class="govuk-tag custom-unread-tag">
+          Unread
         </strong>
         </td>
       </tr>
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header date-column">26/11/2024</th>
-        <td class="govuk-table__cell"><a href="messages/round-1" class="govuk-link">Example notification from ESA</a></td>
+        <td class="govuk-table__cell" data-benefit="Personal Independence Payment">Personal Independence Payment</td>
+        <td class="govuk-table__cell"><a href="messages/round-1" class="govuk-link">Changes in PIP law</a></td>
         <td class="govuk-table__cell" style="padding-right:10px;" data-status="read">
           <strong class="govuk-tag govuk-tag--grey">
           Read
@@ -258,7 +305,10 @@ My notifications
       </tr>
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header date-column">18/09/2024</th>
-        <td class="govuk-table__cell"><a href="messages/round-1" class="govuk-link">Example notification from ESA</a></td>
+        <td class="govuk-table__cell" data-benefit="Carer’s Allowance">Carer’s Allowance</td>
+        <td class="govuk-table__cell"><a href="messages/round-1" class="govuk-link">About your Carer’s Allowance Appeal</a>
+          <div class="govuk-!-padding-bottom-2"></div>
+          <p class="govuk-body"><b>This notification has a due date</b></p></td>
         <td class="govuk-table__cell" style="padding-right:10px;" data-status="read">
           <strong class="govuk-tag govuk-tag--grey">
           Read
@@ -267,7 +317,8 @@ My notifications
       </tr>
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header date-column">02/09/2024</th>
-        <td class="govuk-table__cell"><a href="messages/round-1" class="govuk-link">Example notification from ESA</a></td>
+        <td class="govuk-table__cell" data-benefit="Personal Independence Payment">Personal Independence Payment</td>
+        <td class="govuk-table__cell"><a href="messages/round-1" class="govuk-link">Your entitlement – We have looked again at your decision</a></td>
         <td class="govuk-table__cell" style="padding-right:10px;" data-status="read">
           <strong class="govuk-tag govuk-tag--grey">
           Read
@@ -276,7 +327,8 @@ My notifications
       </tr>
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header date-column">01/08/2024</th>
-        <td class="govuk-table__cell"><a href="messages/round-1" class="govuk-link">Example notification from ESA</a></td>
+        <td class="govuk-table__cell" data-benefit="Employment Support Allowance (ESA)">Employment Support Allowance (ESA)</td>
+        <td class="govuk-table__cell"><a href="messages/round-1" class="govuk-link">About the claim for Employment and Support Allowance</a></td>
         <td class="govuk-table__cell" style="padding-right:10px;" data-status="read">
           <strong class="govuk-tag govuk-tag--grey">
           Read
@@ -285,7 +337,8 @@ My notifications
       </tr>
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header date-column">31/05/2024</th>
-        <td class="govuk-table__cell"><a href="messages/round-1" class="govuk-link">Example notification from ESA</a></td>
+        <td class="govuk-table__cell" data-benefit="Personal Independence Payment">Personal Independence Payment</td>
+        <td class="govuk-table__cell"><a href="messages/round-1" class="govuk-link">We have looked at your decision</a></td>
         <td class="govuk-table__cell" style="padding-right:10px;" data-status="read">
           <strong class="govuk-tag govuk-tag--grey">
           Read
@@ -294,37 +347,41 @@ My notifications
       </tr>
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header date-column">29/05/2024</th>
-        <td class="govuk-table__cell"><a href="messages/round-1" class="govuk-link">Example notification from ESA</a></td>
+        <td class="govuk-table__cell" data-benefit="Employment Support Allowance (ESA)">Employment Support Allowance (ESA)</td>
+        <td class="govuk-table__cell"><a href="messages/round-1" class="govuk-link">Overpayment decision reconsideration</a></td>
         <td class="govuk-table__cell" style="padding-right:10px;" data-status="read">
           <strong class="govuk-tag govuk-tag--grey">
           Read
         </strong>
         </td>
       </tr>
-      <tr class="govuk-table__row">
+      <tr class="govuk-table__row" style="background-color:#f3f2f1">
         <th scope="row" class="govuk-table__header date-column">28/05/2024</th>
-        <td class="govuk-table__cell"><a href="messages/round-1" class="govuk-link">Example notification from ESA</a></td>
+        <td class="govuk-table__cell" data-benefit="Employment Support Allowance (ESA)">Employment Support Allowance (ESA)</td>
+        <td class="govuk-table__cell"><a href="messages/round-1" class="govuk-link">Your ESA review</a></td>
+        <td class="govuk-table__cell" style="padding-right:10px;" data-status="unread">
+          <strong class="govuk-tag custom-unread-tag">
+          Unread
+        </strong>
+        </td>
+      </tr>
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header date-column">07/03/2024</th>
+        <td class="govuk-table__cell" data-benefit="Child Maintenance">Child Maintenance </td>
+        <td class="govuk-table__cell"><a href="messages/round-1" class="govuk-link">An important change to your child maintenance payments</a></td>
         <td class="govuk-table__cell" style="padding-right:10px;" data-status="read">
           <strong class="govuk-tag govuk-tag--grey">
           Read
         </strong>
         </td>
       </tr>
-      <tr class="govuk-table__row">
+      <tr class="govuk-table__row" style="background-color:#f3f2f1">
         <th scope="row" class="govuk-table__header date-column">07/03/2024</th>
-        <td class="govuk-table__cell"><a href="messages/round-1" class="govuk-link">Example notification from ESA</a></td>
-        <td class="govuk-table__cell" style="padding-right:10px;" data-status="read">
-          <strong class="govuk-tag govuk-tag--grey">
-          Read
-        </strong>
-        </td>
-      </tr>
-      <tr class="govuk-table__row">
-        <th scope="row" class="govuk-table__header date-column">07/03/2024</th>
-        <td class="govuk-table__cell"><a href="messages/round-1" class="govuk-link">Example notification from ESA</a></td>
-        <td class="govuk-table__cell" style="padding-right:10px;" data-status="read">
-          <strong class="govuk-tag govuk-tag--grey">
-          Read
+        <td class="govuk-table__cell" data-benefit="Carer’s Allowance">Carer’s Allowance</td>
+        <td class="govuk-table__cell"><a href="messages/round-1" class="govuk-link">About your Carer’s Allowance Appeal</a></td>        
+        <td class="govuk-table__cell" style="padding-right:10px;" data-status="unread">
+          <strong class="govuk-tag custom-unread-tag">
+          Unread
         </strong>
         </td>
       </tr>
@@ -398,6 +455,10 @@ My notifications
     .custom-unread-tag {
       background-color: #1d70b8;
       color: white;
+    }
+
+    .govuk-body-message {
+       padding: 0;
     }
 
   </style>
