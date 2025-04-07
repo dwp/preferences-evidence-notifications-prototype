@@ -22,7 +22,7 @@ My notifications
 
         <h1 class="govuk-heading-l">Your notifications</h1>
 
-        <p>This service will currently only show your letters from DWP. Email and text message notifications will be added in the future. </p>
+        <p>This service does not show notifications for Universal Credit or Scottish devolved benefits.</p>
 
         <p>You have unread notifications&nbsp<span id="notifications" class="moj-notification-badge">4</span></p>
 
@@ -89,10 +89,9 @@ My notifications
             <div class="govuk-!-padding-bottom-2"></div>
 
           <!-- filter by benefits -->
-
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
-                <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">Benefits</legend>
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">Sender</legend>
                 <div class="govuk-checkboxes">
                     <div class="govuk-checkboxes__item">
                         <input class="govuk-checkboxes__input" id="benefit-one" name="benefit" type="checkbox" value="Carer’s Allowance" checked data-name="Carer’s Allowance">
@@ -103,12 +102,16 @@ My notifications
                       <label class="govuk-label govuk-checkboxes__label" for="benefit-two">Child Maintenance</label>
                     </div>
                     <div class="govuk-checkboxes__item">
-                        <input class="govuk-checkboxes__input" id="benefit-three" name="benefit" type="checkbox" value="Employment Support Allowance (ESA)" checked data-name="Employment Support Allowance (ESA)">
-                        <label class="govuk-label govuk-checkboxes__label" for="benefit-three">Employment Support Allowance (ESA)</label>
+                        <input class="govuk-checkboxes__input" id="benefit-three" name="benefit" type="checkbox" value="Department for Work and Pensions" checked data-name="Department for Work and Pensions">
+                        <label class="govuk-label govuk-checkboxes__label" for="benefit-three">Department for Work and Pensions</label>
                     </div>
                     <div class="govuk-checkboxes__item">
-                        <input class="govuk-checkboxes__input" id="benefit-four" name="benefit" type="checkbox" value="Personal Independence Payment" checked data-name="Personal Independence Payment">
-                        <label class="govuk-label govuk-checkboxes__label" for="benefit-four">Personal Independence Payment</label>
+                      <input class="govuk-checkboxes__input" id="benefit-four" name="benefit" type="checkbox" value="Employment Support Allowance (ESA)" checked data-name="Employment Support Allowance (ESA)">
+                      <label class="govuk-label govuk-checkboxes__label" for="benefit-four">Employment Support Allowance (ESA)</label>
+                  </div>
+                    <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="benefit-five" name="benefit" type="checkbox" value="Personal Independence Payment (PIP)" checked data-name="Personal Independence Payment (PIP)">
+                        <label class="govuk-label govuk-checkboxes__label" for="benefit-five">Personal Independence Payment (PIP)</label>
                     </div>
                 </div>
             </fieldset>
@@ -126,7 +129,7 @@ My notifications
 
               <div class="govuk-!-padding-bottom-2"></div>
 
-              <label class="govuk-label" for="start-date">Start date</label>
+              <label class="govuk-label" for="start-date">From</label>
               <div class="govuk-date-input" id="start-date">
                   <div class="govuk-date-input__item">
                       <div class="govuk-form-group">
@@ -152,7 +155,7 @@ My notifications
           <!-- End date picker -->
 
           <div class="govuk-form-group">
-              <label class="govuk-label" for="end-date">End date</label>
+              <label class="govuk-label" for="end-date">To</label>
               <div class="govuk-date-input" id="end-date">
                   <div class="govuk-date-input__item">
                       <div class="govuk-form-group">
@@ -414,7 +417,7 @@ My notifications
       }
       .leftside {
         width: 100%;
-        margin-left: 40px: /* Adds spacing when stacked */
+        margin-left: 40px; /* Adds spacing when stacked */
       }
     }
   
