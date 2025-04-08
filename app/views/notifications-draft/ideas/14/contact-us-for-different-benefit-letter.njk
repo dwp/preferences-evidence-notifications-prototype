@@ -1,0 +1,49 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+My notifications
+{% endblock %}
+
+
+{% block beforeContent %}
+
+{% include "preferences/breadcrumbs/customer-view/when-we-speak-to-you.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Contact us to get proof of your benefits
+    </h1>
+
+    <p>
+      Our records show that you get {{ data['inScope'] }}.
+    </p>
+
+    <p>
+      If you expect to see another benefit, you will need to contact them.
+    </p>
+
+    <p>Find their contact details in a letter they have sent to you, or in <a href="https://www.gov.uk/browse/benefits" class="govuk-link" rel="noreferrer noopener" target="_blank">guidance about the benefit on GOV.UK (opens in a new tab)</a>.
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Sign out",
+          href: "signout"
+        }) }}
+
+        {{ govukButton({
+          text: "Go back to account home",
+          href: "account-home",
+          classes: "govuk-button--secondary"
+        }) }}
+      </div>
+
+  </div>
+</div>
+
+{% endblock %}

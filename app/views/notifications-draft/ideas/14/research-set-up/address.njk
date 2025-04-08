@@ -1,0 +1,63 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+My notifications
+{% endblock %}
+
+
+{% block beforeContent %}
+
+{% include "preferences/breadcrumbs/customer-view/when-we-speak-to-you.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <!-- This is a research setup page that determines where the proof of benefit letter will be sent -->
+    <!-- The form submits to the "ready" page and stores the selection in session data -->
+    <form class="form" action="ready" method="post">
+
+      <div class="govuk-form-group">
+        <!-- This fieldset creates a radio button group for address selection -->
+        <!-- The selection here will be used later in the journey to determine letter delivery options -->
+        <fieldset class="govuk-fieldset" aria-describedby="researchSetUpAddress-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              The researcher will help you during this part of the session
+            </h1>
+          </legend>
+          <!-- Hint text explains this is part of the research setup -->
+          <div id="researchSetUpAddress-hint" class="govuk-hint">
+            Your answers will determine what content appears during user testing.
+          </div>
+          <!-- Radio button group with two options: Post or Home -->
+          <!-- The selected value is stored in 'researchSetUpAddress' session variable -->
+          <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="researchSetUpAddress" name="researchSetUpAddress" type="radio" value="post">
+              <label class="govuk-label govuk-radios__label" for="researchSetUpAddress">
+                Post
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="researchSetUpAddress-2" name="researchSetUpAddress" type="radio" value="home">
+              <label class="govuk-label govuk-radios__label" for="researchSetUpAddress-2">
+                Home
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

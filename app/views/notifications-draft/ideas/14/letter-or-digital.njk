@@ -1,0 +1,63 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+My notifications
+{% endblock %}
+
+
+{% block beforeContent %}
+
+{% include "preferences/breadcrumbs/customer-view/when-we-speak-to-you.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="address-on-your-digital-copy" method="post">
+
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+        {{ govukCheckboxes({
+          name: "which benefits",
+          fieldset: {
+            legend: {
+              text: "How would you like your proof of benefit letter?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "A digital copy",
+              text: "A digital copy"
+            },
+            {
+              value: "A letter sent to my address",
+              text: "A letter sent to my address",      
+              hint: {
+                text: "This may take a while to arrive"
+              }
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "Both a digital copy and letter sent to my address",
+              text: "Both a digital copy and letter sent to my address"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
