@@ -1,0 +1,63 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+My notifications
+{% endblock %}
+
+
+{% block beforeContent %}
+
+{% include "preferences/breadcrumbs/customer-view/when-we-speak-to-you.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      You cannot get proof of your benefits using this service
+    </h1>
+
+    <!-- Conditional content based on benefit selection:
+         1. If only State Pension is selected, show Pension Service specific message
+         2. If multiple benefits including State Pension, show both general and Pension Service messages
+         3. If other benefits (no State Pension), show general message -->
+    {% if data['researchSetUpBenefits'].length === 1 and data['researchSetUpBenefits'].includes("State Pension") %}
+    <p>Before you can get proof of your State Pension, you need to <a href="https://www.gov.uk/contact-pension-service/report-changes" class="govuk-link" rel="noreferrer noopener" target="_blank">contact the Pension Service to correct your address (opens in a new tab)</a>.</p>
+
+    {% elif data['which-benefits-need-proof'].length > 1 and data['which-benefits-need-proof'].includes("State Pension") %}
+    <p>Before you can get proof of your benefits, you need to <a href="https://www.gov.uk/report-benefits-change-circumstances#:~:text=How%20to%20report%20changes" class="govuk-link" rel="noreferrer noopener" target="_blank">contact each benefit to correct your address (opens in a new tab)</a>.</p>
+
+    <p>To get proof of your State Pension, you also need to <a href="https://www.gov.uk/contact-pension-service/report-changes" class="govuk-link" rel="noreferrer noopener" target="_blank">tell the Pension Service your correct address (opens in a new tab)</a>.</p>
+ 
+    {% else %}
+    <p>Before you can get proof of your benefits, you need to <a href="https://www.gov.uk/report-benefits-change-circumstances#:~:text=How%20to%20report%20changes" class="govuk-link" rel="noreferrer noopener" target="_blank">contact each benefit to correct your address (opens in a new tab)</a>.</p>
+    {% endif %}
+
+    <p class="govuk-body">
+      You cannot change your address online yet.
+    </p>
+    
+    <p class="govuk-body">
+      You may ask for proof of your benefits when you contact each benefit to change your address.
+    </p>
+
+    <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Sign out",
+        href: "signout"
+      }) }}
+
+      {{ govukButton({
+        text: "Go back to account home",
+        href: "account-home",
+        classes: "govuk-button--secondary"
+      }) }}
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}
