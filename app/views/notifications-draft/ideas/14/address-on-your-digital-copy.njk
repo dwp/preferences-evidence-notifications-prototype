@@ -18,7 +18,7 @@ My notifications
 
     <form class="form" action="check-your-answers" method="post">
 
-      <h1 class="govuk-heading-l" >Confirm your addressr</h1>
+      <h1 class="govuk-heading-l" >Confirm your address</h1>
 
       <!-- Different text shown based on research setup address type:
            - If researchSetUpAddress is 'home', shows "Your address is saved as:"
@@ -28,7 +28,7 @@ My notifications
       {% if data.researchSetUpAddress === 'home' %}
         <p>Your address is saved as:</p>
       {% else %}
-        <p>We need to add your correspondence address to your letter. Your address is saved as:</p>
+        <p>This home address will be put on your proof of benefit letter</p>
       {% endif %}
 
       <div class="govuk-inset-text">
