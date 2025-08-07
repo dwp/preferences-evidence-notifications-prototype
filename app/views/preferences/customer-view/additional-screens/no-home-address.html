@@ -1,0 +1,45 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+We could not find your home address
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "preferences/breadcrumbs/customer-view/address-we-send-letters-to.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-two-thirds">
+
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset">
+
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <h1 class="govuk-fieldset__heading">
+          We could not find your home address
+        </h1>
+      </legend>
+
+      <p>This means we do not have your home address on our records. You can contact the benefit that pays you to ask them to add your home address to our records.</p>
+
+      <div class="govuk-!-padding-bottom-4"></div>
+
+      <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        Return to 'How we contact you'
+      </button>
+
+    </div>
+
+    </fieldset>
+  </div>
+ </div>
+
+</div>
+
+{% endblock %}

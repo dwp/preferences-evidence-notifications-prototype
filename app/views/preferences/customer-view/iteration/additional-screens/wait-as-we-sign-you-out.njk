@@ -1,0 +1,34 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="govuk-!-padding-bottom-4"></div>
+
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="hods-loading-spinner">
+      <div
+        class="hods-loading-spinner__spinner"
+        aria-live="polite"
+        role="status"
+      ></div>
+      
+      <div class="hods-loading-spinner__content" style="margin-top: 20px">
+
+        <h1 class="govuk-heading-m">Please wait while we sign you out</h1>
+
+      </div>
+    </div>
+
+  </div>
+
+{% endblock %}

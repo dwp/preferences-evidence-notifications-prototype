@@ -1,0 +1,69 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+We could not find your home address
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "preferences/breadcrumbs/customer-view/address-we-send-letters-to.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-two-thirds">
+
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset">
+
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <h1 class="govuk-fieldset__heading">
+          We could not find your home address
+        </h1>
+      </legend>
+
+      <p>This means we do not have your home address on our records.</p>
+
+      <p>You will need to contact the benefit that pays you and ask them to add your home address to our records.</p>
+
+      <div class="govuk-!-padding-bottom-4"></div>
+
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="addressAdd-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h1 class="govuk-fieldset__heading">
+              Do you want to add an address we can send letters to?
+            </h1>
+          </legend>
+          <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="addressAdd" name="addressAdd" type="radio" value="yes">
+              <label class="govuk-label govuk-radios__label" for="addressAdd">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="addressAdd-2" name="addressAdd" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="addressAdd-2">
+                No
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>  
+    </div>
+
+    <button class="govuk-button" value= "true" data-module="govuk-button" onclick="check()">Continue</button>
+
+    </fieldset>
+  </div>
+ </div>
+
+</div>
+
+{% endblock %}

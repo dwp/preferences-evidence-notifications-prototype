@@ -1,0 +1,352 @@
+{% extends "layouts/main.html" %} {% block header %} {{ govukHeader({
+homepageUrl: "preferences/customer-view/homepage", serviceName: "Customer view",
+serviceUrl: "#" }) }} {% endblock %} {% block beforeContent %} {% include
+"preferences/breadcrumbs/customer-view/how-we-contact-you.html" %} {% endblock
+%} {% block content %}
+
+{# {{ data | dump }} #}
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <h2 class="govuk-heading-l">How we contact you</h2>
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">Contact preferences</h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">Preferred language</dt>
+              {% if data.SelectLanguageSET %}
+              <p>{{ data.SelectLanguageSET }}</p>
+              {% else %}
+              <p>English</p>
+              {% endif %}
+              <dd class="govuk-summary-list__actions">
+                <a
+                  class="govuk-link"
+                  href="/preferences/customer-view/language/language-selection"
+                >
+                  Change<span class="govuk-visually-hidden"
+                    >When we speak to you</span
+                  >
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">How we speak to you</dt>
+              <p id="mainHowWeSpeakDiv">
+                {{ data['HowWeSpeakToYouConfirmed'] or "I do not have a speaking
+                preference"}}
+              </p>
+              <dd class="govuk-summary-list__actions">
+                <a
+                  class="govuk-link"
+                  href="/preferences/customer-view/contact-preferences/how-we-speak-to-you/speaking-selection"
+                >
+                  Change<span class="govuk-visually-hidden">How we speak to you</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">How we write to you</dt>
+              {% if data.HowWeWriteToYouSET %}
+              <p>{{ data.HowWeWriteToYouSET }}</p>
+              {% else %}
+              <p>I do not have a writing preference</p>
+              {% endif %}
+              <dd class="govuk-summary-list__actions">
+                <a
+                  class="govuk-link"
+                  href="/preferences/customer-view/contact-preferences/how-we-write-to-you/writing-selection"
+                >
+                  Change<span class="govuk-visually-hidden"
+                    >How we write to you</span
+                  >
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">Alternative formats</dt>
+              {% if data.AlternativeFormatSET !== true %}
+                {% if data.HowWeSpeakToYouConfirmed === 'Textphone for the deaf and hard of hearing'%}
+                  <p>Textphone for the deaf and hard of hearing</p>
+                {% else %}
+                  <p>I do not need an alternative format</p>
+                {% endif %}
+              {% else %}
+              {% if data.ConfirmedAlternativeFormats.length > 1 %}
+              <dd class="govuk-summary-list__value" id="updatedValue">
+              <p class='govuk-summary-list__key'>Written Alternative formats</p>
+              <p>{{ data.ConfirmedAlternativeFormatsOption }}</p>
+              {% if data.ConfirmedAlternativeFormatsBulletPoints %}
+                <ul class='govuk-list govuk-list--bullet'>
+                  {% for name, item in data.ConfirmedAlternativeFormatsBulletPoints %}
+                      <li>{{ item }} </li>
+                  {% endfor %}
+                </ul>
+              {% endif%}
+              <p class='govuk-summary-list__key'>Textphone</p>
+              <p>Textphone for the deaf and hard of hearing</p>
+              {% else %}
+              {% if data.AlternativeFormats[0] === 'I do not need an alternative format' or data.AlternativeFormats[0] === 'Textphone for the deaf and hard of hearing' %}
+                <p>{{ data.ConfirmedAlternativeFormats[0] }}
+              {% else %}
+                <p>{{ data.ConfirmedAlternativeFormatsOption }}</p>
+              {% if data.ConfirmedAlternativeFormatsBulletPoints %}
+                <ul class='govuk-list govuk-list--bullet'>
+              {% for name, item in data.ConfirmedAlternativeFormatsBulletPoints %}
+                <li>{{ item }} </li>
+              {% endfor %}
+              </ul>
+              {% endif %}
+            {% endif %}
+            {% endif %}
+            {% endif %}
+            </dd>
+              <dd class="govuk-summary-list__actions">
+                <a
+                  class="govuk-link"
+                  href="/preferences/customer-view/alternative-formats/when-we-write-to-you/options"
+                >
+                  Change<span class="govuk-visually-hidden"
+                    >Choose an alternative format
+                  </span>
+                </a>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">Contact details</h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Address we send letters to
+              </dt>
+              <dd
+                class="govuk-summary-list__value"
+                id="newAddressDiv"
+                name="newAddressDiv"
+              ></dd>
+              <dd class="govuk-summary-list__actions">
+                <a
+                  class="govuk-link"
+                  href="address-we-send-letters-to/which-address-should-we-send-letters-to"
+                  >Change<span class="govuk-visually-hidden">
+                    address we send letters to</span
+                  ></a
+                >
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">Email addresses</dt>
+              <dd class="govuk-summary-list__value">
+                <p class="govuk-body" id="newEmailDiv" name="newEmailDiv"></p>
+                <p class="govuk-body">sarah.lee@email.com</p>
+                <p class="govuk-body">s.lee@university.ac.uk</p>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="email/email-list"
+                  >Change<span class="govuk-visually-hidden"> email</span></a
+                >
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">Mobile phone numbers</dt>
+              <dd class="govuk-summary-list__value">
+                <p class="govuk-body" id="mainPhoneDiv" name="mainPhoneDiv"></p>
+                <p class="govuk-body">07700 900 982</p>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="phone-number/phone-number-list">
+                  Change<span class="govuk-visually-hidden"> phone number</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">Landline phone number</dt>
+              <dd class="govuk-summary-list__value">
+                <p
+                  class="govuk-body"
+                  id="mainLandlineDiv"
+                  name="mainLandlineDiv"
+                ></p>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="landline-number/landline-number-list">
+                  Change<span class="govuk-visually-hidden"> landline phone number</span></a>
+              </dd>
+            </div>
+
+            {% if data.HowWeSpeakToYouConfirmed === "Textphone for the deaf and hard of hearing" %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">Textphone number</dt>
+              <dd class="govuk-summary-list__value">
+                <p
+                  class="govuk-body"
+                  id="mainTextphoneDiv"
+                  name="mainTextphoneDiv"
+                ></p>
+                {% if data.ConfirmedTextphoneNumber %}
+                  <p class="govuk-body">{{ data.ConfirmedTextphoneNumber }}</p>
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <ul class="govuk-summary-list__actions-list">
+                      <li class="govuk-summary-list__actions-list-item">
+                        <a
+                          class="govuk-link"
+                          href="/preferences/customer-view/contact-preferences/how-we-speak-to-you/textphone"
+                          >Change<span class="govuk-visually-hidden">
+                            change textphone phone number</span
+                          ></a
+                        >
+                      </li>
+                    </ul>
+                  </dd>
+                {% else %}
+                  <a class="govuk-link" href="/preferences/customer-view/contact-preferences/how-we-speak-to-you/textphone">
+                    Add a textphone number
+                  </a>
+                  </dd>
+                {% endif %}
+            </div>
+            {% endif %}
+          </dl>
+        </div>
+      </div>
+
+      <div class="govuk-button-group">
+        {{ govukButton({ text: "Return to Account home", href: "homepage",
+        preventDoubleClick: true }) }}
+      </div>
+    </div>
+
+    <script>
+      var address = sessionStorage.getItem("address");
+
+      var newAddressDiv = document.getElementById("newAddressDiv");
+
+      if (newAddressDiv) {
+        if (address) {
+          newAddressDiv.innerHTML = address.replace(/,/g, "<br>");
+        } else {
+          newAddressDiv.innerHTML = "	72 Guild Street<br>London<br>SE23 6FH";
+        }
+      }
+
+      var email = sessionStorage.getItem("email");
+
+      var newEmailDiv = document.getElementById("newEmailDiv");
+
+      if (newEmailDiv) {
+        if (email) {
+          newEmailDiv.innerHTML = email;
+        } else {
+          newEmailDiv.innerHTML = "sarah.phillips@example.com";
+        }
+      }
+
+      var phone = sessionStorage.getItem("phone");
+      var mainPhoneDiv = document.getElementById("mainPhoneDiv");
+      if (mainPhoneDiv) {
+        if (phone) {
+          mainPhoneDiv.innerHTML = phone;
+        } else {
+          mainPhoneDiv.innerHTML = "07700 900 457";
+        }
+      }
+
+      var landline = sessionStorage.getItem("landline");
+      var mainLandlineDiv = document.getElementById("mainLandlineDiv");
+      if (mainLandlineDiv) {
+        if (landline) {
+          mainLandlineDiv.innerHTML = landline;
+        } else {
+          mainLandlineDiv.innerHTML = "01632 960 001";
+        }
+      }
+
+      {# var textphone = sessionStorage.getItem('textphoneNumber');
+      var mainTextPhoneDiv = document.getElementById("mainTextPhoneDiv");
+      if (mainTextPhoneDiv) {
+        if (textphone) {
+          mainTextPhoneDiv.innerHTML = TextPhone;
+        } else {
+          mainTextPhoneDiv.innerHTML = "";
+        }
+      } #}
+
+      var mainHowWeConnectDiv = document.getElementById("mainHowWeConnectDiv");
+      var howWeConnect = sessionStorage.getItem("howWeConnect");
+      var howWeConnectArrary;
+      if (howWeConnect) {
+        howWeConnectArrary = howWeConnect.split("<br>");
+      }
+
+      if (mainHowWeConnectDiv) {
+        if (howWeConnect && howWeConnectArrary.length > 0) {
+          var list = "";
+
+          if (howWeConnectArrary.length > 1) {
+            list += "<ul class='govuk-list govuk-list--bullet'>";
+            for (let i = 1; i < howWeConnectArrary.length; i++) {
+              list += `<li>${howWeConnectArrary[i]}</li>`;
+            }
+            list += "</ul>";
+          }
+
+          mainHowWeConnectDiv.innerHTML = `<p class='govuk-body'>${howWeConnectArrary[0]}</p>${list}`;
+        } else {
+          mainHowWeConnectDiv.innerHTML =
+            "<p>I do not need an alternative format</p>";
+        }
+      }
+
+      {# textphone = sessionStorage.getItem('alternativeFormatTextphone');
+      var mainHowWeWriteDiv = document.getElementById("mainHowWeWriteDiv");
+      var howWeWrite = textphone !== 'false' ? [sessionStorage.getItem('howWeWrite'), "Textphone for the deaf and hard of hearing"] : [sessionStorage.getItem('howWeWrite')];
+
+      if (textphone !== 'false') {
+        mainHowWeSpeakDiv.innerHTML = 'Textphone for the deaf and hard of hearing'
+      } #}
+
+      var howWeWriteArray = [];
+      
+      howWeWrite.forEach((altFormat) => {
+        howWeWriteArray = [...howWeWriteArray, altFormat.split("<br>")];
+      })
+
+      if (mainHowWeWriteDiv) {
+        if (howWeWrite && howWeWriteArray.length > 0) {
+        var list = "";
+
+        console.log(howWeWriteArray)
+
+        if (howWeWriteArray.length >= 1) {
+          for (let x = 0; x < howWeWriteArray.length; x++) {
+            (howWeWriteArray.length > 1 && howWeWriteArray[0][0] !== "") ? list += `<dt class='govuk-summary-list__key'>${x === 0 ? 'Written Alternative formats' : 'Textphone'}</dt>` : '';
+            list += `<p>${howWeWriteArray[x][0]}</p>`
+            list += `<ul class='govuk-list govuk-list--bullet'>`
+              for (let i = 1; i < howWeWriteArray[x].length; i++) {
+              list += `<li>${howWeWriteArray[x][i]}</li>`
+            }
+            list += "</ul>";
+          }
+          mainHowWeWriteDiv.innerHTML += `<p class='govuk-body'>${list}</p>`;
+        }
+      } else {
+        mainHowWeWriteDiv.innerHTML = "I do not need an alternative format";
+      }
+      }
+    </script>
+
+    {% endblock %}
+  </div>
+</div>

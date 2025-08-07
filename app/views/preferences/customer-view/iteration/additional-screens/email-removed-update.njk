@@ -1,0 +1,53 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "preferences/breadcrumbs/customer-view/email.html" %}
+
+
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <div class="govuk-notification-banner govuk-notification-banner--success" role="region"
+        aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+            Success
+          </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <h3 class="govuk-notification-banner__heading">
+            Email removed
+          </h3>
+          <p class="govuk-body">You have successfully removed sarah.phillips@example.com.</p>
+        </div>
+      </div>
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Return to 'How we contact you'",
+            classes: "govuk-button--secondary",
+            href: "../how-we-contact-you.njk"
+          }) }}
+
+        </div>
+
+      </div>
+    </div>
+</div>
+
+
+</div>
+
+{% endblock %}

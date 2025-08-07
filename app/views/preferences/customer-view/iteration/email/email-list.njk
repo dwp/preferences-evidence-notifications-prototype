@@ -1,0 +1,109 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "preferences/breadcrumbs/customer-view/email.html" %}
+
+
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--l">
+              Email addresses
+            </label>
+          </h1>
+          <div id="email-hint" class="govuk-hint">
+            You can have up to 3 email addresses
+          </div>
+        </div>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dd class="govuk-summary-list__value">
+            <span class="govuk-visually-hidden">email address:</span><p class="govuk-body" id="newEmailDiv" name="newEmailDiv"></p>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <ul class="govuk-summary-list__actions-list">
+                <li class="govuk-summary-list__actions-list-item">
+                  <a class="govuk-link" href="enter-your-new-email-address">Change<span class="govuk-visually-hidden"> change email</span></a>
+                </li>
+                <li class="govuk-summary-list__actions-list-item">
+                  <a class="govuk-link" href="remove-email">Remove<span class="govuk-visually-hidden"> remove email</span></a>
+                </li>
+              </ul>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dd class="govuk-summary-list__value">
+              <span class="govuk-visually-hidden">email address:</span><p class="govuk-body">sarah.lee@email.com</p>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <ul class="govuk-summary-list__actions-list">
+                <li class="govuk-summary-list__actions-list-item">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> change email</span></a>
+                </li>
+                <li class="govuk-summary-list__actions-list-item">
+                  <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> remove email</span></a>
+                </li>
+              </ul>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dd class="govuk-summary-list__value">
+              <span class="govuk-visually-hidden">email address:</span><p class="govuk-body">s.lee@university.ac.uk</p>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <ul class="govuk-summary-list__actions-list">
+                <li class="govuk-summary-list__actions-list-item">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> change email</span></a>
+                </li>
+                <li class="govuk-summary-list__actions-list-item">
+                  <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> remove email</span></a>
+                </li>
+              </ul>
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </main>
+</div>
+
+
+
+
+</div>
+
+
+<script>
+  var email = sessionStorage.getItem('email');
+
+var newEmailDiv = document.getElementById('newEmailDiv');
+
+if (newEmailDiv) {
+  if(email) {
+    newEmailDiv.innerHTML = email;
+  } else {
+    newEmailDiv.innerHTML = "sarah.phillips@example.com";
+  }
+}
+</script>
+
+{% endblock %}
